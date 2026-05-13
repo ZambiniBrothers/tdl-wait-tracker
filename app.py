@@ -30,6 +30,23 @@ st.set_page_config(
 
 st.title("🎢 アトラクション利用者数推定ダッシュボード")
 
+
+# -------------------- キャッシュ関数 --------------------
+@st.cache_data(ttl=3600)
+def get_park_rides_cached(park_id: int) -> list[dict]:
+    return list_park_rides(park_id)
+
+
+@st.cache_data(ttl=3600)
+def get_today_hours_cached() -> tuple[datetime, datetime] | None:
+    return get_today_hours()
+
+
+@st.cache_data(ttl=300)
+def get_park_status_cached() -> tuple[bool, str]:
+    return is_park_open_now()
+
+
 # -------------------- パーク運営状況 --------------------
 park_is_open, park_status_reason = get_park_status_cached()
 today_hours = get_today_hours_cached()
@@ -44,21 +61,6 @@ else:
 
 # -------------------- アトラクション設定 --------------------
 attractions = load_attractions_config()
-
-
-@st.cache_data(ttl=3600)
-def get_park_rides_cached(park_id: int) -> list[dict]:
-    return list_park_rides(park_id)
-
-
-@st.cache_data(ttl=3600)
-def get_today_hours_cached() -> tuple[datetime, datetime] | None:
-    return get_today_hours()
-
-
-@st.cache_data(ttl=300)
-def get_park_status_cached() -> tuple[bool, str]:
-    return is_park_open_now()
 
 
 # -------------------- サイドバー --------------------
