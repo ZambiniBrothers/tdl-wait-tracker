@@ -12,6 +12,8 @@ from collector import (
     TDL_PARK_ID,
     collect_all,
     fetch_park_data,
+    get_today_hours,
+    is_park_open_now,
     list_park_rides,
     load_attractions_config,
     save_attractions_config,
@@ -28,6 +30,17 @@ st.set_page_config(
 
 st.title("🎢 アトラクション利用者数推定ダッシュボード")
 
+# -------------------- パーク運営状況 --------------------
+park_is_open, park_status_reason = get_park_status_cached()
+today_hours = get_today_hours_cached()
+if today_hours:
+    open_jst = today_hours[0].astimezone(JST).strftime("%H:%M")
+    close_jst = today_hours[1].astimezone(JST).strftime("%H:%M")
+    status_label = "🟢 運営中" if park_is_open else "🔴 時間外"
+    st.caption(f"本日のTDL運営時間: **{open_jst} - {close_jst}**　({status_label})")
+else:
+    st.caption(f"本日のTDL: **{park_status_reason}**")
+
 
 # -------------------- アトラクション設定 --------------------
 attractions = load_attractions_config()
@@ -36,6 +49,16 @@ attractions = load_attractions_config()
 @st.cache_data(ttl=3600)
 def get_park_rides_cached(park_id: int) -> list[dict]:
     return list_park_rides(park_id)
+
+
+@st.cache_data(ttl=3600)
+def get_today_hours_cached() -> tuple[datetime, datetime] | None:
+    return get_today_hours()
+
+
+@st.cache_data(ttl=300)
+def get_park_status_cached() -> tuple[bool, str]:
+    return is_park_open_now()
 
 
 # -------------------- サイドバー --------------------

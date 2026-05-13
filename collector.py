@@ -1,16 +1,24 @@
 from __future__ import annotations
 
 import json
-from datetime import datetime, timezone
+import sys
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Optional
 
 import requests
 
 QUEUE_TIMES_URL = "https://queue-times.com/parks/{park_id}/queue_times.json"
+SCHEDULE_API_URL = "https://api.themeparks.wiki/v1/entity/{entity_id}/schedule"
 
 TDL_PARK_ID = 274
+TDL_ENTITY_ID = "3cc919f1-d16d-43e0-8c3f-1dd269bd1a42"  # themeparks.wiki の TDL ID
 MONSTERS_INC_RIDE_ID = 8018
+
+# 運営時間の前後にこの分だけバッファをとって収集する
+SCHEDULE_BUFFER_MINUTES = 15
+
+JST = timezone(timedelta(hours=9))
 
 DATA_DIR = Path(__file__).parent / "data"
 JSONL_PATH = DATA_DIR / "wait_times.jsonl"
@@ -30,6 +38,77 @@ def load_attractions_config() -> list[dict]:
 def save_attractions_config(attractions: list[dict]) -> None:
     with open(ATTRACTIONS_CONFIG_PATH, "w", encoding="utf-8") as f:
         json.dump(attractions, f, indent=2, ensure_ascii=False)
+
+
+def fetch_park_schedule(entity_id: str = TDL_ENTITY_ID) -> list[dict]:
+    """themeparks.wiki から運営スケジュール（向こう数週間）を取得する。"""
+    response = requests.get(
+        SCHEDULE_API_URL.format(entity_id=entity_id),
+        timeout=10,
+        headers={"User-Agent": "tdl-wait-estimator/0.1"},
+    )
+    response.raise_for_status()
+    return response.json().get("schedule", [])
+
+
+def get_today_hours(
+    now_utc: Optional[datetime] = None,
+    entity_id: str = TDL_ENTITY_ID,
+) -> Optional[tuple[datetime, datetime]]:
+    """今日の運営時間 (open_utc, close_utc) を返す。閉園日・取得失敗時は None。"""
+    if now_utc is None:
+        now_utc = datetime.now(timezone.utc)
+    try:
+        schedule = fetch_park_schedule(entity_id)
+    except Exception:
+        return None
+
+    today_jst = now_utc.astimezone(JST).date().isoformat()
+    for entry in schedule:
+        if entry.get("date") == today_jst and entry.get("type") == "OPERATING":
+            return (
+                datetime.fromisoformat(entry["openingTime"]),
+                datetime.fromisoformat(entry["closingTime"]),
+            )
+    return None
+
+
+def is_park_open_now(
+    now_utc: Optional[datetime] = None,
+    buffer_minutes: int = SCHEDULE_BUFFER_MINUTES,
+) -> tuple[bool, str]:
+    """現在パーク運営中か(バッファ込み)。理由文字列も返す。
+
+    スケジュール取得失敗時は安全側に倒して True を返す(収集を続行)。
+    """
+    if now_utc is None:
+        now_utc = datetime.now(timezone.utc)
+
+    try:
+        schedule = fetch_park_schedule()
+    except Exception as e:
+        return True, f"スケジュール取得失敗、収集継続: {e}"
+
+    today_jst = now_utc.astimezone(JST).date().isoformat()
+    today_entry = next((e for e in schedule if e.get("date") == today_jst), None)
+
+    if today_entry is None:
+        return True, "本日のスケジュール情報なし、収集継続"
+
+    entry_type = today_entry.get("type")
+    if entry_type != "OPERATING":
+        return False, f"本日は {entry_type}"
+
+    open_t = datetime.fromisoformat(today_entry["openingTime"])
+    close_t = datetime.fromisoformat(today_entry["closingTime"])
+    buffer = timedelta(minutes=buffer_minutes)
+
+    if now_utc < open_t - buffer:
+        return False, f"開園前 (本日 {open_t.astimezone(JST).strftime('%H:%M')} 開園)"
+    if now_utc > close_t + buffer:
+        return False, f"閉園後 (本日 {close_t.astimezone(JST).strftime('%H:%M')} 閉園)"
+
+    return True, f"運営中 ({open_t.astimezone(JST).strftime('%H:%M')}-{close_t.astimezone(JST).strftime('%H:%M')})"
 
 
 def fetch_park_data(park_id: int) -> dict:
@@ -144,6 +223,11 @@ def collect_all(attractions: list[dict]) -> list[tuple[dict, Optional[dict]]]:
 
 
 if __name__ == "__main__":
+    is_open, reason = is_park_open_now()
+    print(f"Park status: {reason}")
+    if not is_open:
+        sys.exit(0)
+
     attractions = load_attractions_config()
     if not attractions:
         result = collect()
