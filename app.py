@@ -7,7 +7,15 @@ import pandas as pd
 import plotly.graph_objects as go
 import streamlit as st
 
-from collector import JSONL_PATH, MONSTERS_INC_RIDE_ID, collect
+from collector import (
+    JSONL_PATH,
+    TDL_PARK_ID,
+    collect_all,
+    fetch_park_data,
+    list_park_rides,
+    load_attractions_config,
+    save_attractions_config,
+)
 from estimator import ThroughputConfig, compute, summarize
 
 JST = timezone(timedelta(hours=9))
@@ -19,57 +27,159 @@ st.set_page_config(
 )
 
 st.title("🎢 アトラクション利用者数推定ダッシュボード")
-st.caption("対象: 東京ディズニーランド「モンスターズインク ライド&ゴーシーク」")
+
+
+# -------------------- アトラクション設定 --------------------
+attractions = load_attractions_config()
+
+
+@st.cache_data(ttl=3600)
+def get_park_rides_cached(park_id: int) -> list[dict]:
+    return list_park_rides(park_id)
+
 
 # -------------------- サイドバー --------------------
 with st.sidebar:
-    st.header("⚙️ 処理能力パラメータ")
-    st.caption("実地観察にもとづく値です。現場感に合わせて調整できます。")
+    st.header("🎡 アトラクション選択")
 
-    people_per_car = st.number_input(
-        "1台の平均乗車人数 (人)",
-        min_value=1.0, max_value=9.0, value=6.0, step=0.5,
-        help="モンスターズインクは定員9人だが、2人×3列で6人が現実的",
-    )
-    cars_per_dispatch = st.number_input(
-        "同時発車する台数 (台)",
-        min_value=1, max_value=4, value=2, step=1,
-    )
-    seconds_per_dispatch = st.number_input(
-        "1組の発車間隔 (秒)",
-        min_value=10, max_value=120, value=30, step=5,
-        help="15秒/台 × 2台 = 30秒/組",
-    )
-    walkon_util = st.slider(
-        "待ち0分時の稼働率",
-        min_value=0.0, max_value=1.0, value=0.5, step=0.05,
-        help="待ち時間が0でも歩いてくる客で動いている割合",
-    )
-
-    config = ThroughputConfig(
-        people_per_car=people_per_car,
-        cars_per_dispatch=int(cars_per_dispatch),
-        seconds_per_dispatch=float(seconds_per_dispatch),
-        walkon_utilization=walkon_util,
-    )
+    if not attractions:
+        st.warning("アトラクションが未登録です")
+        selected_idx = None
+        selected = None
+    else:
+        display_names = [a.get("display_name") or a["ride_name"] for a in attractions]
+        selected_idx = st.selectbox(
+            "表示するアトラクション",
+            options=list(range(len(attractions))),
+            format_func=lambda i: display_names[i],
+            label_visibility="collapsed",
+        )
+        selected = attractions[selected_idx]
 
     st.divider()
-    st.metric("1分あたり処理能力", f"{config.people_per_minute:.1f} 人")
-    st.metric("1時間あたり処理能力 μ", f"{config.people_per_hour:.0f} 人")
+
+    if selected is not None:
+        st.header("⚙️ 処理能力パラメータ")
+        st.caption("実地観察にもとづく値です。調整後「保存」を押してください。")
+
+        people_per_car = st.number_input(
+            "1台の平均乗車人数 (人)",
+            min_value=1.0, max_value=30.0, value=float(selected["people_per_car"]), step=0.5,
+        )
+        cars_per_dispatch = st.number_input(
+            "同時発車する台数 (台)",
+            min_value=1, max_value=10, value=int(selected["cars_per_dispatch"]), step=1,
+        )
+        seconds_per_dispatch = st.number_input(
+            "1組の発車間隔 (秒)",
+            min_value=5, max_value=300, value=int(selected["seconds_per_dispatch"]), step=5,
+        )
+        walkon_util = st.slider(
+            "待ち0分時の稼働率",
+            min_value=0.0, max_value=1.0, value=float(selected["walkon_utilization"]), step=0.05,
+        )
+
+        if st.button("💾 パラメータを保存", use_container_width=True):
+            attractions[selected_idx].update({
+                "people_per_car": people_per_car,
+                "cars_per_dispatch": int(cars_per_dispatch),
+                "seconds_per_dispatch": float(seconds_per_dispatch),
+                "walkon_utilization": walkon_util,
+            })
+            save_attractions_config(attractions)
+            st.success("保存しました")
+
+        config = ThroughputConfig(
+            people_per_car=people_per_car,
+            cars_per_dispatch=int(cars_per_dispatch),
+            seconds_per_dispatch=float(seconds_per_dispatch),
+            walkon_utilization=walkon_util,
+        )
+
+        st.divider()
+        st.metric("1分あたり処理能力", f"{config.people_per_minute:.1f} 人")
+        st.metric("1時間あたり処理能力 μ", f"{config.people_per_hour:.0f} 人")
 
     st.divider()
-    refresh = st.button("🔄 最新データを取得", use_container_width=True)
+    refresh = st.button("🔄 最新データを取得(全アトラクション)", use_container_width=True)
+
+    st.divider()
+    with st.expander("➕ アトラクション追加"):
+        st.caption("TDLの全アトラクション一覧を取得して選びます")
+        try:
+            all_rides = get_park_rides_cached(TDL_PARK_ID)
+            existing_ids = {a["ride_id"] for a in attractions}
+            available = [r for r in all_rides if r["id"] not in existing_ids]
+        except Exception as e:
+            st.error(f"一覧取得失敗: {e}")
+            available = []
+
+        if not available:
+            st.info("登録可能なアトラクションがありません")
+        else:
+            new_ride = st.selectbox(
+                "追加するアトラクション",
+                options=available,
+                format_func=lambda r: r["name"],
+            )
+
+            st.caption("処理能力パラメータ（現地観察後に入力）")
+            new_ppc = st.number_input(
+                "1台の平均乗車人数", min_value=1.0, max_value=30.0,
+                value=6.0, step=0.5, key="new_ppc",
+            )
+            new_cpd = st.number_input(
+                "同時発車台数", min_value=1, max_value=10,
+                value=1, step=1, key="new_cpd",
+            )
+            new_spd = st.number_input(
+                "発車間隔(秒)", min_value=5, max_value=300,
+                value=30, step=5, key="new_spd",
+            )
+            new_wu = st.slider(
+                "待ち0分時稼働率", min_value=0.0, max_value=1.0,
+                value=0.5, step=0.05, key="new_wu",
+            )
+
+            if st.button("登録", use_container_width=True, key="btn_add"):
+                new_entry = {
+                    "park_id": TDL_PARK_ID,
+                    "ride_id": new_ride["id"],
+                    "ride_name": new_ride["name"],
+                    "display_name": new_ride["name"],
+                    "added_date": datetime.now(JST).date().isoformat(),
+                    "people_per_car": new_ppc,
+                    "cars_per_dispatch": int(new_cpd),
+                    "seconds_per_dispatch": float(new_spd),
+                    "walkon_utilization": new_wu,
+                }
+                attractions.append(new_entry)
+                save_attractions_config(attractions)
+                st.success(f"「{new_ride['name']}」を登録しました！")
+                st.info("git push してください（GitHub Actions の収集に反映されます）")
+                st.rerun()
+
+
+# -------------------- 未登録時 --------------------
+if not attractions or selected is None:
+    st.warning("サイドバーからアトラクションを追加してください。")
+    st.stop()
 
 
 # -------------------- データ取得 --------------------
-def load_jsonl(ride_id: int) -> pd.DataFrame:
+def load_jsonl(ride_id: int, from_date: str | None = None) -> pd.DataFrame:
     if not JSONL_PATH.exists():
         return pd.DataFrame(columns=["last_updated", "recorded_at", "wait_time", "is_open", "ride_id"])
     df = pd.read_json(JSONL_PATH, lines=True)
     if "ride_id" not in df.columns:
         return df.iloc[0:0]
     df = df[df["ride_id"] == ride_id].copy()
-    return df.drop_duplicates(subset=["last_updated"], keep="last")
+    df = df.drop_duplicates(subset=["last_updated"], keep="last")
+    if from_date:
+        df["_ts"] = pd.to_datetime(df["last_updated"], utc=True)
+        df = df[df["_ts"].dt.date >= pd.Timestamp(from_date).date()]
+        df = df.drop(columns=["_ts"])
+    return df
 
 
 def get_latest_recorded_at(ride_id: int) -> datetime | None:
@@ -87,26 +197,29 @@ def get_latest_recorded_at(ride_id: int) -> datetime | None:
     return datetime.fromisoformat(last_ts) if last_ts else None
 
 
-def maybe_collect(force: bool) -> tuple[bool, str]:
-    latest = get_latest_recorded_at(MONSTERS_INC_RIDE_ID)
-    now = datetime.now(timezone.utc)
-    if not force and latest is not None and (now - latest).total_seconds() < 300:
-        return False, f"前回取得から {(now - latest).total_seconds():.0f} 秒経過(5分未満なのでスキップ)"
-    try:
-        result = collect()
-        if result is None:
-            return False, "API応答にこのアトラクションが含まれていません"
-        return True, f"取得成功: 待ち {result.get('wait_time')} 分 / open={result.get('is_open')}"
-    except Exception as e:  # noqa: BLE001
-        return False, f"取得失敗: {e}"
-
-
-did_collect, msg = maybe_collect(force=refresh)
 if refresh:
-    (st.success if did_collect else st.warning)(msg)
+    try:
+        results = collect_all(attractions)
+        msgs = []
+        for attr, ride in results:
+            name = attr.get("display_name") or attr["ride_name"]
+            if ride is None:
+                msgs.append(f"❌ {name}: APIに見つからず")
+            else:
+                msgs.append(f"✅ {name}: 待ち {ride.get('wait_time')} 分 / open={ride.get('is_open')}")
+        st.success("\n".join(msgs))
+    except Exception as e:
+        st.warning(f"取得失敗: {e}")
 
-# -------------------- データ読込 --------------------
-df_all = load_jsonl(MONSTERS_INC_RIDE_ID)
+
+# -------------------- 選択アトラクションのデータ読込 --------------------
+ride_id = selected["ride_id"]
+added_date = selected.get("added_date")
+attraction_name = selected.get("display_name") or selected["ride_name"]
+
+st.caption(f"対象: {attraction_name}")
+
+df_all = load_jsonl(ride_id, from_date=added_date)
 
 if len(df_all) == 0:
     st.warning("まだデータがありません。「最新データを取得」を押してください。")
@@ -118,6 +231,7 @@ df_all["is_open"] = df_all["is_open"].astype(int)
 
 today_jst = datetime.now(JST).date()
 df_today = df_all[df_all["timestamp"].dt.date == today_jst].copy()
+
 
 # -------------------- KPI表示 --------------------
 if len(df_today) >= 1:
@@ -148,6 +262,7 @@ col4.metric(
     "本日のピーク到着率",
     f"{summary['peak_arrival_rate']:,.0f} 人/時",
 )
+
 
 # -------------------- グラフ --------------------
 st.subheader("📊 本日の待ち時間推移")
@@ -213,6 +328,7 @@ if len(df_today_est) >= 2:
     )
     col_r.plotly_chart(fig_cum, use_container_width=True)
 
+
 # -------------------- 過去7日 --------------------
 st.subheader("📅 過去7日間の待ち時間")
 seven_days_ago = pd.Timestamp.now(tz=JST) - pd.Timedelta(days=7)
@@ -232,21 +348,22 @@ if len(df_7d) >= 2:
 else:
     st.info("過去7日間のデータがまだ蓄積されていません。継続収集してください。")
 
+
 # -------------------- 解説 --------------------
 with st.expander("ℹ️ 推定アルゴリズムについて"):
     st.markdown(
         f"""
-        **基礎モデル(オーナー考案)**
+        **基礎モデル**
 
         - 1台に **{config.people_per_car:.1f}人** × **{config.cars_per_dispatch}台** = 1組 **{config.people_per_car * config.cars_per_dispatch:.0f}人** を **{config.seconds_per_dispatch:.0f}秒**毎に発車
         - → 1分あたり **{config.people_per_minute:.1f}人** / 1時間あたり **{config.people_per_hour:.0f}人** 捌ける
         - 列にいる人数 ≈ 1分あたり処理能力 × 待ち時間(分)
         - 列がある間は1分に{config.people_per_minute:.1f}人が乗車していると考え、累積する
-        - 待ち0分の時間帯は「歩いてくる客」だけが乗るので **{config.walkon_utilization*100:.0f}%** の稼働率と仮定
+        - 待ち0分の時間帯は **{config.walkon_utilization*100:.0f}%** の稼働率と仮定
 
-        **データ更新**: queue-times.com が5分毎に更新。ダッシュボードを開くたび(5分以上経っていれば)自動取得します。
+        **データ更新**: queue-times.com が5分毎に更新。GitHub Actions がクラウドで自動収集します。
 
-        **次の展開**: 他アトラクションを追加する際は、上のパラメータを各乗り物の物理仕様に書き換えれば対応できます。
+        **アトラクション追加**: サイドバーの「アトラクション追加」から登録後、git push してください。
         """
     )
 
