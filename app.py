@@ -294,11 +294,26 @@ df_today = df_all[df_all["timestamp"].dt.date == today_jst].copy()
 
 # -------------------- KPI表示 --------------------
 if len(df_today) >= 1:
-    df_today_est = compute(df_today, config) if len(df_today) >= 2 else df_today.assign(
-        queue_length=config.people_per_minute * df_today["wait_time"],
-        cumulative_users=0.0,
-        arrival_rate_per_hour=0.0,
-    )
+    if len(df_today) >= 2:
+        df_today_est = compute(df_today, config)
+    else:
+        # 1点のみ: 開園時刻〜計測時刻の経過分 × μ で累計を推定
+        latest = df_today.iloc[-1]
+        queue_length = config.people_per_minute * float(latest["wait_time"])
+        if today_hours:
+            open_utc = today_hours[0]
+            latest_ts = latest["timestamp"]
+            elapsed_min = (latest_ts.to_pydatetime() - open_utc.astimezone(JST)).total_seconds() / 60.0
+            elapsed_min = max(0.0, elapsed_min)
+        else:
+            elapsed_min = 0.0
+        rate = config.people_per_minute if float(latest["wait_time"]) > 0 else config.walkon_utilization * config.people_per_minute
+        cumulative = rate * elapsed_min
+        df_today_est = df_today.assign(
+            queue_length=queue_length,
+            cumulative_users=cumulative,
+            arrival_rate_per_hour=0.0,
+        )
     summary = summarize(df_today_est)
 else:
     df_today_est = pd.DataFrame()
