@@ -1,7 +1,9 @@
 from __future__ import annotations
 
 import json
+import subprocess
 from datetime import datetime, timedelta, timezone
+from pathlib import Path
 
 import pandas as pd
 import plotly.graph_objects as go
@@ -45,6 +47,31 @@ def get_today_hours_cached() -> tuple[datetime, datetime] | None:
 @st.cache_data(ttl=300)
 def get_park_status_cached() -> tuple[bool, str]:
     return is_park_open_now()
+
+
+def git_pull_data() -> tuple[bool, str]:
+    """git pull --rebase --autostash でクラウドの最新データを取り込む。"""
+    project_root = Path(__file__).parent
+    try:
+        result = subprocess.run(
+            ["git", "pull", "--rebase", "--autostash"],
+            cwd=project_root,
+            capture_output=True,
+            text=True,
+            timeout=30,
+        )
+        if result.returncode == 0:
+            output = (result.stdout or "").strip()
+            if "Already up to date" in output or "up-to-date" in output:
+                return True, "既に最新"
+            return True, "新しいデータを取り込みました"
+        return False, (result.stderr or "").strip()[:200] or "git pull 失敗"
+    except subprocess.TimeoutExpired:
+        return False, "タイムアウト(30秒)"
+    except FileNotFoundError:
+        return False, "git コマンドが見つかりません"
+    except Exception as e:
+        return False, str(e)
 
 
 # -------------------- パーク運営状況 --------------------
@@ -223,6 +250,13 @@ def get_latest_recorded_at(ride_id: int) -> datetime | None:
 
 
 if refresh:
+    with st.spinner("クラウド側の最新データを取得中..."):
+        pull_ok, pull_msg = git_pull_data()
+    if pull_ok:
+        st.info(f"📥 {pull_msg}")
+    else:
+        st.warning(f"⚠️ git pull失敗（収集は続行）: {pull_msg}")
+
     try:
         results = collect_all(attractions)
         msgs = []
