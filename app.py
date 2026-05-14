@@ -304,22 +304,14 @@ else:
     df_today_est = pd.DataFrame()
     summary = summarize(df_today_est)
 
-col1, col2, col3, col4 = st.columns(4)
+col1, col2 = st.columns(2)
 col1.metric(
     "現在の待ち時間",
     f"{summary['current_wait']} 分" if summary["current_wait"] is not None else "—",
 )
 col2.metric(
-    "列にいる人数(推定)",
-    f"{summary['current_queue']:.0f} 人" if summary["current_queue"] is not None else "—",
-)
-col3.metric(
-    "本日の累計利用者数(推定)",
+    "本日の総利用者数(推定)",
     f"{summary['cumulative_users']:,.0f} 人",
-)
-col4.metric(
-    "本日のピーク到着率",
-    f"{summary['peak_arrival_rate']:,.0f} 人/時",
 )
 
 
