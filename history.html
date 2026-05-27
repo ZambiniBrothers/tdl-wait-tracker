@@ -1,0 +1,1418 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; img-src 'self' data:; base-uri 'none'; form-action 'none'">
+  <title>TDL 待ち時間 履歴</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #07111f;
+      --panel: #101c31;
+      --panel-2: #13243f;
+      --line: #29415f;
+      --text: #f7fbff;
+      --muted: #b7c7dc;
+      --subtle: #8fa4bf;
+      --blue: #2563eb;
+      --royal: #1e3a8a;
+      --purple: #7c3aed;
+      --green: #1f8a5b;
+      --yellow: #b7791f;
+      --orange: #c05621;
+      --red: #c24141;
+      --danger-bg: #3b1116;
+      --danger-line: #b91c1c;
+      --shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-width: 320px;
+      background:
+        radial-gradient(circle at top left, rgba(37, 99, 235, 0.28), transparent 32rem),
+        linear-gradient(135deg, #07111f 0%, #111827 48%, #1a1230 100%);
+      color: var(--text);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.5;
+    }
+
+    button,
+    select {
+      font: inherit;
+    }
+
+    button {
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #3157c7, var(--royal));
+      color: var(--text);
+      cursor: pointer;
+      font-weight: 700;
+      padding: 0 14px;
+      text-decoration: none;
+      transition: transform 120ms ease, border-color 120ms ease, filter 120ms ease;
+    }
+
+    button:hover {
+      border-color: rgba(255, 255, 255, 0.35);
+      filter: brightness(1.08);
+    }
+
+    button:active {
+      transform: translateY(1px);
+    }
+
+    .link-button {
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text);
+      font-weight: 700;
+      padding: 0 14px;
+      text-decoration: none;
+    }
+
+    button.secondary {
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .link-button:hover {
+      background: rgba(255, 255, 255, 0.14);
+    }
+
+    button:focus-visible,
+    select:focus-visible,
+    .link-button:focus-visible {
+      outline: 3px solid #93c5fd;
+      outline-offset: 2px;
+    }
+
+    button:disabled,
+    select:disabled {
+      cursor: not-allowed;
+      opacity: 0.55;
+    }
+
+    .page {
+      width: min(1180px, 100%);
+      margin: 0 auto;
+      padding: 22px clamp(14px, 3vw, 28px) 42px;
+    }
+
+    .app-header {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+      align-items: end;
+      padding: 10px 0 20px;
+    }
+
+    h1 {
+      margin: 0 0 6px;
+      font-size: clamp(1.55rem, 4vw, 2.55rem);
+      letter-spacing: 0;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: 1.2rem;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      margin: 0;
+      color: var(--muted);
+      max-width: 740px;
+    }
+
+    .header-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    .control-panel,
+    .chart-panel {
+      display: grid;
+      gap: 14px;
+      margin: 0 0 18px;
+      padding: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 8px;
+      background: rgba(16, 28, 49, 0.92);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+    }
+
+    .snapshot-controls {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 12px;
+      align-items: end;
+    }
+
+    .field {
+      display: grid;
+      gap: 5px;
+      min-width: 0;
+    }
+
+    .field label,
+    .field-label {
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 800;
+    }
+
+    select {
+      width: 100%;
+      min-height: 42px;
+      border: 1px solid #486483;
+      border-radius: 8px;
+      background: #071426;
+      color: var(--text);
+      padding: 8px 10px;
+      font-weight: 800;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .summary-card {
+      display: grid;
+      gap: 18px;
+      margin: 8px 0 18px;
+      padding: clamp(18px, 3vw, 26px);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 8px;
+      background: linear-gradient(135deg, rgba(30, 58, 138, 0.92), rgba(88, 28, 135, 0.88));
+      box-shadow: var(--shadow);
+    }
+
+    .summary-metrics {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .metric {
+      min-width: 0;
+      padding: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 8px;
+      background: rgba(5, 12, 25, 0.34);
+    }
+
+    .metric.is-primary {
+      border-color: rgba(255, 255, 255, 0.28);
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .metric-label {
+      display: block;
+      color: #dbeafe;
+      font-size: 0.88rem;
+      font-weight: 700;
+    }
+
+    .metric-value {
+      display: block;
+      margin-top: 4px;
+      font-size: clamp(1.35rem, 4vw, 2.25rem);
+      font-weight: 900;
+      line-height: 1.08;
+      overflow-wrap: anywhere;
+    }
+
+    .snapshot-meta {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      color: #e0ecff;
+      font-size: 0.93rem;
+    }
+
+    .meta-item {
+      min-width: 0;
+      overflow-wrap: anywhere;
+    }
+
+    .meta-label {
+      display: block;
+      color: #dbeafe;
+      font-size: 0.78rem;
+      font-weight: 800;
+    }
+
+    .status-area {
+      display: grid;
+      gap: 10px;
+      margin: 16px 0;
+    }
+
+    .banner {
+      border-radius: 8px;
+      padding: 12px 14px;
+      border: 1px solid var(--line);
+      background: rgba(16, 28, 49, 0.9);
+      color: var(--muted);
+    }
+
+    .banner-content {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .banner.error {
+      border-color: var(--danger-line);
+      background: var(--danger-bg);
+      color: #fecaca;
+    }
+
+    .is-hidden {
+      display: none;
+    }
+
+    .visually-hidden {
+      position: absolute;
+      clip-path: inset(50%);
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin: 20px 0 12px;
+    }
+
+    .source-note {
+      color: var(--subtle);
+      font-size: 0.88rem;
+    }
+
+    .attraction-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .attraction-card {
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(90px, 0.55fr) minmax(90px, 0.55fr) minmax(0, 1fr);
+      gap: 12px;
+      align-items: center;
+      padding: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-left: 6px solid var(--green);
+      border-radius: 8px;
+      background: rgba(16, 28, 49, 0.92);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+    }
+
+    .attraction-card.wait-low {
+      border-left-color: var(--green);
+    }
+
+    .attraction-card.wait-mid {
+      border-left-color: var(--yellow);
+    }
+
+    .attraction-card.wait-high {
+      border-left-color: var(--orange);
+    }
+
+    .attraction-card.wait-extreme {
+      border-left-color: var(--red);
+    }
+
+    .attraction-card.is-closed {
+      opacity: 0.75;
+    }
+
+    .name-block {
+      min-width: 0;
+    }
+
+    .attraction-name {
+      margin: 0;
+      font-size: 1.04rem;
+      font-weight: 850;
+      overflow-wrap: anywhere;
+    }
+
+    .attraction-original,
+    .memo-text {
+      margin-top: 3px;
+      color: var(--subtle);
+      font-size: 0.82rem;
+      overflow-wrap: anywhere;
+    }
+
+    .wait-value,
+    .status-value {
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      color: var(--text);
+      font-size: 1.06rem;
+      font-weight: 900;
+      font-variant-numeric: tabular-nums;
+      overflow-wrap: anywhere;
+    }
+
+    .wait-value.closed,
+    .status-value.closed {
+      color: #fecaca;
+    }
+
+    .wait-high .wait-value {
+      color: #fbbf24;
+    }
+
+    .wait-extreme .wait-value {
+      color: #f87171;
+    }
+
+    .chart-header {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(220px, 360px);
+      gap: 12px;
+      align-items: end;
+    }
+
+    .chart-wrap {
+      position: relative;
+      min-height: 280px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 8px;
+      background: rgba(5, 12, 25, 0.34);
+    }
+
+    .chart-svg {
+      display: block;
+      width: 100%;
+      height: 280px;
+    }
+
+    .chart-empty {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      padding: 18px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .chart-loading {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      display: grid;
+      place-items: center;
+      background: rgba(5, 12, 25, 0.68);
+      color: var(--text);
+      font-weight: 800;
+    }
+
+    .tooltip {
+      position: absolute;
+      z-index: 2;
+      pointer-events: none;
+      max-width: 190px;
+      padding: 8px 10px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 8px;
+      background: #071426;
+      color: var(--text);
+      font-size: 0.82rem;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
+    }
+
+    .source-credit {
+      margin: 18px 0 0;
+      color: var(--subtle);
+      font-size: 0.82rem;
+    }
+
+    @media (min-width: 820px) {
+      .app-header {
+        grid-template-columns: minmax(0, 1fr) auto;
+      }
+
+      .header-actions {
+        justify-content: flex-end;
+      }
+
+      .snapshot-controls {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto;
+      }
+    }
+
+    @media (max-width: 800px) {
+      .summary-metrics,
+      .snapshot-meta,
+      .chart-header {
+        grid-template-columns: 1fr;
+      }
+
+      .attraction-card {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .name-block,
+      .memo-block {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .page {
+        padding-left: 12px;
+        padding-right: 12px;
+      }
+
+      .attraction-card {
+        grid-template-columns: 1fr;
+      }
+
+      .toolbar {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .header-actions .link-button,
+      .snapshot-controls button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="app-header">
+      <div>
+        <h1>TDL 待ち時間 履歴</h1>
+        <p class="lead">保存済みスナップショットから、過去の待ち時間と概算来園者数を確認します。</p>
+        <p class="source-note">メモは計算機ページから編集・エクスポートできます。</p>
+      </div>
+      <div class="header-actions" aria-label="ページ操作">
+        <a href="./index.html" class="link-button"><span aria-hidden="true">←</span> 計算機に戻る</a>
+      </div>
+    </header>
+
+    <section class="control-panel" aria-labelledby="snapshotTitle">
+      <h2 id="snapshotTitle">スナップショット選択</h2>
+      <div class="snapshot-controls">
+        <div class="field">
+          <label for="dateSelect">日付</label>
+          <select id="dateSelect" aria-label="日付を選択"></select>
+        </div>
+        <div class="field">
+          <label for="timeSelect">時刻</label>
+          <select id="timeSelect" aria-label="時刻を選択"></select>
+        </div>
+        <button type="button" id="latestButton" class="secondary">最新</button>
+      </div>
+    </section>
+
+    <section class="summary-card" aria-labelledby="summaryTitle">
+      <h2 id="summaryTitle" class="visually-hidden">履歴サマリー</h2>
+      <div class="summary-metrics">
+        <div class="metric">
+          <span class="metric-label">並び総人数</span>
+          <span class="metric-value" id="totalQueuePeople">--</span>
+        </div>
+        <div class="metric is-primary">
+          <span class="metric-label">来園者推定</span>
+          <span class="metric-value" id="estimatedVisitors">--</span>
+        </div>
+        <div class="metric">
+          <span class="metric-label">平均待ち時間</span>
+          <span class="metric-value" id="averageWait">--</span>
+        </div>
+        <div class="metric">
+          <span class="metric-label">最大待ち時間</span>
+          <span class="metric-value" id="maxWait">--</span>
+        </div>
+      </div>
+      <div class="snapshot-meta">
+        <div class="meta-item">
+          <span class="meta-label">取得日時</span>
+          <span id="fetchedAt">--</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">ソース</span>
+          <span id="sourceName">--</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">件数 / 運営中</span>
+          <span id="countSummary">--</span>
+        </div>
+      </div>
+      <p id="coverageNote" class="source-note"></p>
+    </section>
+
+    <div class="status-area" aria-live="polite">
+      <div id="loadingBanner" class="banner is-hidden">履歴データを読み込み中です...</div>
+      <div id="errorBanner" class="banner error is-hidden" role="alert">
+        <div class="banner-content">
+          <span id="errorMessage"></span>
+          <button type="button" id="retryButton" class="secondary">再試行</button>
+        </div>
+      </div>
+      <div id="emptyBanner" class="banner is-hidden">データなし。GitHub Actions が初回実行されるまでお待ちください</div>
+    </div>
+
+    <section class="chart-panel" aria-labelledby="chartTitle">
+      <div class="chart-header">
+        <div>
+          <h2 id="chartTitle">過去24時間グラフ</h2>
+          <div class="source-note" id="chartNote">アトラクションを選択すると待ち時間の推移を表示します</div>
+        </div>
+        <div class="field">
+          <label for="chartSelect">アトラクションを選択</label>
+          <select id="chartSelect" aria-label="グラフ表示するアトラクションを選択"></select>
+        </div>
+      </div>
+      <div class="chart-wrap" id="chartWrap">
+        <svg id="waitChart" class="chart-svg" role="img" aria-label="待ち時間推移グラフ"></svg>
+        <div id="chartEmpty" class="chart-empty">表示できるグラフデータがありません</div>
+        <div id="chartLoading" class="chart-loading is-hidden">読み込み中…</div>
+        <div id="tooltip" class="tooltip is-hidden"></div>
+      </div>
+    </section>
+
+    <div class="toolbar">
+      <div>
+        <h2>アトラクション一覧</h2>
+        <div class="source-note" id="sourceNote">待ち時間の長い順に表示</div>
+      </div>
+      <div class="source-note" id="attractionCount">0件</div>
+    </div>
+
+    <main id="attractionList" class="attraction-list" aria-label="アトラクション待ち時間一覧"></main>
+    <p class="source-credit">キャリーとメモは計算機ページの localStorage 設定を読み取り専用で参照します。</p>
+  </div>
+
+  <script>
+    (() => {
+      const INDEX_URL = './data/snapshots/index.json';
+      const DEFAULT_PARALLEL_FACTOR = 0.35;
+      const PARALLEL_FACTOR_KEY = 'tdl-parallel-factor';
+      const CARRY_PREFIX = 'tdl-carry-';
+      const MEMO_PREFIX = 'tdl-memo-';
+      const MAX_GRAPH_POINTS = 144;
+      const MAX_CONCURRENT_FETCHES = 6;
+      const DAY_MS = 24 * 60 * 60 * 1000;
+      const SVG_NS = 'http://www.w3.org/2000/svg';
+
+      const state = {
+        index: null,
+        snapshots: [],
+        currentSnapshot: null,
+        currentAttractions: [],
+        attractionsById: Object.create(null),
+        byDate: new Map(),
+        graphRequestId: 0,
+        selectedAttractionId: '',
+        graphAbortController: null
+      };
+      let resizeTimer;
+
+      const elements = {
+        dateSelect: document.getElementById('dateSelect'),
+        timeSelect: document.getElementById('timeSelect'),
+        latestButton: document.getElementById('latestButton'),
+        totalQueuePeople: document.getElementById('totalQueuePeople'),
+        estimatedVisitors: document.getElementById('estimatedVisitors'),
+        averageWait: document.getElementById('averageWait'),
+        maxWait: document.getElementById('maxWait'),
+        fetchedAt: document.getElementById('fetchedAt'),
+        sourceName: document.getElementById('sourceName'),
+        countSummary: document.getElementById('countSummary'),
+        coverageNote: document.getElementById('coverageNote'),
+        loadingBanner: document.getElementById('loadingBanner'),
+        errorBanner: document.getElementById('errorBanner'),
+        errorMessage: document.getElementById('errorMessage'),
+        retryButton: document.getElementById('retryButton'),
+        emptyBanner: document.getElementById('emptyBanner'),
+        chartSelect: document.getElementById('chartSelect'),
+        chartNote: document.getElementById('chartNote'),
+        waitChart: document.getElementById('waitChart'),
+        chartEmpty: document.getElementById('chartEmpty'),
+        chartLoading: document.getElementById('chartLoading'),
+        chartWrap: document.getElementById('chartWrap'),
+        tooltip: document.getElementById('tooltip'),
+        attractionList: document.getElementById('attractionList'),
+        attractionCount: document.getElementById('attractionCount'),
+        sourceNote: document.getElementById('sourceNote')
+      };
+
+      init();
+
+      function init() {
+        bindEvents();
+        loadIndex();
+      }
+
+      function bindEvents() {
+        elements.dateSelect.addEventListener('change', handleDateChange);
+        elements.timeSelect.addEventListener('change', handleTimeChange);
+        elements.latestButton.addEventListener('click', selectLatest);
+        elements.chartSelect.addEventListener('change', loadGraph);
+        elements.retryButton.addEventListener('click', loadIndex);
+        window.addEventListener('resize', () => {
+          clearTimeout(resizeTimer);
+          resizeTimer = setTimeout(() => loadGraph(state.selectedAttractionId), 250);
+        });
+      }
+
+      async function loadIndex() {
+        setLoading(true);
+        setError('');
+        setEmpty(false);
+        setControlsDisabled(true);
+        resetSummary();
+        renderAttractions([]);
+        renderChart([], '');
+
+        try {
+          const data = await fetchJson(INDEX_URL);
+          const snapshots = Array.isArray(data && data.snapshots) ? data.snapshots : [];
+          state.index = data;
+          state.snapshots = snapshots.filter(isUsableSnapshot);
+          if (state.snapshots.length === 0) {
+            setEmpty(true);
+            populateEmptySelects();
+            return;
+          }
+          buildDateMap();
+          populateDateSelect();
+          selectLatest();
+          setControlsDisabled(false);
+        } catch (error) {
+          setError('履歴インデックスを取得できませんでした。再試行してください。');
+          populateEmptySelects();
+        } finally {
+          setLoading(false);
+        }
+      }
+
+      async function loadSnapshot(snapshotItem) {
+        if (!snapshotItem) {
+          return;
+        }
+        setLoading(true);
+        setError('');
+        try {
+          const snapshot = await fetchJson(toRelativePath(snapshotItem.path));
+          state.currentSnapshot = snapshot;
+          state.currentAttractions = normalizeAttractions(snapshot).sort(sortByWaitDesc);
+          state.attractionsById = indexAttractionsById(state.currentAttractions);
+          renderSummary(snapshot);
+          renderAttractions(state.currentAttractions);
+          populateChartSelect(state.currentAttractions);
+          loadGraph(state.selectedAttractionId);
+        } catch (error) {
+          setError('選択したスナップショットを読み込めませんでした。');
+          resetSummary();
+          state.currentAttractions = [];
+          state.attractionsById = Object.create(null);
+          renderAttractions([]);
+          populateChartSelect([]);
+          renderChart([], '');
+        } finally {
+          setLoading(false);
+        }
+      }
+
+      function buildDateMap() {
+        state.byDate = new Map();
+        state.snapshots.forEach((item) => {
+          if (!state.byDate.has(item.date)) {
+            state.byDate.set(item.date, []);
+          }
+          state.byDate.get(item.date).push(item);
+        });
+        state.byDate.forEach((items) => {
+          items.sort((a, b) => String(b.time).localeCompare(String(a.time)));
+        });
+      }
+
+      function populateDateSelect() {
+        elements.dateSelect.replaceChildren();
+        Array.from(state.byDate.keys()).sort().reverse().forEach((date) => {
+          const option = document.createElement('option');
+          option.value = date;
+          option.textContent = date;
+          elements.dateSelect.appendChild(option);
+        });
+      }
+
+      function populateTimeSelect(date, preferredTime) {
+        elements.timeSelect.replaceChildren();
+        const items = state.byDate.get(date) || [];
+        items.forEach((item) => {
+          const option = document.createElement('option');
+          option.value = item.time;
+          option.textContent = formatTime(item.time);
+          elements.timeSelect.appendChild(option);
+        });
+        if (preferredTime) {
+          elements.timeSelect.value = preferredTime;
+        }
+      }
+
+      function populateEmptySelects() {
+        elements.dateSelect.replaceChildren();
+        elements.timeSelect.replaceChildren();
+        const dateOption = document.createElement('option');
+        dateOption.value = '';
+        dateOption.textContent = 'データなし';
+        const timeOption = document.createElement('option');
+        timeOption.value = '';
+        timeOption.textContent = '--';
+        elements.dateSelect.appendChild(dateOption);
+        elements.timeSelect.appendChild(timeOption);
+        setControlsDisabled(true);
+      }
+
+      function handleDateChange() {
+        populateTimeSelect(elements.dateSelect.value);
+        handleTimeChange();
+      }
+
+      function handleTimeChange() {
+        const snapshot = findSelectedSnapshot();
+        loadSnapshot(snapshot);
+      }
+
+      function selectLatest() {
+        const latest = state.snapshots[0];
+        if (!latest) {
+          return;
+        }
+        elements.dateSelect.value = latest.date;
+        populateTimeSelect(latest.date, latest.time);
+        loadSnapshot(latest);
+      }
+
+      function findSelectedSnapshot() {
+        const date = elements.dateSelect.value;
+        const time = elements.timeSelect.value;
+        const items = state.byDate.get(date) || [];
+        return items.find((item) => item.time === time) || null;
+      }
+
+      function renderSummary(snapshot) {
+        const summary = snapshot && snapshot.summary ? snapshot.summary : {};
+        const attractions = state.currentAttractions;
+        const crowd = calculateCrowd(attractions);
+        const factor = readParallelFactor();
+        const estimated = crowd.total > 0 ? Math.round(crowd.total / factor) : 0;
+        const count = toFiniteNumber(summary.count, attractions.length);
+        const openCount = toFiniteNumber(summary.open_count, attractions.filter((item) => item.is_open).length);
+        const averageWait = toFiniteNumber(summary.average_wait, calculateAverageWait(attractions));
+        const maxWait = toFiniteNumber(summary.max_wait, calculateMaxWait(attractions));
+
+        elements.totalQueuePeople.textContent = crowd.total > 0 ? `${formatNumber(crowd.total)}人` : '--';
+        elements.estimatedVisitors.textContent = estimated > 0 ? `${formatNumber(estimated)}人` : '--';
+        elements.averageWait.textContent = `${formatDecimal(averageWait)}分`;
+        elements.maxWait.textContent = `${formatNumber(maxWait)}分`;
+        elements.fetchedAt.textContent = formatDateTime(snapshot && snapshot.fetched_at);
+        elements.sourceName.textContent = String(snapshot && snapshot.source ? snapshot.source : '--');
+        elements.countSummary.textContent = `${formatNumber(count)}件 / ${formatNumber(openCount)}件`;
+        elements.coverageNote.textContent = crowd.missing > 0
+          ? `キャリー未入力のアトラクション ${crowd.missing}件は並び総人数に含まれていません。並列係数は ${Math.round(factor * 100)}% です。`
+          : `並列係数は ${Math.round(factor * 100)}% です。`;
+      }
+
+      function resetSummary() {
+        elements.totalQueuePeople.textContent = '--';
+        elements.estimatedVisitors.textContent = '--';
+        elements.averageWait.textContent = '--';
+        elements.maxWait.textContent = '--';
+        elements.fetchedAt.textContent = '--';
+        elements.sourceName.textContent = '--';
+        elements.countSummary.textContent = '--';
+        elements.coverageNote.textContent = '';
+      }
+
+      function renderAttractions(attractions) {
+        elements.attractionList.replaceChildren();
+        elements.attractionCount.textContent = `${attractions.length}件`;
+        elements.sourceNote.textContent = attractions.length > 0 ? '待ち時間の長い順に表示' : '表示できるデータがありません';
+
+        const fragment = document.createDocumentFragment();
+        attractions.forEach((attraction) => {
+          fragment.appendChild(createAttractionCard(attraction));
+        });
+        elements.attractionList.appendChild(fragment);
+      }
+
+      function createAttractionCard(attraction) {
+        const card = document.createElement('article');
+        card.className = `attraction-card ${getWaitClass(attraction)}${attraction.is_open ? '' : ' is-closed'}`;
+
+        const nameBlock = document.createElement('div');
+        nameBlock.className = 'name-block';
+        const title = document.createElement('h3');
+        title.className = 'attraction-name';
+        title.textContent = attraction.name_ja || attraction.name_en || 'Unknown';
+        nameBlock.appendChild(title);
+        if (attraction.name_en && attraction.name_en !== attraction.name_ja) {
+          const original = document.createElement('div');
+          original.className = 'attraction-original';
+          original.lang = 'en';
+          original.textContent = attraction.name_en;
+          nameBlock.appendChild(original);
+        }
+
+        const waitField = createValueField('待ち時間', attraction.is_open ? `${formatNumber(attraction.wait_minutes)}分` : '休止中', attraction.is_open ? 'wait-value' : 'wait-value closed');
+        const statusField = createValueField('状態', attraction.is_open ? '運営中' : '休止中', attraction.is_open ? 'status-value' : 'status-value closed');
+
+        const memoBlock = document.createElement('div');
+        memoBlock.className = 'memo-block';
+        const memoLabel = document.createElement('div');
+        memoLabel.className = 'field-label';
+        memoLabel.textContent = 'メモ';
+        const memo = document.createElement('div');
+        memo.className = 'memo-text';
+        memo.textContent = readStoredString(MEMO_PREFIX + normalizeAttractionId(attraction.name_en)) || '--';
+        memoBlock.append(memoLabel, memo);
+
+        card.append(nameBlock, waitField, statusField, memoBlock);
+        return card;
+      }
+
+      function createValueField(labelText, valueText, valueClass) {
+        const field = document.createElement('div');
+        field.className = 'field';
+        const label = document.createElement('div');
+        label.className = 'field-label';
+        label.textContent = labelText;
+        const value = document.createElement('div');
+        value.className = valueClass;
+        value.textContent = valueText;
+        field.append(label, value);
+        return field;
+      }
+
+      function populateChartSelect(attractions) {
+        const previous = elements.chartSelect.value;
+        elements.chartSelect.replaceChildren();
+        attractions.forEach((attraction) => {
+          const option = document.createElement('option');
+          option.value = attraction.id;
+          option.textContent = attraction.name_ja || attraction.name_en || attraction.id;
+          elements.chartSelect.appendChild(option);
+        });
+        if (attractions.some((item) => item.id === previous)) {
+          elements.chartSelect.value = previous;
+        }
+        state.selectedAttractionId = elements.chartSelect.value;
+        elements.chartSelect.disabled = attractions.length === 0;
+      }
+
+      async function loadGraph(selectedAttractionId) {
+        const attractionId = typeof selectedAttractionId === 'string' && selectedAttractionId
+          ? selectedAttractionId
+          : elements.chartSelect.value;
+        state.selectedAttractionId = attractionId;
+        const requestId = ++state.graphRequestId;
+        if (state.graphAbortController) {
+          state.graphAbortController.abort();
+        }
+        hideTooltip();
+        if (!attractionId || state.snapshots.length === 0) {
+          renderChart([], attractionId);
+          setChartLoading(false);
+          return;
+        }
+
+        const graphAbortController = new AbortController();
+        state.graphAbortController = graphAbortController;
+        setChartLoading(true);
+        elements.chartNote.textContent = 'グラフデータを読み込み中です...';
+        const newestTime = getSnapshotMs(state.snapshots[0]);
+        const candidates = state.snapshots
+          .filter((item) => {
+            const ms = getSnapshotMs(item);
+            return newestTime === null || ms === null || newestTime - ms <= DAY_MS;
+          })
+          .slice(0, MAX_GRAPH_POINTS);
+
+        try {
+          const results = await fetchSnapshotSeries(candidates, attractionId, graphAbortController.signal);
+          if (requestId !== state.graphRequestId) {
+            return;
+          }
+          const points = results
+            .filter(Boolean)
+            .sort((a, b) => a.ms - b.ms);
+          renderChart(points, attractionId);
+          elements.chartNote.textContent = points.length > 0
+            ? `最大${MAX_GRAPH_POINTS}件、6並列で取得した直近24時間の推移`
+            : '選択したアトラクションの履歴点がありません';
+        } catch (error) {
+          if (requestId !== state.graphRequestId) {
+            return;
+          }
+          renderChart([], attractionId);
+          elements.chartNote.textContent = 'グラフデータを読み込めませんでした';
+        } finally {
+          if (state.graphAbortController === graphAbortController) {
+            state.graphAbortController = null;
+            setChartLoading(false);
+          }
+        }
+      }
+
+      async function fetchSnapshotSeries(items, attractionId, signal) {
+        const results = new Array(items.length);
+        let cursor = 0;
+
+        async function worker() {
+          while (cursor < items.length) {
+            if (signal && signal.aborted) {
+              return;
+            }
+            const index = cursor;
+            cursor += 1;
+            results[index] = await fetchGraphPoint(items[index], attractionId, signal);
+          }
+        }
+
+        const workerCount = Math.min(MAX_CONCURRENT_FETCHES, items.length);
+        const workers = [];
+        for (let i = 0; i < workerCount; i += 1) {
+          workers.push(worker());
+        }
+        await Promise.all(workers);
+        return results;
+      }
+
+      async function fetchGraphPoint(item, attractionId, signal) {
+        try {
+          const snapshot = await fetchJson(toRelativePath(item.path), { signal });
+          const attractions = normalizeAttractions(snapshot);
+          const attraction = attractions.find((entry) => entry.id === attractionId);
+          if (!attraction || !isValidNumber(attraction.wait_minutes)) {
+            return null;
+          }
+          const ms = getSnapshotMs(item) || Date.parse(snapshot && snapshot.fetched_at);
+          if (!Number.isFinite(ms)) {
+            return null;
+          }
+          return {
+            ms,
+            label: formatTime(item.time),
+            wait: attraction.wait_minutes,
+            isOpen: attraction.is_open
+          };
+        } catch (error) {
+          return null;
+        }
+      }
+
+      function renderChart(points, attractionId) {
+        elements.waitChart.replaceChildren();
+        elements.tooltip.classList.add('is-hidden');
+        const width = Math.max(320, elements.chartWrap.clientWidth || 800);
+        const height = 280;
+        const pad = { top: 18, right: 18, bottom: 38, left: 46 };
+        const attraction = state.attractionsById[attractionId];
+        const attractionName = attraction && (attraction.name_ja || attraction.name_en);
+        elements.waitChart.setAttribute('role', 'img');
+        elements.waitChart.setAttribute('viewBox', `0 0 ${width} ${height}`);
+
+        if (points.length === 0) {
+          elements.waitChart.setAttribute('aria-label', `${attractionName ? `${attractionName}の` : ''}待ち時間推移グラフ。表示できるグラフデータがありません。`);
+          elements.chartEmpty.classList.remove('is-hidden');
+          return;
+        }
+        elements.chartEmpty.classList.add('is-hidden');
+
+        const maxWait = Math.max(30, Math.ceil(Math.max.apply(null, points.map((p) => p.wait)) / 10) * 10);
+        const actualMaxWait = Math.max.apply(null, points.map((p) => p.wait));
+        const lastPoint = points[points.length - 1];
+        elements.waitChart.setAttribute('aria-label', `${attractionName ? `${attractionName}の` : ''}待ち時間推移グラフ。最大値は${actualMaxWait}分、最終時刻は${formatShortDateTime(lastPoint.ms)}です。`);
+        const minMs = points[0].ms;
+        const maxMs = points[points.length - 1].ms;
+        const span = Math.max(1, maxMs - minMs);
+        const plotW = width - pad.left - pad.right;
+        const plotH = height - pad.top - pad.bottom;
+
+        drawGrid(width, height, pad, maxWait);
+
+        const coords = points.map((point) => ({
+          point,
+          x: pad.left + ((point.ms - minMs) / span) * plotW,
+          y: pad.top + plotH - (point.wait / maxWait) * plotH
+        }));
+
+        const path = document.createElementNS(SVG_NS, 'path');
+        path.setAttribute('d', coords.map((coord, index) => `${index === 0 ? 'M' : 'L'} ${coord.x.toFixed(2)} ${coord.y.toFixed(2)}`).join(' '));
+        path.setAttribute('fill', 'none');
+        path.setAttribute('stroke', '#93c5fd');
+        path.setAttribute('stroke-width', '3');
+        path.setAttribute('stroke-linecap', 'round');
+        path.setAttribute('stroke-linejoin', 'round');
+        elements.waitChart.appendChild(path);
+
+        const focusIndexes = new Set([0, Math.floor((coords.length - 1) / 2), coords.length - 1]);
+        coords.forEach((coord, index) => {
+          const dot = document.createElementNS(SVG_NS, 'circle');
+          dot.setAttribute('cx', String(coord.x));
+          dot.setAttribute('cy', String(coord.y));
+          dot.setAttribute('r', '5');
+          dot.setAttribute('fill', coord.point.isOpen ? '#facc15' : '#94a3b8');
+          if (focusIndexes.has(index)) {
+            dot.setAttribute('tabindex', '0');
+          }
+          dot.setAttribute('aria-label', `${formatShortDateTime(coord.point.ms)} ${coord.point.wait}分`);
+          dot.addEventListener('mouseover', (event) => showTooltip(event, coord.point));
+          dot.addEventListener('mousemove', (event) => moveTooltip(event));
+          dot.addEventListener('mouseout', hideTooltip);
+          dot.addEventListener('focus', (event) => showTooltip(event, coord.point));
+          dot.addEventListener('blur', hideTooltip);
+          elements.waitChart.appendChild(dot);
+        });
+
+        drawAxisLabels(points, width, height, pad);
+      }
+
+      function drawGrid(width, height, pad, maxWait) {
+        const plotW = width - pad.left - pad.right;
+        const plotH = height - pad.top - pad.bottom;
+        for (let i = 0; i <= 4; i += 1) {
+          const y = pad.top + (plotH / 4) * i;
+          const line = document.createElementNS(SVG_NS, 'line');
+          line.setAttribute('x1', String(pad.left));
+          line.setAttribute('x2', String(width - pad.right));
+          line.setAttribute('y1', String(y));
+          line.setAttribute('y2', String(y));
+          line.setAttribute('stroke', 'rgba(255,255,255,0.14)');
+          elements.waitChart.appendChild(line);
+
+          const text = document.createElementNS(SVG_NS, 'text');
+          text.setAttribute('x', String(pad.left - 6));
+          text.setAttribute('y', String(y + 4));
+          text.setAttribute('text-anchor', 'end');
+          text.setAttribute('fill', '#b7c7dc');
+          text.setAttribute('font-size', '12');
+          text.textContent = `${Math.round(maxWait - (maxWait / 4) * i)}分`;
+          elements.waitChart.appendChild(text);
+        }
+
+        const axis = document.createElementNS(SVG_NS, 'line');
+        axis.setAttribute('x1', String(pad.left));
+        axis.setAttribute('x2', String(pad.left + plotW));
+        axis.setAttribute('y1', String(height - pad.bottom));
+        axis.setAttribute('y2', String(height - pad.bottom));
+        axis.setAttribute('stroke', 'rgba(255,255,255,0.28)');
+        elements.waitChart.appendChild(axis);
+      }
+
+      function drawAxisLabels(points, width, height, pad) {
+        const labels = uniqueAxisLabels(points);
+        labels.forEach((entry, index) => {
+          const x = index === 0 ? pad.left : index === labels.length - 1 ? width - pad.right - 34 : pad.left + ((width - pad.left - pad.right) / Math.max(1, labels.length - 1)) * index;
+          const text = document.createElementNS(SVG_NS, 'text');
+          text.setAttribute('x', String(x));
+          text.setAttribute('y', String(height - 12));
+          text.setAttribute('fill', '#b7c7dc');
+          text.setAttribute('font-size', '12');
+          text.textContent = entry;
+          elements.waitChart.appendChild(text);
+        });
+      }
+
+      function uniqueAxisLabels(points) {
+        if (points.length <= 1) {
+          return points.map((point) => formatHourMinute(point.ms));
+        }
+        const targets = [points[0], points[Math.floor(points.length / 2)], points[points.length - 1]];
+        const labels = [];
+        targets.forEach((point) => {
+          const label = formatHourMinute(point.ms);
+          if (!labels.includes(label)) {
+            labels.push(label);
+          }
+        });
+        return labels;
+      }
+
+      function showTooltip(event, point) {
+        elements.tooltip.textContent = `${formatShortDateTime(point.ms)} / ${point.wait}分${point.isOpen ? '' : ' / 休止中'}`;
+        elements.tooltip.classList.remove('is-hidden');
+        moveTooltip(event);
+      }
+
+      function moveTooltip(event) {
+        const rect = elements.chartWrap.getBoundingClientRect();
+        const clientX = event.clientX || rect.left + 80;
+        const clientY = event.clientY || rect.top + 40;
+        const left = Math.min(rect.width - 205, Math.max(8, clientX - rect.left + 12));
+        const top = Math.min(rect.height - 60, Math.max(8, clientY - rect.top + 12));
+        elements.tooltip.style.left = `${left}px`;
+        elements.tooltip.style.top = `${top}px`;
+      }
+
+      function hideTooltip() {
+        elements.tooltip.classList.add('is-hidden');
+      }
+
+      function normalizeAttractions(snapshot) {
+        const attractions = Array.isArray(snapshot && snapshot.attractions) ? snapshot.attractions : [];
+        return attractions.filter((item) => item && item.name_en !== 'Tomorrowland Hall').map((item) => {
+          const wait = Number(item && item.wait_minutes);
+          const nameEn = String(item && (item.name_en || item.name || item.name_ja) || 'Unknown');
+          const nameJa = item && item.name_ja ? String(item.name_ja) : '';
+          return {
+            id: normalizeAttractionId(nameEn),
+            name_en: nameEn,
+            name_ja: nameJa,
+            wait_minutes: isValidNumber(wait) ? wait : 0,
+            is_open: item && item.is_open === true
+          };
+        });
+      }
+
+      function indexAttractionsById(attractions) {
+        return attractions.reduce((map, attraction) => {
+          map[attraction.id] = attraction;
+          return map;
+        }, Object.create(null));
+      }
+
+      function normalizeAttractionId(nameEn) {
+        const slug = String(nameEn || '')
+          .toLowerCase()
+          .replace(/['’"“”]/g, '')
+          .replace(/[^a-z0-9]+/g, '-')
+          .replace(/^-+|-+$/g, '');
+        return slug ? `a-${slug}` : 'a-unknown';
+      }
+
+      function calculateCrowd(attractions) {
+        let total = 0;
+        let missing = 0;
+        attractions.forEach((attraction) => {
+          if (!attraction.is_open || !isValidNumber(attraction.wait_minutes)) {
+            return;
+          }
+          const carry = readStoredNumber(CARRY_PREFIX + attraction.id);
+          if (isValidNumber(carry)) {
+            total += Math.round(attraction.wait_minutes * carry);
+          } else {
+            missing += 1;
+          }
+        });
+        return { total, missing };
+      }
+
+      function calculateAverageWait(attractions) {
+        if (attractions.length === 0) {
+          return 0;
+        }
+        const total = attractions.reduce((sum, item) => sum + item.wait_minutes, 0);
+        return Math.round((total / attractions.length) * 10) / 10;
+      }
+
+      function calculateMaxWait(attractions) {
+        return attractions.reduce((max, item) => Math.max(max, item.wait_minutes), 0);
+      }
+
+      function sortByWaitDesc(a, b) {
+        const aWait = a.is_open && isValidNumber(a.wait_minutes) ? a.wait_minutes : -1;
+        const bWait = b.is_open && isValidNumber(b.wait_minutes) ? b.wait_minutes : -1;
+        return bWait - aWait || String(a.name_ja || a.name_en).localeCompare(String(b.name_ja || b.name_en), 'ja');
+      }
+
+      function getWaitClass(attraction) {
+        if (!attraction.is_open || !isValidNumber(attraction.wait_minutes)) {
+          return 'wait-low';
+        }
+        if (attraction.wait_minutes <= 30) {
+          return 'wait-low';
+        }
+        if (attraction.wait_minutes <= 60) {
+          return 'wait-mid';
+        }
+        if (attraction.wait_minutes <= 90) {
+          return 'wait-high';
+        }
+        return 'wait-extreme';
+      }
+
+      async function fetchJson(url, options = {}) {
+        const timeoutMs = Number.isFinite(options.timeoutMs) ? options.timeoutMs : 10000;
+        const externalSignal = options.signal || null;
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), timeoutMs);
+        const abortFetch = () => controller.abort();
+
+        if (externalSignal) {
+          if (externalSignal.aborted) {
+            controller.abort();
+          } else {
+            externalSignal.addEventListener('abort', abortFetch, { once: true });
+          }
+        }
+
+        try {
+          const response = await fetch(url, {
+            cache: 'no-store',
+            signal: controller.signal
+          });
+          if (!response.ok) {
+            throw new Error(`HTTP ${response.status}`);
+          }
+          return response.json();
+        } finally {
+          clearTimeout(timeoutId);
+          if (externalSignal) {
+            externalSignal.removeEventListener('abort', abortFetch);
+          }
+        }
+      }
+
+      function isUsableSnapshot(item) {
+        return item && typeof item.date === 'string' && typeof item.time === 'string' && typeof item.path === 'string';
+      }
+
+      function toRelativePath(path) {
+        const value = String(path || '');
+        return value.startsWith('./') ? value : `./${value.replace(/^\/+/, '')}`;
+      }
+
+      function getSnapshotMs(item) {
+        const fetched = Date.parse(item && item.fetched_at);
+        if (Number.isFinite(fetched)) {
+          return fetched;
+        }
+        const date = item && item.date;
+        const time = item && item.time;
+        if (typeof date === 'string' && typeof time === 'string' && /^\d{4}$/.test(time)) {
+          const fallback = Date.parse(`${date}T${time.slice(0, 2)}:${time.slice(2)}:00+09:00`);
+          return Number.isFinite(fallback) ? fallback : null;
+        }
+        return null;
+      }
+
+      function setLoading(isLoading) {
+        elements.loadingBanner.classList.toggle('is-hidden', !isLoading);
+      }
+
+      function setChartLoading(isLoading) {
+        elements.chartLoading.classList.toggle('is-hidden', !isLoading);
+      }
+
+      function setError(message) {
+        elements.errorMessage.textContent = message;
+        elements.errorBanner.classList.toggle('is-hidden', message === '');
+      }
+
+      function setEmpty(isEmpty) {
+        elements.emptyBanner.classList.toggle('is-hidden', !isEmpty);
+      }
+
+      function setControlsDisabled(disabled) {
+        elements.dateSelect.disabled = disabled;
+        elements.timeSelect.disabled = disabled;
+        elements.latestButton.disabled = disabled;
+        elements.chartSelect.disabled = disabled;
+      }
+
+      function readParallelFactor() {
+        const stored = readStoredNumber(PARALLEL_FACTOR_KEY);
+        return stored !== null && stored > 0 ? stored : DEFAULT_PARALLEL_FACTOR;
+      }
+
+      function readStoredString(key) {
+        try {
+          const value = localStorage.getItem(key);
+          return value === null ? '' : String(value);
+        } catch (error) {
+          return '';
+        }
+      }
+
+      function readStoredNumber(key) {
+        const raw = readStoredString(key);
+        if (raw === '') {
+          return null;
+        }
+        const value = Number(raw);
+        return Number.isFinite(value) && value >= 0 ? value : null;
+      }
+
+      function isValidNumber(value) {
+        return Number.isFinite(value) && value >= 0;
+      }
+
+      function toFiniteNumber(value, fallback) {
+        const number = Number(value);
+        return Number.isFinite(number) ? number : fallback;
+      }
+
+      function formatNumber(value) {
+        return new Intl.NumberFormat('ja-JP').format(Math.round(value));
+      }
+
+      function formatDecimal(value) {
+        return new Intl.NumberFormat('ja-JP', { maximumFractionDigits: 1 }).format(value);
+      }
+
+      function formatTime(value) {
+        const text = String(value || '');
+        return /^\d{4}$/.test(text) ? `${text.slice(0, 2)}:${text.slice(2)}` : text || '--';
+      }
+
+      function formatDateTime(value) {
+        const date = new Date(value);
+        if (Number.isNaN(date.getTime())) {
+          return '--';
+        }
+        return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())} ${pad(date.getHours())}:${pad(date.getMinutes())}:${pad(date.getSeconds())}`;
+      }
+
+      function formatHourMinute(ms) {
+        const date = new Date(ms);
+        return `${pad(date.getHours())}:${pad(date.getMinutes())}`;
+      }
+
+      function formatShortDateTime(ms) {
+        const date = new Date(ms);
+        return `${pad(date.getMonth() + 1)}/${pad(date.getDate())} ${pad(date.getHours())}:${pad(date.getMinutes())}`;
+      }
+
+      function pad(value) {
+        return String(value).padStart(2, '0');
+      }
+    })();
+  </script>
+</body>
+</html>

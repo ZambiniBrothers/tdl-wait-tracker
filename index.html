@@ -1,0 +1,1575 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'self' https://api.themeparks.wiki https://api.allorigins.win; style-src 'unsafe-inline'; script-src 'unsafe-inline'; img-src 'self' data:; base-uri 'none'; form-action 'none'">
+  <title>TDL 待ち時間 逆算カリキュレーター</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #07111f;
+      --panel: #101c31;
+      --panel-2: #13243f;
+      --line: #29415f;
+      --text: #f7fbff;
+      --muted: #b7c7dc;
+      --subtle: #8fa4bf;
+      --blue: #2563eb;
+      --royal: #1e3a8a;
+      --purple: #7c3aed;
+      --green: #1f8a5b;
+      --yellow: #b7791f;
+      --orange: #c05621;
+      --red: #c24141;
+      --danger-bg: #3b1116;
+      --danger-line: #b91c1c;
+      --shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-width: 320px;
+      background:
+        radial-gradient(circle at top left, rgba(37, 99, 235, 0.28), transparent 32rem),
+        linear-gradient(135deg, #07111f 0%, #111827 48%, #1a1230 100%);
+      color: var(--text);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.5;
+    }
+
+    button,
+    input,
+    textarea {
+      font: inherit;
+    }
+
+    button {
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #3157c7, var(--royal));
+      color: var(--text);
+      cursor: pointer;
+      font-weight: 700;
+      min-height: 42px;
+      padding: 0 14px;
+      transition: transform 120ms ease, border-color 120ms ease, filter 120ms ease;
+    }
+
+    button:hover {
+      border-color: rgba(255, 255, 255, 0.35);
+      filter: brightness(1.08);
+    }
+
+    button:active {
+      transform: translateY(1px);
+    }
+
+    button:focus-visible,
+    input:focus-visible {
+      outline: 3px solid #93c5fd;
+      outline-offset: 2px;
+    }
+
+    button.secondary {
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    button.danger {
+      background: #7f1d1d;
+    }
+
+    .link-button {
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text);
+      font-weight: 700;
+      padding: 0 14px;
+      text-decoration: none;
+      transition: border-color 120ms ease, filter 120ms ease;
+    }
+
+    .link-button:hover {
+      border-color: rgba(255, 255, 255, 0.35);
+      filter: brightness(1.08);
+    }
+
+    .link-button:focus-visible,
+    textarea:focus-visible {
+      outline: 3px solid #93c5fd;
+      outline-offset: 2px;
+    }
+
+    .page {
+      width: min(1180px, 100%);
+      margin: 0 auto;
+      padding: 22px clamp(14px, 3vw, 28px) 42px;
+    }
+
+    .app-header {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+      align-items: end;
+      padding: 10px 0 20px;
+    }
+
+    h1 {
+      margin: 0 0 6px;
+      font-size: clamp(1.55rem, 4vw, 2.55rem);
+      letter-spacing: 0;
+    }
+
+    .lead {
+      margin: 0;
+      color: var(--muted);
+      max-width: 740px;
+    }
+
+    .header-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    .last-fetch {
+      flex-basis: 100%;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .summary-card {
+      display: grid;
+      gap: 18px;
+      margin: 8px 0 18px;
+      padding: clamp(18px, 3vw, 26px);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 8px;
+      background: linear-gradient(135deg, rgba(30, 58, 138, 0.92), rgba(88, 28, 135, 0.88));
+      box-shadow: var(--shadow);
+    }
+
+    .summary-metrics {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+      gap: 14px;
+    }
+
+    .metric {
+      min-width: 0;
+      padding: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 8px;
+      background: rgba(5, 12, 25, 0.34);
+    }
+
+    .metric.is-primary {
+      border-color: rgba(255, 255, 255, 0.28);
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .metric-label {
+      display: block;
+      color: #dbeafe;
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    .metric-value {
+      display: block;
+      margin-top: 4px;
+      font-size: clamp(1.8rem, 7vw, 3.15rem);
+      font-weight: 900;
+      line-height: 1.05;
+      overflow-wrap: anywhere;
+    }
+
+    .factor-control {
+      display: grid;
+      gap: 8px;
+    }
+
+    .factor-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .factor-row label {
+      font-weight: 800;
+    }
+
+    .factor-value {
+      font-variant-numeric: tabular-nums;
+      font-weight: 900;
+    }
+
+    input[type="range"] {
+      width: 100%;
+      accent-color: #facc15;
+    }
+
+    .factor-help,
+    .factor-formula,
+    .coverage-note {
+      margin: 0;
+      color: #e0ecff;
+      font-size: 0.92rem;
+    }
+
+    .coverage-note.is-hidden {
+      display: none;
+    }
+
+    .status-area {
+      display: grid;
+      gap: 10px;
+      margin: 16px 0;
+    }
+
+    .banner {
+      border-radius: 8px;
+      padding: 12px 14px;
+      border: 1px solid var(--line);
+      background: rgba(16, 28, 49, 0.9);
+      color: var(--muted);
+    }
+
+    .banner-content {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .banner.error {
+      border-color: var(--danger-line);
+      background: var(--danger-bg);
+      color: #fecaca;
+    }
+
+    .banner.warn {
+      border-color: #b7791f;
+      background: rgba(82, 47, 9, 0.76);
+      color: #fde68a;
+    }
+
+    .manual-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .manual-actions.is-hidden,
+    .is-hidden {
+      display: none;
+    }
+
+    .visually-hidden {
+      position: absolute;
+      clip-path: inset(50%);
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin: 20px 0 12px;
+    }
+
+    .toolbar h2 {
+      margin: 0;
+      font-size: 1.2rem;
+    }
+
+    .source-note {
+      color: var(--subtle);
+      font-size: 0.88rem;
+    }
+
+    .attraction-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .attraction-card {
+      display: grid;
+      grid-template-columns: minmax(0, 1.65fr) minmax(100px, 0.8fr) minmax(112px, 0.8fr) minmax(120px, 0.8fr);
+      gap: 12px;
+      align-items: center;
+      padding: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-left: 6px solid var(--green);
+      border-radius: 8px;
+      background: rgba(16, 28, 49, 0.92);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+    }
+
+    .attraction-card.wait-low {
+      border-left-color: var(--green);
+    }
+
+    .attraction-card.wait-mid {
+      border-left-color: var(--yellow);
+    }
+
+    .attraction-card.wait-high {
+      border-left-color: var(--orange);
+    }
+
+    .attraction-card.wait-extreme {
+      border-left-color: var(--red);
+    }
+
+    .attraction-card.is-closed {
+      opacity: 0.75;
+    }
+
+    .memo-actions {
+      display: grid;
+      gap: 8px;
+      min-width: 0;
+    }
+
+    .memo-button {
+      position: relative;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .memo-button[aria-expanded="true"] {
+      background: rgba(147, 197, 253, 0.18);
+      border-color: #93c5fd;
+    }
+
+    .memo-button.has-memo::after {
+      content: "●";
+      position: absolute;
+      top: 4px;
+      right: 8px;
+      color: #f87171;
+      font-size: 0.72rem;
+      line-height: 1;
+    }
+
+    .memo-panel {
+      grid-column: 1 / -1;
+      display: grid;
+      gap: 10px;
+      padding-top: 2px;
+    }
+
+    .memo-textarea {
+      width: 100%;
+      min-height: 86px;
+      resize: vertical;
+      border: 1px solid #486483;
+      border-radius: 8px;
+      background: #071426;
+      color: var(--text);
+      padding: 10px;
+    }
+
+    .memo-panel-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: flex-end;
+    }
+
+    .name-block {
+      min-width: 0;
+    }
+
+    .attraction-name {
+      margin: 0;
+      font-size: 1.04rem;
+      font-weight: 850;
+      overflow-wrap: anywhere;
+    }
+
+    .attraction-original {
+      margin-top: 3px;
+      color: var(--subtle);
+      font-size: 0.82rem;
+      overflow-wrap: anywhere;
+    }
+
+    .field {
+      display: grid;
+      gap: 4px;
+      min-width: 0;
+    }
+
+    .field label,
+    .field-label {
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 800;
+    }
+
+    .wait-value,
+    .crowd-value {
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      color: var(--text);
+      font-size: 1.1rem;
+      font-weight: 900;
+      font-variant-numeric: tabular-nums;
+      overflow-wrap: anywhere;
+    }
+
+    .wait-value.closed {
+      color: #fecaca;
+    }
+
+    .attraction-card.wait-high .wait-value {
+      color: #fbbf24;
+    }
+
+    .attraction-card.wait-extreme .wait-value {
+      color: #f87171;
+    }
+
+    .number-input {
+      width: 100%;
+      min-height: 42px;
+      border: 1px solid #486483;
+      border-radius: 8px;
+      background: #071426;
+      color: var(--text);
+      padding: 8px 10px;
+      font-weight: 800;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .number-input::placeholder {
+      color: #9db1c9;
+      opacity: 1;
+    }
+
+    .number-input[disabled] {
+      cursor: not-allowed;
+      opacity: 0.55;
+    }
+
+    .source-credit {
+      margin: 18px 0 0;
+      color: var(--subtle);
+      font-size: 0.82rem;
+    }
+
+    .source-credit a {
+      color: #bfdbfe;
+    }
+
+    @media (min-width: 820px) {
+      .app-header {
+        grid-template-columns: minmax(0, 1fr) auto;
+      }
+
+      .header-actions {
+        justify-content: flex-end;
+      }
+
+      .last-fetch {
+        flex-basis: auto;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .summary-metrics {
+        grid-template-columns: 1fr;
+      }
+
+      .attraction-card {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .name-block {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .page {
+        padding-left: 12px;
+        padding-right: 12px;
+      }
+
+      .attraction-card {
+        grid-template-columns: 1fr;
+      }
+
+      .toolbar {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .header-actions button {
+        flex: 1 1 130px;
+      }
+
+      .header-actions .link-button {
+        flex: 1 1 130px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="app-header">
+      <div>
+        <h1>TDL 待ち時間 逆算カリキュレーター</h1>
+        <p class="lead">待ち時間とキャリーから、各アトラクションの並び人数と来園者数を概算します。</p>
+      </div>
+      <div class="header-actions" aria-label="データ操作">
+        <span class="last-fetch" id="lastFetch">最終更新: --</span>
+        <a href="./history.html" class="link-button"><span aria-hidden="true">📊</span> 過去データ</a>
+        <button type="button" id="exportMemosButton" class="secondary">メモをエクスポート</button>
+        <button type="button" id="importMemosButton" class="secondary">メモを取り込み</button>
+        <input type="file" id="importMemosInput" class="is-hidden" accept="application/json,.json">
+        <button type="button" id="refreshButton">更新</button>
+        <button type="button" id="resetCarryButton" class="danger">全キャリーをリセット</button>
+      </div>
+    </header>
+
+    <section class="summary-card" aria-labelledby="summaryTitle">
+      <h2 id="summaryTitle" class="visually-hidden">来園者概算</h2>
+      <div class="summary-metrics">
+        <div class="metric">
+          <span class="metric-label">並んでいる総人数</span>
+          <span class="metric-value" id="totalQueuePeople">--</span>
+        </div>
+        <div class="metric is-primary">
+          <span class="metric-label">概算来園者数</span>
+          <span class="metric-value" id="estimatedVisitors">--</span>
+        </div>
+      </div>
+      <div class="factor-control">
+        <div class="factor-row">
+          <label for="parallelFactor">並列係数</label>
+          <span class="factor-value" id="parallelFactorValue">35%</span>
+        </div>
+        <input type="range" id="parallelFactor" min="0.20" max="0.60" step="0.01" value="0.35" aria-describedby="parallelFactorHelp parallelFactorFormula">
+        <p id="parallelFactorHelp" class="factor-help">来園者のうち、何割がアトラクション列に並んでいるかの仮定値。残りはショー観覧/食事/買い物/移動</p>
+        <p id="parallelFactorFormula" class="factor-formula"></p>
+        <p id="coverageNote" class="coverage-note is-hidden"></p>
+      </div>
+    </section>
+
+    <div class="status-area" aria-live="polite">
+      <div id="loadingBanner" class="banner is-hidden">待ち時間を取得中です...</div>
+      <div id="errorBanner" class="banner error is-hidden">
+        <div class="banner-content">
+          <span id="errorMessage"></span>
+          <button type="button" id="retryButton" class="secondary">再試行</button>
+        </div>
+      </div>
+      <div id="manualBanner" class="banner warn is-hidden">
+        <div class="manual-actions">
+          <span>データ取得に失敗しました。待ち時間を手入力できます。</span>
+          <button type="button" id="manualModeButton" class="secondary">手入力に切り替え</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="toolbar">
+      <div>
+        <h2>アトラクション一覧</h2>
+        <div class="source-note" id="sourceNote">待ち時間の長い順に表示</div>
+      </div>
+      <div class="source-note" id="attractionCount">0件</div>
+    </div>
+
+    <main id="attractionList" class="attraction-list" aria-label="アトラクション待ち時間一覧"></main>
+    <p id="sourceCredit" class="source-credit is-hidden">Powered by <a href="https://queue-times.com/" rel="noreferrer">Queue-Times.com</a></p>
+  </div>
+
+  <script>
+    const CLOUD_DATA_URL = './data/latest.json';
+    const API_URL = 'https://api.themeparks.wiki/v1/entity/3cc919f1-d16d-43e0-8c3f-1dd269bd1a42/live';
+    const FALLBACK_URL = 'https://api.allorigins.win/get?url=https%3A%2F%2Fqueue-times.com%2Fparks%2F274%2Fqueue_times.json';
+    const DEFAULT_PARALLEL_FACTOR = 0.35;
+    const PARALLEL_FACTOR_KEY = 'tdl-parallel-factor';
+    const LAST_FETCH_KEY = 'tdl-last-fetch';
+    const MANUAL_WAIT_PREFIX = 'tdl-manual-wait-';
+    const CARRY_PREFIX = 'tdl-carry-';
+    const MEMO_PREFIX = 'tdl-memo-';
+
+    const MANUAL_ATTRACTION_NAMES = [
+      "Peter Pan's Flight",
+      'Splash Mountain',
+      'Big Thunder Mountain',
+      'Space Mountain',
+      'Haunted Mansion',
+      'Pirates of the Caribbean',
+      "Pooh's Hunny Hunt",
+      'Monsters, Inc. Ride & Go Seek!',
+      'The Happy Ride with Baymax',
+      'Enchanted Tale of Beauty and the Beast',
+      "it's a small world",
+      "Snow White's Adventures",
+      "Roger Rabbit's Car Toon Spin",
+      "Alice's Tea Party",
+      'Dumbo The Flying Elephant',
+      'Castle Carrousel',
+      'Mark Twain Riverboat',
+      'Western River Railroad',
+      'Country Bear Theater',
+      'Jungle Cruise: Wildlife Expeditions',
+      "The Enchanted Tiki Room: Stitch Presents 'Aloha E Komo Mai!'",
+      "Buzz Lightyear's Astro Blasters",
+      'Star Tours: The Adventures Continue',
+      'Omnibus',
+      'Penny Arcade',
+      'Swiss Family Treehouse',
+      'Tom Sawyer Island Rafts',
+      'Beaver Brothers Explorer Canoes',
+      "Cinderella's Fairy Tale Hall",
+      "Mickey's PhilharMagic",
+      "Pinocchio's Daring Journey",
+      "Gadget's Go Coaster",
+      "Goofy's Paint 'n' Play House",
+      "Minnie's House",
+      "Donald's Boat",
+      "Chip 'n Dale's Treehouse",
+      'Toon Park',
+      'Stitch Encounter'
+    ];
+
+    const NAME_MAP = {
+      "Peter Pan's Flight": 'ピーターパン空の旅',
+      'Splash Mountain': 'スプラッシュ・マウンテン',
+      'Big Thunder Mountain': 'ビッグサンダー・マウンテン',
+      'Space Mountain': 'スペース・マウンテン',
+      'Haunted Mansion': 'ホーンテッドマンション',
+      'Pirates of the Caribbean': 'カリブの海賊',
+      "Pooh's Hunny Hunt": 'プーさんのハニーハント',
+      'Monsters, Inc. Ride & Go Seek!': 'モンスターズ・インク "ライド&ゴーシーク!"',
+      'The Happy Ride with Baymax': 'ベイマックスのハッピーライド',
+      'Enchanted Tale of Beauty and the Beast': '美女と野獣"魔法のものがたり"',
+      "it's a small world": 'イッツ・ア・スモールワールド',
+      'it’s a small world': 'イッツ・ア・スモールワールド',
+      '“it’s a small world with Groot”': 'イッツ・ア・スモールワールド with グルート',
+      "Snow White's Adventures": '白雪姫と七人のこびと',
+      "Roger Rabbit's Car Toon Spin": 'ロジャーラビットのカートゥーンスピン',
+      "Alice's Tea Party": 'アリスのティーパーティー',
+      'Dumbo The Flying Elephant': '空飛ぶダンボ',
+      'Dumbo the Flying Elephant': '空飛ぶダンボ',
+      'Castle Carrousel': 'キャッスルカルーセル',
+      'Mark Twain Riverboat': '蒸気船マークトウェイン号',
+      'Western River Railroad': 'ウエスタンリバー鉄道',
+      'Country Bear Theater': 'カントリーベア・シアター',
+      'Jungle Cruise: Wildlife Expeditions': 'ジャングルクルーズ:ワイルドライフ・エクスペディション',
+      "The Enchanted Tiki Room: Stitch Presents 'Aloha E Komo Mai!'": '魅惑のチキルーム:スティッチ・プレゼンツ "アロハ・エ・コモ・マイ!"',
+      "The Enchanted Tiki Room: Stitch Presents “Aloha E Komo Mai!”": '魅惑のチキルーム:スティッチ・プレゼンツ "アロハ・エ・コモ・マイ!"',
+      "Buzz Lightyear's Astro Blasters": 'バズ・ライトイヤーのアストロブラスター',
+      'Star Tours: The Adventures Continue': 'スター・ツアーズ:ザ・アドベンチャーズ・コンティニュー',
+      'Tomorrowland Hall': 'トゥモローランド・ホール',
+      'Omnibus': 'オムニバス',
+      'Penny Arcade': 'ペニーアーケード',
+      'Swiss Family Treehouse': 'スイスファミリー・ツリーハウス',
+      'Tom Sawyer Island Rafts': 'トムソーヤ島いかだ',
+      'Beaver Brothers Explorer Canoes': 'ビーバーブラザーズのカヌー探険',
+      "Cinderella's Fairy Tale Hall": 'シンデレラのフェアリーテイル・ホール',
+      'Mickey’s PhilharMagic': 'ミッキーのフィルハーマジック',
+      "Mickey's PhilharMagic": 'ミッキーのフィルハーマジック',
+      "Pinocchio's Daring Journey": 'ピノキオの冒険旅行',
+      'Gadget’s Go Coaster': 'ガジェットのゴーコースター',
+      "Gadget's Go Coaster": 'ガジェットのゴーコースター',
+      "Goofy's Paint 'n' Play House": 'グーフィーのペイント&プレイハウス',
+      "Minnie's House": 'ミニーの家',
+      "Donald's Boat": 'ドナルドのボート',
+      "Chip 'n Dale's Treehouse": 'チップとデールのツリーハウス',
+      'Toon Park': 'トゥーンパーク',
+      'Stitch Encounter': 'スティッチ・エンカウンター'
+    };
+
+    (() => {
+      const state = {
+        attractions: [],
+        manualMode: false,
+        source: '',
+        sourceDetail: '',
+        lastFetch: readStoredString(LAST_FETCH_KEY) || '',
+        lastFetchIso: '',
+        openMemoIds: new Set(),
+        isLoading: false
+      };
+
+      const cardMap = new Map();
+      const crowdOutputMap = new Map();
+      let inflightController = null;
+
+      const elements = {
+        lastFetch: document.getElementById('lastFetch'),
+        exportMemosButton: document.getElementById('exportMemosButton'),
+        importMemosButton: document.getElementById('importMemosButton'),
+        importMemosInput: document.getElementById('importMemosInput'),
+        refreshButton: document.getElementById('refreshButton'),
+        resetCarryButton: document.getElementById('resetCarryButton'),
+        totalQueuePeople: document.getElementById('totalQueuePeople'),
+        estimatedVisitors: document.getElementById('estimatedVisitors'),
+        parallelFactor: document.getElementById('parallelFactor'),
+        parallelFactorValue: document.getElementById('parallelFactorValue'),
+        parallelFactorFormula: document.getElementById('parallelFactorFormula'),
+        coverageNote: document.getElementById('coverageNote'),
+        loadingBanner: document.getElementById('loadingBanner'),
+        errorBanner: document.getElementById('errorBanner'),
+        errorMessage: document.getElementById('errorMessage'),
+        retryButton: document.getElementById('retryButton'),
+        manualBanner: document.getElementById('manualBanner'),
+        manualModeButton: document.getElementById('manualModeButton'),
+        attractionList: document.getElementById('attractionList'),
+        attractionCount: document.getElementById('attractionCount'),
+        sourceNote: document.getElementById('sourceNote'),
+        sourceCredit: document.getElementById('sourceCredit')
+      };
+
+      init();
+
+      function init() {
+        elements.parallelFactor.value = String(DEFAULT_PARALLEL_FACTOR);
+        const savedFactor = readStoredNumber(PARALLEL_FACTOR_KEY);
+        if (isValidFactor(savedFactor)) {
+          elements.parallelFactor.value = String(savedFactor);
+        }
+
+        updateLastFetchLabel();
+        updateFactorLabel();
+        bindEvents();
+        logLegacyMemoNotice();
+        fetchWaitTimes();
+      }
+
+      function bindEvents() {
+        elements.refreshButton.addEventListener('click', fetchWaitTimes);
+        elements.retryButton.addEventListener('click', fetchWaitTimes);
+        elements.resetCarryButton.addEventListener('click', resetAllCarry);
+        elements.exportMemosButton.addEventListener('click', exportMemos);
+        elements.importMemosButton.addEventListener('click', () => elements.importMemosInput.click());
+        elements.importMemosInput.addEventListener('change', importMemos);
+        elements.manualModeButton.addEventListener('click', enableManualMode);
+        elements.parallelFactor.addEventListener('input', () => {
+          const value = Number(elements.parallelFactor.value);
+          if (!isValidFactor(value)) {
+            return;
+          }
+          writeStorage(PARALLEL_FACTOR_KEY, String(value));
+          updateFactorLabel();
+          calculateCrowd();
+        });
+      }
+
+      async function fetchWaitTimes() {
+        if (state.isLoading) {
+          return;
+        }
+
+        setLoading(true);
+        setError('');
+        elements.manualBanner.classList.add('is-hidden');
+        elements.refreshButton.disabled = true;
+
+        try {
+          const cloudData = await fetchJson(CLOUD_DATA_URL, 1000);
+          state.attractions = normalizeCloudData(cloudData);
+          state.source = 'cloud';
+          state.sourceDetail = getCloudSourceLabel(cloudData.fetched_at);
+          state.lastFetchIso = typeof cloudData.fetched_at === 'string' ? cloudData.fetched_at : '';
+          state.manualMode = false;
+          applySuccessfulFetch(cloudData.fetched_at);
+          return;
+        } catch (cloudError) {
+          // Missing local/cloud data should silently fall through to the live APIs.
+        }
+
+        try {
+          const themeParksData = await fetchJson(API_URL);
+          state.attractions = normalizeThemeParks(themeParksData);
+          state.source = 'themeparks';
+          state.sourceDetail = 'API直接';
+          state.manualMode = false;
+          applySuccessfulFetch();
+        } catch (primaryError) {
+          setError(`${getFetchErrorMessage(primaryError, 'ThemeParks.wiki API')} フォールバックAPIを試行しています。`);
+          try {
+            const fallbackWrapper = await fetchJson(FALLBACK_URL);
+            const fallbackData = parseFallbackContents(fallbackWrapper);
+            state.attractions = normalizeQueueTimes(fallbackData);
+            state.source = 'queue-times';
+            state.sourceDetail = 'フォールバック';
+            state.manualMode = false;
+            applySuccessfulFetch();
+          } catch (fallbackError) {
+            state.source = '';
+            state.sourceDetail = '';
+            setError(`${getFetchErrorMessage(fallbackError, '待ち時間データ')} 手入力モードを利用できます。`);
+            elements.manualBanner.classList.remove('is-hidden');
+            if (state.attractions.length === 0) {
+              state.attractions = buildManualSeedAttractions();
+              renderAttractions();
+            }
+          }
+        } finally {
+          setLoading(false);
+          elements.refreshButton.disabled = false;
+        }
+      }
+
+      async function fetchJson(url, timeoutMs = 10000) {
+        if (inflightController) {
+          inflightController.abort();
+        }
+
+        const controller = new AbortController();
+        inflightController = controller;
+        const timeoutId = setTimeout(() => controller.abort(), timeoutMs);
+
+        try {
+          const response = await fetch(url, {
+            cache: 'no-store',
+            signal: controller.signal
+          });
+          if (!response.ok) {
+            throw new Error(`HTTP ${response.status}`);
+          }
+          return response.json();
+        } finally {
+          clearTimeout(timeoutId);
+          if (inflightController === controller) {
+            inflightController = null;
+          }
+        }
+      }
+
+      function getFetchErrorMessage(error, sourceName) {
+        if (error instanceof DOMException && error.name === 'AbortError') {
+          return `${sourceName}の取得がタイムアウトしました。`;
+        }
+        return `${sourceName}の取得に失敗しました。`;
+      }
+
+      function parseFallbackContents(wrapper) {
+        if (!wrapper || typeof wrapper.contents !== 'string') {
+          throw new Error('Invalid allorigins response');
+        }
+        return JSON.parse(wrapper.contents);
+      }
+
+      function applySuccessfulFetch(fetchedAt) {
+        const fetchedDate = parseDate(fetchedAt) || new Date();
+        state.lastFetchIso = fetchedDate.toISOString();
+        state.lastFetch = formatDateTime(fetchedDate);
+        writeStorage(LAST_FETCH_KEY, state.lastFetch);
+        updateLastFetchLabel();
+        setError('');
+        renderAttractions();
+      }
+
+      function normalizeCloudData(data) {
+        const attractions = Array.isArray(data && data.attractions) ? data.attractions : [];
+        return attractions
+          .filter((item) => item && item.name_en !== 'Tomorrowland Hall' && item.name_ja !== 'トゥモローランド・ホール')
+          .map((item) => {
+            const waitTime = Number(item.wait_minutes);
+            const isOpen = item.is_open === true;
+            const nameEn = String(item.name_en || item.name_ja || 'Unknown');
+            const nameJa = item.name_ja ? String(item.name_ja) : '';
+            return {
+              id: normalizeAttractionId(nameEn),
+              name: nameEn,
+              nameJa,
+              status: isOpen ? 'OPERATING' : 'CLOSED',
+              waitTime: isOpen && isValidWholeNumber(waitTime) ? waitTime : null,
+              lastUpdated: typeof data.fetched_at === 'string' ? data.fetched_at : ''
+            };
+          })
+          .sort(sortByWaitDesc);
+      }
+
+      function normalizeThemeParks(data) {
+        const liveData = Array.isArray(data && data.liveData) ? data.liveData : [];
+        return liveData
+          .filter((item) => item && item.entityType === 'ATTRACTION')
+          .filter((item) => item.name !== 'Tomorrowland Hall' && item.name_ja !== 'トゥモローランド・ホール')
+          .map((item) => {
+            const waitTime = item.queue && item.queue.STANDBY ? Number(item.queue.STANDBY.waitTime) : null;
+            const name = String(item.name || 'Unknown');
+            return {
+              id: normalizeAttractionId(name),
+              name,
+              status: String(item.status || 'UNKNOWN'),
+              waitTime: isValidWholeNumber(waitTime) ? waitTime : null,
+              lastUpdated: item.lastUpdated || ''
+            };
+          })
+          .sort(sortByWaitDesc);
+      }
+
+      function normalizeQueueTimes(data) {
+        const rides = Array.isArray(data && data.rides) ? data.rides : [];
+        return rides
+          .filter((ride) => ride && ride.name !== 'Tomorrowland Hall')
+          .map((ride) => {
+            const isOpen = ride.is_open === true;
+            const waitTime = Number(ride.wait_time);
+            const name = String(ride.name || 'Unknown');
+            return {
+              id: normalizeAttractionId(name),
+              name,
+              status: isOpen ? 'OPERATING' : 'CLOSED',
+              waitTime: isOpen && isValidWholeNumber(waitTime) ? waitTime : null,
+              lastUpdated: ride.last_updated || ''
+            };
+          })
+          .sort(sortByWaitDesc);
+      }
+
+      function buildManualSeedAttractions() {
+        return MANUAL_ATTRACTION_NAMES
+          .map((name) => ({
+            id: normalizeAttractionId(name),
+            name,
+            status: 'OPERATING',
+            waitTime: readStoredWholeNumber(MANUAL_WAIT_PREFIX + normalizeAttractionId(name)),
+            lastUpdated: ''
+          }))
+          .sort((a, b) => translateName(a.name, a).localeCompare(translateName(b.name, b), 'ja'));
+      }
+
+      function renderAttractions() {
+        elements.attractionList.replaceChildren();
+        cardMap.clear();
+        crowdOutputMap.clear();
+        elements.attractionCount.textContent = `${state.attractions.length}件`;
+        elements.sourceCredit.classList.toggle('is-hidden', state.source !== 'queue-times');
+        const sourceText = state.manualMode ? '手入力' : (state.sourceDetail || '未取得');
+        elements.sourceNote.textContent = state.manualMode
+          ? 'データ取得元: 手入力 / 手入力した待ち時間で計算'
+          : `データ取得元: ${sourceText} / 待ち時間の長い順に表示`;
+
+        const fragment = document.createDocumentFragment();
+        state.attractions.forEach((attraction, index) => {
+          fragment.appendChild(createAttractionCard(attraction, index));
+        });
+        elements.attractionList.appendChild(fragment);
+        calculateCrowd();
+      }
+
+      function createAttractionCard(attraction, index) {
+        const card = document.createElement('article');
+        card.className = `attraction-card ${getWaitClass(attraction)}${isOperating(attraction) ? '' : ' is-closed'}`;
+
+        const nameBlock = document.createElement('div');
+        nameBlock.className = 'name-block';
+
+        const title = document.createElement('h3');
+        title.className = 'attraction-name';
+        title.textContent = translateName(attraction.name, attraction);
+        nameBlock.appendChild(title);
+
+        if (translateName(attraction.name, attraction) !== attraction.name) {
+          const original = document.createElement('div');
+          original.className = 'attraction-original';
+          original.lang = 'en';
+          original.textContent = attraction.name;
+          nameBlock.appendChild(original);
+        }
+
+        const waitField = document.createElement('div');
+        waitField.className = 'field';
+        const waitLabel = document.createElement('div');
+        waitLabel.className = 'field-label';
+        waitLabel.textContent = state.manualMode ? '待ち時間入力' : '待ち時間';
+        waitField.appendChild(waitLabel);
+
+        if (state.manualMode) {
+          const waitInputId = `wait-${index}`;
+          waitLabel.remove();
+          const manualWaitLabel = document.createElement('label');
+          manualWaitLabel.className = 'field-label';
+          manualWaitLabel.setAttribute('for', waitInputId);
+          manualWaitLabel.textContent = '待ち時間入力';
+          waitField.appendChild(manualWaitLabel);
+
+          const waitInput = document.createElement('input');
+          waitInput.id = waitInputId;
+          waitInput.className = 'number-input wait-input';
+          waitInput.type = 'number';
+          waitInput.min = '0';
+          waitInput.step = '1';
+          waitInput.inputMode = 'numeric';
+          waitInput.placeholder = '--';
+          waitInput.value = isValidWholeNumber(attraction.waitTime) ? String(attraction.waitTime) : '';
+          waitInput.setAttribute('aria-label', `${translateName(attraction.name, attraction)} の待ち時間 分`);
+          waitInput.addEventListener('input', () => handleManualWaitInput(attraction.id, waitInput));
+          waitInput.addEventListener('keydown', handleSequentialFocus);
+          waitField.appendChild(waitInput);
+        } else {
+          const waitValue = document.createElement('div');
+          waitValue.className = isOperating(attraction) ? 'wait-value' : 'wait-value closed';
+          waitValue.textContent = isOperating(attraction) && isValidWholeNumber(attraction.waitTime)
+            ? `${attraction.waitTime}分`
+            : '休止中';
+          waitField.appendChild(waitValue);
+        }
+
+        const carryField = document.createElement('div');
+        carryField.className = 'field';
+        const carryLabel = document.createElement('label');
+        carryLabel.textContent = 'キャリー 人/分';
+        const carryInput = document.createElement('input');
+        const carryInputId = `carry-${index}`;
+        carryInput.id = carryInputId;
+        carryInput.className = 'number-input carry-input';
+        carryInput.type = 'number';
+        carryInput.min = '0';
+        carryInput.step = '1';
+        carryInput.inputMode = 'numeric';
+        carryInput.placeholder = '--';
+        carryInput.value = readStoredWholeNumberString(CARRY_PREFIX + attraction.id);
+        carryInput.disabled = !isOperating(attraction) && !state.manualMode;
+        carryInput.setAttribute('aria-label', `${translateName(attraction.name, attraction)} のキャリー 人毎分`);
+        carryLabel.setAttribute('for', carryInputId);
+        carryInput.addEventListener('input', () => handleCarryInput(attraction.id, carryInput));
+        carryInput.addEventListener('keydown', handleSequentialFocus);
+
+        const memoButton = document.createElement('button');
+        memoButton.type = 'button';
+        memoButton.className = 'memo-button';
+        const memoIcon = document.createElement('span');
+        memoIcon.setAttribute('aria-hidden', 'true');
+        memoIcon.textContent = '📝';
+        memoButton.append(memoIcon, ' メモ');
+        memoButton.setAttribute('aria-expanded', state.openMemoIds.has(attraction.id) ? 'true' : 'false');
+        updateMemoButtonHasMemo(memoButton, hasMemo(attraction.id));
+        memoButton.addEventListener('click', () => toggleMemo(attraction.id));
+        carryField.append(carryLabel, carryInput, memoButton);
+
+        const crowdField = document.createElement('div');
+        crowdField.className = 'field';
+        const crowdLabel = document.createElement('div');
+        crowdLabel.className = 'field-label';
+        crowdLabel.textContent = '並び人数';
+        const crowdValue = document.createElement('div');
+        crowdValue.className = 'crowd-value crowd-output';
+        crowdValue.textContent = '--';
+        crowdField.append(crowdLabel, crowdValue);
+
+        card.append(nameBlock, waitField, carryField, crowdField);
+        if (state.openMemoIds.has(attraction.id)) {
+          card.appendChild(createMemoPanel(attraction));
+        }
+        cardMap.set(attraction.id, card);
+        crowdOutputMap.set(attraction.id, crowdValue);
+        return card;
+      }
+
+      function createMemoPanel(attraction) {
+        const panel = document.createElement('div');
+        panel.className = 'memo-panel';
+
+        const textarea = document.createElement('textarea');
+        textarea.className = 'memo-textarea';
+        textarea.maxLength = 500;
+        textarea.rows = 3;
+        textarea.value = readMemo(attraction.id);
+        textarea.setAttribute('aria-label', `${translateName(attraction.name, attraction)} のメモ`);
+
+        const actions = document.createElement('div');
+        actions.className = 'memo-panel-actions';
+
+        const saveButton = document.createElement('button');
+        saveButton.type = 'button';
+        saveButton.textContent = '保存';
+        saveButton.addEventListener('click', () => saveMemo(attraction.id, textarea.value));
+
+        const cancelButton = document.createElement('button');
+        cancelButton.type = 'button';
+        cancelButton.className = 'secondary';
+        cancelButton.textContent = 'キャンセル';
+        cancelButton.addEventListener('click', () => closeMemo(attraction.id));
+
+        actions.append(saveButton, cancelButton);
+        panel.append(textarea, actions);
+        return panel;
+      }
+
+      function handleCarryInput(attractionId, input) {
+        sanitizeIntegerInput(input);
+        if (input.value === '') {
+          removeStorage(CARRY_PREFIX + attractionId);
+        } else {
+          writeStorage(CARRY_PREFIX + attractionId, input.value);
+        }
+        calculateCrowd();
+      }
+
+      function handleManualWaitInput(attractionId, input) {
+        sanitizeIntegerInput(input);
+        const attraction = state.attractions.find((item) => item.id === attractionId);
+        if (!attraction) {
+          return;
+        }
+        if (input.value === '') {
+          attraction.waitTime = null;
+          removeStorage(MANUAL_WAIT_PREFIX + attractionId);
+        } else {
+          attraction.waitTime = Number(input.value);
+          writeStorage(MANUAL_WAIT_PREFIX + attractionId, input.value);
+        }
+        calculateCrowd();
+      }
+
+      function handleSequentialFocus(event) {
+        if (event.key !== 'Enter' && event.key !== 'Tab') {
+          return;
+        }
+        const focusable = Array.from(elements.attractionList.querySelectorAll('input:not([disabled])'));
+        const currentIndex = focusable.indexOf(event.currentTarget);
+        if (currentIndex === -1) {
+          return;
+        }
+        const direction = event.shiftKey ? -1 : 1;
+        const next = focusable[currentIndex + direction];
+        if (next) {
+          event.preventDefault();
+          next.focus();
+          next.select();
+        }
+      }
+
+      function calculateCrowd() {
+        let total = 0;
+        let missingCarryCount = 0;
+
+        state.attractions.forEach((attraction) => {
+          const card = cardMap.get(attraction.id);
+          const output = crowdOutputMap.get(attraction.id);
+          if (!card || !output) {
+            return;
+          }
+          const input = card.querySelector('.carry-input');
+          const carry = input ? Number(input.value) : NaN;
+          const canCalculate = (isOperating(attraction) || state.manualMode)
+            && isValidWholeNumber(attraction.waitTime)
+            && isValidWholeNumber(carry);
+
+          if (canCalculate) {
+            const crowd = Math.round(attraction.waitTime * carry);
+            total += crowd;
+            output.textContent = `${formatNumber(crowd)}人`;
+          } else {
+            output.textContent = '--';
+            if ((isOperating(attraction) || state.manualMode) && isValidWholeNumber(attraction.waitTime)) {
+              missingCarryCount += 1;
+            }
+          }
+        });
+
+        const factor = Number(elements.parallelFactor.value);
+        const estimatedVisitors = isValidFactor(factor) && total > 0 ? Math.round(total / factor) : 0;
+        elements.totalQueuePeople.textContent = total > 0 ? `${formatNumber(total)}人` : '--';
+        elements.estimatedVisitors.textContent = estimatedVisitors > 0 ? `${formatNumber(estimatedVisitors)}人` : '--';
+
+        if (missingCarryCount > 0) {
+          elements.coverageNote.textContent = `※ キャリー未入力のアトラクション ${missingCarryCount}件は概算に含まれていません`;
+          elements.coverageNote.classList.remove('is-hidden');
+        } else {
+          elements.coverageNote.textContent = '';
+          elements.coverageNote.classList.add('is-hidden');
+        }
+      }
+
+      function enableManualMode() {
+        state.manualMode = true;
+        state.source = 'manual';
+        state.attractions = state.attractions.length > 0 ? state.attractions : buildManualSeedAttractions();
+        state.attractions = state.attractions.map((attraction) => ({
+          ...attraction,
+          status: 'OPERATING',
+          waitTime: readStoredWholeNumber(MANUAL_WAIT_PREFIX + attraction.id) ?? attraction.waitTime
+        }));
+        elements.manualBanner.classList.add('is-hidden');
+        setError('');
+        renderAttractions();
+      }
+
+      function resetAllCarry() {
+        state.attractions.forEach((attraction) => removeStorage(CARRY_PREFIX + attraction.id));
+        elements.attractionList.querySelectorAll('.carry-input').forEach((input) => {
+          input.value = '';
+        });
+        calculateCrowd();
+      }
+
+      function toggleMemo(attractionId) {
+        if (state.openMemoIds.has(attractionId)) {
+          state.openMemoIds.delete(attractionId);
+          removeMemoPanel(attractionId);
+        } else {
+          state.openMemoIds.add(attractionId);
+          appendMemoPanel(attractionId);
+        }
+      }
+
+      function closeMemo(attractionId) {
+        state.openMemoIds.delete(attractionId);
+        removeMemoPanel(attractionId);
+        const memoButton = cardMap.get(attractionId)?.querySelector('.memo-button');
+        memoButton?.focus();
+      }
+
+      function saveMemo(attractionId, value) {
+        const trimmed = String(value).trim();
+        if (trimmed === '') {
+          removeStorage(MEMO_PREFIX + attractionId);
+        } else {
+          writeStorage(MEMO_PREFIX + attractionId, trimmed.slice(0, 500));
+        }
+        state.openMemoIds.delete(attractionId);
+        removeMemoPanel(attractionId);
+        const card = cardMap.get(attractionId);
+        const memoButton = card ? card.querySelector('.memo-button') : null;
+        if (memoButton) {
+          updateMemoButtonHasMemo(memoButton, trimmed !== '');
+        }
+        memoButton?.focus();
+      }
+
+      function appendMemoPanel(attractionId) {
+        const card = cardMap.get(attractionId);
+        const attraction = state.attractions.find((item) => item.id === attractionId);
+        if (!card || !attraction || card.querySelector('.memo-panel')) {
+          return;
+        }
+        const panel = createMemoPanel(attraction);
+        const memoButton = card.querySelector('.memo-button');
+        if (memoButton) {
+          memoButton.setAttribute('aria-expanded', 'true');
+        }
+        card.appendChild(panel);
+        const textarea = panel.querySelector('.memo-textarea');
+        if (textarea) {
+          textarea.selectionStart = textarea.value.length;
+          textarea.selectionEnd = textarea.value.length;
+          requestAnimationFrame(() => textarea.focus());
+        }
+      }
+
+      function removeMemoPanel(attractionId) {
+        const card = cardMap.get(attractionId);
+        if (!card) {
+          return;
+        }
+        const panel = card.querySelector('.memo-panel');
+        if (panel) {
+          panel.remove();
+        }
+        const memoButton = card.querySelector('.memo-button');
+        if (memoButton) {
+          memoButton.setAttribute('aria-expanded', 'false');
+        }
+      }
+
+      function updateMemoButtonHasMemo(memoButton, shouldHaveMemo) {
+        memoButton.classList.toggle('has-memo', shouldHaveMemo);
+        const badgeText = memoButton.querySelector('.memo-badge-text');
+        if (shouldHaveMemo && !badgeText) {
+          const hiddenText = document.createElement('span');
+          hiddenText.className = 'visually-hidden memo-badge-text';
+          hiddenText.textContent = 'メモあり';
+          memoButton.appendChild(hiddenText);
+        } else if (!shouldHaveMemo && badgeText) {
+          badgeText.remove();
+        }
+      }
+
+      function hasMemo(attractionId) {
+        return readMemo(attractionId) !== '';
+      }
+
+      function readMemo(attractionId) {
+        return readStoredString(MEMO_PREFIX + attractionId);
+      }
+
+      function exportMemos() {
+        const memos = {};
+        forEachStorageKey((key) => {
+          if (!key.startsWith(MEMO_PREFIX)) {
+            return;
+          }
+          const id = key.slice(MEMO_PREFIX.length);
+          const value = readStoredString(key);
+          if (id && value !== '') {
+            memos[id] = value;
+          }
+        });
+
+        const payload = {
+          version: 1,
+          exported_at: new Date().toISOString(),
+          memos
+        };
+        const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = `tdl-memos-${formatDownloadTimestamp(new Date())}.json`;
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        URL.revokeObjectURL(url);
+      }
+
+      function importMemos(event) {
+        const file = event.target.files && event.target.files[0];
+        event.target.value = '';
+        if (!file) {
+          return;
+        }
+        if (file.size > 1024 * 1024) {
+          alert('1MB以下のメモJSONを選択してください。');
+          return;
+        }
+
+        const reader = new FileReader();
+        reader.addEventListener('load', () => {
+          try {
+            const parsed = JSON.parse(String(reader.result || ''));
+            if (!parsed || parsed.version !== 1) {
+              alert('対応していないメモJSONです。');
+              return;
+            }
+            const memos = parsed && parsed.memos && typeof parsed.memos === 'object' ? parsed.memos : null;
+            if (!memos || Array.isArray(memos)) {
+              throw new Error('Invalid memo export');
+            }
+            Object.keys(memos).forEach((id) => {
+              const cleanId = String(id);
+              if (typeof memos[id] !== 'string') {
+                return;
+              }
+              const value = memos[id].trim();
+              if (cleanId === '') {
+                return;
+              }
+              if (value === '') {
+                removeStorage(MEMO_PREFIX + cleanId);
+              } else {
+                writeStorage(MEMO_PREFIX + cleanId, value.slice(0, 500));
+              }
+            });
+            renderAttractions();
+            setError('');
+          } catch (error) {
+            setError('メモJSONの取り込みに失敗しました。');
+          }
+        });
+        reader.addEventListener('error', () => setError('メモJSONの読み込みに失敗しました。'));
+        reader.readAsText(file);
+      }
+
+      function setLoading(isLoading) {
+        state.isLoading = isLoading;
+        elements.loadingBanner.classList.toggle('is-hidden', !isLoading);
+      }
+
+      function setError(message) {
+        elements.errorMessage.textContent = message;
+        elements.errorBanner.classList.toggle('is-hidden', message === '');
+      }
+
+      function updateLastFetchLabel() {
+        elements.lastFetch.textContent = `最終更新: ${state.lastFetch || '--'}`;
+      }
+
+      function updateFactorLabel() {
+        const value = Number(elements.parallelFactor.value);
+        elements.parallelFactorValue.textContent = `${Math.round(value * 100)}%`;
+        elements.parallelFactorFormula.textContent = `来園者数 ≒ 並び総人数 ÷ 並列係数（${Math.round(value * 100)}% → 約${(1 / value).toFixed(2)}倍）`;
+      }
+
+      function translateName(name, attraction) {
+        if (attraction && attraction.nameJa) {
+          return attraction.nameJa;
+        }
+        return NAME_MAP[name] || name;
+      }
+
+      function sortByWaitDesc(a, b) {
+        const aWait = isOperating(a) && isValidWholeNumber(a.waitTime) ? a.waitTime : -1;
+        const bWait = isOperating(b) && isValidWholeNumber(b.waitTime) ? b.waitTime : -1;
+        return bWait - aWait || translateName(a.name, a).localeCompare(translateName(b.name, b), 'ja');
+      }
+
+      function getWaitClass(attraction) {
+        if (!isOperating(attraction) || !isValidWholeNumber(attraction.waitTime)) {
+          return 'wait-low';
+        }
+        if (attraction.waitTime <= 30) {
+          return 'wait-low';
+        }
+        if (attraction.waitTime <= 60) {
+          return 'wait-mid';
+        }
+        if (attraction.waitTime <= 90) {
+          return 'wait-high';
+        }
+        return 'wait-extreme';
+      }
+
+      function isOperating(attraction) {
+        return attraction.status === 'OPERATING';
+      }
+
+      function sanitizeIntegerInput(input) {
+        const normalized = input.value.replace(/[^\d]/g, '');
+        input.value = normalized;
+      }
+
+      function isValidWholeNumber(value) {
+        return Number.isInteger(value) && Number.isFinite(value) && value >= 0;
+      }
+
+      function isValidFactor(value) {
+        return Number.isFinite(value) && value >= 0.2 && value <= 0.6;
+      }
+
+      function readStoredString(key) {
+        try {
+          const value = localStorage.getItem(key);
+          return value === null ? '' : String(value);
+        } catch (error) {
+          return '';
+        }
+      }
+
+      function readStoredNumber(key) {
+        const value = readStoredString(key);
+        if (value === '') {
+          return null;
+        }
+        const number = Number(value);
+        return Number.isFinite(number) ? number : null;
+      }
+
+      function readStoredWholeNumber(key) {
+        const value = readStoredNumber(key);
+        return isValidWholeNumber(value) ? value : null;
+      }
+
+      function readStoredWholeNumberString(key) {
+        const value = readStoredWholeNumber(key);
+        return value === null ? '' : String(value);
+      }
+
+      function writeStorage(key, value) {
+        try {
+          localStorage.setItem(key, value);
+        } catch (error) {
+          // Private browsing or quota errors should not block calculation.
+        }
+      }
+
+      function removeStorage(key) {
+        try {
+          localStorage.removeItem(key);
+        } catch (error) {
+          // Storage availability differs by browser and protocol.
+        }
+      }
+
+      function forEachStorageKey(callback) {
+        try {
+          const keys = [];
+          for (let index = 0; index < localStorage.length; index += 1) {
+            const key = localStorage.key(index);
+            if (key !== null) {
+              keys.push(key);
+            }
+          }
+          keys.forEach(callback);
+        } catch (error) {
+          // Storage availability differs by browser and protocol.
+        }
+      }
+
+      function logLegacyMemoNotice() {
+        let hasLegacyMemo = false;
+        forEachStorageKey((key) => {
+          if (key.startsWith(MEMO_PREFIX) && !key.slice(MEMO_PREFIX.length).startsWith('a-')) {
+            hasLegacyMemo = true;
+          }
+        });
+        if (hasLegacyMemo) {
+          console.info('Legacy memo IDs were kept as-is. New memos use normalized attraction IDs.');
+        }
+      }
+
+      function getCloudSourceLabel(fetchedAt) {
+        const fetchedDate = parseDate(fetchedAt);
+        if (!fetchedDate) {
+          return 'クラウド';
+        }
+        const elapsedMinutes = Math.max(0, Math.floor((Date.now() - fetchedDate.getTime()) / 60000));
+        return `クラウド (${elapsedMinutes}分前)`;
+      }
+
+      function parseDate(value) {
+        if (typeof value !== 'string' || value.trim() === '') {
+          return null;
+        }
+        const date = new Date(value);
+        return Number.isNaN(date.getTime()) ? null : date;
+      }
+
+      function formatNumber(value) {
+        return new Intl.NumberFormat('ja-JP').format(value);
+      }
+
+      function formatDateTime(date) {
+        const pad = (value) => String(value).padStart(2, '0');
+        return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())} ${pad(date.getHours())}:${pad(date.getMinutes())}:${pad(date.getSeconds())}`;
+      }
+
+      function formatDownloadTimestamp(date) {
+        const pad = (value) => String(value).padStart(2, '0');
+        return `${date.getFullYear()}${pad(date.getMonth() + 1)}${pad(date.getDate())}-${pad(date.getHours())}${pad(date.getMinutes())}`;
+      }
+
+      function normalizeAttractionId(nameEn) {
+        const slug = String(nameEn || '')
+          .toLowerCase()
+          .replace(/['’"“”]/g, '')
+          .replace(/[^a-z0-9]+/g, '-')
+          .replace(/^-+|-+$/g, '');
+        return slug ? `a-${slug}` : 'a-unknown';
+      }
+
+    })();
+  </script>
+</body>
+</html>

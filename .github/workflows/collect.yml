@@ -1,0 +1,71 @@
+name: Collect TDL wait times
+
+on:
+  schedule:
+    - cron: '*/10 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: collect-data
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Collect wait times
+        id: collect
+        env:
+          TZ: Asia/Tokyo
+        run: |
+          for i in 1 2 3; do
+            node scripts/collect.mjs && break
+            if [ "$i" = "3" ]; then
+              exit 1
+            fi
+            if [ "$i" = "1" ]; then
+              sleep 10
+            else
+              sleep 30
+            fi
+          done
+
+      - name: Notify on failure
+        if: ${{ failure() && steps.collect.outcome == 'failure' }}
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `[collect] failed at ${new Date().toISOString()}`,
+              body: `Workflow run: ${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`,
+              labels: ['automation', 'bug']
+            });
+
+      - name: Commit data changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/
+          if git diff --cached --quiet; then
+            echo "No data changes to commit."
+            exit 0
+          fi
+          git commit -m "data: snapshot at $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+          git push
