@@ -215,9 +215,11 @@ function writeSnapshotIndex(now = new Date()) {
   for (const date of dateDirs) {
     const dateDir = path.join(snapshotsDir, date);
     const files = readdirSync(dateDir, { withFileTypes: true })
-      .filter((entry) => entry.isFile() && /^\d{4}\.json$/.test(entry.name) && entry.name !== 'index.json')
-      .map((entry) => entry.name);
+      .filter((entry) => entry.isFile() && /^\d{4}\.json$/.test(entry.name))
+      .map((entry) => entry.name)
+      .sort();
 
+    const daySnapshots = [];
     for (const file of files) {
       const time = path.basename(file, '.json');
       const snapshotFile = path.join(dateDir, file);
@@ -233,9 +235,14 @@ function writeSnapshotIndex(now = new Date()) {
           max_wait: snapshot?.summary?.max_wait ?? null,
           open_count: snapshot?.summary?.open_count ?? null
         });
+        daySnapshots.push({ time, snapshot });
       } catch (error) {
         console.error(`warning: skipped invalid snapshot ${snapshotJsonPath}: ${error?.message || error}`);
       }
+    }
+
+    if (daySnapshots.length > 0) {
+      writeDailySeries(dateDir, date, daySnapshots);
     }
   }
 
@@ -253,6 +260,78 @@ function writeSnapshotIndex(now = new Date()) {
   writeFileSync(indexPath, `${JSON.stringify(index, null, 2)}\n`, 'utf8');
 
   return { indexPath, count: snapshots.length };
+}
+
+function writeDailySeries(dateDir, date, daySnapshots) {
+  const sorted = daySnapshots.slice().sort((a, b) => String(a.time).localeCompare(String(b.time)));
+
+  const points = [];
+  const attractions = new Map();
+
+  for (const { time, snapshot } of sorted) {
+    const ms = Date.parse(snapshot?.fetched_at);
+    if (!Number.isFinite(ms)) {
+      continue;
+    }
+
+    points.push({
+      ms,
+      time,
+      fetched_at: snapshot.fetched_at,
+      source: snapshot.source ?? null,
+      summary: snapshot.summary ?? null
+    });
+    const pointIndex = points.length - 1;
+
+    const seenIds = new Set();
+    const list = Array.isArray(snapshot.attractions) ? snapshot.attractions : [];
+    for (const attr of list) {
+      if (!attr || !attr.name_en) {
+        continue;
+      }
+      const id = normalizeAttractionId(attr.name_en);
+      if (seenIds.has(id)) {
+        continue;
+      }
+      seenIds.add(id);
+
+      if (!attractions.has(id)) {
+        attractions.set(id, {
+          name_en: attr.name_en,
+          name_ja: attr.name_ja ?? null,
+          waits: new Array(pointIndex).fill(null),
+          opens: new Array(pointIndex).fill(false)
+        });
+      }
+      const entry = attractions.get(id);
+      entry.name_en = attr.name_en;
+      if (attr.name_ja) {
+        entry.name_ja = attr.name_ja;
+      }
+      const wait = typeof attr.wait_minutes === 'number' && Number.isFinite(attr.wait_minutes) && attr.wait_minutes >= 0
+        ? attr.wait_minutes
+        : null;
+      entry.waits.push(wait);
+      entry.opens.push(attr.is_open === true);
+    }
+
+    for (const [, entry] of attractions) {
+      if (entry.waits.length === pointIndex) {
+        entry.waits.push(null);
+        entry.opens.push(false);
+      }
+    }
+  }
+
+  const series = {
+    date,
+    updated_at: new Date().toISOString(),
+    points,
+    attractions: Object.fromEntries(attractions)
+  };
+
+  const seriesPath = path.join(dateDir, 'series.json');
+  writeFileSync(seriesPath, `${JSON.stringify(series, null, 2)}\n`, 'utf8');
 }
 
 try {
