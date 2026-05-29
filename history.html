@@ -342,18 +342,6 @@
       pointer-events: none;
     }
 
-    .chart-loading {
-      position: absolute;
-      inset: 0;
-      z-index: 1;
-      display: grid;
-      place-items: center;
-      background: rgba(5, 12, 25, 0.68);
-      color: var(--text);
-      font-weight: 800;
-      pointer-events: none;
-    }
-
     .tooltip {
       position: absolute;
       z-index: 2;
@@ -490,8 +478,7 @@
       </div>
       <div class="chart-wrap" id="chartWrap">
         <svg id="waitChart" class="chart-svg" role="img" aria-label="待ち時間推移グラフ"></svg>
-        <div id="chartEmpty" class="chart-empty">表示できるグラフデータがありません</div>
-        <div id="chartLoading" class="chart-loading is-hidden">読み込み中…</div>
+        <div id="chartEmpty" class="chart-empty is-hidden">表示できるグラフデータがありません</div>
         <div id="tooltip" class="tooltip is-hidden"></div>
       </div>
       <p class="chart-hint">ホイールで拡大縮小 / 左ドラッグで横移動 / ダブルクリックでリセット</p>
@@ -549,7 +536,6 @@
         chartNote: document.getElementById('chartNote'),
         waitChart: document.getElementById('waitChart'),
         chartEmpty: document.getElementById('chartEmpty'),
-        chartLoading: document.getElementById('chartLoading'),
         chartWrap: document.getElementById('chartWrap'),
         tooltip: document.getElementById('tooltip')
       };
@@ -594,7 +580,15 @@
         try {
           const data = await fetchJson(INDEX_URL);
           const snapshots = Array.isArray(data && data.snapshots) ? data.snapshots : [];
-          const dates = Array.from(new Set(snapshots.map((s) => s && s.date).filter(Boolean))).sort().reverse();
+          const datesWithOperatingData = new Set();
+          for (const s of snapshots) {
+            if (!s || !s.date || typeof s.time !== 'string' || !/^\d{4}$/.test(s.time)) continue;
+            const minutes = parseInt(s.time.slice(0, 2), 10) * 60 + parseInt(s.time.slice(2), 10);
+            if (minutes >= OPEN_START_HOUR * 60 && minutes <= OPEN_END_HOUR * 60) {
+              datesWithOperatingData.add(s.date);
+            }
+          }
+          const dates = Array.from(datesWithOperatingData).sort().reverse();
           state.availableDates = dates;
           if (dates.length === 0) {
             setEmpty(true);
@@ -636,9 +630,7 @@
         const controller = new AbortController();
         state.seriesAbortController = controller;
 
-        setChartLoading(true);
         setError('');
-        elements.chartNote.textContent = `${date} のデータを読み込み中...`;
 
         try {
           const series = await fetchJson(`./data/snapshots/${date}/series.json`, { signal: controller.signal });
@@ -700,7 +692,6 @@
         } finally {
           if (state.seriesAbortController === controller) {
             state.seriesAbortController = null;
-            setChartLoading(false);
           }
         }
       }
@@ -1077,10 +1068,16 @@
           option.textContent = attraction.name_ja || attraction.name_en || attraction.id;
           elements.chartSelect.appendChild(option);
         });
+        let nextId = '';
         if (attractions.some((item) => item.id === previous)) {
-          elements.chartSelect.value = previous;
+          nextId = previous;
+        } else if (attractions.length > 0) {
+          nextId = attractions[0].id;
         }
-        state.selectedAttractionId = elements.chartSelect.value;
+        if (nextId) {
+          elements.chartSelect.value = nextId;
+        }
+        state.selectedAttractionId = nextId;
         elements.chartSelect.disabled = attractions.length === 0;
       }
 
@@ -1185,10 +1182,6 @@
 
       function setLoading(isLoading) {
         elements.loadingBanner.classList.toggle('is-hidden', !isLoading);
-      }
-
-      function setChartLoading(isLoading) {
-        elements.chartLoading.classList.toggle('is-hidden', !isLoading);
       }
 
       function setError(message) {
