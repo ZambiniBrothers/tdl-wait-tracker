@@ -513,7 +513,8 @@
         chartDims: { width: 800, height: 280, pad: { top: 18, right: 18, bottom: 38, left: 50 } },
         dragState: null,
         renderFrame: null,
-        seriesAbortController: null
+        seriesAbortController: null,
+        dataAttempted: false
       };
 
       const elements = {
@@ -575,6 +576,7 @@
         setEmpty(false);
         setControlsDisabled(true);
         resetSummary();
+        state.dataAttempted = false;
         renderEmptyChart();
 
         try {
@@ -645,7 +647,14 @@
           state.viewEndMs = state.dayEndMs;
 
           const points = Array.isArray(series.points) ? series.points : [];
-          const latestIdx = points.length - 1;
+          let latestIdx = points.length - 1;
+          while (latestIdx >= 0) {
+            const p = points[latestIdx];
+            const openCount = p && p.summary && Number(p.summary.open_count);
+            if (Number.isFinite(openCount) && openCount > 0) break;
+            latestIdx -= 1;
+          }
+          if (latestIdx < 0) latestIdx = points.length - 1;
           const attrEntries = Object.entries(series.attractions || {});
           const currentAttractions = attrEntries
             .filter(([, attr]) => attr && attr.name_en && attr.name_en !== 'Tomorrowland Hall')
@@ -692,6 +701,7 @@
         } finally {
           if (state.seriesAbortController === controller) {
             state.seriesAbortController = null;
+            state.dataAttempted = true;
           }
         }
       }
@@ -768,9 +778,16 @@
 
         if (!points || points.length === 0 || !Number.isFinite(viewStartMs) || !Number.isFinite(viewEndMs)) {
           elements.waitChart.setAttribute('aria-label', '待ち時間推移グラフ。表示できるデータがありません。');
-          elements.chartEmpty.classList.remove('is-hidden');
-          if (Number.isFinite(viewStartMs) && Number.isFinite(viewEndMs)) {
+          if (state.dataAttempted && Number.isFinite(viewStartMs) && Number.isFinite(viewEndMs)) {
+            const attr = state.attractionsById[state.selectedAttractionId];
+            const name = attr && (attr.name_ja || attr.name_en);
+            elements.chartEmpty.textContent = name
+              ? `${name} の ${state.currentDate} 営業時間内データがありません`
+              : '表示できるデータがありません';
+            elements.chartEmpty.classList.remove('is-hidden');
             drawAxisLabels(width, height, pad, viewStartMs, viewEndMs);
+          } else {
+            elements.chartEmpty.classList.add('is-hidden');
           }
           return;
         }
