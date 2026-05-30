@@ -615,6 +615,7 @@
         <div class="overflow-menu" id="overflowMenu">
           <button type="button" id="overflowToggle" class="secondary overflow-toggle" aria-label="その他のメニュー" aria-haspopup="true" aria-expanded="false">⋯</button>
           <div class="overflow-list is-hidden" id="overflowList" role="menu">
+            <button type="button" id="editCarryButton" class="overflow-item" role="menuitem">キャリーを編集</button>
             <button type="button" id="resetCarryButton" class="overflow-item is-danger" role="menuitem">全キャリーをリセット</button>
           </div>
         </div>
@@ -799,6 +800,7 @@
         overflowMenu: document.getElementById('overflowMenu'),
         overflowToggle: document.getElementById('overflowToggle'),
         overflowList: document.getElementById('overflowList'),
+        editCarryButton: document.getElementById('editCarryButton'),
         resetCarryButton: document.getElementById('resetCarryButton'),
         totalQueuePeople: document.getElementById('totalQueuePeople'),
         estimatedVisitors: document.getElementById('estimatedVisitors'),
@@ -840,6 +842,14 @@
         elements.resetCarryButton.addEventListener('click', () => {
           resetAllCarry();
           closeOverflowMenu();
+        });
+        elements.editCarryButton.addEventListener('click', () => {
+          closeOverflowMenu();
+          const firstCarry = elements.attractionList.querySelector('.carry-input');
+          if (firstCarry) {
+            firstCarry.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            firstCarry.focus({ preventScroll: true });
+          }
         });
         elements.overflowToggle.addEventListener('click', toggleOverflowMenu);
         document.addEventListener('click', (event) => {
@@ -1133,7 +1143,6 @@
         carryInput.inputMode = 'numeric';
         carryInput.placeholder = '--';
         carryInput.value = readStoredWholeNumberString(CARRY_PREFIX + attraction.id);
-        carryInput.disabled = !isOperating(attraction) && !state.manualMode;
         carryInput.setAttribute('aria-label', `${translateName(attraction.name, attraction)} のキャリー 人毎分`);
         carryLabel.setAttribute('for', carryInputId);
         carryInput.addEventListener('input', () => handleCarryInput(attraction.id, carryInput));

@@ -363,6 +363,61 @@
       margin-top: 6px;
     }
 
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 8px;
+      background: rgba(5, 12, 25, 0.34);
+    }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-variant-numeric: tabular-nums;
+      font-size: 0.92rem;
+    }
+
+    .data-table th,
+    .data-table td {
+      padding: 8px 12px;
+      text-align: right;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      white-space: nowrap;
+    }
+
+    .data-table th:first-child,
+    .data-table td:first-child {
+      text-align: left;
+    }
+
+    .data-table thead th {
+      position: sticky;
+      top: 0;
+      background: rgba(16, 28, 49, 0.96);
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 800;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .data-table tbody tr:nth-child(odd) {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .data-table td.is-closed {
+      color: var(--subtle);
+    }
+
+    .data-table td.is-blank {
+      color: var(--subtle);
+    }
+
+    .data-table-empty {
+      padding: 18px;
+      text-align: center;
+      color: var(--muted);
+    }
+
     @media (min-width: 820px) {
       .app-header {
         grid-template-columns: minmax(0, 1fr) auto;
@@ -484,6 +539,30 @@
       <p class="chart-hint">ホイールで拡大縮小 / 左ドラッグで横移動 / ダブルクリックでリセット</p>
     </section>
 
+    <section class="chart-panel" aria-labelledby="tableTitle">
+      <div class="chart-header">
+        <div>
+          <h2 id="tableTitle">取得時刻ごとの推移</h2>
+          <div class="source-note" id="tableNote">選択中のアトラクションの各取得時刻の待ち時間・並び人数・1時間スループットを表示します</div>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table class="data-table" id="dataTable" aria-describedby="tableNote">
+          <thead>
+            <tr>
+              <th scope="col">時刻</th>
+              <th scope="col">待ち時間</th>
+              <th scope="col">並び人数</th>
+              <th scope="col">1時間スループット</th>
+            </tr>
+          </thead>
+          <tbody id="dataTableBody"></tbody>
+        </table>
+        <div id="dataTableEmpty" class="data-table-empty is-hidden">表示できるデータがありません</div>
+      </div>
+      <p class="chart-hint">並び人数 = 待ち時間 × キャリー / 1時間スループット = キャリー × 60。キャリー未入力の場合は空欄。</p>
+    </section>
+
   </div>
 
   <script>
@@ -539,7 +618,10 @@
         waitChart: document.getElementById('waitChart'),
         chartEmpty: document.getElementById('chartEmpty'),
         chartWrap: document.getElementById('chartWrap'),
-        tooltip: document.getElementById('tooltip')
+        tooltip: document.getElementById('tooltip'),
+        dataTable: document.getElementById('dataTable'),
+        dataTableBody: document.getElementById('dataTableBody'),
+        dataTableEmpty: document.getElementById('dataTableEmpty')
       };
 
       init();
@@ -573,6 +655,12 @@
         elements.chartWrap.addEventListener('touchmove', handleTouchMove, { passive: false });
         elements.chartWrap.addEventListener('touchend', handleTouchEnd);
         elements.chartWrap.addEventListener('touchcancel', handleTouchEnd);
+
+        window.addEventListener('storage', (event) => {
+          if (event.key && event.key.startsWith(CARRY_PREFIX)) {
+            scheduleRender();
+          }
+        });
       }
 
       async function loadIndex() {
@@ -755,6 +843,7 @@
         state.renderFrame = requestAnimationFrame(() => {
           state.renderFrame = null;
           renderChart();
+          renderTable();
         });
       }
 
@@ -765,6 +854,68 @@
           state.viewEndMs = null;
         }
         renderChart();
+        renderTable();
+      }
+
+      function renderTable() {
+        const tbody = elements.dataTableBody;
+        tbody.replaceChildren();
+        const points = state.currentPoints;
+        if (!points || points.length === 0) {
+          elements.dataTableEmpty.classList.remove('is-hidden');
+          return;
+        }
+        elements.dataTableEmpty.classList.add('is-hidden');
+
+        const carry = readStoredNumber(CARRY_PREFIX + state.selectedAttractionId);
+        const carryValid = Number.isFinite(carry) && carry >= 0;
+        const hourly = carryValid ? Math.round(carry * 60) : null;
+
+        const sorted = points.slice().sort((a, b) => a.ms - b.ms);
+        const frag = document.createDocumentFragment();
+        sorted.forEach((point) => {
+          const tr = document.createElement('tr');
+
+          const timeTd = document.createElement('td');
+          timeTd.textContent = formatJstHourMin(point.ms);
+          tr.appendChild(timeTd);
+
+          const waitTd = document.createElement('td');
+          if (point.isOpen) {
+            waitTd.textContent = `${point.wait}分`;
+          } else {
+            waitTd.textContent = '休止中';
+            waitTd.classList.add('is-closed');
+          }
+          tr.appendChild(waitTd);
+
+          const queueTd = document.createElement('td');
+          if (carryValid && point.isOpen) {
+            queueTd.textContent = `${formatNumber(Math.round(point.wait * carry))}人`;
+          } else if (!carryValid) {
+            queueTd.textContent = '';
+            queueTd.classList.add('is-blank');
+          } else {
+            queueTd.textContent = '--';
+            queueTd.classList.add('is-closed');
+          }
+          tr.appendChild(queueTd);
+
+          const hourlyTd = document.createElement('td');
+          if (carryValid && point.isOpen) {
+            hourlyTd.textContent = `${formatNumber(hourly)}人`;
+          } else if (!carryValid) {
+            hourlyTd.textContent = '';
+            hourlyTd.classList.add('is-blank');
+          } else {
+            hourlyTd.textContent = '--';
+            hourlyTd.classList.add('is-closed');
+          }
+          tr.appendChild(hourlyTd);
+
+          frag.appendChild(tr);
+        });
+        tbody.appendChild(frag);
       }
 
       function renderChart() {
