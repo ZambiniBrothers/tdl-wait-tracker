@@ -279,6 +279,56 @@
       display: none;
     }
 
+    .overflow-menu {
+      position: relative;
+    }
+
+    .overflow-toggle {
+      min-width: 44px;
+      font-size: 1.25rem;
+      line-height: 1;
+      padding: 8px 12px;
+    }
+
+    .overflow-list {
+      position: absolute;
+      top: calc(100% + 6px);
+      right: 0;
+      z-index: 20;
+      display: grid;
+      min-width: 220px;
+      padding: 6px;
+      background: rgba(8, 18, 36, 0.98);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 10px;
+      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.5);
+    }
+
+    .overflow-list.is-hidden {
+      display: none;
+    }
+
+    .overflow-item {
+      background: transparent;
+      border: 0;
+      color: var(--text);
+      text-align: left;
+      padding: 10px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font: inherit;
+    }
+
+    .overflow-item:hover,
+    .overflow-item:focus-visible {
+      background: rgba(255, 255, 255, 0.08);
+      outline: none;
+    }
+
+    .overflow-item.is-danger {
+      color: #fca5a5;
+    }
+
     .visually-hidden {
       position: absolute;
       clip-path: inset(50%);
@@ -439,6 +489,18 @@
       overflow-wrap: anywhere;
     }
 
+    .hourly-value {
+      color: var(--subtle);
+      font-size: 0.82rem;
+      font-variant-numeric: tabular-nums;
+      margin-top: 2px;
+      min-height: 1em;
+    }
+
+    .hourly-value:empty {
+      display: none;
+    }
+
     .wait-value.closed {
       color: #fecaca;
     }
@@ -550,7 +612,12 @@
         <button type="button" id="importMemosButton" class="secondary">メモを取り込み</button>
         <input type="file" id="importMemosInput" class="is-hidden" accept="application/json,.json">
         <button type="button" id="refreshButton">更新</button>
-        <button type="button" id="resetCarryButton" class="danger">全キャリーをリセット</button>
+        <div class="overflow-menu" id="overflowMenu">
+          <button type="button" id="overflowToggle" class="secondary overflow-toggle" aria-label="その他のメニュー" aria-haspopup="true" aria-expanded="false">⋯</button>
+          <div class="overflow-list is-hidden" id="overflowList" role="menu">
+            <button type="button" id="resetCarryButton" class="overflow-item is-danger" role="menuitem">全キャリーをリセット</button>
+          </div>
+        </div>
       </div>
     </header>
 
@@ -720,6 +787,7 @@
 
       const cardMap = new Map();
       const crowdOutputMap = new Map();
+      const hourlyOutputMap = new Map();
       let inflightController = null;
 
       const elements = {
@@ -728,6 +796,9 @@
         importMemosButton: document.getElementById('importMemosButton'),
         importMemosInput: document.getElementById('importMemosInput'),
         refreshButton: document.getElementById('refreshButton'),
+        overflowMenu: document.getElementById('overflowMenu'),
+        overflowToggle: document.getElementById('overflowToggle'),
+        overflowList: document.getElementById('overflowList'),
         resetCarryButton: document.getElementById('resetCarryButton'),
         totalQueuePeople: document.getElementById('totalQueuePeople'),
         estimatedVisitors: document.getElementById('estimatedVisitors'),
@@ -766,7 +837,19 @@
       function bindEvents() {
         elements.refreshButton.addEventListener('click', fetchWaitTimes);
         elements.retryButton.addEventListener('click', fetchWaitTimes);
-        elements.resetCarryButton.addEventListener('click', resetAllCarry);
+        elements.resetCarryButton.addEventListener('click', () => {
+          resetAllCarry();
+          closeOverflowMenu();
+        });
+        elements.overflowToggle.addEventListener('click', toggleOverflowMenu);
+        document.addEventListener('click', (event) => {
+          if (!elements.overflowMenu.contains(event.target)) {
+            closeOverflowMenu();
+          }
+        });
+        document.addEventListener('keydown', (event) => {
+          if (event.key === 'Escape') closeOverflowMenu();
+        });
         elements.exportMemosButton.addEventListener('click', exportMemos);
         elements.importMemosButton.addEventListener('click', () => elements.importMemosInput.click());
         elements.importMemosInput.addEventListener('change', importMemos);
@@ -1076,7 +1159,10 @@
         const crowdValue = document.createElement('div');
         crowdValue.className = 'crowd-value crowd-output';
         crowdValue.textContent = '--';
-        crowdField.append(crowdLabel, crowdValue);
+        const hourlyValue = document.createElement('div');
+        hourlyValue.className = 'hourly-value';
+        hourlyValue.textContent = '';
+        crowdField.append(crowdLabel, crowdValue, hourlyValue);
 
         card.append(nameBlock, waitField, carryField, crowdField);
         if (state.openMemoIds.has(attraction.id)) {
@@ -1084,6 +1170,7 @@
         }
         cardMap.set(attraction.id, card);
         crowdOutputMap.set(attraction.id, crowdValue);
+        hourlyOutputMap.set(attraction.id, hourlyValue);
         return card;
       }
 
@@ -1168,6 +1255,7 @@
         state.attractions.forEach((attraction) => {
           const card = cardMap.get(attraction.id);
           const output = crowdOutputMap.get(attraction.id);
+          const hourlyOutput = hourlyOutputMap.get(attraction.id);
           if (!card || !output) {
             return;
           }
@@ -1181,8 +1269,17 @@
             const crowd = Math.round(attraction.waitTime * carry);
             total += crowd;
             output.textContent = `${formatNumber(crowd)}人`;
+            if (hourlyOutput) {
+              if (attraction.waitTime > 0) {
+                const hourly = Math.round((crowd / attraction.waitTime) * 60);
+                hourlyOutput.textContent = `1時間で ${formatNumber(hourly)}人`;
+              } else {
+                hourlyOutput.textContent = '';
+              }
+            }
           } else {
             output.textContent = '--';
+            if (hourlyOutput) hourlyOutput.textContent = '';
             if ((isOperating(attraction) || state.manualMode) && isValidWholeNumber(attraction.waitTime)) {
               missingCarryCount += 1;
             }
@@ -1223,6 +1320,24 @@
           input.value = '';
         });
         calculateCrowd();
+      }
+
+      function toggleOverflowMenu() {
+        if (elements.overflowList.classList.contains('is-hidden')) {
+          openOverflowMenu();
+        } else {
+          closeOverflowMenu();
+        }
+      }
+
+      function openOverflowMenu() {
+        elements.overflowList.classList.remove('is-hidden');
+        elements.overflowToggle.setAttribute('aria-expanded', 'true');
+      }
+
+      function closeOverflowMenu() {
+        elements.overflowList.classList.add('is-hidden');
+        elements.overflowToggle.setAttribute('aria-expanded', 'false');
       }
 
       function toggleMemo(attractionId) {

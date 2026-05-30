@@ -512,6 +512,7 @@
         currentPoints: [],
         chartDims: { width: 800, height: 280, pad: { top: 18, right: 18, bottom: 38, left: 50 } },
         dragState: null,
+        touchState: null,
         renderFrame: null,
         seriesAbortController: null,
         dataAttempted: false
@@ -568,6 +569,10 @@
         window.addEventListener('mousemove', handleDrag);
         window.addEventListener('mouseup', handleMouseUp);
         window.addEventListener('blur', handleMouseUp);
+        elements.chartWrap.addEventListener('touchstart', handleTouchStart, { passive: false });
+        elements.chartWrap.addEventListener('touchmove', handleTouchMove, { passive: false });
+        elements.chartWrap.addEventListener('touchend', handleTouchEnd);
+        elements.chartWrap.addEventListener('touchcancel', handleTouchEnd);
       }
 
       async function loadIndex() {
@@ -1023,6 +1028,115 @@
 
       function handleMouseLeave() {
         if (!state.dragState) hideTooltip();
+      }
+
+      function handleTouchStart(event) {
+        if (!Number.isFinite(state.dayStartMs)) return;
+        const rect = elements.chartWrap.getBoundingClientRect();
+        if (rect.width === 0) return;
+        hideTooltip();
+
+        if (event.touches.length === 1) {
+          const t = event.touches[0];
+          state.touchState = {
+            type: 'pan',
+            startX: t.clientX,
+            startViewStart: state.viewStartMs,
+            startViewEnd: state.viewEndMs,
+            rectWidth: rect.width
+          };
+          elements.chartWrap.classList.add('is-dragging');
+          event.preventDefault();
+        } else if (event.touches.length === 2) {
+          beginPinch(event, rect);
+          event.preventDefault();
+        }
+      }
+
+      function beginPinch(event, rect) {
+        const t1 = event.touches[0];
+        const t2 = event.touches[1];
+        const distance = Math.abs(t1.clientX - t2.clientX);
+        if (distance < 1) return;
+        const midX = ((t1.clientX + t2.clientX) / 2) - rect.left;
+        const midRatio = clamp(midX / rect.width, 0, 1);
+        const viewSpan = state.viewEndMs - state.viewStartMs;
+        state.touchState = {
+          type: 'pinch',
+          startDistance: distance,
+          startMidRatio: midRatio,
+          msAtMid: state.viewStartMs + midRatio * viewSpan,
+          startSpanMs: viewSpan,
+          rectWidth: rect.width
+        };
+        elements.chartWrap.classList.add('is-dragging');
+      }
+
+      function handleTouchMove(event) {
+        if (!state.touchState) return;
+        if (state.touchState.type === 'pan' && event.touches.length === 1) {
+          const t = event.touches[0];
+          const deltaX = t.clientX - state.touchState.startX;
+          const ratio = deltaX / state.touchState.rectWidth;
+          const viewSpan = state.touchState.startViewEnd - state.touchState.startViewStart;
+          const deltaMs = -ratio * viewSpan;
+          let newStart = state.touchState.startViewStart + deltaMs;
+          let newEnd = state.touchState.startViewEnd + deltaMs;
+          if (newStart < state.dayStartMs) {
+            newStart = state.dayStartMs;
+            newEnd = newStart + viewSpan;
+          }
+          if (newEnd > state.dayEndMs) {
+            newEnd = state.dayEndMs;
+            newStart = newEnd - viewSpan;
+          }
+          state.viewStartMs = newStart;
+          state.viewEndMs = newEnd;
+          scheduleRender();
+          event.preventDefault();
+        } else if (state.touchState.type === 'pinch' && event.touches.length >= 2) {
+          const t1 = event.touches[0];
+          const t2 = event.touches[1];
+          const distance = Math.abs(t1.clientX - t2.clientX);
+          if (distance < 1) return;
+          const scale = state.touchState.startDistance / distance;
+          const minSpan = MIN_VIEW_MINUTES * 60 * 1000;
+          const maxSpan = state.dayEndMs - state.dayStartMs;
+          const newSpan = clamp(state.touchState.startSpanMs * scale, minSpan, maxSpan);
+          let newStart = state.touchState.msAtMid - state.touchState.startMidRatio * newSpan;
+          let newEnd = newStart + newSpan;
+          if (newStart < state.dayStartMs) {
+            newStart = state.dayStartMs;
+            newEnd = newStart + newSpan;
+          }
+          if (newEnd > state.dayEndMs) {
+            newEnd = state.dayEndMs;
+            newStart = newEnd - newSpan;
+          }
+          state.viewStartMs = newStart;
+          state.viewEndMs = newEnd;
+          scheduleRender();
+          event.preventDefault();
+        }
+      }
+
+      function handleTouchEnd(event) {
+        if (event.touches.length === 0) {
+          state.touchState = null;
+          elements.chartWrap.classList.remove('is-dragging');
+          return;
+        }
+        if (event.touches.length === 1 && state.touchState && state.touchState.type === 'pinch') {
+          const rect = elements.chartWrap.getBoundingClientRect();
+          const t = event.touches[0];
+          state.touchState = {
+            type: 'pan',
+            startX: t.clientX,
+            startViewStart: state.viewStartMs,
+            startViewEnd: state.viewEndMs,
+            rectWidth: rect.width
+          };
+        }
       }
 
       function resetView() {
