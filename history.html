@@ -739,6 +739,7 @@
           if (ms < dayStart || ms > dayEnd) continue;
           const wait = attr.waits[i];
           if (typeof wait !== 'number' || wait < 0 || !Number.isFinite(wait)) continue;
+          if (wait % 5 !== 0) continue;
           collected.push({
             ms,
             wait,
@@ -798,16 +799,13 @@
         }
         elements.chartEmpty.classList.add('is-hidden');
 
-        const visibleWaits = points
-          .filter((p) => p.ms >= viewStartMs && p.ms <= viewEndMs)
-          .map((p) => p.wait);
-        const scaleWaits = visibleWaits.length > 0 ? visibleWaits : points.map((p) => p.wait);
-        const actualMaxWait = Math.max.apply(null, scaleWaits);
+        const allWaits = points.map((p) => p.wait);
+        const actualMaxWait = Math.max.apply(null, allWaits);
         const maxWait = Math.max(30, Math.ceil(actualMaxWait / 10) * 10);
 
         const attraction = state.attractionsById[state.selectedAttractionId];
         const attractionName = attraction && (attraction.name_ja || attraction.name_en);
-        elements.waitChart.setAttribute('aria-label', `${attractionName ? attractionName + 'の' : ''}待ち時間推移グラフ。表示範囲の最大値は${actualMaxWait}分。`);
+        elements.waitChart.setAttribute('aria-label', `${attractionName ? attractionName + 'の' : ''}待ち時間推移グラフ。最大値は${actualMaxWait}分。`);
 
         const plotW = width - pad.left - pad.right;
         const plotH = height - pad.top - pad.bottom;
@@ -1041,9 +1039,13 @@
           state.touchState = {
             type: 'pan',
             startX: t.clientX,
+            startY: t.clientY,
+            lastClientX: t.clientX,
+            lastClientY: t.clientY,
             startViewStart: state.viewStartMs,
             startViewEnd: state.viewEndMs,
-            rectWidth: rect.width
+            rectWidth: rect.width,
+            moved: false
           };
           elements.chartWrap.classList.add('is-dragging');
           event.preventDefault();
@@ -1077,6 +1079,12 @@
         if (state.touchState.type === 'pan' && event.touches.length === 1) {
           const t = event.touches[0];
           const deltaX = t.clientX - state.touchState.startX;
+          const deltaY = t.clientY - state.touchState.startY;
+          if (Math.abs(deltaX) > 6 || Math.abs(deltaY) > 6) {
+            state.touchState.moved = true;
+          }
+          state.touchState.lastClientX = t.clientX;
+          state.touchState.lastClientY = t.clientY;
           const ratio = deltaX / state.touchState.rectWidth;
           const viewSpan = state.touchState.startViewEnd - state.touchState.startViewStart;
           const deltaMs = -ratio * viewSpan;
@@ -1122,8 +1130,12 @@
 
       function handleTouchEnd(event) {
         if (event.touches.length === 0) {
+          const ts = state.touchState;
           state.touchState = null;
           elements.chartWrap.classList.remove('is-dragging');
+          if (ts && ts.type === 'pan' && !ts.moved && event.type !== 'touchcancel') {
+            showTooltipAt(ts.lastClientX, ts.lastClientY);
+          }
           return;
         }
         if (event.touches.length === 1 && state.touchState && state.touchState.type === 'pinch') {
@@ -1132,10 +1144,38 @@
           state.touchState = {
             type: 'pan',
             startX: t.clientX,
+            startY: t.clientY,
+            lastClientX: t.clientX,
+            lastClientY: t.clientY,
             startViewStart: state.viewStartMs,
             startViewEnd: state.viewEndMs,
-            rectWidth: rect.width
+            rectWidth: rect.width,
+            moved: false
           };
+        }
+      }
+
+      function showTooltipAt(clientX, clientY) {
+        if (!state.currentPoints || state.currentPoints.length === 0) return;
+        const rect = elements.chartWrap.getBoundingClientRect();
+        const pad = state.chartDims.pad;
+        const x = clientX - rect.left;
+        if (x < pad.left || x > rect.width - pad.right) return;
+        const plotW = Math.max(1, rect.width - pad.left - pad.right);
+        const ratio = (x - pad.left) / plotW;
+        const cursorMs = state.viewStartMs + ratio * (state.viewEndMs - state.viewStartMs);
+        let nearest = null;
+        let minDelta = Infinity;
+        for (const p of state.currentPoints) {
+          if (p.ms < state.viewStartMs || p.ms > state.viewEndMs) continue;
+          const delta = Math.abs(p.ms - cursorMs);
+          if (delta < minDelta) {
+            minDelta = delta;
+            nearest = p;
+          }
+        }
+        if (nearest) {
+          showTooltip({ clientX, clientY }, nearest);
         }
       }
 
