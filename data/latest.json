@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-05-31T09:30:58.186Z",
+  "fetched_at": "2026-05-31T09:34:21.432Z",
   "source": "themeparks",
   "attractions": [
     {
@@ -27,7 +27,7 @@
       "id": "a-peter-pans-flight",
       "name_en": "Peter Pan's Flight",
       "name_ja": "ピーターパン空の旅",
-      "wait_minutes": 30,
+      "wait_minutes": 40,
       "is_open": true
     },
     {
@@ -55,8 +55,8 @@
       "id": "a-cinderellas-fairy-tale-hall",
       "name_en": "Cinderella's Fairy Tale Hall",
       "name_ja": "シンデレラのフェアリーテイル・ホール",
-      "wait_minutes": 10,
-      "is_open": true
+      "wait_minutes": null,
+      "is_open": false
     },
     {
       "id": "a-tom-sawyer-island-rafts",
@@ -150,13 +150,6 @@
       "is_open": true
     },
     {
-      "id": "a-haunted-mansion",
-      "name_en": "Haunted Mansion",
-      "name_ja": "ホーンテッドマンション",
-      "wait_minutes": 15,
-      "is_open": true
-    },
-    {
       "id": "a-pirates-of-the-caribbean",
       "name_en": "Pirates of the Caribbean",
       "name_ja": "カリブの海賊",
@@ -175,6 +168,13 @@
       "name_en": "Pinocchio's Daring Journey",
       "name_ja": "ピノキオの冒険旅行",
       "wait_minutes": 15,
+      "is_open": true
+    },
+    {
+      "id": "a-haunted-mansion",
+      "name_en": "Haunted Mansion",
+      "name_ja": "ホーンテッドマンション",
+      "wait_minutes": 20,
       "is_open": true
     },
     {
@@ -220,13 +220,6 @@
       "is_open": true
     },
     {
-      "id": "a-star-tours-the-adventures-continue",
-      "name_en": "Star Tours: The Adventures Continue",
-      "name_ja": "スター・ツアーズ:ザ・アドベンチャーズ・コンティニュー",
-      "wait_minutes": 10,
-      "is_open": true
-    },
-    {
       "id": "a-donalds-boat",
       "name_en": "Donald's Boat",
       "name_ja": "ドナルドのボート",
@@ -234,17 +227,10 @@
       "is_open": true
     },
     {
-      "id": "a-gadgets-go-coaster",
-      "name_en": "Gadget's Go Coaster",
-      "name_ja": "ガジェットのゴーコースター",
-      "wait_minutes": 40,
-      "is_open": true
-    },
-    {
       "id": "a-poohs-hunny-hunt",
       "name_en": "Pooh's Hunny Hunt",
       "name_ja": "プーさんのハニーハント",
-      "wait_minutes": 40,
+      "wait_minutes": 50,
       "is_open": true
     },
     {
@@ -252,6 +238,20 @@
       "name_en": "Alice's Tea Party",
       "name_ja": "アリスのティーパーティー",
       "wait_minutes": 10,
+      "is_open": true
+    },
+    {
+      "id": "a-star-tours-the-adventures-continue",
+      "name_en": "Star Tours: The Adventures Continue",
+      "name_ja": "スター・ツアーズ:ザ・アドベンチャーズ・コンティニュー",
+      "wait_minutes": 5,
+      "is_open": true
+    },
+    {
+      "id": "a-gadgets-go-coaster",
+      "name_en": "Gadget's Go Coaster",
+      "name_ja": "ガジェットのゴーコースター",
+      "wait_minutes": 25,
       "is_open": true
     },
     {
@@ -264,8 +264,8 @@
   ],
   "summary": {
     "count": 37,
-    "open_count": 28,
-    "average_wait": 24.5,
+    "open_count": 27,
+    "average_wait": 25.2,
     "max_wait": 90
   }
 }
