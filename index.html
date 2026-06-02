@@ -414,11 +414,6 @@
       border-color: #93c5fd;
     }
 
-    .memo-button.has-notice {
-      border-color: rgba(248, 113, 113, 0.5);
-      background: rgba(248, 113, 113, 0.14);
-    }
-
     .memo-button.has-memo::after {
       content: "●";
       position: absolute;
@@ -436,37 +431,6 @@
       padding-top: 2px;
     }
 
-    .official-notice {
-      border: 1px solid rgba(248, 113, 113, 0.36);
-      border-radius: 8px;
-      background: rgba(248, 113, 113, 0.08);
-      padding: 10px 12px;
-      font-size: 0.86rem;
-      line-height: 1.5;
-      color: #fee2e2;
-    }
-
-    .official-notice-label {
-      color: #fca5a5;
-      font-weight: 800;
-      font-size: 0.74rem;
-      margin-bottom: 4px;
-      letter-spacing: 0.04em;
-    }
-
-    .official-notice-period {
-      font-weight: 700;
-      margin-bottom: 4px;
-    }
-
-    .official-notice-source {
-      margin-top: 6px;
-      font-size: 0.76rem;
-    }
-
-    .official-notice-source a {
-      color: #fca5a5;
-    }
 
     .memo-textarea {
       width: 100%;
@@ -502,6 +466,35 @@
       color: var(--subtle);
       font-size: 0.82rem;
       overflow-wrap: anywhere;
+    }
+
+    .closure-period {
+      margin-top: 6px;
+      padding: 4px 8px;
+      border: 1px solid rgba(248, 113, 113, 0.4);
+      border-radius: 6px;
+      background: rgba(248, 113, 113, 0.1);
+      color: #fee2e2;
+      font-size: 0.82rem;
+      font-weight: 700;
+      overflow-wrap: anywhere;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .closure-period-label {
+      color: #fca5a5;
+      font-weight: 800;
+      font-size: 0.74rem;
+      letter-spacing: 0.04em;
+    }
+
+    .closure-period-link {
+      color: #fca5a5;
+      text-decoration: underline;
+      font-size: 0.74rem;
+      margin-left: 4px;
     }
 
     .field {
@@ -1158,6 +1151,29 @@
           nameBlock.appendChild(original);
         }
 
+        if (attraction.closureInfo && attraction.closureInfo.period) {
+          const closurePeriod = document.createElement('div');
+          closurePeriod.className = 'closure-period';
+          closurePeriod.title = '東京ディズニーランド公式の休止情報';
+          const label = document.createElement('span');
+          label.className = 'closure-period-label';
+          label.textContent = '休止 ';
+          const value = document.createElement('span');
+          value.textContent = attraction.closureInfo.period;
+          closurePeriod.append(label, value);
+          if (attraction.closureInfo.source_url) {
+            const link = document.createElement('a');
+            link.href = attraction.closureInfo.source_url;
+            link.target = '_blank';
+            link.rel = 'noopener noreferrer';
+            link.className = 'closure-period-link';
+            link.textContent = '公式';
+            link.setAttribute('aria-label', '公式の休止情報を開く');
+            closurePeriod.append(' ', link);
+          }
+          nameBlock.appendChild(closurePeriod);
+        }
+
         const waitField = document.createElement('div');
         waitField.className = 'field';
         const waitLabel = document.createElement('div');
@@ -1226,13 +1242,9 @@
         memoButton.className = 'memo-button';
         const memoIcon = document.createElement('span');
         memoIcon.setAttribute('aria-hidden', 'true');
-        const hasClosureNotice = !!(attraction.closureInfo && (attraction.closureInfo.period || attraction.closureInfo.excerpt));
-        memoIcon.textContent = hasClosureNotice ? '⚠️' : '📝';
-        memoButton.append(memoIcon, hasClosureNotice ? ' お知らせ' : ' メモ');
+        memoIcon.textContent = '📝';
+        memoButton.append(memoIcon, ' メモ');
         memoButton.setAttribute('aria-expanded', state.openMemoIds.has(attraction.id) ? 'true' : 'false');
-        if (hasClosureNotice) {
-          memoButton.classList.add('has-notice');
-        }
         updateMemoButtonHasMemo(memoButton, hasMemo(attraction.id));
         memoButton.addEventListener('click', () => toggleMemo(attraction.id));
         carryField.append(carryLabel, carryInput, memoButton);
@@ -1263,43 +1275,6 @@
       function createMemoPanel(attraction) {
         const panel = document.createElement('div');
         panel.className = 'memo-panel';
-
-        if (attraction.closureInfo && (attraction.closureInfo.period || attraction.closureInfo.excerpt)) {
-          const notice = document.createElement('div');
-          notice.className = 'official-notice';
-
-          const label = document.createElement('div');
-          label.className = 'official-notice-label';
-          label.textContent = '公式お知らせ（休止情報）';
-          notice.appendChild(label);
-
-          if (attraction.closureInfo.period) {
-            const period = document.createElement('div');
-            period.className = 'official-notice-period';
-            period.textContent = attraction.closureInfo.period;
-            notice.appendChild(period);
-          }
-
-          if (attraction.closureInfo.excerpt) {
-            const excerpt = document.createElement('div');
-            excerpt.textContent = attraction.closureInfo.excerpt;
-            notice.appendChild(excerpt);
-          }
-
-          if (attraction.closureInfo.source_url) {
-            const sourceLine = document.createElement('div');
-            sourceLine.className = 'official-notice-source';
-            const link = document.createElement('a');
-            link.href = attraction.closureInfo.source_url;
-            link.target = '_blank';
-            link.rel = 'noopener noreferrer';
-            link.textContent = '公式ページで全文を読む →';
-            sourceLine.appendChild(link);
-            notice.appendChild(sourceLine);
-          }
-
-          panel.appendChild(notice);
-        }
 
         const textarea = document.createElement('textarea');
         textarea.className = 'memo-textarea';

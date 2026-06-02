@@ -135,19 +135,22 @@ async function fetchTdlClosures() {
     const html = await fetchText(TDL_STOP_URL, TDR_TIMEOUT_MS);
     const text = htmlToText(html);
     const closures = Object.create(null);
-    const datePattern = /\d{4}年\d{1,2}月\d{1,2}日(?:[^\n]{0,30}\d{4}年\d{1,2}月\d{1,2}日)?/;
+    // Matches "2026/5/22 - 2026/6/15", "2026/5/22～2026/6/15", "2026年5月22日 - 2026年6月15日"
+    const datePattern = /(\d{4}[\/年]\d{1,2}[\/月]\d{1,2}日?\s*[～~\-－]\s*\d{4}[\/年]\d{1,2}[\/月]\d{1,2}日?)/;
     for (const [nameEn, nameJa] of Object.entries(NAME_MAP)) {
       const id = normalizeAttractionId(nameEn);
       if (!nameJa || closures[id]) continue;
       const idx = text.indexOf(nameJa);
       if (idx < 0) continue;
-      const slice = text.slice(idx, idx + 240);
-      const dateMatch = slice.match(datePattern);
-      const period = dateMatch ? dateMatch[0] : null;
+      // Search window: just after the name, up to next attraction match (approx 120 chars)
+      const after = text.slice(idx + nameJa.length, idx + nameJa.length + 80);
+      const dateMatch = after.match(datePattern);
+      if (!dateMatch) continue;
+      const period = normalizePeriodText(dateMatch[1]);
       closures[id] = {
         name_ja: nameJa,
         period,
-        excerpt: slice.replace(/\s+/g, ' ').slice(0, 200).trim()
+        excerpt: `${nameJa} ${period}`
       };
     }
     return {
@@ -159,6 +162,15 @@ async function fetchTdlClosures() {
     console.error(`warning: TDL closure scrape failed: ${error?.message || error}`);
     return null;
   }
+}
+
+function normalizePeriodText(raw) {
+  return String(raw || '')
+    .replace(/\s+/g, ' ')
+    .replace(/[～~]/g, '〜')
+    .replace(/\s*[-－]\s*/g, ' 〜 ')
+    .replace(/\s*〜\s*/g, ' 〜 ')
+    .trim();
 }
 
 function normalizeStatus(rawStatus) {
