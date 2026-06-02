@@ -412,6 +412,11 @@
       color: var(--subtle);
     }
 
+    .data-table td.is-adjusting {
+      color: #fca5a5;
+      font-weight: 700;
+    }
+
     .data-table-empty {
       padding: 18px;
       text-align: center;
@@ -817,6 +822,7 @@
           return;
         }
         const seriesPoints = Array.isArray(state.series.points) ? state.series.points : [];
+        const hasStatuses = Array.isArray(attr.statuses);
         const dayStart = state.dayStartMs;
         const dayEnd = state.dayEndMs;
         const collected = [];
@@ -825,14 +831,20 @@
           const ms = sp && sp.ms;
           if (!Number.isFinite(ms)) continue;
           if (ms < dayStart || ms > dayEnd) continue;
-          const wait = attr.waits[i];
-          if (typeof wait !== 'number' || wait < 0 || !Number.isFinite(wait)) continue;
-          if (wait % 5 !== 0) continue;
-          collected.push({
-            ms,
-            wait,
-            isOpen: attr.opens && attr.opens[i] === true
-          });
+
+          const rawWait = attr.waits[i];
+          const isOpen = attr.opens && attr.opens[i] === true;
+          const status = hasStatuses
+            ? String(attr.statuses[i] || (isOpen ? 'OPERATING' : 'CLOSED'))
+            : (isOpen ? 'OPERATING' : 'CLOSED');
+
+          if (status === 'OPERATING') {
+            if (typeof rawWait !== 'number' || rawWait < 0 || !Number.isFinite(rawWait)) continue;
+            if (rawWait % 5 !== 0) continue;
+            collected.push({ ms, wait: rawWait, isOpen: true, status: 'OPERATING' });
+          } else if (status === 'DOWN') {
+            collected.push({ ms, wait: 0, isOpen: false, status: 'DOWN' });
+          }
         }
         state.currentPoints = collected;
         scheduleRender();
@@ -881,7 +893,10 @@
           tr.appendChild(timeTd);
 
           const waitTd = document.createElement('td');
-          if (point.isOpen) {
+          if (point.status === 'DOWN') {
+            waitTd.textContent = 'システム調整';
+            waitTd.classList.add('is-adjusting');
+          } else if (point.isOpen) {
             waitTd.textContent = `${point.wait}分`;
           } else {
             waitTd.textContent = '休止中';
@@ -988,8 +1003,13 @@
           const dot = document.createElementNS(SVG_NS, 'circle');
           dot.setAttribute('cx', String(x));
           dot.setAttribute('cy', String(y));
-          dot.setAttribute('r', '4');
-          dot.setAttribute('fill', point.isOpen ? '#facc15' : '#94a3b8');
+          const isDown = point.status === 'DOWN';
+          dot.setAttribute('r', isDown ? '5' : '4');
+          dot.setAttribute('fill', isDown ? '#ef4444' : (point.isOpen ? '#facc15' : '#94a3b8'));
+          if (isDown) {
+            dot.setAttribute('stroke', '#fee2e2');
+            dot.setAttribute('stroke-width', '1.5');
+          }
           dot.setAttribute('pointer-events', 'none');
           elements.waitChart.appendChild(dot);
         });
@@ -1338,7 +1358,8 @@
       }
 
       function showTooltip(event, point) {
-        elements.tooltip.textContent = `${formatJstHourMin(point.ms)} / ${point.wait}分${point.isOpen ? '' : ' / 休止中'}`;
+        const note = point.status === 'DOWN' ? ' / システム調整' : (point.isOpen ? '' : ' / 休止中');
+        elements.tooltip.textContent = `${formatJstHourMin(point.ms)} / ${point.wait}分${note}`;
         elements.tooltip.classList.remove('is-hidden');
         moveTooltip(event);
       }

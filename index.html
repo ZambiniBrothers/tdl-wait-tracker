@@ -309,6 +309,8 @@
     }
 
     .overflow-item {
+      display: block;
+      width: 100%;
       background: transparent;
       border: 0;
       color: var(--text);
@@ -317,6 +319,7 @@
       border-radius: 6px;
       cursor: pointer;
       font: inherit;
+      text-decoration: none;
     }
 
     .overflow-item:hover,
@@ -411,6 +414,11 @@
       border-color: #93c5fd;
     }
 
+    .memo-button.has-notice {
+      border-color: rgba(248, 113, 113, 0.5);
+      background: rgba(248, 113, 113, 0.14);
+    }
+
     .memo-button.has-memo::after {
       content: "●";
       position: absolute;
@@ -426,6 +434,38 @@
       display: grid;
       gap: 10px;
       padding-top: 2px;
+    }
+
+    .official-notice {
+      border: 1px solid rgba(248, 113, 113, 0.36);
+      border-radius: 8px;
+      background: rgba(248, 113, 113, 0.08);
+      padding: 10px 12px;
+      font-size: 0.86rem;
+      line-height: 1.5;
+      color: #fee2e2;
+    }
+
+    .official-notice-label {
+      color: #fca5a5;
+      font-weight: 800;
+      font-size: 0.74rem;
+      margin-bottom: 4px;
+      letter-spacing: 0.04em;
+    }
+
+    .official-notice-period {
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .official-notice-source {
+      margin-top: 6px;
+      font-size: 0.76rem;
+    }
+
+    .official-notice-source a {
+      color: #fca5a5;
     }
 
     .memo-textarea {
@@ -503,6 +543,16 @@
 
     .wait-value.closed {
       color: #fecaca;
+    }
+
+    .wait-value.adjusting {
+      color: #fca5a5;
+      font-size: 0.95rem;
+    }
+
+    .attraction-card.is-adjusting {
+      border-color: rgba(248, 113, 113, 0.4);
+      background: rgba(248, 113, 113, 0.08);
     }
 
     .attraction-card.wait-high .wait-value {
@@ -616,6 +666,7 @@
           <button type="button" id="overflowToggle" class="secondary overflow-toggle" aria-label="その他のメニュー" aria-haspopup="true" aria-expanded="false">⋯</button>
           <div class="overflow-list is-hidden" id="overflowList" role="menu">
             <button type="button" id="editCarryButton" class="overflow-item" role="menuitem">キャリーを編集</button>
+            <a href="./info.html" class="overflow-item" role="menuitem">舞浜の天気 ／ 周辺イベント</a>
             <button type="button" id="resetCarryButton" class="overflow-item is-danger" role="menuitem">全キャリーをリセット</button>
           </div>
         </div>
@@ -983,6 +1034,9 @@
 
       function normalizeCloudData(data) {
         const attractions = Array.isArray(data && data.attractions) ? data.attractions : [];
+        const closureSourceUrl = data && data.closures && typeof data.closures.source_url === 'string'
+          ? data.closures.source_url
+          : null;
         return attractions
           .filter((item) => item && item.name_en !== 'Tomorrowland Hall' && item.name_ja !== 'トゥモローランド・ホール')
           .map((item) => {
@@ -990,13 +1044,23 @@
             const isOpen = item.is_open === true;
             const nameEn = String(item.name_en || item.name_ja || 'Unknown');
             const nameJa = item.name_ja ? String(item.name_ja) : '';
+            const rawStatus = typeof item.status === 'string' ? item.status.toUpperCase() : '';
+            const status = rawStatus || (isOpen ? 'OPERATING' : 'CLOSED');
+            const closureInfo = item.closure_info && typeof item.closure_info === 'object'
+              ? {
+                  period: typeof item.closure_info.period === 'string' ? item.closure_info.period : null,
+                  excerpt: typeof item.closure_info.excerpt === 'string' ? item.closure_info.excerpt : '',
+                  source_url: closureSourceUrl
+                }
+              : null;
             return {
               id: normalizeAttractionId(nameEn),
               name: nameEn,
               nameJa,
-              status: isOpen ? 'OPERATING' : 'CLOSED',
+              status,
               waitTime: isOpen && isValidWholeNumber(waitTime) ? waitTime : null,
-              lastUpdated: typeof data.fetched_at === 'string' ? data.fetched_at : ''
+              lastUpdated: typeof data.fetched_at === 'string' ? data.fetched_at : '',
+              closureInfo
             };
           })
           .sort(sortByWaitDesc);
@@ -1073,7 +1137,10 @@
 
       function createAttractionCard(attraction, index) {
         const card = document.createElement('article');
-        card.className = `attraction-card ${getWaitClass(attraction)}${isOperating(attraction) ? '' : ' is-closed'}`;
+        const cardStateClass = isOperating(attraction)
+          ? ''
+          : (isSystemAdjustment(attraction) ? ' is-adjusting' : ' is-closed');
+        card.className = `attraction-card ${getWaitClass(attraction)}${cardStateClass}`;
 
         const nameBlock = document.createElement('div');
         nameBlock.className = 'name-block';
@@ -1122,10 +1189,16 @@
           waitField.appendChild(waitInput);
         } else {
           const waitValue = document.createElement('div');
-          waitValue.className = isOperating(attraction) ? 'wait-value' : 'wait-value closed';
-          waitValue.textContent = isOperating(attraction) && isValidWholeNumber(attraction.waitTime)
-            ? `${attraction.waitTime}分`
-            : '休止中';
+          if (isOperating(attraction)) {
+            waitValue.className = 'wait-value';
+            waitValue.textContent = isValidWholeNumber(attraction.waitTime) ? `${attraction.waitTime}分` : '--';
+          } else if (isSystemAdjustment(attraction)) {
+            waitValue.className = 'wait-value adjusting';
+            waitValue.textContent = 'システム調整';
+          } else {
+            waitValue.className = 'wait-value closed';
+            waitValue.textContent = '休止中';
+          }
           waitField.appendChild(waitValue);
         }
 
@@ -1153,9 +1226,13 @@
         memoButton.className = 'memo-button';
         const memoIcon = document.createElement('span');
         memoIcon.setAttribute('aria-hidden', 'true');
-        memoIcon.textContent = '📝';
-        memoButton.append(memoIcon, ' メモ');
+        const hasClosureNotice = !!(attraction.closureInfo && (attraction.closureInfo.period || attraction.closureInfo.excerpt));
+        memoIcon.textContent = hasClosureNotice ? '⚠️' : '📝';
+        memoButton.append(memoIcon, hasClosureNotice ? ' お知らせ' : ' メモ');
         memoButton.setAttribute('aria-expanded', state.openMemoIds.has(attraction.id) ? 'true' : 'false');
+        if (hasClosureNotice) {
+          memoButton.classList.add('has-notice');
+        }
         updateMemoButtonHasMemo(memoButton, hasMemo(attraction.id));
         memoButton.addEventListener('click', () => toggleMemo(attraction.id));
         carryField.append(carryLabel, carryInput, memoButton);
@@ -1186,6 +1263,43 @@
       function createMemoPanel(attraction) {
         const panel = document.createElement('div');
         panel.className = 'memo-panel';
+
+        if (attraction.closureInfo && (attraction.closureInfo.period || attraction.closureInfo.excerpt)) {
+          const notice = document.createElement('div');
+          notice.className = 'official-notice';
+
+          const label = document.createElement('div');
+          label.className = 'official-notice-label';
+          label.textContent = '公式お知らせ（休止情報）';
+          notice.appendChild(label);
+
+          if (attraction.closureInfo.period) {
+            const period = document.createElement('div');
+            period.className = 'official-notice-period';
+            period.textContent = attraction.closureInfo.period;
+            notice.appendChild(period);
+          }
+
+          if (attraction.closureInfo.excerpt) {
+            const excerpt = document.createElement('div');
+            excerpt.textContent = attraction.closureInfo.excerpt;
+            notice.appendChild(excerpt);
+          }
+
+          if (attraction.closureInfo.source_url) {
+            const sourceLine = document.createElement('div');
+            sourceLine.className = 'official-notice-source';
+            const link = document.createElement('a');
+            link.href = attraction.closureInfo.source_url;
+            link.target = '_blank';
+            link.rel = 'noopener noreferrer';
+            link.textContent = '公式ページで全文を読む →';
+            sourceLine.appendChild(link);
+            notice.appendChild(sourceLine);
+          }
+
+          panel.appendChild(notice);
+        }
 
         const textarea = document.createElement('textarea');
         textarea.className = 'memo-textarea';
@@ -1567,6 +1681,10 @@
 
       function isOperating(attraction) {
         return attraction.status === 'OPERATING';
+      }
+
+      function isSystemAdjustment(attraction) {
+        return attraction.status === 'DOWN';
       }
 
       function sanitizeIntegerInput(input) {

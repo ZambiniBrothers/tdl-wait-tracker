@@ -3,7 +3,9 @@ import path from 'node:path';
 
 const THEMEPARKS_URL = 'https://api.themeparks.wiki/v1/entity/3cc919f1-d16d-43e0-8c3f-1dd269bd1a42/live';
 const QUEUE_TIMES_URL = 'https://queue-times.com/parks/274/queue_times.json';
+const TDL_STOP_URL = 'https://www.tokyodisneyresort.jp/tdl/monthly/stop.html';
 const TIMEOUT_MS = 10_000;
+const TDR_TIMEOUT_MS = 15_000;
 
 const NAME_MAP = {
   "Peter Pan's Flight": 'ピーターパン空の旅',
@@ -87,6 +89,87 @@ async function fetchJson(url) {
   }
 }
 
+async function fetchText(url, timeoutMs = TIMEOUT_MS) {
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), timeoutMs);
+
+  try {
+    const response = await fetch(url, {
+      signal: controller.signal,
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (compatible; tdl-wait-tracker/1.0)',
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+        'Accept-Language': 'ja,en;q=0.5'
+      }
+    });
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status} ${response.statusText}`);
+    }
+    return await response.text();
+  } finally {
+    clearTimeout(timeout);
+  }
+}
+
+function htmlToText(html) {
+  return String(html || '')
+    .replace(/<script[\s\S]*?<\/script>/gi, ' ')
+    .replace(/<style[\s\S]*?<\/style>/gi, ' ')
+    .replace(/<br\s*\/?>(\r?\n)?/gi, '\n')
+    .replace(/<\/(?:p|div|li|tr|h[1-6])>/gi, '\n')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&nbsp;/g, ' ')
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(Number(n)))
+    .replace(/[ \t]+/g, ' ')
+    .replace(/\n[ \t]+/g, '\n')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
+}
+
+async function fetchTdlClosures() {
+  try {
+    const html = await fetchText(TDL_STOP_URL, TDR_TIMEOUT_MS);
+    const text = htmlToText(html);
+    const closures = Object.create(null);
+    const datePattern = /\d{4}年\d{1,2}月\d{1,2}日(?:[^\n]{0,30}\d{4}年\d{1,2}月\d{1,2}日)?/;
+    for (const [nameEn, nameJa] of Object.entries(NAME_MAP)) {
+      const id = normalizeAttractionId(nameEn);
+      if (!nameJa || closures[id]) continue;
+      const idx = text.indexOf(nameJa);
+      if (idx < 0) continue;
+      const slice = text.slice(idx, idx + 240);
+      const dateMatch = slice.match(datePattern);
+      const period = dateMatch ? dateMatch[0] : null;
+      closures[id] = {
+        name_ja: nameJa,
+        period,
+        excerpt: slice.replace(/\s+/g, ' ').slice(0, 200).trim()
+      };
+    }
+    return {
+      source_url: TDL_STOP_URL,
+      fetched_at: new Date().toISOString(),
+      closures
+    };
+  } catch (error) {
+    console.error(`warning: TDL closure scrape failed: ${error?.message || error}`);
+    return null;
+  }
+}
+
+function normalizeStatus(rawStatus) {
+  const s = String(rawStatus || '').toUpperCase();
+  if (s === 'OPERATING') return 'OPERATING';
+  if (s === 'DOWN') return 'DOWN';
+  if (s === 'REFURBISHMENT') return 'REFURBISHMENT';
+  if (s === 'CLOSED') return 'CLOSED';
+  return 'CLOSED';
+}
+
 function normalizeThemeParks(data) {
   if (!Array.isArray(data?.liveData)) {
     throw new Error('ThemeParks response did not include liveData[]');
@@ -96,13 +179,14 @@ function normalizeThemeParks(data) {
     .filter((entity) => entity?.entityType === 'ATTRACTION')
     .map((entity) => {
       const name = String(entity?.name || '').trim();
-      const status = entity?.status;
+      const status = normalizeStatus(entity?.status);
       return {
         id: normalizeAttractionId(name),
         name_en: name,
         name_ja: NAME_MAP[name] ?? null,
         wait_minutes: status === 'OPERATING' ? waitMinutes(entity?.queue?.STANDBY?.waitTime) : null,
-        is_open: status === 'OPERATING'
+        is_open: status === 'OPERATING',
+        status
       };
     })
     .filter((attraction) => attraction.name_en);
@@ -123,7 +207,8 @@ function normalizeQueueTimes(data) {
         name_en: name,
         name_ja: NAME_MAP[name] ?? null,
         wait_minutes: isOpen ? waitMinutes(ride?.wait_time) : null,
-        is_open: isOpen
+        is_open: isOpen,
+        status: isOpen ? 'OPERATING' : 'CLOSED'
       };
     })
     .filter((attraction) => attraction.name_en);
@@ -300,7 +385,8 @@ function writeDailySeries(dateDir, date, daySnapshots) {
           name_en: attr.name_en,
           name_ja: attr.name_ja ?? null,
           waits: new Array(pointIndex).fill(null),
-          opens: new Array(pointIndex).fill(false)
+          opens: new Array(pointIndex).fill(false),
+          statuses: new Array(pointIndex).fill('CLOSED')
         });
       }
       const entry = attractions.get(id);
@@ -313,12 +399,14 @@ function writeDailySeries(dateDir, date, daySnapshots) {
         : null;
       entry.waits.push(wait);
       entry.opens.push(attr.is_open === true);
+      entry.statuses.push(typeof attr.status === 'string' ? attr.status : (attr.is_open ? 'OPERATING' : 'CLOSED'));
     }
 
     for (const [, entry] of attractions) {
       if (entry.waits.length === pointIndex) {
         entry.waits.push(null);
         entry.opens.push(false);
+        entry.statuses.push('CLOSED');
       }
     }
   }
@@ -336,17 +424,27 @@ function writeDailySeries(dateDir, date, daySnapshots) {
 
 try {
   const result = await collect();
+  const closureInfo = await fetchTdlClosures();
   const now = new Date();
+  if (closureInfo && closureInfo.closures) {
+    for (const attraction of result.attractions) {
+      const info = closureInfo.closures[attraction.id];
+      if (info) {
+        attraction.closure_info = info;
+      }
+    }
+  }
   const payload = {
     fetched_at: now.toISOString(),
     source: result.source,
     attractions: result.attractions,
-    summary: summarize(result.attractions)
+    summary: summarize(result.attractions),
+    closures: closureInfo
   };
   const paths = writeSnapshot(payload, now);
   const index = writeSnapshotIndex(now);
 
-  console.log(`source=${payload.source} count=${payload.summary.count} max_wait=${payload.summary.max_wait}`);
+  console.log(`source=${payload.source} count=${payload.summary.count} max_wait=${payload.summary.max_wait} closures=${closureInfo ? Object.keys(closureInfo.closures).length : 'n/a'}`);
   console.log(`saved ${paths.latestPath}`);
   console.log(`saved ${paths.historyPath}`);
   console.log(`saved ${index.indexPath} (${index.count} entries)`);

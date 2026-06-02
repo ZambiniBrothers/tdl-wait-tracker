@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://api.open-meteo.com; base-uri 'none'; form-action 'none'">
+  <title>舞浜の天気・周辺イベント情報</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #07111f;
+      --panel: #101c31;
+      --panel-2: #13243f;
+      --line: #29415f;
+      --text: #f7fbff;
+      --muted: #b7c7dc;
+      --subtle: #8fa4bf;
+      --blue: #2563eb;
+      --royal: #1e3a8a;
+      --shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-width: 320px;
+      background:
+        radial-gradient(circle at top left, rgba(37, 99, 235, 0.28), transparent 32rem),
+        linear-gradient(135deg, #07111f 0%, #111827 48%, #1a1230 100%);
+      color: var(--text);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.5;
+    }
+
+    .page {
+      width: min(1180px, 100%);
+      margin: 0 auto;
+      padding: 22px clamp(14px, 3vw, 28px) 42px;
+    }
+
+    .app-header {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 18px;
+      align-items: end;
+      padding: 10px 0 20px;
+    }
+
+    h1 {
+      margin: 0 0 6px;
+      font-size: clamp(1.55rem, 4vw, 2.55rem);
+    }
+
+    h2 {
+      margin: 0 0 12px;
+      font-size: 1.2rem;
+    }
+
+    .lead {
+      margin: 0;
+      color: var(--muted);
+      max-width: 740px;
+    }
+
+    .link-button {
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text);
+      font-weight: 700;
+      padding: 0 14px;
+      text-decoration: none;
+    }
+
+    .link-button:hover {
+      background: rgba(255, 255, 255, 0.14);
+    }
+
+    .panel {
+      display: grid;
+      gap: 14px;
+      margin: 0 0 18px;
+      padding: clamp(16px, 3vw, 22px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 8px;
+      background: rgba(16, 28, 49, 0.92);
+      box-shadow: var(--shadow);
+    }
+
+    .weather-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 12px;
+    }
+
+    .weather-cell {
+      padding: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 8px;
+      background: rgba(5, 12, 25, 0.34);
+    }
+
+    .weather-day {
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-weight: 800;
+    }
+
+    .weather-icon {
+      font-size: 1.85rem;
+      line-height: 1.1;
+      margin: 2px 0 4px;
+    }
+
+    .weather-temp {
+      font-size: 0.95rem;
+      font-weight: 800;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .weather-rain {
+      color: var(--subtle);
+      font-size: 0.78rem;
+      margin-top: 4px;
+    }
+
+    .current-weather {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: 14px;
+      align-items: center;
+      padding: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 8px;
+      background: linear-gradient(135deg, rgba(30, 58, 138, 0.6), rgba(88, 28, 135, 0.55));
+    }
+
+    .current-icon {
+      font-size: 3.1rem;
+      line-height: 1;
+    }
+
+    .current-temp {
+      font-size: 2rem;
+      font-weight: 900;
+      font-variant-numeric: tabular-nums;
+      margin: 0;
+    }
+
+    .current-meta {
+      color: #dbeafe;
+      font-size: 0.86rem;
+    }
+
+    .event-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+
+    .event-tab {
+      min-height: 38px;
+      padding: 0 14px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text);
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .event-tab[aria-pressed="true"] {
+      background: linear-gradient(180deg, #3157c7, var(--royal));
+      border-color: rgba(255, 255, 255, 0.36);
+    }
+
+    .event-links {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 10px;
+    }
+
+    .event-link {
+      display: block;
+      padding: 12px 14px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 8px;
+      background: rgba(5, 12, 25, 0.34);
+      color: var(--text);
+      text-decoration: none;
+      transition: border-color 120ms ease, transform 120ms ease;
+    }
+
+    .event-link:hover {
+      border-color: rgba(255, 255, 255, 0.35);
+      transform: translateY(-1px);
+    }
+
+    .event-link-title {
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+
+    .event-link-desc {
+      color: var(--subtle);
+      font-size: 0.82rem;
+    }
+
+    .status {
+      color: var(--subtle);
+      font-size: 0.86rem;
+    }
+
+    .status.is-error {
+      color: #fecaca;
+    }
+
+    .is-hidden {
+      display: none !important;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="app-header">
+      <div>
+        <h1>舞浜の天気 ／ 周辺イベント</h1>
+        <p class="lead">来園日の参考情報。舞浜（浦安市）の天気と、千葉・東京・埼玉・神奈川のイベント情報リンクをまとめています。</p>
+      </div>
+      <div>
+        <a href="./index.html" class="link-button"><span aria-hidden="true">←</span> 待ち時間に戻る</a>
+      </div>
+    </header>
+
+    <section class="panel" aria-labelledby="weatherTitle">
+      <h2 id="weatherTitle">舞浜の天気</h2>
+      <div id="currentWeather" class="current-weather is-hidden">
+        <div class="current-icon" id="currentIcon">☁️</div>
+        <div>
+          <p class="current-temp"><span id="currentTemp">--</span>℃</p>
+          <div class="current-meta">
+            <span id="currentDesc">--</span> ／ 体感 <span id="apparentTemp">--</span>℃ ／ 降水確率(1h) <span id="currentRain">--</span>%
+          </div>
+        </div>
+      </div>
+      <div id="weatherStatus" class="status">天気情報を取得しています…</div>
+      <div id="forecast" class="weather-grid" aria-label="今後7日間の予報"></div>
+      <p class="status">提供: <a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer" style="color: var(--subtle);">Open-Meteo</a></p>
+    </section>
+
+    <section class="panel" aria-labelledby="eventsTitle">
+      <h2 id="eventsTitle">周辺イベント情報</h2>
+      <div class="event-tabs" role="tablist" aria-label="エリア選択">
+        <button type="button" class="event-tab" role="tab" aria-pressed="true" data-area="chiba">千葉県</button>
+        <button type="button" class="event-tab" role="tab" aria-pressed="false" data-area="tokyo">東京都</button>
+        <button type="button" class="event-tab" role="tab" aria-pressed="false" data-area="saitama">埼玉県</button>
+        <button type="button" class="event-tab" role="tab" aria-pressed="false" data-area="kanagawa">神奈川県</button>
+      </div>
+      <div id="eventLinks" class="event-links"></div>
+      <p class="status">※ イベント情報は外部の情報サイトへのリンクです。リンク先で詳細をご確認ください。</p>
+    </section>
+  </div>
+
+  <script>
+    (() => {
+      const LAT = 35.6329;
+      const LON = 139.8826;
+      const WMO_CODE = {
+        0: { icon: '☀️', label: '快晴' },
+        1: { icon: '🌤️', label: 'おおむね晴れ' },
+        2: { icon: '⛅', label: '一部曇り' },
+        3: { icon: '☁️', label: '曇り' },
+        45: { icon: '🌫️', label: '霧' },
+        48: { icon: '🌫️', label: '着氷霧' },
+        51: { icon: '🌦️', label: '小雨' },
+        53: { icon: '🌦️', label: '雨' },
+        55: { icon: '🌧️', label: '強い雨' },
+        61: { icon: '🌧️', label: '弱い雨' },
+        63: { icon: '🌧️', label: '雨' },
+        65: { icon: '🌧️', label: '強い雨' },
+        71: { icon: '🌨️', label: '弱い雪' },
+        73: { icon: '🌨️', label: '雪' },
+        75: { icon: '❄️', label: '強い雪' },
+        77: { icon: '🌨️', label: '雪あられ' },
+        80: { icon: '🌦️', label: 'にわか雨(弱)' },
+        81: { icon: '🌧️', label: 'にわか雨' },
+        82: { icon: '⛈️', label: '激しいにわか雨' },
+        85: { icon: '🌨️', label: 'にわか雪(弱)' },
+        86: { icon: '❄️', label: 'にわか雪(強)' },
+        95: { icon: '⛈️', label: '雷雨' },
+        96: { icon: '⛈️', label: '雷雨+雹' },
+        99: { icon: '⛈️', label: '激しい雷雨' }
+      };
+
+      const EVENTS = {
+        chiba: [
+          { title: 'まるごとe!ちば（千葉県公式観光物産サイト）', url: 'https://maruchiba.jp/event/', desc: '千葉県内のイベント・観光情報' },
+          { title: '浦安市公式 イベント情報', url: 'https://www.city.urayasu.lg.jp/kanko/event/', desc: '舞浜エリア（浦安市）のイベント' },
+          { title: 'Walkerplus 千葉のイベント', url: 'https://www.walkerplus.com/event_list/ar0312/', desc: '千葉県のイベントカレンダー' }
+        ],
+        tokyo: [
+          { title: 'GO TOKYO（東京観光公式）イベント', url: 'https://www.gotokyo.org/jp/destinations/eastern-tokyo/events.html', desc: '東京都内のイベント情報' },
+          { title: 'Walkerplus 東京のイベント', url: 'https://www.walkerplus.com/event_list/ar0313/', desc: '東京都のイベントカレンダー' },
+          { title: 'Lets Enjoy TOKYO', url: 'https://www.enjoytokyo.jp/feature/event/', desc: '東京のおでかけ・イベント' }
+        ],
+        saitama: [
+          { title: 'ちょこたび埼玉（県観光協会）', url: 'https://chocotabi-saitama.jp/event', desc: '埼玉県内のイベント' },
+          { title: 'Walkerplus 埼玉のイベント', url: 'https://www.walkerplus.com/event_list/ar0311/', desc: '埼玉県のイベントカレンダー' }
+        ],
+        kanagawa: [
+          { title: 'かながわのイベント（県公式）', url: 'https://www.pref.kanagawa.jp/docs/cnt/event/index.html', desc: '神奈川県のイベント情報' },
+          { title: 'Walkerplus 神奈川のイベント', url: 'https://www.walkerplus.com/event_list/ar0314/', desc: '神奈川県のイベントカレンダー' }
+        ]
+      };
+
+      const els = {
+        weatherStatus: document.getElementById('weatherStatus'),
+        currentWeather: document.getElementById('currentWeather'),
+        currentIcon: document.getElementById('currentIcon'),
+        currentTemp: document.getElementById('currentTemp'),
+        currentDesc: document.getElementById('currentDesc'),
+        apparentTemp: document.getElementById('apparentTemp'),
+        currentRain: document.getElementById('currentRain'),
+        forecast: document.getElementById('forecast'),
+        eventLinks: document.getElementById('eventLinks'),
+        tabs: Array.from(document.querySelectorAll('.event-tab'))
+      };
+
+      init();
+
+      function init() {
+        bindTabs();
+        renderEvents('chiba');
+        fetchWeather();
+      }
+
+      function bindTabs() {
+        els.tabs.forEach((tab) => {
+          tab.addEventListener('click', () => {
+            els.tabs.forEach((t) => t.setAttribute('aria-pressed', t === tab ? 'true' : 'false'));
+            renderEvents(tab.dataset.area);
+          });
+        });
+      }
+
+      function renderEvents(area) {
+        const list = EVENTS[area] || [];
+        els.eventLinks.replaceChildren();
+        const frag = document.createDocumentFragment();
+        list.forEach((event) => {
+          const a = document.createElement('a');
+          a.className = 'event-link';
+          a.href = event.url;
+          a.target = '_blank';
+          a.rel = 'noopener noreferrer';
+          const title = document.createElement('div');
+          title.className = 'event-link-title';
+          title.textContent = event.title;
+          const desc = document.createElement('div');
+          desc.className = 'event-link-desc';
+          desc.textContent = event.desc;
+          a.append(title, desc);
+          frag.appendChild(a);
+        });
+        els.eventLinks.appendChild(frag);
+      }
+
+      async function fetchWeather() {
+        const url = `https://api.open-meteo.com/v1/forecast?latitude=${LAT}&longitude=${LON}&current=temperature_2m,apparent_temperature,weather_code,precipitation_probability&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max&timezone=Asia%2FTokyo&forecast_days=7`;
+        try {
+          const response = await fetch(url);
+          if (!response.ok) throw new Error(`HTTP ${response.status}`);
+          const data = await response.json();
+          renderCurrent(data.current);
+          renderForecast(data.daily);
+          els.weatherStatus.classList.add('is-hidden');
+        } catch (error) {
+          els.weatherStatus.textContent = `天気情報を取得できませんでした（${error.message || error}）`;
+          els.weatherStatus.classList.add('is-error');
+        }
+      }
+
+      function renderCurrent(current) {
+        if (!current) return;
+        const code = WMO_CODE[current.weather_code] || { icon: '❓', label: '不明' };
+        els.currentIcon.textContent = code.icon;
+        els.currentDesc.textContent = code.label;
+        els.currentTemp.textContent = formatTemp(current.temperature_2m);
+        els.apparentTemp.textContent = formatTemp(current.apparent_temperature);
+        els.currentRain.textContent = Number.isFinite(current.precipitation_probability)
+          ? String(Math.round(current.precipitation_probability))
+          : '--';
+        els.currentWeather.classList.remove('is-hidden');
+      }
+
+      function renderForecast(daily) {
+        if (!daily || !Array.isArray(daily.time)) return;
+        els.forecast.replaceChildren();
+        const frag = document.createDocumentFragment();
+        daily.time.forEach((iso, i) => {
+          const code = WMO_CODE[daily.weather_code[i]] || { icon: '❓', label: '?' };
+          const cell = document.createElement('div');
+          cell.className = 'weather-cell';
+          const day = document.createElement('div');
+          day.className = 'weather-day';
+          day.textContent = formatDate(iso);
+          const icon = document.createElement('div');
+          icon.className = 'weather-icon';
+          icon.textContent = code.icon;
+          icon.title = code.label;
+          const temp = document.createElement('div');
+          temp.className = 'weather-temp';
+          temp.textContent = `${formatTemp(daily.temperature_2m_max[i])} / ${formatTemp(daily.temperature_2m_min[i])}℃`;
+          const rain = document.createElement('div');
+          rain.className = 'weather-rain';
+          const rainVal = daily.precipitation_probability_max[i];
+          rain.textContent = `降水 ${Number.isFinite(rainVal) ? Math.round(rainVal) : '--'}%`;
+          cell.append(day, icon, temp, rain);
+          frag.appendChild(cell);
+        });
+        els.forecast.appendChild(frag);
+      }
+
+      function formatTemp(v) {
+        return Number.isFinite(v) ? String(Math.round(v * 10) / 10) : '--';
+      }
+
+      function formatDate(iso) {
+        const d = new Date(`${iso}T00:00:00+09:00`);
+        if (Number.isNaN(d.getTime())) return iso;
+        const day = ['日', '月', '火', '水', '木', '金', '土'][d.getDay()];
+        return `${d.getMonth() + 1}/${d.getDate()}(${day})`;
+      }
+    })();
+  </script>
+</body>
+</html>
