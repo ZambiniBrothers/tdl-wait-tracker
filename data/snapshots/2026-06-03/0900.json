@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-06-03T00:00:46.890Z",
+  "fetched_at": "2026-06-03T00:04:42.504Z",
   "source": "themeparks",
   "attractions": [
     {
@@ -227,19 +227,6 @@
       "status": "OPERATING"
     },
     {
-      "id": "a-snow-whites-adventures",
-      "name_en": "Snow White's Adventures",
-      "name_ja": "白雪姫と七人のこびと",
-      "wait_minutes": 5,
-      "is_open": true,
-      "status": "OPERATING",
-      "closure_info": {
-        "name_ja": "白雪姫と七人のこびと",
-        "period": "2026/9/4 〜 2026/9/22",
-        "excerpt": "白雪姫と七人のこびと 2026/9/4 〜 2026/9/22"
-      }
-    },
-    {
       "id": "a-pinocchios-daring-journey",
       "name_en": "Pinocchio's Daring Journey",
       "name_ja": "ピノキオの冒険旅行",
@@ -276,6 +263,19 @@
         "name_ja": "キャッスルカルーセル",
         "period": "2026/8/13 〜 2026/9/3",
         "excerpt": "キャッスルカルーセル 2026/8/13 〜 2026/9/3"
+      }
+    },
+    {
+      "id": "a-snow-whites-adventures",
+      "name_en": "Snow White's Adventures",
+      "name_ja": "白雪姫と七人のこびと",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "CLOSED",
+      "closure_info": {
+        "name_ja": "白雪姫と七人のこびと",
+        "period": "2026/9/4 〜 2026/9/22",
+        "excerpt": "白雪姫と七人のこびと 2026/9/4 〜 2026/9/22"
       }
     },
     {
@@ -391,13 +391,13 @@
   ],
   "summary": {
     "count": 37,
-    "open_count": 30,
+    "open_count": 29,
     "average_wait": 5.8,
     "max_wait": 20
   },
   "closures": {
     "source_url": "https://www.tokyodisneyresort.jp/tdl/monthly/stop.html",
-    "fetched_at": "2026-06-03T00:00:46.890Z",
+    "fetched_at": "2026-06-03T00:04:42.504Z",
     "closures": {
       "a-big-thunder-mountain": {
         "name_ja": "ビッグサンダー・マウンテン",
