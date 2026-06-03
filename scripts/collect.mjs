@@ -1,11 +1,16 @@
 import { mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 
+const TDR_OFFICIAL_URL = 'https://www.tokyodisneyresort.jp/_/realtime/tdl_attraction.json';
 const THEMEPARKS_URL = 'https://api.themeparks.wiki/v1/entity/3cc919f1-d16d-43e0-8c3f-1dd269bd1a42/live';
 const QUEUE_TIMES_URL = 'https://queue-times.com/parks/274/queue_times.json';
 const TDL_STOP_URL = 'https://www.tokyodisneyresort.jp/tdl/monthly/stop.html';
 const TIMEOUT_MS = 10_000;
 const TDR_TIMEOUT_MS = 15_000;
+
+// 一時運営中止 codes per the JSON dictionary embedded in tdl/attraction.html
+const DOWN_STATUS_CDS = new Set(['004', '031', '032', '033']);
+const OPERATING_STATUS_CDS = new Set(['001', '024', '025', '026', '027', '040', '041']);
 
 const NAME_MAP = {
   "Peter Pan's Flight": 'ピーターパン空の旅',
@@ -63,6 +68,22 @@ function normalizeAttractionId(nameEn) {
     .replace(/^-+|-+$/g, '');
   return slug ? `a-${slug}` : 'a-unknown';
 }
+
+function normalizeJaName(value) {
+  return String(value || '')
+    .replace(/\s+/g, '')
+    .replace(/[～~]/g, '〜');
+}
+
+const JA_TO_EN = (() => {
+  const map = Object.create(null);
+  for (const [en, ja] of Object.entries(NAME_MAP)) {
+    if (!ja) continue;
+    const key = normalizeJaName(ja);
+    if (!(key in map)) map[key] = en;
+  }
+  return map;
+})();
 
 function waitMinutes(value) {
   const minutes = Number(value);
@@ -182,6 +203,64 @@ function normalizeStatus(rawStatus) {
   return 'CLOSED';
 }
 
+function classifyTdrStatusCd(cd) {
+  const s = String(cd || '');
+  if (DOWN_STATUS_CDS.has(s)) return 'DOWN';
+  if (OPERATING_STATUS_CDS.has(s)) return 'OPERATING';
+  // 002/003/039 (案内終了/運営公演中止/案内終了) and others => closed for now
+  return 'CLOSED';
+}
+
+async function fetchTdrOfficial() {
+  const data = await (async () => {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), TDR_TIMEOUT_MS);
+    try {
+      const response = await fetch(TDR_OFFICIAL_URL, {
+        signal: controller.signal,
+        headers: {
+          'User-Agent': 'Mozilla/5.0 (compatible; tdl-wait-tracker/1.0)',
+          'Accept': 'application/json,text/plain,*/*',
+          'Accept-Language': 'ja',
+          'Referer': 'https://www.tokyodisneyresort.jp/tdl/attraction.html'
+        }
+      });
+      if (!response.ok) throw new Error(`HTTP ${response.status} ${response.statusText}`);
+      return await response.json();
+    } finally {
+      clearTimeout(timer);
+    }
+  })();
+
+  if (!Array.isArray(data)) {
+    throw new Error('TDR official response was not an array');
+  }
+
+  return data
+    .map((item) => {
+      const facilityName = String(item?.FacilityName || '').trim();
+      if (!facilityName) return null;
+      const nameJaKey = normalizeJaName(facilityName);
+      const nameEn = JA_TO_EN[nameJaKey] || facilityName;
+      const status = classifyTdrStatusCd(item?.OperatingStatusCD);
+      const standbyRaw = item?.StandbyTime;
+      const standby = typeof standbyRaw === 'number' && Number.isFinite(standbyRaw) && standbyRaw >= 0
+        ? standbyRaw
+        : null;
+      return {
+        id: normalizeAttractionId(nameEn),
+        name_en: nameEn,
+        name_ja: facilityName,
+        wait_minutes: status === 'OPERATING' ? (standby ?? 0) : null,
+        is_open: status === 'OPERATING',
+        status,
+        official_status_cd: String(item?.OperatingStatusCD || ''),
+        official_status_label: String(item?.OperatingStatus || '')
+      };
+    })
+    .filter((attraction) => attraction);
+}
+
 function normalizeThemeParks(data) {
   if (!Array.isArray(data?.liveData)) {
     throw new Error('ThemeParks response did not include liveData[]');
@@ -244,20 +323,22 @@ function summarize(attractions) {
 }
 
 async function collect() {
-  const attempts = [
-    {
-      source: 'themeparks',
-      url: THEMEPARKS_URL,
-      normalize: normalizeThemeParks
-    },
-    {
-      source: 'queue-times',
-      url: QUEUE_TIMES_URL,
-      normalize: normalizeQueueTimes
-    }
-  ];
-
   const errors = [];
+
+  // Primary: TDR official realtime JSON (the only source that surfaces 一時運営中止)
+  try {
+    const attractions = await fetchTdrOfficial();
+    if (attractions.length === 0) throw new Error('TDR official returned 0 attractions');
+    return { source: 'tdr-official', attractions };
+  } catch (error) {
+    errors.push(`tdr-official: ${error?.message || error}`);
+  }
+
+  // Fallback: themeparks.wiki -> queue-times.com
+  const attempts = [
+    { source: 'themeparks', url: THEMEPARKS_URL, normalize: normalizeThemeParks },
+    { source: 'queue-times', url: QUEUE_TIMES_URL, normalize: normalizeQueueTimes }
+  ];
 
   for (const attempt of attempts) {
     try {
