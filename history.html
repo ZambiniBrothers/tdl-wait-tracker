@@ -839,7 +839,7 @@
             : (isOpen ? 'OPERATING' : 'CLOSED');
 
           if (status === 'OPERATING') {
-            if (typeof rawWait !== 'number' || rawWait < 0 || !Number.isFinite(rawWait)) continue;
+            if (typeof rawWait !== 'number' || rawWait <= 0 || !Number.isFinite(rawWait)) continue;
             if (rawWait % 5 !== 0) continue;
             collected.push({ ms, wait: rawWait, isOpen: true, status: 'OPERATING' });
           } else if (status === 'DOWN') {

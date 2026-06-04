@@ -543,6 +543,11 @@
       font-size: 0.95rem;
     }
 
+    .wait-value.walk-on {
+      color: #bae6fd;
+      font-size: 0.92rem;
+    }
+
     .attraction-card.is-adjusting {
       border-color: rgba(248, 113, 113, 0.4);
       background: rgba(248, 113, 113, 0.08);
@@ -1033,12 +1038,16 @@
         return attractions
           .filter((item) => item && item.name_en !== 'Tomorrowland Hall' && item.name_ja !== 'トゥモローランド・ホール')
           .map((item) => {
-            const waitTime = Number(item.wait_minutes);
+            // Only treat wait_minutes as a number if the snapshot field is a real number — never coerce null/string.
+            const waitTime = typeof item.wait_minutes === 'number' && Number.isFinite(item.wait_minutes)
+              ? item.wait_minutes
+              : null;
             const isOpen = item.is_open === true;
             const nameEn = String(item.name_en || item.name_ja || 'Unknown');
             const nameJa = item.name_ja ? String(item.name_ja) : '';
             const rawStatus = typeof item.status === 'string' ? item.status.toUpperCase() : '';
             const status = rawStatus || (isOpen ? 'OPERATING' : 'CLOSED');
+            const officialStatusLabel = typeof item.official_status_label === 'string' ? item.official_status_label : '';
             const closureInfo = item.closure_info && typeof item.closure_info === 'object'
               ? {
                   period: typeof item.closure_info.period === 'string' ? item.closure_info.period : null,
@@ -1051,7 +1060,8 @@
               name: nameEn,
               nameJa,
               status,
-              waitTime: isOpen && isValidWholeNumber(waitTime) ? waitTime : null,
+              waitTime: isOpen && waitTime !== null && waitTime > 0 ? waitTime : null,
+              officialStatusLabel,
               lastUpdated: typeof data.fetched_at === 'string' ? data.fetched_at : '',
               closureInfo
             };
@@ -1206,8 +1216,14 @@
         } else {
           const waitValue = document.createElement('div');
           if (isOperating(attraction)) {
-            waitValue.className = 'wait-value';
-            waitValue.textContent = isValidWholeNumber(attraction.waitTime) ? `${attraction.waitTime}分` : '--';
+            if (isValidWholeNumber(attraction.waitTime) && attraction.waitTime > 0) {
+              waitValue.className = 'wait-value';
+              waitValue.textContent = `${attraction.waitTime}分`;
+            } else {
+              // Operating, but no numeric wait — show the official label (案内中 / 並べる状態 / etc.) or fallback
+              waitValue.className = 'wait-value walk-on';
+              waitValue.textContent = attraction.officialStatusLabel || '案内中';
+            }
           } else if (isSystemAdjustment(attraction)) {
             waitValue.className = 'wait-value adjusting';
             waitValue.textContent = 'システム調整';

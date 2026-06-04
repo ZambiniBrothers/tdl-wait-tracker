@@ -87,7 +87,9 @@ const JA_TO_EN = (() => {
 
 function waitMinutes(value) {
   const minutes = Number(value);
-  return Number.isFinite(minutes) && minutes >= 0 ? minutes : 0;
+  // Return null when the source did not provide a positive wait — never default
+  // to 0 since TDL never has a true 0-minute wait.
+  return Number.isFinite(minutes) && minutes > 0 ? minutes : null;
 }
 
 async function fetchJson(url) {
@@ -244,14 +246,17 @@ async function fetchTdrOfficial() {
       const nameEn = JA_TO_EN[nameJaKey] || facilityName;
       const status = classifyTdrStatusCd(item?.OperatingStatusCD);
       const standbyRaw = item?.StandbyTime;
-      const standby = typeof standbyRaw === 'number' && Number.isFinite(standbyRaw) && standbyRaw >= 0
+      // TDR returns StandbyTime as a number for queueable rides, null/missing for
+      // shows / walk-on / pass-only / continuous-flow. Preserve null instead of
+      // collapsing to 0 — "0分" is never a real wait at TDL.
+      const standby = typeof standbyRaw === 'number' && Number.isFinite(standbyRaw) && standbyRaw > 0
         ? standbyRaw
         : null;
       return {
         id: normalizeAttractionId(nameEn),
         name_en: nameEn,
         name_ja: facilityName,
-        wait_minutes: status === 'OPERATING' ? (standby ?? 0) : null,
+        wait_minutes: status === 'OPERATING' ? standby : null,
         is_open: status === 'OPERATING',
         status,
         official_status_cd: String(item?.OperatingStatusCD || ''),
