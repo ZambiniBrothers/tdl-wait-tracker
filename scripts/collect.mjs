@@ -8,9 +8,15 @@ const TDL_STOP_URL = 'https://www.tokyodisneyresort.jp/tdl/monthly/stop.html';
 const TIMEOUT_MS = 10_000;
 const TDR_TIMEOUT_MS = 15_000;
 
-// 一時運営中止 codes per the JSON dictionary embedded in tdl/attraction.html
+// Code mapping per the OperatingStatusCD dictionary embedded in tdl/attraction.html
+// 004/031/032/033 → 一時運営中止 (DOWN, treated as system adjustment)
+// 001/024/025/026/027/034〜038/040/041/045 → operating (with various access modes)
 const DOWN_STATUS_CDS = new Set(['004', '031', '032', '033']);
-const OPERATING_STATUS_CDS = new Set(['001', '024', '025', '026', '027', '040', '041']);
+const OPERATING_STATUS_CDS = new Set([
+  '001', '024', '025', '026', '027',
+  '034', '035', '036', '037', '038',
+  '040', '041', '045'
+]);
 
 const NAME_MAP = {
   "Peter Pan's Flight": 'ピーターパン空の旅',
@@ -245,13 +251,12 @@ async function fetchTdrOfficial() {
       const nameJaKey = normalizeJaName(facilityName);
       const nameEn = JA_TO_EN[nameJaKey] || facilityName;
       const status = classifyTdrStatusCd(item?.OperatingStatusCD);
-      const standbyRaw = item?.StandbyTime;
-      // TDR returns StandbyTime as a number for queueable rides, null/missing for
-      // shows / walk-on / pass-only / continuous-flow. Preserve null instead of
-      // collapsing to 0 — "0分" is never a real wait at TDL.
-      const standby = typeof standbyRaw === 'number' && Number.isFinite(standbyRaw) && standbyRaw > 0
-        ? standbyRaw
-        : null;
+      // TDR returns StandbyTime as a STRING ("5", "30") for queueable rides,
+      // null for shows / 案内終了 / continuous-flow, "0" for 運営・公演中止 backend transient,
+      // and `false` for non-queueable facilities (ペニーアーケード / トゥーンパーク).
+      // Coerce via Number() and discard anything that is not a positive integer.
+      const standbyNum = Number(item?.StandbyTime);
+      const standby = Number.isFinite(standbyNum) && standbyNum > 0 ? standbyNum : null;
       return {
         id: normalizeAttractionId(nameEn),
         name_en: nameEn,
