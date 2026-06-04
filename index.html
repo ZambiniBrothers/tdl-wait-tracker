@@ -548,6 +548,16 @@
       font-size: 0.92rem;
     }
 
+    .wait-value.pp-only {
+      color: #fcd34d;
+      font-size: 0.95rem;
+    }
+
+    .attraction-card.is-pp-only {
+      border-color: rgba(251, 191, 36, 0.45);
+      background: rgba(251, 191, 36, 0.08);
+    }
+
     .attraction-card.is-adjusting {
       border-color: rgba(248, 113, 113, 0.4);
       background: rgba(248, 113, 113, 0.08);
@@ -1048,6 +1058,7 @@
             const rawStatus = typeof item.status === 'string' ? item.status.toUpperCase() : '';
             const status = rawStatus || (isOpen ? 'OPERATING' : 'CLOSED');
             const officialStatusLabel = typeof item.official_status_label === 'string' ? item.official_status_label : '';
+            const accessMode = typeof item.access_mode === 'string' ? item.access_mode : 'STANDBY';
             const closureInfo = item.closure_info && typeof item.closure_info === 'object'
               ? {
                   period: typeof item.closure_info.period === 'string' ? item.closure_info.period : null,
@@ -1060,6 +1071,7 @@
               name: nameEn,
               nameJa,
               status,
+              accessMode,
               waitTime: isOpen && waitTime !== null && waitTime > 0 ? waitTime : null,
               officialStatusLabel,
               lastUpdated: typeof data.fetched_at === 'string' ? data.fetched_at : '',
@@ -1141,7 +1153,7 @@
       function createAttractionCard(attraction, index) {
         const card = document.createElement('article');
         const cardStateClass = isOperating(attraction)
-          ? ''
+          ? (isPpOnly(attraction) ? ' is-pp-only' : '')
           : (isSystemAdjustment(attraction) ? ' is-adjusting' : ' is-closed');
         card.className = `attraction-card ${getWaitClass(attraction)}${cardStateClass}`;
 
@@ -1216,7 +1228,11 @@
         } else {
           const waitValue = document.createElement('div');
           if (isOperating(attraction)) {
-            if (isValidWholeNumber(attraction.waitTime) && attraction.waitTime > 0) {
+            if (isPpOnly(attraction)) {
+              waitValue.className = 'wait-value pp-only';
+              waitValue.textContent = 'PPのみ';
+              waitValue.title = attraction.officialStatusLabel || 'プライオリティ・アクセス・エントランスをご利用の方のみ案内中';
+            } else if (isValidWholeNumber(attraction.waitTime) && attraction.waitTime > 0) {
               waitValue.className = 'wait-value';
               waitValue.textContent = `${attraction.waitTime}分`;
             } else {
@@ -1676,6 +1692,10 @@
 
       function isSystemAdjustment(attraction) {
         return attraction.status === 'DOWN';
+      }
+
+      function isPpOnly(attraction) {
+        return attraction.accessMode === 'PP_ONLY';
       }
 
       function sanitizeIntegerInput(input) {

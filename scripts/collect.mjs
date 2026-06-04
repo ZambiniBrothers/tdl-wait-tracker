@@ -17,6 +17,21 @@ const OPERATING_STATUS_CDS = new Set([
   '034', '035', '036', '037', '038',
   '040', '041', '045'
 ]);
+// Pass / entry-only operating modes (no standby queue available).
+// 045 = プライオリティ・アクセス（DPA）専用、PP のみで案内中
+// 026 = スタンバイパス保持者のみ
+// 034〜038 = エントリー予約済みのみ
+const PP_ONLY_CDS = new Set(['045']);
+const STANDBY_PASS_ONLY_CDS = new Set(['026']);
+const ENTRY_ONLY_CDS = new Set(['034', '035', '036', '037', '038']);
+
+function deriveAccessMode(cd) {
+  const s = String(cd || '');
+  if (PP_ONLY_CDS.has(s)) return 'PP_ONLY';
+  if (STANDBY_PASS_ONLY_CDS.has(s)) return 'STANDBY_PASS_ONLY';
+  if (ENTRY_ONLY_CDS.has(s)) return 'ENTRY_ONLY';
+  return 'STANDBY';
+}
 
 const NAME_MAP = {
   "Peter Pan's Flight": 'ピーターパン空の旅',
@@ -250,7 +265,9 @@ async function fetchTdrOfficial() {
       if (!facilityName) return null;
       const nameJaKey = normalizeJaName(facilityName);
       const nameEn = JA_TO_EN[nameJaKey] || facilityName;
-      const status = classifyTdrStatusCd(item?.OperatingStatusCD);
+      const cd = String(item?.OperatingStatusCD || '');
+      const status = classifyTdrStatusCd(cd);
+      const accessMode = status === 'OPERATING' ? deriveAccessMode(cd) : 'STANDBY';
       // TDR returns StandbyTime as a STRING ("5", "30") for queueable rides,
       // null for shows / 案内終了 / continuous-flow, "0" for 運営・公演中止 backend transient,
       // and `false` for non-queueable facilities (ペニーアーケード / トゥーンパーク).
@@ -264,7 +281,8 @@ async function fetchTdrOfficial() {
         wait_minutes: status === 'OPERATING' ? standby : null,
         is_open: status === 'OPERATING',
         status,
-        official_status_cd: String(item?.OperatingStatusCD || ''),
+        access_mode: accessMode,
+        official_status_cd: cd,
         official_status_label: String(item?.OperatingStatus || '')
       };
     })
@@ -489,7 +507,8 @@ function writeDailySeries(dateDir, date, daySnapshots) {
           name_ja: attr.name_ja ?? null,
           waits: new Array(pointIndex).fill(null),
           opens: new Array(pointIndex).fill(false),
-          statuses: new Array(pointIndex).fill('CLOSED')
+          statuses: new Array(pointIndex).fill('CLOSED'),
+          access_modes: new Array(pointIndex).fill('STANDBY')
         });
       }
       const entry = attractions.get(id);
@@ -503,6 +522,7 @@ function writeDailySeries(dateDir, date, daySnapshots) {
       entry.waits.push(wait);
       entry.opens.push(attr.is_open === true);
       entry.statuses.push(typeof attr.status === 'string' ? attr.status : (attr.is_open ? 'OPERATING' : 'CLOSED'));
+      entry.access_modes.push(typeof attr.access_mode === 'string' ? attr.access_mode : 'STANDBY');
     }
 
     for (const [, entry] of attractions) {
@@ -510,6 +530,7 @@ function writeDailySeries(dateDir, date, daySnapshots) {
         entry.waits.push(null);
         entry.opens.push(false);
         entry.statuses.push('CLOSED');
+        entry.access_modes.push('STANDBY');
       }
     }
   }
