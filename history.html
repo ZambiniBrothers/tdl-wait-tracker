@@ -1053,7 +1053,12 @@
 
         const allWaits = points.map((p) => p.wait);
         const actualMaxWait = Math.max.apply(null, allWaits);
-        const maxWait = Math.max(30, Math.ceil(actualMaxWait / 10) * 10);
+        const rawMaxWait = Math.max(30, Math.ceil(actualMaxWait / 10) * 10);
+        // Pick the Y-axis major step so the top label is exactly maxWait.
+        const majorY = rawMaxWait <= 30 ? 10
+          : rawMaxWait <= 120 ? 20
+          : 50;
+        const maxWait = Math.ceil(rawMaxWait / majorY) * majorY;
 
         const attraction = state.attractionsById[state.selectedAttractionId];
         const attractionName = attraction && (attraction.name_ja || attraction.name_en);
@@ -1066,15 +1071,18 @@
         drawGrid(width, height, pad, maxWait);
         drawAxisLabels(width, height, pad, viewStartMs, viewEndMs);
 
-        // clipPath: keep path/dots strictly inside plot area (no overlap onto Y-axis labels)
+        // clipPath: horizontally strict (no overlap onto Y-axis labels or right edge),
+        // vertically loose by DOT_OVERHANG so the max-value dot sits fully visible
+        // even when zoomed in / panned.
+        const DOT_OVERHANG = 7;
         const defs = document.createElementNS(SVG_NS, 'defs');
         const clip = document.createElementNS(SVG_NS, 'clipPath');
         clip.setAttribute('id', 'plotClip');
         const clipRect = document.createElementNS(SVG_NS, 'rect');
         clipRect.setAttribute('x', String(pad.left));
-        clipRect.setAttribute('y', String(pad.top));
+        clipRect.setAttribute('y', String(pad.top - DOT_OVERHANG));
         clipRect.setAttribute('width', String(plotW));
-        clipRect.setAttribute('height', String(plotH));
+        clipRect.setAttribute('height', String(plotH + DOT_OVERHANG * 2));
         clip.appendChild(clipRect);
         defs.appendChild(clip);
         elements.waitChart.appendChild(defs);
@@ -1153,8 +1161,36 @@
       function drawGrid(width, height, pad, maxWait) {
         const plotW = width - pad.left - pad.right;
         const plotH = height - pad.top - pad.bottom;
-        for (let i = 0; i <= 4; i += 1) {
-          const y = pad.top + (plotH / 4) * i;
+        // Pick major (labeled) and minor (grid-only) wait-time intervals so the Y axis
+        // stays readable while showing finer reference lines.
+        let majorY, minorY;
+        if (maxWait <= 30) { majorY = 10; minorY = 5; }
+        else if (maxWait <= 60) { majorY = 20; minorY = 5; }
+        else if (maxWait <= 120) { majorY = 20; minorY = 10; }
+        else if (maxWait <= 200) { majorY = 50; minorY = 10; }
+        else { majorY = 50; minorY = 25; }
+
+        const yFor = (v) => pad.top + plotH * (1 - v / maxWait);
+
+        // Minor horizontal lines (no labels) drawn first so the major ones overlay.
+        if (minorY && minorY < majorY) {
+          for (let v = 0; v <= maxWait; v += minorY) {
+            if (v % majorY === 0) continue;
+            const y = yFor(v);
+            const line = document.createElementNS(SVG_NS, 'line');
+            line.setAttribute('x1', String(pad.left));
+            line.setAttribute('x2', String(width - pad.right));
+            line.setAttribute('y1', String(y));
+            line.setAttribute('y2', String(y));
+            line.setAttribute('stroke', 'rgba(255,255,255,0.06)');
+            line.setAttribute('pointer-events', 'none');
+            elements.waitChart.appendChild(line);
+          }
+        }
+
+        // Major lines + labels
+        for (let v = 0; v <= maxWait; v += majorY) {
+          const y = yFor(v);
           const line = document.createElementNS(SVG_NS, 'line');
           line.setAttribute('x1', String(pad.left));
           line.setAttribute('x2', String(width - pad.right));
@@ -1170,7 +1206,7 @@
           text.setAttribute('text-anchor', 'end');
           text.setAttribute('fill', '#b7c7dc');
           text.setAttribute('font-size', '12');
-          text.textContent = `${Math.round(maxWait - (maxWait / 4) * i)}分`;
+          text.textContent = `${v}分`;
           elements.waitChart.appendChild(text);
         }
 
@@ -1185,43 +1221,19 @@
 
       function drawAxisLabels(width, height, pad, viewStartMs, viewEndMs) {
         const spanMin = (viewEndMs - viewStartMs) / 60000;
-        // Choose major (labeled) and minor (grid-only) intervals.
-        // Denser ticks as the user zooms in.
-        let majorMin, minorMin;
-        if (spanMin > 480) { majorMin = 120; minorMin = 60; }
-        else if (spanMin > 240) { majorMin = 60; minorMin = 30; }
-        else if (spanMin > 120) { majorMin = 30; minorMin = 15; }
-        else if (spanMin > 60) { majorMin = 15; minorMin = 5; }
-        else if (spanMin > 30) { majorMin = 10; minorMin = 5; }
-        else if (spanMin > 15) { majorMin = 5; minorMin = 5; }
-        else { majorMin = 5; minorMin = 1; }
+        // Single set of major ticks (labeled + grid). Minor lines were removed
+        // per request — the Y-axis carries the fine resolution instead.
+        let majorMin;
+        if (spanMin > 480) majorMin = 120;
+        else if (spanMin > 240) majorMin = 60;
+        else if (spanMin > 120) majorMin = 30;
+        else if (spanMin > 60) majorMin = 15;
+        else if (spanMin > 30) majorMin = 10;
+        else majorMin = 5;
 
         const plotW = width - pad.left - pad.right;
-        const plotH = height - pad.top - pad.bottom;
         const span = Math.max(1, viewEndMs - viewStartMs);
         const jstStart = viewStartMs + JST_OFFSET_MS;
-
-        // Minor grid lines (no labels): vertical lines spanning the full plot
-        if (minorMin && minorMin < majorMin) {
-          const minorMs = minorMin * 60000;
-          const minorRem = ((jstStart % minorMs) + minorMs) % minorMs;
-          let mtick = viewStartMs + (minorRem === 0 ? 0 : minorMs - minorRem);
-          while (mtick <= viewEndMs) {
-            const mratio = (mtick - viewStartMs) / span;
-            const mx = pad.left + mratio * plotW;
-            if (mx >= pad.left - 1 && mx <= width - pad.right + 1) {
-              const minorLine = document.createElementNS(SVG_NS, 'line');
-              minorLine.setAttribute('x1', String(mx));
-              minorLine.setAttribute('x2', String(mx));
-              minorLine.setAttribute('y1', String(pad.top));
-              minorLine.setAttribute('y2', String(height - pad.bottom));
-              minorLine.setAttribute('stroke', 'rgba(255,255,255,0.05)');
-              minorLine.setAttribute('pointer-events', 'none');
-              elements.waitChart.appendChild(minorLine);
-            }
-            mtick += minorMs;
-          }
-        }
 
         // Major grid lines + tick marks + labels
         const intervalMs = majorMin * 60000;
@@ -1599,17 +1611,15 @@
           option.textContent = attraction.name_ja || attraction.name_en || attraction.id;
           elements.chartSelect.appendChild(option);
         });
-        const fullSource = state.chartSelectSource || [];
+        // Keep prior selection if still visible; otherwise pick the first match
+        // so the user immediately sees the filtered attraction's graph.
         let nextId = '';
         if (list.some((item) => item.id === previous)) {
-          nextId = previous;
-        } else if (fullSource.some((item) => item.id === previous)) {
-          // Keep selected id even when filtered out, just don't reflect it in the visible select.
           nextId = previous;
         } else if (list.length > 0) {
           nextId = list[0].id;
         }
-        if (nextId && list.some((item) => item.id === nextId)) {
+        if (nextId) {
           elements.chartSelect.value = nextId;
         }
         if (nextId !== state.selectedAttractionId) {
