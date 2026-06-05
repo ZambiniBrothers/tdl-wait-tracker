@@ -190,6 +190,32 @@
       font-variant-numeric: tabular-nums;
     }
 
+    .chart-select-field {
+      display: grid;
+      gap: 6px;
+    }
+
+    .chart-search {
+      width: 100%;
+      min-height: 38px;
+      border: 1px solid #486483;
+      border-radius: 8px;
+      background: #071426;
+      color: var(--text);
+      padding: 8px 10px;
+      font: inherit;
+      font-weight: 600;
+    }
+
+    .chart-search:focus-visible {
+      outline: 3px solid #93c5fd;
+      outline-offset: 2px;
+    }
+
+    .chart-search::placeholder {
+      color: var(--subtle);
+    }
+
     .summary-card {
       display: grid;
       gap: 18px;
@@ -541,9 +567,10 @@
           <h2 id="chartTitle">営業時間グラフ (9:00 – 21:00)</h2>
           <div class="source-note" id="chartNote">アトラクションを選択すると待ち時間の推移を表示します</div>
         </div>
-        <div class="field">
+        <div class="field chart-select-field">
           <label for="chartSelect">アトラクションを選択</label>
-          <select id="chartSelect" aria-label="グラフ表示するアトラクションを選択"></select>
+          <input type="search" id="chartSearch" class="chart-search" placeholder="名前で絞り込み（例: プー / ホーン）" autocomplete="off" aria-label="アトラクション名で絞り込み">
+          <select id="chartSelect" aria-label="グラフ表示するアトラクションを選択（あいうえお順）" size="1"></select>
         </div>
       </div>
       <div class="chart-wrap" id="chartWrap">
@@ -604,6 +631,7 @@
         viewStartMs: null,
         viewEndMs: null,
         currentPoints: [],
+        chartSelectSource: [],
         chartDims: { width: 800, height: 280, pad: { top: 18, right: 18, bottom: 38, left: 50 } },
         dragState: null,
         touchState: null,
@@ -629,6 +657,7 @@
         retryButton: document.getElementById('retryButton'),
         emptyBanner: document.getElementById('emptyBanner'),
         chartSelect: document.getElementById('chartSelect'),
+        chartSearch: document.getElementById('chartSearch'),
         chartNote: document.getElementById('chartNote'),
         waitChart: document.getElementById('waitChart'),
         chartEmpty: document.getElementById('chartEmpty'),
@@ -650,6 +679,7 @@
         elements.dateSelect.addEventListener('change', handleDateChange);
         elements.latestButton.addEventListener('click', selectLatest);
         elements.chartSelect.addEventListener('change', handleAttractionChange);
+        elements.chartSearch.addEventListener('input', handleSearchInput);
         elements.retryButton.addEventListener('click', loadIndex);
 
         let resizeTimer;
@@ -726,6 +756,7 @@
       }
 
       async function handleDateChange() {
+        if (elements.chartSearch) elements.chartSearch.value = '';
         await loadDateData(elements.dateSelect.value);
       }
 
@@ -1035,7 +1066,25 @@
         drawGrid(width, height, pad, maxWait);
         drawAxisLabels(width, height, pad, viewStartMs, viewEndMs);
 
-        const coords = points.map((point) => ({
+        // clipPath: keep path/dots strictly inside plot area (no overlap onto Y-axis labels)
+        const defs = document.createElementNS(SVG_NS, 'defs');
+        const clip = document.createElementNS(SVG_NS, 'clipPath');
+        clip.setAttribute('id', 'plotClip');
+        const clipRect = document.createElementNS(SVG_NS, 'rect');
+        clipRect.setAttribute('x', String(pad.left));
+        clipRect.setAttribute('y', String(pad.top));
+        clipRect.setAttribute('width', String(plotW));
+        clipRect.setAttribute('height', String(plotH));
+        clip.appendChild(clipRect);
+        defs.appendChild(clip);
+        elements.waitChart.appendChild(defs);
+
+        const plotGroup = document.createElementNS(SVG_NS, 'g');
+        plotGroup.setAttribute('clip-path', 'url(#plotClip)');
+        elements.waitChart.appendChild(plotGroup);
+
+        const chartPoints = compressEqualRuns(points);
+        const coords = chartPoints.map((point) => ({
           point,
           x: pad.left + ((point.ms - viewStartMs) / span) * plotW,
           y: pad.top + plotH - (Math.min(point.wait, maxWait) / maxWait) * plotH
@@ -1050,7 +1099,7 @@
           path.setAttribute('stroke-linecap', 'round');
           path.setAttribute('stroke-linejoin', 'round');
           path.setAttribute('pointer-events', 'none');
-          elements.waitChart.appendChild(path);
+          plotGroup.appendChild(path);
         }
 
         coords.forEach(({ point, x, y }) => {
@@ -1079,8 +1128,26 @@
             dot.setAttribute('fill', point.isOpen ? '#facc15' : '#94a3b8');
           }
           dot.setAttribute('pointer-events', 'none');
-          elements.waitChart.appendChild(dot);
+          plotGroup.appendChild(dot);
         });
+      }
+
+      function compressEqualRuns(points) {
+        if (!Array.isArray(points) || points.length <= 2) return points || [];
+        const sameRun = (a, b) => (
+          a.wait === b.wait &&
+          a.status === b.status &&
+          a.accessMode === b.accessMode &&
+          a.isOpen === b.isOpen
+        );
+        const result = [];
+        for (let i = 0; i < points.length; i += 1) {
+          const p = points[i];
+          const startsRun = i === 0 || !sameRun(points[i - 1], p);
+          const endsRun = i === points.length - 1 || !sameRun(points[i + 1], p);
+          if (startsRun || endsRun) result.push(p);
+        }
+        return result;
       }
 
       function drawGrid(width, height, pad, maxWait) {
@@ -1118,19 +1185,46 @@
 
       function drawAxisLabels(width, height, pad, viewStartMs, viewEndMs) {
         const spanMin = (viewEndMs - viewStartMs) / 60000;
-        let intervalMin;
-        if (spanMin > 480) intervalMin = 180;
-        else if (spanMin > 240) intervalMin = 60;
-        else if (spanMin > 120) intervalMin = 30;
-        else if (spanMin > 60) intervalMin = 15;
-        else if (spanMin > 30) intervalMin = 10;
-        else intervalMin = 5;
+        // Choose major (labeled) and minor (grid-only) intervals.
+        // Denser ticks as the user zooms in.
+        let majorMin, minorMin;
+        if (spanMin > 480) { majorMin = 120; minorMin = 60; }
+        else if (spanMin > 240) { majorMin = 60; minorMin = 30; }
+        else if (spanMin > 120) { majorMin = 30; minorMin = 15; }
+        else if (spanMin > 60) { majorMin = 15; minorMin = 5; }
+        else if (spanMin > 30) { majorMin = 10; minorMin = 5; }
+        else if (spanMin > 15) { majorMin = 5; minorMin = 5; }
+        else { majorMin = 5; minorMin = 1; }
 
-        const intervalMs = intervalMin * 60000;
         const plotW = width - pad.left - pad.right;
+        const plotH = height - pad.top - pad.bottom;
         const span = Math.max(1, viewEndMs - viewStartMs);
-
         const jstStart = viewStartMs + JST_OFFSET_MS;
+
+        // Minor grid lines (no labels): vertical lines spanning the full plot
+        if (minorMin && minorMin < majorMin) {
+          const minorMs = minorMin * 60000;
+          const minorRem = ((jstStart % minorMs) + minorMs) % minorMs;
+          let mtick = viewStartMs + (minorRem === 0 ? 0 : minorMs - minorRem);
+          while (mtick <= viewEndMs) {
+            const mratio = (mtick - viewStartMs) / span;
+            const mx = pad.left + mratio * plotW;
+            if (mx >= pad.left - 1 && mx <= width - pad.right + 1) {
+              const minorLine = document.createElementNS(SVG_NS, 'line');
+              minorLine.setAttribute('x1', String(mx));
+              minorLine.setAttribute('x2', String(mx));
+              minorLine.setAttribute('y1', String(pad.top));
+              minorLine.setAttribute('y2', String(height - pad.bottom));
+              minorLine.setAttribute('stroke', 'rgba(255,255,255,0.05)');
+              minorLine.setAttribute('pointer-events', 'none');
+              elements.waitChart.appendChild(minorLine);
+            }
+            mtick += minorMs;
+          }
+        }
+
+        // Major grid lines + tick marks + labels
+        const intervalMs = majorMin * 60000;
         const remainder = ((jstStart % intervalMs) + intervalMs) % intervalMs;
         let tick = viewStartMs + (remainder === 0 ? 0 : intervalMs - remainder);
 
@@ -1138,6 +1232,16 @@
           const ratio = (tick - viewStartMs) / span;
           const x = pad.left + ratio * plotW;
           if (x >= pad.left - 1 && x <= width - pad.right + 1) {
+            // Vertical grid line across the plot
+            const gridLine = document.createElementNS(SVG_NS, 'line');
+            gridLine.setAttribute('x1', String(x));
+            gridLine.setAttribute('x2', String(x));
+            gridLine.setAttribute('y1', String(pad.top));
+            gridLine.setAttribute('y2', String(height - pad.bottom));
+            gridLine.setAttribute('stroke', 'rgba(255,255,255,0.12)');
+            gridLine.setAttribute('pointer-events', 'none');
+            elements.waitChart.appendChild(gridLine);
+
             const tickLine = document.createElementNS(SVG_NS, 'line');
             tickLine.setAttribute('x1', String(x));
             tickLine.setAttribute('x2', String(x));
@@ -1476,25 +1580,57 @@
       }
 
       function populateChartSelect(attractions) {
-        const previous = elements.chartSelect.value;
+        // Always store attractions sorted by Japanese reading (あいうえお order).
+        const sorted = attractions.slice().sort((a, b) => {
+          const an = a.name_ja || a.name_en || '';
+          const bn = b.name_ja || b.name_en || '';
+          return an.localeCompare(bn, 'ja');
+        });
+        state.chartSelectSource = sorted;
+        renderChartSelectOptions(sorted);
+      }
+
+      function renderChartSelectOptions(list) {
+        const previous = state.selectedAttractionId || elements.chartSelect.value;
         elements.chartSelect.replaceChildren();
-        attractions.forEach((attraction) => {
+        list.forEach((attraction) => {
           const option = document.createElement('option');
           option.value = attraction.id;
           option.textContent = attraction.name_ja || attraction.name_en || attraction.id;
           elements.chartSelect.appendChild(option);
         });
+        const fullSource = state.chartSelectSource || [];
         let nextId = '';
-        if (attractions.some((item) => item.id === previous)) {
+        if (list.some((item) => item.id === previous)) {
           nextId = previous;
-        } else if (attractions.length > 0) {
-          nextId = attractions[0].id;
+        } else if (fullSource.some((item) => item.id === previous)) {
+          // Keep selected id even when filtered out, just don't reflect it in the visible select.
+          nextId = previous;
+        } else if (list.length > 0) {
+          nextId = list[0].id;
         }
-        if (nextId) {
+        if (nextId && list.some((item) => item.id === nextId)) {
           elements.chartSelect.value = nextId;
         }
-        state.selectedAttractionId = nextId;
-        elements.chartSelect.disabled = attractions.length === 0;
+        if (nextId !== state.selectedAttractionId) {
+          state.selectedAttractionId = nextId;
+          renderFromSeries();
+        }
+        elements.chartSelect.disabled = list.length === 0;
+      }
+
+      function handleSearchInput() {
+        const query = (elements.chartSearch.value || '').trim().toLowerCase();
+        const source = state.chartSelectSource || [];
+        if (!query) {
+          renderChartSelectOptions(source);
+          return;
+        }
+        const filtered = source.filter((a) => {
+          const name = (a.name_ja || a.name_en || '').toLowerCase();
+          return name.indexOf(query) >= 0;
+        });
+        renderChartSelectOptions(filtered);
       }
 
       function renderSummary({ fetched_at, source, summary }) {
@@ -1613,6 +1749,7 @@
         elements.dateSelect.disabled = disabled;
         elements.latestButton.disabled = disabled;
         elements.chartSelect.disabled = disabled;
+        elements.chartSearch.disabled = disabled;
       }
 
       function readParallelFactor() {
