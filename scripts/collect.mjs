@@ -55,6 +55,7 @@ const NAME_MAP = {
   'Castle Carrousel': 'キャッスルカルーセル',
   'Mark Twain Riverboat': '蒸気船マークトウェイン号',
   'Western River Railroad': 'ウエスタンリバー鉄道',
+  'Westernland Shootin\' Gallery': 'ウエスタンランド・シューティングギャラリー',
   'Country Bear Theater': 'カントリーベア・シアター',
   'Jungle Cruise: Wildlife Expeditions': 'ジャングルクルーズ:ワイルドライフ・エクスペディション',
   "The Enchanted Tiki Room: Stitch Presents 'Aloha E Komo Mai!'": '魅惑のチキルーム:スティッチ・プレゼンツ "アロハ・エ・コモ・マイ!"',
