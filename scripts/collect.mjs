@@ -15,21 +15,30 @@ const DOWN_STATUS_CDS = new Set(['004', '031', '032', '033']);
 const OPERATING_STATUS_CDS = new Set([
   '001', '024', '025', '026', '027',
   '034', '035', '036', '037', '038',
-  '040', '041', '045'
+  '040', '041', '045', '047'
 ]);
 // Pass / entry-only operating modes (no standby queue available).
-// 045 = プライオリティ・アクセス（DPA）専用、PP のみで案内中
+// 045 / 047 = プライオリティ・アクセス（DPA）専用、PP のみで案内中
 // 026 = スタンバイパス保持者のみ
 // 034〜038 = エントリー予約済みのみ
-const PP_ONLY_CDS = new Set(['045']);
+const PP_ONLY_CDS = new Set(['045', '047']);
 const STANDBY_PASS_ONLY_CDS = new Set(['026']);
 const ENTRY_ONLY_CDS = new Set(['034', '035', '036', '037', '038']);
+// Label-based fallbacks — if TDR adds a new code variant we still classify it correctly.
+const PP_ONLY_LABEL_RE = /プライオリティ[・･]?アクセス/;
+const SYSTEM_HALT_LABEL_RE = /一時運営中止/;
+const STANDBY_PASS_LABEL_RE = /スタンバイパス.*のみ/;
+const ENTRY_ONLY_LABEL_RE = /エントリー.*予約済み/;
 
-function deriveAccessMode(cd) {
+function deriveAccessMode(cd, label) {
   const s = String(cd || '');
   if (PP_ONLY_CDS.has(s)) return 'PP_ONLY';
   if (STANDBY_PASS_ONLY_CDS.has(s)) return 'STANDBY_PASS_ONLY';
   if (ENTRY_ONLY_CDS.has(s)) return 'ENTRY_ONLY';
+  const l = String(label || '');
+  if (PP_ONLY_LABEL_RE.test(l)) return 'PP_ONLY';
+  if (STANDBY_PASS_LABEL_RE.test(l)) return 'STANDBY_PASS_ONLY';
+  if (ENTRY_ONLY_LABEL_RE.test(l)) return 'ENTRY_ONLY';
   return 'STANDBY';
 }
 
@@ -238,11 +247,15 @@ function normalizeStatus(rawStatus) {
   return 'CLOSED';
 }
 
-function classifyTdrStatusCd(cd) {
+function classifyTdrStatusCd(cd, label) {
   const s = String(cd || '');
   if (DOWN_STATUS_CDS.has(s)) return 'DOWN';
   if (OPERATING_STATUS_CDS.has(s)) return 'OPERATING';
-  // 002/003/039 (案内終了/運営公演中止/案内終了) and others => closed for now
+  // Label-based fallback for unknown codes (e.g., TDR adds a new variant).
+  const l = String(label || '');
+  if (SYSTEM_HALT_LABEL_RE.test(l)) return 'DOWN';
+  if (PP_ONLY_LABEL_RE.test(l) || STANDBY_PASS_LABEL_RE.test(l) || ENTRY_ONLY_LABEL_RE.test(l)) return 'OPERATING';
+  // 002/003/039 (案内終了/運営公演中止) and others => closed for now
   return 'CLOSED';
 }
 
@@ -282,8 +295,9 @@ async function fetchTdrOfficial() {
       }
       const resolvedEn = nameEn || facilityName;
       const cd = String(item?.OperatingStatusCD || '');
-      const status = classifyTdrStatusCd(cd);
-      const accessMode = status === 'OPERATING' ? deriveAccessMode(cd) : 'STANDBY';
+      const officialLabel = String(item?.OperatingStatus || '');
+      const status = classifyTdrStatusCd(cd, officialLabel);
+      const accessMode = status === 'OPERATING' ? deriveAccessMode(cd, officialLabel) : 'STANDBY';
       // TDR returns StandbyTime as a STRING ("5", "30") for queueable rides,
       // null for shows / 案内終了 / continuous-flow, "0" for 運営・公演中止 backend transient,
       // and `false` for non-queueable facilities (ペニーアーケード / トゥーンパーク).
@@ -299,7 +313,7 @@ async function fetchTdrOfficial() {
         status,
         access_mode: accessMode,
         official_status_cd: cd,
-        official_status_label: String(item?.OperatingStatus || '')
+        official_status_label: officialLabel
       };
     })
     .filter((attraction) => attraction);
@@ -532,13 +546,22 @@ function writeDailySeries(dateDir, date, daySnapshots) {
       if (attr.name_ja) {
         entry.name_ja = attr.name_ja;
       }
+      // Re-derive status/access_mode from official_status_cd/label so historical snapshots
+      // taken before a code/label was recognized get fixed on each rebuild.
+      const hasOfficialCd = typeof attr.official_status_cd === 'string' && attr.official_status_cd !== '';
+      const derivedStatus = hasOfficialCd
+        ? classifyTdrStatusCd(attr.official_status_cd, attr.official_status_label)
+        : (typeof attr.status === 'string' ? attr.status : (attr.is_open ? 'OPERATING' : 'CLOSED'));
+      const derivedAccessMode = hasOfficialCd && derivedStatus === 'OPERATING'
+        ? deriveAccessMode(attr.official_status_cd, attr.official_status_label)
+        : (typeof attr.access_mode === 'string' ? attr.access_mode : 'STANDBY');
       const wait = typeof attr.wait_minutes === 'number' && Number.isFinite(attr.wait_minutes) && attr.wait_minutes >= 0
         ? attr.wait_minutes
         : null;
       entry.waits.push(wait);
-      entry.opens.push(attr.is_open === true);
-      entry.statuses.push(typeof attr.status === 'string' ? attr.status : (attr.is_open ? 'OPERATING' : 'CLOSED'));
-      entry.access_modes.push(typeof attr.access_mode === 'string' ? attr.access_mode : 'STANDBY');
+      entry.opens.push(derivedStatus === 'OPERATING');
+      entry.statuses.push(derivedStatus);
+      entry.access_modes.push(derivedAccessMode);
     }
 
     for (const [, entry] of attractions) {
