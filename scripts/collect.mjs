@@ -93,6 +93,17 @@ function normalizeAttractionId(nameEn) {
 function normalizeJaName(value) {
   return String(value || '')
     .replace(/\s+/g, '')
+    // Quote normalization: curly ' ' ' ' " " " " 」 「 → straight " (then we drop them in slug, but key stays consistent)
+    .replace(/[‘’‚‛′]/g, "'")
+    .replace(/[“”„‟″〝〞〟]/g, '"')
+    // Full-width punctuation → half-width
+    .replace(/＆/g, '&')   // ＆ → &
+    .replace(/！/g, '!')   // ！ → !
+    .replace(/？/g, '?')   // ？ → ?
+    .replace(/：/g, ':')   // ： → :
+    .replace(/（/g, '(')   // （ → (
+    .replace(/）/g, ')')   // ） → )
+    // Tilde normalization
     .replace(/[～~]/g, '〜');
 }
 
@@ -264,7 +275,11 @@ async function fetchTdrOfficial() {
       const facilityName = String(item?.FacilityName || '').trim();
       if (!facilityName) return null;
       const nameJaKey = normalizeJaName(facilityName);
-      const nameEn = JA_TO_EN[nameJaKey] || facilityName;
+      const nameEn = JA_TO_EN[nameJaKey];
+      if (!nameEn) {
+        console.error(`warning: no NAME_MAP entry for FacilityName=${JSON.stringify(facilityName)} normalized=${JSON.stringify(nameJaKey)} - falling back to id=a-unknown`);
+      }
+      const resolvedEn = nameEn || facilityName;
       const cd = String(item?.OperatingStatusCD || '');
       const status = classifyTdrStatusCd(cd);
       const accessMode = status === 'OPERATING' ? deriveAccessMode(cd) : 'STANDBY';
@@ -275,8 +290,8 @@ async function fetchTdrOfficial() {
       const standbyNum = Number(item?.StandbyTime);
       const standby = Number.isFinite(standbyNum) && standbyNum > 0 ? standbyNum : null;
       return {
-        id: normalizeAttractionId(nameEn),
-        name_en: nameEn,
+        id: normalizeAttractionId(resolvedEn),
+        name_en: resolvedEn,
         name_ja: facilityName,
         wait_minutes: status === 'OPERATING' ? standby : null,
         is_open: status === 'OPERATING',
