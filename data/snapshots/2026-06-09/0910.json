@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-06-09T00:12:09.731Z",
+  "fetched_at": "2026-06-09T00:15:46.340Z",
   "source": "tdr-official",
   "attractions": [
     {
@@ -216,7 +216,7 @@
       "id": "a-splash-mountain",
       "name_en": "Splash Mountain",
       "name_ja": "スプラッシュ・マウンテン",
-      "wait_minutes": 10,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -356,7 +356,7 @@
       "id": "a-the-happy-ride-with-baymax",
       "name_en": "The Happy Ride with Baymax",
       "name_ja": "ベイマックスのハッピーライド",
-      "wait_minutes": 40,
+      "wait_minutes": 70,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -421,7 +421,7 @@
       "id": "a-monsters-inc-ride-go-seek",
       "name_en": "Monsters, Inc. Ride & Go Seek!",
       "name_ja": "モンスターズ・インク“ライド＆ゴーシーク！”",
-      "wait_minutes": 40,
+      "wait_minutes": 50,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -475,12 +475,12 @@
       "id": "a-enchanted-tale-of-beauty-and-the-beast",
       "name_en": "Enchanted Tale of Beauty and the Beast",
       "name_ja": "美女と野獣“魔法のものがたり”",
-      "wait_minutes": 60,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
-      "official_status_cd": "001",
-      "official_status_label": "運営中"
+      "official_status_cd": "004",
+      "official_status_label": "一時運営中止"
     },
     {
       "id": "a-mark-twain-riverboat",
@@ -507,13 +507,13 @@
   ],
   "summary": {
     "count": 37,
-    "open_count": 22,
+    "open_count": 21,
     "average_wait": 11.7,
-    "max_wait": 60
+    "max_wait": 70
   },
   "closures": {
     "source_url": "https://www.tokyodisneyresort.jp/tdl/monthly/stop.html",
-    "fetched_at": "2026-06-09T00:12:09.731Z",
+    "fetched_at": "2026-06-09T00:15:46.339Z",
     "closures": {
       "a-big-thunder-mountain": {
         "name_ja": "ビッグサンダー・マウンテン",
