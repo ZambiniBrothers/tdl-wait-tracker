@@ -325,7 +325,11 @@ function parseShowsFromHtmlRaw(html) {
   const headings = [];
   let hm;
   while ((hm = headingRe.exec(source))) {
-    const name = hm[1].replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
+    const name = hm[1]
+      .replace(/<[^>]+>/g, ' ')
+      .replace(/\s+/g, ' ')
+      .replace(/\s*(?:NEW|New)\s*$/, '')
+      .trim();
     headings.push({ name, index: hm.index });
   }
 
