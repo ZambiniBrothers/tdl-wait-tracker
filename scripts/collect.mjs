@@ -335,6 +335,7 @@ function parseShowsFromHtmlRaw(html) {
 
   const items = [];
   const dateBlockRe = new RegExp(`date-${today}\\b`, 'g');
+  const nextDateRe = /date-\d{8}\b/g;
   const liTimeRe = /<li>\s*([01]?\d|2[0-3])[:：]([0-5]\d)\s*<\/li>/g;
 
   for (let i = 0; i < headings.length; i++) {
@@ -346,7 +347,11 @@ function parseShowsFromHtmlRaw(html) {
     let bm;
     dateBlockRe.lastIndex = 0;
     while ((bm = dateBlockRe.exec(region))) {
-      const window = region.slice(bm.index, bm.index + 240);
+      // Bound each block at the next date-* sibling so times never bleed across dates.
+      nextDateRe.lastIndex = bm.index + bm[0].length;
+      const nm = nextDateRe.exec(region);
+      const blockEnd = Math.min(nm ? nm.index : region.length, bm.index + 240);
+      const window = region.slice(bm.index, blockEnd);
       let tm;
       liTimeRe.lastIndex = 0;
       while ((tm = liTimeRe.exec(window))) {
