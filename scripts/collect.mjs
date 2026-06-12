@@ -383,7 +383,56 @@ function parseShowsFromHtmlText(text) {
   return dedupeAndSortShows(items);
 }
 
+async function debugShowSchedule() {
+  if (process.env.SHOW_DEBUG !== '1') return;
+  const today = jstTodayYmd();
+  const html = await fetchText(TDL_SHOW_URL, TDR_TIMEOUT_MS);
+  console.error(`[dbg] today=${today} htmlLen=${html.length}`);
+  // per-show: name, schedule id, badges, today times from list-page date blocks
+  const headingRe = /<h3 class="heading3">([\s\S]*?)<\/h3>/g;
+  const heads = [];
+  let hm;
+  while ((hm = headingRe.exec(html))) heads.push({ i: hm.index, name: hm[1].replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim() });
+  let firstSchedId = null;
+  for (let k = 0; k < heads.length; k++) {
+    const start = heads[k].i;
+    const end = k + 1 < heads.length ? heads[k + 1].i : html.length;
+    const region = html.slice(start, end);
+    const sched = region.match(/\/tdl\/show\/schedule\/(\d+)\//);
+    const schedId = sched ? sched[1] : null;
+    if (!firstSchedId && schedId) firstSchedId = schedId;
+    const entry = region.includes('エントリー受付');
+    const reserve = region.includes('予約');
+    const premier = region.includes('プレミアアクセス');
+    const times = [];
+    const blkRe = new RegExp(`date-${today}\\b`, 'g');
+    let bm;
+    while ((bm = blkRe.exec(region))) {
+      const w = region.slice(bm.index, bm.index + 240);
+      const t = w.match(/<li>\s*([01]?\d|2[0-3])[:：][0-5]\d\s*<\/li>/);
+      if (t) times.push(t[0].replace(/<\/?li>/g, '').trim());
+    }
+    console.error(`[dbg] show name=${JSON.stringify(heads[k].name)} sched=${schedId} entry=${entry} reserve=${reserve} premier=${premier} listTimes=${JSON.stringify(times)}`);
+  }
+  // dump one monthly schedule page
+  if (firstSchedId) {
+    try {
+      const url = `https://www.tokyodisneyresort.jp/tdl/show/schedule/${firstSchedId}/`;
+      const sh = await fetchText(url, TDR_TIMEOUT_MS);
+      console.error(`[dbg] schedUrl=${url} len=${sh.length}`);
+      const ti = sh.search(new RegExp(today));
+      console.error(`[dbg] sched today idx=${ti}`);
+      if (ti >= 0) console.error(`[dbg] sched_around_today=${JSON.stringify(sh.slice(Math.max(0, ti - 200), ti + 500))}`);
+      const tm = sh.search(/[012]?\d[:：][0-5]\d/);
+      if (tm >= 0) console.error(`[dbg] sched_around_time=${JSON.stringify(sh.slice(Math.max(0, tm - 250), tm + 300))}`);
+    } catch (e) {
+      console.error(`[dbg] sched fetch err ${e?.message || e}`);
+    }
+  }
+}
+
 async function fetchTdlShows() {
+  await debugShowSchedule();
   try {
     const html = await fetchText(TDL_SHOW_URL, TDR_TIMEOUT_MS);
     let items = parseShowsFromHtmlRaw(html);
