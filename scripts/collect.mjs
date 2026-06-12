@@ -8,18 +8,7 @@ const QUEUE_TIMES_URL = 'https://queue-times.com/parks/274/queue_times.json';
 const TDL_STOP_URL = 'https://www.tokyodisneyresort.jp/tdl/monthly/stop.html';
 const TIMEOUT_MS = 10_000;
 const TDR_TIMEOUT_MS = 15_000;
-const SHOW_KEYWORDS = [
-  'パレード',
-  'エレクトリカルパレード',
-  'ドリームライツ',
-  'キャッスル',
-  'ナイトタイム',
-  'ハーモニー',
-  'ジュビレーション',
-  'ハピネス',
-  'ショー'
-];
-const SHOW_TIME_RE = /(?:^|[^\d])([01]?\d|2[0-3])[:：]([0-5]\d)(?!\d)/g;
+const TDL_SHOW_SCHEDULE_URL = (id) => `https://www.tokyodisneyresort.jp/tdl/show/schedule/${id}/`;
 
 // Code mapping per the OperatingStatusCD dictionary embedded in tdl/attraction.html
 // 004/031/032/033 → 一時運営中止 (DOWN, treated as system adjustment)
@@ -242,58 +231,16 @@ async function fetchTdlClosures() {
   }
 }
 
-function normalizeShowTime(hour, minute) {
-  const h = Number(hour);
-  const m = Number(minute);
-  if (!Number.isInteger(h) || !Number.isInteger(m) || h < 0 || h > 23 || m < 0 || m > 59) {
-    return null;
-  }
-  return `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}`;
-}
-
-function extractShowTimes(value) {
-  const times = new Set();
-  const visit = (node, depth = 0) => {
-    if (depth > 8 || node == null) return;
-    if (typeof node === 'string' || typeof node === 'number') {
-      const text = String(node);
-      SHOW_TIME_RE.lastIndex = 0;
-      let match;
-      while ((match = SHOW_TIME_RE.exec(text))) {
-        const time = normalizeShowTime(match[1], match[2]);
-        if (time) times.add(time);
-      }
-      return;
-    }
-    if (Array.isArray(node)) {
-      node.forEach((item) => visit(item, depth + 1));
-      return;
-    }
-    if (typeof node === 'object') {
-      for (const child of Object.values(node)) {
-        visit(child, depth + 1);
-      }
-    }
-  };
-  visit(value);
-  return [...times];
-}
-
-function isMajorShow(item) {
-  const text = `${item?.label || ''} ${item?.name_ja || ''}`;
-  return SHOW_KEYWORDS.some((keyword) => text.includes(keyword));
-}
-
-function dedupeAndSortShows(items, { requireKeyword = true } = {}) {
+function dedupeAndSortShows(items) {
   const seen = new Set();
   return items
-    .filter((item) => item && typeof item.time === 'string' && (!requireKeyword || isMajorShow(item)))
+    .filter((item) => item && typeof item.time === 'string')
     .map((item) => ({
       time: item.time,
-      label: String(item.label || item.name_ja || '').replace(/\s+/g, ' ').trim(),
+      label: String(item.label || '').replace(/\s+/g, ' ').trim(),
       name_ja: String(item.name_ja || item.label || '').replace(/\s+/g, ' ').trim()
     }))
-    .filter((item) => item.label && item.name_ja)
+    .filter((item) => item.label)
     .filter((item) => {
       const key = `${item.time}\u0000${item.label}`;
       if (seen.has(key)) return false;
@@ -315,140 +262,129 @@ function jstTodayYmd() {
   return `${get('year')}${get('month')}${get('day')}`;
 }
 
-// Parse the structured show.html: each show is an <li> with an <h3 class="heading3">
-// title; per-date performance times live in hidden <div class="date-YYYYMMDD str_id-..">
-// blocks containing <li>HH:MM</li>. We extract only today's (JST) times per show.
-function parseShowsFromHtmlRaw(html) {
-  const today = jstTodayYmd();
-  const source = String(html || '');
-  const headingRe = /<h3 class="heading3">([\s\S]*?)<\/h3>/g;
-  const headings = [];
-  let hm;
-  while ((hm = headingRe.exec(source))) {
-    const name = hm[1]
-      .replace(/<[^>]+>/g, ' ')
-      .replace(/\s+/g, ' ')
-      .replace(/\s*(?:NEW|New)\s*$/, '')
-      .trim();
-    headings.push({ name, index: hm.index });
-  }
+// Today's day-of-month + weekday kanji in JST — used to match rows on the
+// monthly schedule page, which list "13(土)" rather than a full YYYYMMDD.
+function jstDayWeekday() {
+  const parts = new Intl.DateTimeFormat('ja-JP', {
+    timeZone: 'Asia/Tokyo',
+    day: 'numeric',
+    weekday: 'short'
+  }).formatToParts(new Date());
+  const day = (parts.find((p) => p.type === 'day') || {}).value || '';
+  const weekday = ((parts.find((p) => p.type === 'weekday') || {}).value || '').replace(/[曜日]/g, '');
+  return { day: String(Number(day)), weekday };
+}
 
-  const items = [];
+function cleanShowName(rawHeading) {
+  return String(rawHeading || '')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/\s+/g, ' ')
+    .replace(/\s*(?:NEW|New)\s*$/, '')
+    .trim();
+}
+
+// Fallback: today's (JST) times from the list page's hidden date-YYYYMMDD block.
+function extractListBlockTimes(region, today) {
+  const times = [];
   const dateBlockRe = new RegExp(`date-${today}\\b`, 'g');
   const nextDateRe = /date-\d{8}\b/g;
   const liTimeRe = /<li>\s*([01]?\d|2[0-3])[:：]([0-5]\d)\s*<\/li>/g;
-
-  for (let i = 0; i < headings.length; i++) {
-    const { name, index } = headings[i];
-    if (!name) continue;
-    const end = i + 1 < headings.length ? headings[i + 1].index : source.length;
-    const region = source.slice(index, end);
-
-    let bm;
-    dateBlockRe.lastIndex = 0;
-    while ((bm = dateBlockRe.exec(region))) {
-      // Bound each block at the next date-* sibling so times never bleed across dates.
-      nextDateRe.lastIndex = bm.index + bm[0].length;
-      const nm = nextDateRe.exec(region);
-      const blockEnd = Math.min(nm ? nm.index : region.length, bm.index + 240);
-      const window = region.slice(bm.index, blockEnd);
-      let tm;
-      liTimeRe.lastIndex = 0;
-      while ((tm = liTimeRe.exec(window))) {
-        const time = `${tm[1].padStart(2, '0')}:${tm[2]}`;
-        items.push({ time, label: name, name_ja: name });
-      }
+  let bm;
+  while ((bm = dateBlockRe.exec(region))) {
+    nextDateRe.lastIndex = bm.index + bm[0].length;
+    const nm = nextDateRe.exec(region);
+    const blockEnd = Math.min(nm ? nm.index : region.length, bm.index + 240);
+    const window = region.slice(bm.index, blockEnd);
+    let tm;
+    liTimeRe.lastIndex = 0;
+    while ((tm = liTimeRe.exec(window))) {
+      times.push(`${tm[1].padStart(2, '0')}:${tm[2]}`);
     }
   }
-
-  return dedupeAndSortShows(items, { requireKeyword: false });
+  return times;
 }
 
-function parseShowsFromHtmlText(text) {
-  const lines = String(text || '')
-    .split(/\r?\n/)
-    .map((line) => line.replace(/\s+/g, ' ').trim())
-    .filter(Boolean);
-  const items = [];
-
-  lines.forEach((line, index) => {
-    if (!SHOW_KEYWORDS.some((keyword) => line.includes(keyword))) return;
-    const label = line.slice(0, 80);
-    const windowText = lines.slice(index, index + 7).join(' ');
-    for (const time of extractShowTimes(windowText)) {
-      items.push({ time, label, name_ja: label });
-    }
-  });
-
-  return dedupeAndSortShows(items);
-}
-
-async function debugShowSchedule() {
-  if (process.env.SHOW_DEBUG !== '1') return;
+// Parse show.html into a list of shows: name, monthly-schedule id, and the
+// エントリー受付 / 予約 badges so callers can exclude them.
+function parseShowList(html) {
+  const source = String(html || '');
   const today = jstTodayYmd();
-  const html = await fetchText(TDL_SHOW_URL, TDR_TIMEOUT_MS);
-  console.error(`[dbg] today=${today} htmlLen=${html.length}`);
-  // per-show: name, schedule id, badges, today times from list-page date blocks
   const headingRe = /<h3 class="heading3">([\s\S]*?)<\/h3>/g;
   const heads = [];
   let hm;
-  while ((hm = headingRe.exec(html))) heads.push({ i: hm.index, name: hm[1].replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim() });
-  let firstSchedId = null;
-  for (let k = 0; k < heads.length; k++) {
-    const start = heads[k].i;
-    const end = k + 1 < heads.length ? heads[k + 1].i : html.length;
-    const region = html.slice(start, end);
-    const sched = region.match(/\/tdl\/show\/schedule\/(\d+)\//);
-    const schedId = sched ? sched[1] : null;
-    if (!firstSchedId && schedId) firstSchedId = schedId;
-    const entry = region.includes('エントリー受付');
-    const reserve = region.includes('予約');
-    const premier = region.includes('プレミアアクセス');
-    const times = [];
-    const blkRe = new RegExp(`date-${today}\\b`, 'g');
-    let bm;
-    while ((bm = blkRe.exec(region))) {
-      const w = region.slice(bm.index, bm.index + 240);
-      const t = w.match(/<li>\s*([01]?\d|2[0-3])[:：][0-5]\d\s*<\/li>/);
-      if (t) times.push(t[0].replace(/<\/?li>/g, '').trim());
-    }
-    console.error(`[dbg] show name=${JSON.stringify(heads[k].name)} sched=${schedId} entry=${entry} reserve=${reserve} premier=${premier} listTimes=${JSON.stringify(times)}`);
+  while ((hm = headingRe.exec(source))) {
+    heads.push({ index: hm.index, name: cleanShowName(hm[1]) });
   }
-  // dump one monthly schedule page
-  if (firstSchedId) {
-    try {
-      const url = `https://www.tokyodisneyresort.jp/tdl/show/schedule/${firstSchedId}/`;
-      const sh = await fetchText(url, TDR_TIMEOUT_MS);
-      console.error(`[dbg] schedUrl=${url} len=${sh.length}`);
-      const ti = sh.search(new RegExp(today));
-      console.error(`[dbg] sched today idx=${ti}`);
-      if (ti >= 0) console.error(`[dbg] sched_around_today=${JSON.stringify(sh.slice(Math.max(0, ti - 200), ti + 500))}`);
-      const tm = sh.search(/[012]?\d[:：][0-5]\d/);
-      if (tm >= 0) console.error(`[dbg] sched_around_time=${JSON.stringify(sh.slice(Math.max(0, tm - 250), tm + 300))}`);
-    } catch (e) {
-      console.error(`[dbg] sched fetch err ${e?.message || e}`);
-    }
+  const shows = [];
+  for (let i = 0; i < heads.length; i++) {
+    const { index, name } = heads[i];
+    if (!name || name.includes('{{')) continue;
+    const end = i + 1 < heads.length ? heads[i + 1].index : source.length;
+    const region = source.slice(index, end);
+    const schedMatch = region.match(/\/tdl\/show\/schedule\/(\d+)\//);
+    shows.push({
+      name,
+      scheduleId: schedMatch ? schedMatch[1] : null,
+      requiresEntry: region.includes('エントリー受付'),
+      requiresReservation: region.includes('予約'),
+      listTimes: extractListBlockTimes(region, today)
+    });
   }
+  return shows;
+}
+
+// Pull today's times from a monthly schedule page by matching the row whose
+// day-of-month and weekday kanji equal today's (JST).
+function parseScheduleDayTimes(scheduleHtml, day, weekday) {
+  const rowRe = /<th[^>]*>\s*(\d{1,2})\s*[（(]\s*([日月火水木金土])\s*[）)]\s*<\/th>\s*<td>([\s\S]*?)<\/td>/g;
+  const timeRe = /([01]?\d|2[0-3])[:：]([0-5]\d)/g;
+  let m;
+  while ((m = rowRe.exec(scheduleHtml))) {
+    if (Number(m[1]) !== Number(day) || m[2] !== weekday) continue;
+    const times = new Set();
+    let t;
+    timeRe.lastIndex = 0;
+    while ((t = timeRe.exec(m[3]))) times.add(`${t[1].padStart(2, '0')}:${t[2]}`);
+    return [...times];
+  }
+  return [];
 }
 
 async function fetchTdlShows() {
-  await debugShowSchedule();
   try {
     const html = await fetchText(TDL_SHOW_URL, TDR_TIMEOUT_MS);
-    let items = parseShowsFromHtmlRaw(html);
-    if (items.length === 0) {
-      items = parseShowsFromHtmlText(htmlToText(html));
+    const shows = parseShowList(html);
+    const { day, weekday } = jstDayWeekday();
+    const items = [];
+    let excluded = 0;
+    for (const show of shows) {
+      if (show.requiresEntry || show.requiresReservation) {
+        excluded++;
+        continue;
+      }
+      let times = [];
+      if (show.scheduleId) {
+        try {
+          const scheduleHtml = await fetchText(TDL_SHOW_SCHEDULE_URL(show.scheduleId), TDR_TIMEOUT_MS);
+          times = parseScheduleDayTimes(scheduleHtml, day, weekday);
+        } catch (error) {
+          console.error(`warning: schedule fetch failed (${show.scheduleId}): ${error?.message || error}`);
+        }
+      }
+      if (times.length === 0) times = show.listTimes;
+      for (const time of times) items.push({ time, label: show.name, name_ja: show.name });
     }
-    console.error(`[shows] parsed=${items.length} sample=${JSON.stringify(items.slice(0, 6))}`);
-    if (items.length > 0) {
+    const finalItems = dedupeAndSortShows(items);
+    console.error(`[shows] shows=${shows.length} excluded=${excluded} parsed=${finalItems.length} sample=${JSON.stringify(finalItems.slice(0, 8))}`);
+    if (finalItems.length > 0) {
       return {
         source_url: TDL_SHOW_URL,
         fetched_at: new Date().toISOString(),
-        items
+        items: finalItems
       };
     }
   } catch (error) {
-    console.error(`warning: TDL show html scrape failed: ${error?.message || error}`);
+    console.error(`warning: TDL show scrape failed: ${error?.message || error}`);
   }
 
   return null;
