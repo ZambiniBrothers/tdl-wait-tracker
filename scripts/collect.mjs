@@ -372,7 +372,48 @@ function parseShowsFromHtmlText(text) {
   return dedupeAndSortShows(items);
 }
 
+async function debugProbeShows() {
+  if (process.env.SHOW_DEBUG !== '1') return;
+  const candidates = [
+    'https://www.tokyodisneyresort.jp/_/realtime/tdl_show.json',
+    'https://www.tokyodisneyresort.jp/_/realtime/tdl_event.json',
+    'https://www.tokyodisneyresort.jp/_/realtime/tdl_greeting.json',
+    'https://www.tokyodisneyresort.jp/_/realtime/tdl_entertainment.json',
+    'https://www.tokyodisneyresort.jp/_/realtime/tdl_parade.json',
+    'https://www.tokyodisneyresort.jp/_/realtime/tdl_show_schedule.json'
+  ];
+  for (const url of candidates) {
+    try {
+      const r = await fetch(url, {
+        headers: {
+          'User-Agent': 'Mozilla/5.0 (compatible; tdl-wait-tracker/1.0)',
+          'Accept': 'application/json',
+          'Accept-Language': 'ja',
+          'Referer': TDL_SHOW_URL
+        }
+      });
+      let head = '';
+      if (r.ok) head = JSON.stringify(await r.json()).slice(0, 600);
+      console.error(`[probe] ${url} -> ${r.status} ${head}`);
+    } catch (e) {
+      console.error(`[probe] ${url} -> ERR ${e?.message || e}`);
+    }
+  }
+  try {
+    const html = await fetchText(TDL_SHOW_URL, TDR_TIMEOUT_MS);
+    const text = htmlToText(html);
+    const idx = text.indexOf('ハーモニー');
+    console.error(`[probe] htmlLen=${html.length} textLen=${text.length} harmonyAt=${idx}`);
+    if (idx >= 0) console.error(`[probe] around_harmony=${JSON.stringify(text.slice(Math.max(0, idx - 200), idx + 400))}`);
+    const rawIdx = html.indexOf('ShowSchedule') >= 0 ? html.indexOf('ShowSchedule') : html.search(/[012]?\d[:：][0-5]\d/);
+    if (rawIdx >= 0) console.error(`[probe] raw_around_time=${JSON.stringify(html.slice(Math.max(0, rawIdx - 150), rawIdx + 350))}`);
+  } catch (e) {
+    console.error(`[probe] html ERR ${e?.message || e}`);
+  }
+}
+
 async function fetchTdlShows() {
+  await debugProbeShows();
   try {
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), TDR_TIMEOUT_MS);
