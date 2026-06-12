@@ -2,7 +2,6 @@ import { mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 
 const TDR_OFFICIAL_URL = 'https://www.tokyodisneyresort.jp/_/realtime/tdl_attraction.json';
-const TDL_SHOW_JSON_URL = 'https://www.tokyodisneyresort.jp/_/realtime/tdl_show.json';
 const TDL_SHOW_URL = 'https://www.tokyodisneyresort.jp/tdl/show.html';
 const THEMEPARKS_URL = 'https://api.themeparks.wiki/v1/entity/3cc919f1-d16d-43e0-8c3f-1dd269bd1a42/live';
 const QUEUE_TIMES_URL = 'https://queue-times.com/parks/274/queue_times.json';
@@ -280,35 +279,15 @@ function extractShowTimes(value) {
   return [...times];
 }
 
-function pickShowName(obj) {
-  if (!obj || typeof obj !== 'object' || Array.isArray(obj)) return '';
-  const entries = Object.entries(obj);
-  const preferred = [
-    /^(?:FacilityName|facilityName|facility_name)$/i,
-    /(?:Show|Performance|Entertainment|Facility|Program).*(?:Name|Title|Label)$/i,
-    /(?:Name|Title|Label)$/i
-  ];
-
-  for (const pattern of preferred) {
-    for (const [key, value] of entries) {
-      if (!pattern.test(key) || typeof value !== 'string') continue;
-      const text = value.replace(/\s+/g, ' ').trim();
-      if (!text || text.length > 120 || extractShowTimes(text).length > 0) continue;
-      return text;
-    }
-  }
-  return '';
-}
-
 function isMajorShow(item) {
   const text = `${item?.label || ''} ${item?.name_ja || ''}`;
   return SHOW_KEYWORDS.some((keyword) => text.includes(keyword));
 }
 
-function dedupeAndSortShows(items) {
+function dedupeAndSortShows(items, { requireKeyword = true } = {}) {
   const seen = new Set();
   return items
-    .filter((item) => item && typeof item.time === 'string' && isMajorShow(item))
+    .filter((item) => item && typeof item.time === 'string' && (!requireKeyword || isMajorShow(item)))
     .map((item) => ({
       time: item.time,
       label: String(item.label || item.name_ja || '').replace(/\s+/g, ' ').trim(),
@@ -322,35 +301,58 @@ function dedupeAndSortShows(items) {
       return true;
     })
     .sort((a, b) => a.time.localeCompare(b.time))
-    .slice(0, 8);
+    .slice(0, 40);
 }
 
-function parseShowsFromJson(data) {
-  const items = [];
-  const visit = (node, inheritedName = '', depth = 0) => {
-    if (depth > 8 || node == null) return;
-    if (Array.isArray(node)) {
-      node.forEach((item) => visit(item, inheritedName, depth + 1));
-      return;
-    }
-    if (typeof node !== 'object') return;
+function jstTodayYmd() {
+  const parts = new Intl.DateTimeFormat('en-CA', {
+    timeZone: 'Asia/Tokyo',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit'
+  }).formatToParts(new Date());
+  const get = (type) => (parts.find((p) => p.type === type) || {}).value || '';
+  return `${get('year')}${get('month')}${get('day')}`;
+}
 
-    const ownName = pickShowName(node);
-    const name = ownName || inheritedName;
-    if (name) {
-      for (const time of extractShowTimes(node)) {
+// Parse the structured show.html: each show is an <li> with an <h3 class="heading3">
+// title; per-date performance times live in hidden <div class="date-YYYYMMDD str_id-..">
+// blocks containing <li>HH:MM</li>. We extract only today's (JST) times per show.
+function parseShowsFromHtmlRaw(html) {
+  const today = jstTodayYmd();
+  const source = String(html || '');
+  const headingRe = /<h3 class="heading3">([\s\S]*?)<\/h3>/g;
+  const headings = [];
+  let hm;
+  while ((hm = headingRe.exec(source))) {
+    const name = hm[1].replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
+    headings.push({ name, index: hm.index });
+  }
+
+  const items = [];
+  const dateBlockRe = new RegExp(`date-${today}\\b`, 'g');
+  const liTimeRe = /<li>\s*([01]?\d|2[0-3])[:：]([0-5]\d)\s*<\/li>/g;
+
+  for (let i = 0; i < headings.length; i++) {
+    const { name, index } = headings[i];
+    if (!name) continue;
+    const end = i + 1 < headings.length ? headings[i + 1].index : source.length;
+    const region = source.slice(index, end);
+
+    let bm;
+    dateBlockRe.lastIndex = 0;
+    while ((bm = dateBlockRe.exec(region))) {
+      const window = region.slice(bm.index, bm.index + 240);
+      let tm;
+      liTimeRe.lastIndex = 0;
+      while ((tm = liTimeRe.exec(window))) {
+        const time = `${tm[1].padStart(2, '0')}:${tm[2]}`;
         items.push({ time, label: name, name_ja: name });
       }
     }
-    for (const child of Object.values(node)) {
-      if (child && typeof child === 'object') {
-        visit(child, name, depth + 1);
-      }
-    }
-  };
+  }
 
-  visit(data);
-  return dedupeAndSortShows(items);
+  return dedupeAndSortShows(items, { requireKeyword: false });
 }
 
 function parseShowsFromHtmlText(text) {
@@ -372,104 +374,23 @@ function parseShowsFromHtmlText(text) {
   return dedupeAndSortShows(items);
 }
 
-async function debugProbeShows() {
-  if (process.env.SHOW_DEBUG !== '1') return;
-  const candidates = [
-    'https://www.tokyodisneyresort.jp/_/realtime/tdl_show.json',
-    'https://www.tokyodisneyresort.jp/_/realtime/tdl_event.json',
-    'https://www.tokyodisneyresort.jp/_/realtime/tdl_greeting.json',
-    'https://www.tokyodisneyresort.jp/_/realtime/tdl_entertainment.json',
-    'https://www.tokyodisneyresort.jp/_/realtime/tdl_parade.json',
-    'https://www.tokyodisneyresort.jp/_/realtime/tdl_show_schedule.json'
-  ];
-  for (const url of candidates) {
-    try {
-      const r = await fetch(url, {
-        headers: {
-          'User-Agent': 'Mozilla/5.0 (compatible; tdl-wait-tracker/1.0)',
-          'Accept': 'application/json',
-          'Accept-Language': 'ja',
-          'Referer': TDL_SHOW_URL
-        }
-      });
-      let head = '';
-      if (r.ok) head = JSON.stringify(await r.json()).slice(0, 600);
-      console.error(`[probe] ${url} -> ${r.status} ${head}`);
-    } catch (e) {
-      console.error(`[probe] ${url} -> ERR ${e?.message || e}`);
-    }
-  }
+async function fetchTdlShows() {
   try {
     const html = await fetchText(TDL_SHOW_URL, TDR_TIMEOUT_MS);
-    // 1) map of str_id -> name: dump raw around a known show name
-    const hi = html.indexOf('ディズニー・ハーモニー・イン・カラー');
-    console.error(`[probe] htmlLen=${html.length} harmonyRawAt=${hi}`);
-    if (hi >= 0) console.error(`[probe] raw_around_name=${JSON.stringify(html.slice(Math.max(0, hi - 600), hi + 200))}`);
-    // 2) distinct date- classes and count of today's blocks
-    const today = '20260612';
-    const dateClasses = [...new Set((html.match(/date-(\d{8})/g) || []))].slice(0, 20);
-    const todayBlocks = (html.match(new RegExp(`date-${today} str_id-(\\d+)`, 'g')) || []);
-    console.error(`[probe] dateClasses=${JSON.stringify(dateClasses)} todayBlockCount=${todayBlocks.length} todaySample=${JSON.stringify(todayBlocks.slice(0, 8))}`);
-    // 3) one full today block to see timeTable shape
-    const m = html.match(new RegExp(`<div class="date-${today} str_id-\\d+"[\\s\\S]{0,400}?</div></div></div>`));
-    if (m) console.error(`[probe] today_block=${JSON.stringify(m[0].slice(0, 500))}`);
-  } catch (e) {
-    console.error(`[probe] html ERR ${e?.message || e}`);
-  }
-}
-
-async function fetchTdlShows() {
-  await debugProbeShows();
-  try {
-    const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), TDR_TIMEOUT_MS);
-    try {
-      const response = await fetch(TDL_SHOW_JSON_URL, {
-        signal: controller.signal,
-        headers: {
-          'User-Agent': 'Mozilla/5.0 (compatible; tdl-wait-tracker/1.0)',
-          'Accept': 'application/json',
-          'Accept-Language': 'ja',
-          'Referer': TDL_SHOW_URL
-        }
-      });
-      if (!response.ok) throw new Error(`HTTP ${response.status} ${response.statusText}`);
-      const data = await response.json();
-      const first = Array.isArray(data) ? data[0] : null;
-      const firstKeys = first && typeof first === 'object' ? Object.keys(first) : [];
-      const preview = JSON.stringify(first ?? data ?? null).slice(0, 800);
-      console.error(`[shows] realtime json array=${Array.isArray(data)} first_keys=${JSON.stringify(firstKeys)} first=${preview}`);
-      const items = parseShowsFromJson(data);
-      if (items.length > 0) {
-        return {
-          source_url: TDL_SHOW_JSON_URL,
-          fetched_at: new Date().toISOString(),
-          items
-        };
-      }
-    } catch (error) {
-      console.error(`warning: TDL show realtime fetch failed: ${error?.message || error}`);
-    } finally {
-      clearTimeout(timer);
+    let items = parseShowsFromHtmlRaw(html);
+    if (items.length === 0) {
+      items = parseShowsFromHtmlText(htmlToText(html));
     }
-
-    try {
-      const html = await fetchText(TDL_SHOW_URL, TDR_TIMEOUT_MS);
-      const text = htmlToText(html);
-      console.error(`[shows] html text_head=${JSON.stringify(text.slice(0, 800))}`);
-      const items = parseShowsFromHtmlText(text);
-      if (items.length > 0) {
-        return {
-          source_url: TDL_SHOW_URL,
-          fetched_at: new Date().toISOString(),
-          items
-        };
-      }
-    } catch (error) {
-      console.error(`warning: TDL show html scrape failed: ${error?.message || error}`);
+    console.error(`[shows] parsed=${items.length} sample=${JSON.stringify(items.slice(0, 6))}`);
+    if (items.length > 0) {
+      return {
+        source_url: TDL_SHOW_URL,
+        fetched_at: new Date().toISOString(),
+        items
+      };
     }
   } catch (error) {
-    console.error(`warning: TDL show fetch failed: ${error?.message || error}`);
+    console.error(`warning: TDL show html scrape failed: ${error?.message || error}`);
   }
 
   return null;
