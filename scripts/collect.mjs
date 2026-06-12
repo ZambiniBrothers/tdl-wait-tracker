@@ -2,11 +2,25 @@ import { mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 
 const TDR_OFFICIAL_URL = 'https://www.tokyodisneyresort.jp/_/realtime/tdl_attraction.json';
+const TDL_SHOW_JSON_URL = 'https://www.tokyodisneyresort.jp/_/realtime/tdl_show.json';
+const TDL_SHOW_URL = 'https://www.tokyodisneyresort.jp/tdl/show.html';
 const THEMEPARKS_URL = 'https://api.themeparks.wiki/v1/entity/3cc919f1-d16d-43e0-8c3f-1dd269bd1a42/live';
 const QUEUE_TIMES_URL = 'https://queue-times.com/parks/274/queue_times.json';
 const TDL_STOP_URL = 'https://www.tokyodisneyresort.jp/tdl/monthly/stop.html';
 const TIMEOUT_MS = 10_000;
 const TDR_TIMEOUT_MS = 15_000;
+const SHOW_KEYWORDS = [
+  'パレード',
+  'エレクトリカルパレード',
+  'ドリームライツ',
+  'キャッスル',
+  'ナイトタイム',
+  'ハーモニー',
+  'ジュビレーション',
+  'ハピネス',
+  'ショー'
+];
+const SHOW_TIME_RE = /(?:^|[^\d])([01]?\d|2[0-3])[:：]([0-5]\d)(?!\d)/g;
 
 // Code mapping per the OperatingStatusCD dictionary embedded in tdl/attraction.html
 // 004/031/032/033 → 一時運営中止 (DOWN, treated as system adjustment)
@@ -227,6 +241,191 @@ async function fetchTdlClosures() {
     console.error(`warning: TDL closure scrape failed: ${error?.message || error}`);
     return null;
   }
+}
+
+function normalizeShowTime(hour, minute) {
+  const h = Number(hour);
+  const m = Number(minute);
+  if (!Number.isInteger(h) || !Number.isInteger(m) || h < 0 || h > 23 || m < 0 || m > 59) {
+    return null;
+  }
+  return `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}`;
+}
+
+function extractShowTimes(value) {
+  const times = new Set();
+  const visit = (node, depth = 0) => {
+    if (depth > 8 || node == null) return;
+    if (typeof node === 'string' || typeof node === 'number') {
+      const text = String(node);
+      SHOW_TIME_RE.lastIndex = 0;
+      let match;
+      while ((match = SHOW_TIME_RE.exec(text))) {
+        const time = normalizeShowTime(match[1], match[2]);
+        if (time) times.add(time);
+      }
+      return;
+    }
+    if (Array.isArray(node)) {
+      node.forEach((item) => visit(item, depth + 1));
+      return;
+    }
+    if (typeof node === 'object') {
+      for (const child of Object.values(node)) {
+        visit(child, depth + 1);
+      }
+    }
+  };
+  visit(value);
+  return [...times];
+}
+
+function pickShowName(obj) {
+  if (!obj || typeof obj !== 'object' || Array.isArray(obj)) return '';
+  const entries = Object.entries(obj);
+  const preferred = [
+    /^(?:FacilityName|facilityName|facility_name)$/i,
+    /(?:Show|Performance|Entertainment|Facility|Program).*(?:Name|Title|Label)$/i,
+    /(?:Name|Title|Label)$/i
+  ];
+
+  for (const pattern of preferred) {
+    for (const [key, value] of entries) {
+      if (!pattern.test(key) || typeof value !== 'string') continue;
+      const text = value.replace(/\s+/g, ' ').trim();
+      if (!text || text.length > 120 || extractShowTimes(text).length > 0) continue;
+      return text;
+    }
+  }
+  return '';
+}
+
+function isMajorShow(item) {
+  const text = `${item?.label || ''} ${item?.name_ja || ''}`;
+  return SHOW_KEYWORDS.some((keyword) => text.includes(keyword));
+}
+
+function dedupeAndSortShows(items) {
+  const seen = new Set();
+  return items
+    .filter((item) => item && typeof item.time === 'string' && isMajorShow(item))
+    .map((item) => ({
+      time: item.time,
+      label: String(item.label || item.name_ja || '').replace(/\s+/g, ' ').trim(),
+      name_ja: String(item.name_ja || item.label || '').replace(/\s+/g, ' ').trim()
+    }))
+    .filter((item) => item.label && item.name_ja)
+    .filter((item) => {
+      const key = `${item.time}\u0000${item.label}`;
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    })
+    .sort((a, b) => a.time.localeCompare(b.time))
+    .slice(0, 8);
+}
+
+function parseShowsFromJson(data) {
+  const items = [];
+  const visit = (node, inheritedName = '', depth = 0) => {
+    if (depth > 8 || node == null) return;
+    if (Array.isArray(node)) {
+      node.forEach((item) => visit(item, inheritedName, depth + 1));
+      return;
+    }
+    if (typeof node !== 'object') return;
+
+    const ownName = pickShowName(node);
+    const name = ownName || inheritedName;
+    if (name) {
+      for (const time of extractShowTimes(node)) {
+        items.push({ time, label: name, name_ja: name });
+      }
+    }
+    for (const child of Object.values(node)) {
+      if (child && typeof child === 'object') {
+        visit(child, name, depth + 1);
+      }
+    }
+  };
+
+  visit(data);
+  return dedupeAndSortShows(items);
+}
+
+function parseShowsFromHtmlText(text) {
+  const lines = String(text || '')
+    .split(/\r?\n/)
+    .map((line) => line.replace(/\s+/g, ' ').trim())
+    .filter(Boolean);
+  const items = [];
+
+  lines.forEach((line, index) => {
+    if (!SHOW_KEYWORDS.some((keyword) => line.includes(keyword))) return;
+    const label = line.slice(0, 80);
+    const windowText = lines.slice(index, index + 7).join(' ');
+    for (const time of extractShowTimes(windowText)) {
+      items.push({ time, label, name_ja: label });
+    }
+  });
+
+  return dedupeAndSortShows(items);
+}
+
+async function fetchTdlShows() {
+  try {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), TDR_TIMEOUT_MS);
+    try {
+      const response = await fetch(TDL_SHOW_JSON_URL, {
+        signal: controller.signal,
+        headers: {
+          'User-Agent': 'Mozilla/5.0 (compatible; tdl-wait-tracker/1.0)',
+          'Accept': 'application/json',
+          'Accept-Language': 'ja',
+          'Referer': TDL_SHOW_URL
+        }
+      });
+      if (!response.ok) throw new Error(`HTTP ${response.status} ${response.statusText}`);
+      const data = await response.json();
+      const first = Array.isArray(data) ? data[0] : null;
+      const firstKeys = first && typeof first === 'object' ? Object.keys(first) : [];
+      const preview = JSON.stringify(first ?? data ?? null).slice(0, 800);
+      console.error(`[shows] realtime json array=${Array.isArray(data)} first_keys=${JSON.stringify(firstKeys)} first=${preview}`);
+      const items = parseShowsFromJson(data);
+      if (items.length > 0) {
+        return {
+          source_url: TDL_SHOW_JSON_URL,
+          fetched_at: new Date().toISOString(),
+          items
+        };
+      }
+    } catch (error) {
+      console.error(`warning: TDL show realtime fetch failed: ${error?.message || error}`);
+    } finally {
+      clearTimeout(timer);
+    }
+
+    try {
+      const html = await fetchText(TDL_SHOW_URL, TDR_TIMEOUT_MS);
+      const text = htmlToText(html);
+      console.error(`[shows] html text_head=${JSON.stringify(text.slice(0, 800))}`);
+      const items = parseShowsFromHtmlText(text);
+      if (items.length > 0) {
+        return {
+          source_url: TDL_SHOW_URL,
+          fetched_at: new Date().toISOString(),
+          items
+        };
+      }
+    } catch (error) {
+      console.error(`warning: TDL show html scrape failed: ${error?.message || error}`);
+    }
+  } catch (error) {
+    console.error(`warning: TDL show fetch failed: ${error?.message || error}`);
+  }
+
+  return null;
 }
 
 function normalizePeriodText(raw) {
@@ -503,6 +702,7 @@ function writeDailySeries(dateDir, date, daySnapshots) {
 
   const points = [];
   const attractions = new Map();
+  let latestShows = [];
 
   for (const { time, snapshot } of sorted) {
     const ms = Date.parse(snapshot?.fetched_at);
@@ -518,6 +718,10 @@ function writeDailySeries(dateDir, date, daySnapshots) {
       summary: snapshot.summary ?? null
     });
     const pointIndex = points.length - 1;
+    const snapshotShows = Array.isArray(snapshot?.shows?.items) ? snapshot.shows.items : [];
+    if (snapshotShows.length > 0) {
+      latestShows = snapshotShows;
+    }
 
     const seenIds = new Set();
     const list = Array.isArray(snapshot.attractions) ? snapshot.attractions : [];
@@ -578,7 +782,8 @@ function writeDailySeries(dateDir, date, daySnapshots) {
     date,
     updated_at: new Date().toISOString(),
     points,
-    attractions: Object.fromEntries(attractions)
+    attractions: Object.fromEntries(attractions),
+    shows: latestShows
   };
 
   const seriesPath = path.join(dateDir, 'series.json');
@@ -588,6 +793,7 @@ function writeDailySeries(dateDir, date, daySnapshots) {
 try {
   const result = await collect();
   const closureInfo = await fetchTdlClosures();
+  const showInfo = await fetchTdlShows();
   const now = new Date();
   if (closureInfo && closureInfo.closures) {
     for (const attraction of result.attractions) {
@@ -602,12 +808,13 @@ try {
     source: result.source,
     attractions: result.attractions,
     summary: summarize(result.attractions),
-    closures: closureInfo
+    closures: closureInfo,
+    shows: showInfo
   };
   const paths = writeSnapshot(payload, now);
   const index = writeSnapshotIndex(now);
 
-  console.log(`source=${payload.source} count=${payload.summary.count} max_wait=${payload.summary.max_wait} closures=${closureInfo ? Object.keys(closureInfo.closures).length : 'n/a'}`);
+  console.log(`source=${payload.source} count=${payload.summary.count} max_wait=${payload.summary.max_wait} closures=${closureInfo ? Object.keys(closureInfo.closures).length : 'n/a'} shows=${showInfo ? showInfo.items.length : 'n/a'}`);
   console.log(`saved ${paths.latestPath}`);
   console.log(`saved ${paths.historyPath}`);
   console.log(`saved ${index.indexPath} (${index.count} entries)`);

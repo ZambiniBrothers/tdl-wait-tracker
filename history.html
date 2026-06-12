@@ -578,7 +578,7 @@
         <div id="chartEmpty" class="chart-empty is-hidden">表示できるグラフデータがありません</div>
         <div id="tooltip" class="tooltip is-hidden"></div>
       </div>
-      <p class="chart-hint">ホイールで拡大縮小 / 左ドラッグで横移動 / ダブルクリックでリセット</p>
+      <p class="chart-hint">ホイールで拡大縮小 / 左ドラッグで横移動 / ダブルクリックでリセット ／ <span style="color:#facc15;">黄色の縦線</span>はショー・パレードの時刻（取得不可日は標準時刻）</p>
     </section>
 
     <section class="chart-panel" aria-labelledby="tableTitle">
@@ -618,6 +618,15 @@
       const MIN_VIEW_MINUTES = 20;
       const JST_OFFSET_MS = 9 * 60 * 60 * 1000;
       const SVG_NS = 'http://www.w3.org/2000/svg';
+
+      // パーク内のショー/パレードの標準時刻（編集可能）。
+      // time は JST の "HH:MM"。グラフのX軸上にこの時刻で黄色い縦線を描画する。
+      const SHOW_SCHEDULE = [
+        { time: '13:30', label: '昼のパレード' },
+        { time: '15:30', label: 'キャッスルショー' },
+        { time: '19:30', label: '夜のパレード' },
+        { time: '20:30', label: '夜のショー' }
+      ];
 
       const state = {
         availableDates: [],
@@ -1044,6 +1053,7 @@
               : '表示できるデータがありません';
             elements.chartEmpty.classList.remove('is-hidden');
             drawAxisLabels(width, height, pad, viewStartMs, viewEndMs);
+            drawShowMarkers(width, height, pad, viewStartMs, viewEndMs);
           } else {
             elements.chartEmpty.classList.add('is-hidden');
           }
@@ -1070,6 +1080,7 @@
 
         drawGrid(width, height, pad, maxWait);
         drawAxisLabels(width, height, pad, viewStartMs, viewEndMs);
+        drawShowMarkers(width, height, pad, viewStartMs, viewEndMs);
 
         // clipPath: horizontally strict (no overlap onto Y-axis labels or right edge),
         // vertically loose by DOT_OVERHANG so the max-value dot sits fully visible
@@ -1273,6 +1284,50 @@
           }
           tick += intervalMs;
         }
+      }
+
+      function drawShowMarkers(width, height, pad, viewStartMs, viewEndMs) {
+        if (!state.currentDate) return;
+        const plotW = width - pad.left - pad.right;
+        const span = Math.max(1, viewEndMs - viewStartMs);
+        const top = pad.top;
+        const bottom = height - pad.bottom;
+        const dynamic = Array.isArray(state.series && state.series.shows) ? state.series.shows : [];
+        const schedule = dynamic.length ? dynamic : SHOW_SCHEDULE;
+
+        schedule.forEach((show) => {
+          if (!show || typeof show.time !== 'string') return;
+          const ms = Date.parse(`${state.currentDate}T${show.time}:00+09:00`);
+          if (!Number.isFinite(ms) || ms < viewStartMs || ms > viewEndMs) return;
+          const x = pad.left + ((ms - viewStartMs) / span) * plotW;
+
+          const line = document.createElementNS(SVG_NS, 'line');
+          line.setAttribute('x1', String(x));
+          line.setAttribute('x2', String(x));
+          line.setAttribute('y1', String(top));
+          line.setAttribute('y2', String(bottom));
+          line.setAttribute('stroke', '#facc15');
+          line.setAttribute('stroke-width', '1.5');
+          line.setAttribute('stroke-dasharray', '4 4');
+          line.setAttribute('stroke-opacity', '0.65');
+          line.setAttribute('pointer-events', 'none');
+          elements.waitChart.appendChild(line);
+
+          if (show.label) {
+            const label = document.createElementNS(SVG_NS, 'text');
+            label.setAttribute('x', String(x));
+            label.setAttribute('y', String(top + 2));
+            label.setAttribute('transform', `rotate(90 ${x} ${top + 2})`);
+            label.setAttribute('dx', '4');
+            label.setAttribute('dy', '-3');
+            label.setAttribute('fill', '#facc15');
+            label.setAttribute('font-size', '10');
+            label.setAttribute('text-anchor', 'start');
+            label.setAttribute('pointer-events', 'none');
+            label.textContent = show.label;
+            elements.waitChart.appendChild(label);
+          }
+        });
       }
 
       function handleWheel(event) {
