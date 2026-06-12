@@ -293,7 +293,12 @@ function extractListBlockTimes(region, today) {
   while ((bm = dateBlockRe.exec(region))) {
     nextDateRe.lastIndex = bm.index + bm[0].length;
     const nm = nextDateRe.exec(region);
-    const blockEnd = Math.min(nm ? nm.index : region.length, bm.index + 240);
+    // Bound the block at its time-list close (</ul>) so a heavy day's full list
+    // is captured, while never bleeding past the next date sibling.
+    const ulEnd = region.indexOf('</ul>', bm.index);
+    const candidates = [nm ? nm.index : region.length];
+    if (ulEnd >= 0) candidates.push(ulEnd + 5);
+    const blockEnd = Math.min(...candidates);
     const window = region.slice(bm.index, blockEnd);
     let tm;
     liTimeRe.lastIndex = 0;
@@ -302,6 +307,21 @@ function extractListBlockTimes(region, today) {
     }
   }
   return times;
+}
+
+// Detect a requirement badge. On show.html each card marks entry/reservation
+// with <div class="iconTag">エントリー受付対象</div> / <div class="iconTag">予約が必須</div>.
+// We scope to that element so the bare keywords inside the page's trailing JSON
+// (important_tag dictionaries, status-code labels) can't trigger false positives —
+// the last show's region runs to EOF and would otherwise inherit every other
+// show's badge text.
+function hasIconTag(region, keyword) {
+  const re = /<div class="iconTag">([^<]*)<\/div>/g;
+  let m;
+  while ((m = re.exec(region))) {
+    if (m[1].includes(keyword)) return true;
+  }
+  return false;
 }
 
 // Parse show.html into a list of shows: name, monthly-schedule id, and the
@@ -322,22 +342,11 @@ function parseShowList(html) {
     const end = i + 1 < heads.length ? heads[i + 1].index : source.length;
     const region = source.slice(index, end);
     const schedMatch = region.match(/\/tdl\/show\/schedule\/(\d+)\//);
-    if (process.env.SHOW_DEBUG === '1') {
-      for (const kw of ['エントリー受付', '予約']) {
-        let idx = region.indexOf(kw);
-        let n = 0;
-        while (idx >= 0 && n < 3) {
-          console.error(`[badge] name=${JSON.stringify(name)} kw=${kw} ctx=${JSON.stringify(region.slice(Math.max(0, idx - 90), idx + kw.length + 30))}`);
-          idx = region.indexOf(kw, idx + kw.length);
-          n++;
-        }
-      }
-    }
     shows.push({
       name,
       scheduleId: schedMatch ? schedMatch[1] : null,
-      requiresEntry: region.includes('エントリー受付'),
-      requiresReservation: region.includes('予約'),
+      requiresEntry: hasIconTag(region, 'エントリー受付'),
+      requiresReservation: hasIconTag(region, '予約'),
       listTimes: extractListBlockTimes(region, today)
     });
   }
