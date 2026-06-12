@@ -296,7 +296,8 @@
       right: 0;
       z-index: 20;
       display: grid;
-      min-width: 220px;
+      min-width: min(220px, calc(100vw - 16px));
+      max-width: calc(100vw - 16px);
       padding: 6px;
       background: rgba(8, 18, 36, 0.98);
       border: 1px solid rgba(255, 255, 255, 0.18);
@@ -448,6 +449,13 @@
       flex-wrap: wrap;
       gap: 8px;
       justify-content: flex-end;
+    }
+
+    .detail-toggle {
+      display: none;
+      min-height: 38px;
+      align-self: center;
+      font-size: 0.85rem;
     }
 
     .name-block {
@@ -623,11 +631,32 @@
       }
 
       .attraction-card {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr auto;
       }
 
       .name-block {
         grid-column: 1 / -1;
+      }
+
+      .detail-toggle {
+        display: inline-flex;
+        justify-self: end;
+      }
+
+      .attraction-card .carry-field-block,
+      .attraction-card .crowd-field-block,
+      .attraction-card .closure-period {
+        display: none;
+      }
+
+      .attraction-card.details-open .carry-field-block,
+      .attraction-card.details-open .crowd-field-block {
+        display: grid;
+        grid-column: 1 / -1;
+      }
+
+      .attraction-card.details-open .closure-period {
+        display: inline-flex;
       }
     }
 
@@ -666,15 +695,11 @@
       <div class="header-actions" aria-label="データ操作">
         <span class="last-fetch" id="lastFetch">最終更新: --</span>
         <a href="./history.html" class="link-button"><span aria-hidden="true">📊</span> 過去データ</a>
-        <button type="button" id="exportMemosButton" class="secondary">メモをエクスポート</button>
-        <button type="button" id="importMemosButton" class="secondary">メモを取り込み</button>
-        <input type="file" id="importMemosInput" class="is-hidden" accept="application/json,.json">
+        <a href="./info.html" class="link-button"><span aria-hidden="true">🌤</span> 舞浜の天気 ／ 周辺イベント</a>
         <button type="button" id="refreshButton">更新</button>
         <div class="overflow-menu" id="overflowMenu">
           <button type="button" id="overflowToggle" class="secondary overflow-toggle" aria-label="その他のメニュー" aria-haspopup="true" aria-expanded="false">⋯</button>
           <div class="overflow-list is-hidden" id="overflowList" role="menu">
-            <button type="button" id="editCarryButton" class="overflow-item" role="menuitem">キャリーを編集</button>
-            <a href="./info.html" class="overflow-item" role="menuitem">舞浜の天気 ／ 周辺イベント</a>
             <button type="button" id="resetCarryButton" class="overflow-item is-danger" role="menuitem">全キャリーをリセット</button>
           </div>
         </div>
@@ -852,14 +877,10 @@
 
       const elements = {
         lastFetch: document.getElementById('lastFetch'),
-        exportMemosButton: document.getElementById('exportMemosButton'),
-        importMemosButton: document.getElementById('importMemosButton'),
-        importMemosInput: document.getElementById('importMemosInput'),
         refreshButton: document.getElementById('refreshButton'),
         overflowMenu: document.getElementById('overflowMenu'),
         overflowToggle: document.getElementById('overflowToggle'),
         overflowList: document.getElementById('overflowList'),
-        editCarryButton: document.getElementById('editCarryButton'),
         resetCarryButton: document.getElementById('resetCarryButton'),
         totalQueuePeople: document.getElementById('totalQueuePeople'),
         estimatedVisitors: document.getElementById('estimatedVisitors'),
@@ -902,14 +923,6 @@
           resetAllCarry();
           closeOverflowMenu();
         });
-        elements.editCarryButton.addEventListener('click', () => {
-          closeOverflowMenu();
-          const firstCarry = elements.attractionList.querySelector('.carry-input');
-          if (firstCarry) {
-            firstCarry.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            firstCarry.focus({ preventScroll: true });
-          }
-        });
         elements.overflowToggle.addEventListener('click', toggleOverflowMenu);
         document.addEventListener('click', (event) => {
           if (!elements.overflowMenu.contains(event.target)) {
@@ -919,9 +932,6 @@
         document.addEventListener('keydown', (event) => {
           if (event.key === 'Escape') closeOverflowMenu();
         });
-        elements.exportMemosButton.addEventListener('click', exportMemos);
-        elements.importMemosButton.addEventListener('click', () => elements.importMemosInput.click());
-        elements.importMemosInput.addEventListener('change', importMemos);
         elements.manualModeButton.addEventListener('click', enableManualMode);
         elements.parallelFactor.addEventListener('input', () => {
           const value = Number(elements.parallelFactor.value);
@@ -1251,7 +1261,7 @@
         }
 
         const carryField = document.createElement('div');
-        carryField.className = 'field';
+        carryField.className = 'field carry-field-block';
         const carryLabel = document.createElement('label');
         carryLabel.textContent = 'キャリー 人/分';
         const carryInput = document.createElement('input');
@@ -1282,7 +1292,7 @@
         carryField.append(carryLabel, carryInput, memoButton);
 
         const crowdField = document.createElement('div');
-        crowdField.className = 'field';
+        crowdField.className = 'field crowd-field-block';
         const crowdLabel = document.createElement('div');
         crowdLabel.className = 'field-label';
         crowdLabel.textContent = '並び人数';
@@ -1294,7 +1304,18 @@
         hourlyValue.textContent = '';
         crowdField.append(crowdLabel, crowdValue, hourlyValue);
 
-        card.append(nameBlock, waitField, carryField, crowdField);
+        const detailToggle = document.createElement('button');
+        detailToggle.type = 'button';
+        detailToggle.className = 'detail-toggle secondary';
+        detailToggle.setAttribute('aria-expanded', 'false');
+        detailToggle.textContent = '詳細 ▾';
+        detailToggle.addEventListener('click', () => {
+          const open = card.classList.toggle('details-open');
+          detailToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+          detailToggle.textContent = open ? '閉じる ▴' : '詳細 ▾';
+        });
+
+        card.append(nameBlock, waitField, detailToggle, carryField, crowdField);
         if (state.openMemoIds.has(attraction.id)) {
           card.appendChild(createMemoPanel(attraction));
         }
@@ -1463,11 +1484,27 @@
       function openOverflowMenu() {
         elements.overflowList.classList.remove('is-hidden');
         elements.overflowToggle.setAttribute('aria-expanded', 'true');
+        clampOverflowMenu();
+        window.addEventListener('resize', clampOverflowMenu);
       }
 
       function closeOverflowMenu() {
+        elements.overflowList.style.transform = '';
+        window.removeEventListener('resize', clampOverflowMenu);
         elements.overflowList.classList.add('is-hidden');
         elements.overflowToggle.setAttribute('aria-expanded', 'false');
+      }
+
+      function clampOverflowMenu() {
+        const list = elements.overflowList;
+        list.style.transform = 'none';
+        const margin = 8;
+        const vw = document.documentElement.clientWidth;
+        const rect = list.getBoundingClientRect();
+        let dx = 0;
+        if (rect.right > vw - margin) dx -= rect.right - (vw - margin);
+        if (rect.left + dx < margin) dx += margin - (rect.left + dx);
+        list.style.transform = dx ? `translateX(${dx}px)` : '';
       }
 
       function toggleMemo(attractionId) {
@@ -1558,83 +1595,6 @@
 
       function readMemo(attractionId) {
         return readStoredString(MEMO_PREFIX + attractionId);
-      }
-
-      function exportMemos() {
-        const memos = {};
-        forEachStorageKey((key) => {
-          if (!key.startsWith(MEMO_PREFIX)) {
-            return;
-          }
-          const id = key.slice(MEMO_PREFIX.length);
-          const value = readStoredString(key);
-          if (id && value !== '') {
-            memos[id] = value;
-          }
-        });
-
-        const payload = {
-          version: 1,
-          exported_at: new Date().toISOString(),
-          memos
-        };
-        const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
-        const url = URL.createObjectURL(blob);
-        const link = document.createElement('a');
-        link.href = url;
-        link.download = `tdl-memos-${formatDownloadTimestamp(new Date())}.json`;
-        document.body.appendChild(link);
-        link.click();
-        link.remove();
-        URL.revokeObjectURL(url);
-      }
-
-      function importMemos(event) {
-        const file = event.target.files && event.target.files[0];
-        event.target.value = '';
-        if (!file) {
-          return;
-        }
-        if (file.size > 1024 * 1024) {
-          alert('1MB以下のメモJSONを選択してください。');
-          return;
-        }
-
-        const reader = new FileReader();
-        reader.addEventListener('load', () => {
-          try {
-            const parsed = JSON.parse(String(reader.result || ''));
-            if (!parsed || parsed.version !== 1) {
-              alert('対応していないメモJSONです。');
-              return;
-            }
-            const memos = parsed && parsed.memos && typeof parsed.memos === 'object' ? parsed.memos : null;
-            if (!memos || Array.isArray(memos)) {
-              throw new Error('Invalid memo export');
-            }
-            Object.keys(memos).forEach((id) => {
-              const cleanId = String(id);
-              if (typeof memos[id] !== 'string') {
-                return;
-              }
-              const value = memos[id].trim();
-              if (cleanId === '') {
-                return;
-              }
-              if (value === '') {
-                removeStorage(MEMO_PREFIX + cleanId);
-              } else {
-                writeStorage(MEMO_PREFIX + cleanId, value.slice(0, 500));
-              }
-            });
-            renderAttractions();
-            setError('');
-          } catch (error) {
-            setError('メモJSONの取り込みに失敗しました。');
-          }
-        });
-        reader.addEventListener('error', () => setError('メモJSONの読み込みに失敗しました。'));
-        reader.readAsText(file);
       }
 
       function setLoading(isLoading) {
@@ -1806,11 +1766,6 @@
       function formatDateTime(date) {
         const pad = (value) => String(value).padStart(2, '0');
         return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())} ${pad(date.getHours())}:${pad(date.getMinutes())}:${pad(date.getSeconds())}`;
-      }
-
-      function formatDownloadTimestamp(date) {
-        const pad = (value) => String(value).padStart(2, '0');
-        return `${date.getFullYear()}${pad(date.getMonth() + 1)}${pad(date.getDate())}-${pad(date.getHours())}${pad(date.getMinutes())}`;
       }
 
       function normalizeAttractionId(nameEn) {
