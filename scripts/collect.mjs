@@ -401,12 +401,18 @@ async function debugProbeShows() {
   }
   try {
     const html = await fetchText(TDL_SHOW_URL, TDR_TIMEOUT_MS);
-    const text = htmlToText(html);
-    const idx = text.indexOf('ハーモニー');
-    console.error(`[probe] htmlLen=${html.length} textLen=${text.length} harmonyAt=${idx}`);
-    if (idx >= 0) console.error(`[probe] around_harmony=${JSON.stringify(text.slice(Math.max(0, idx - 200), idx + 400))}`);
-    const rawIdx = html.indexOf('ShowSchedule') >= 0 ? html.indexOf('ShowSchedule') : html.search(/[012]?\d[:：][0-5]\d/);
-    if (rawIdx >= 0) console.error(`[probe] raw_around_time=${JSON.stringify(html.slice(Math.max(0, rawIdx - 150), rawIdx + 350))}`);
+    // 1) map of str_id -> name: dump raw around a known show name
+    const hi = html.indexOf('ディズニー・ハーモニー・イン・カラー');
+    console.error(`[probe] htmlLen=${html.length} harmonyRawAt=${hi}`);
+    if (hi >= 0) console.error(`[probe] raw_around_name=${JSON.stringify(html.slice(Math.max(0, hi - 600), hi + 200))}`);
+    // 2) distinct date- classes and count of today's blocks
+    const today = '20260612';
+    const dateClasses = [...new Set((html.match(/date-(\d{8})/g) || []))].slice(0, 20);
+    const todayBlocks = (html.match(new RegExp(`date-${today} str_id-(\\d+)`, 'g')) || []);
+    console.error(`[probe] dateClasses=${JSON.stringify(dateClasses)} todayBlockCount=${todayBlocks.length} todaySample=${JSON.stringify(todayBlocks.slice(0, 8))}`);
+    // 3) one full today block to see timeTable shape
+    const m = html.match(new RegExp(`<div class="date-${today} str_id-\\d+"[\\s\\S]{0,400}?</div></div></div>`));
+    if (m) console.error(`[probe] today_block=${JSON.stringify(m[0].slice(0, 500))}`);
   } catch (e) {
     console.error(`[probe] html ERR ${e?.message || e}`);
   }
