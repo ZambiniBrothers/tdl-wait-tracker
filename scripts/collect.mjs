@@ -322,6 +322,17 @@ function parseShowList(html) {
     const end = i + 1 < heads.length ? heads[i + 1].index : source.length;
     const region = source.slice(index, end);
     const schedMatch = region.match(/\/tdl\/show\/schedule\/(\d+)\//);
+    if (process.env.SHOW_DEBUG === '1') {
+      for (const kw of ['エントリー受付', '予約']) {
+        let idx = region.indexOf(kw);
+        let n = 0;
+        while (idx >= 0 && n < 3) {
+          console.error(`[badge] name=${JSON.stringify(name)} kw=${kw} ctx=${JSON.stringify(region.slice(Math.max(0, idx - 90), idx + kw.length + 30))}`);
+          idx = region.indexOf(kw, idx + kw.length);
+          n++;
+        }
+      }
+    }
     shows.push({
       name,
       scheduleId: schedMatch ? schedMatch[1] : null,
