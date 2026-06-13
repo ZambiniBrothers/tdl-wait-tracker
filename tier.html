@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'self'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; img-src 'self' data:; base-uri 'none'; form-action 'none'">
+  <title>TDL 混雑ティア（待ち時間ひと目チェック）</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #07111f;
+      --panel: #101c31;
+      --panel-2: #13243f;
+      --line: #29415f;
+      --text: #f7fbff;
+      --muted: #b7c7dc;
+      --subtle: #8fa4bf;
+      --royal: #1e3a8a;
+      --shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-width: 320px;
+      background:
+        radial-gradient(circle at top left, rgba(37, 99, 235, 0.28), transparent 32rem),
+        linear-gradient(135deg, #07111f 0%, #111827 48%, #1a1230 100%);
+      color: var(--text);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.5;
+    }
+
+    button { font: inherit; }
+
+    button {
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #3157c7, var(--royal));
+      color: var(--text);
+      cursor: pointer;
+      font-weight: 700;
+      min-height: 42px;
+      padding: 0 14px;
+      transition: transform 120ms ease, border-color 120ms ease, filter 120ms ease;
+    }
+    button:hover { border-color: rgba(255, 255, 255, 0.35); filter: brightness(1.08); }
+    button:active { transform: translateY(1px); }
+    button:focus-visible { outline: 3px solid #93c5fd; outline-offset: 2px; }
+
+    .link-button {
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text);
+      font-weight: 700;
+      padding: 0 14px;
+      text-decoration: none;
+      transition: border-color 120ms ease, filter 120ms ease;
+    }
+    .link-button:hover { border-color: rgba(255, 255, 255, 0.35); filter: brightness(1.08); }
+    .link-button:focus-visible { outline: 3px solid #93c5fd; outline-offset: 2px; }
+
+    .page {
+      width: min(1180px, 100%);
+      margin: 0 auto;
+      padding: 22px clamp(14px, 3vw, 28px) 42px;
+    }
+
+    .app-header {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+      align-items: end;
+      padding: 10px 0 18px;
+    }
+    h1 { margin: 0 0 6px; font-size: clamp(1.5rem, 4vw, 2.4rem); }
+    .lead { margin: 0; color: var(--muted); max-width: 760px; }
+
+    .header-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      justify-content: flex-start;
+    }
+    .last-fetch { flex-basis: 100%; color: var(--muted); font-size: 0.92rem; }
+
+    .banner {
+      margin: 4px 0 16px;
+      padding: 12px 16px;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      color: var(--muted);
+    }
+    .banner.error { border-color: #b91c1c; background: #3b1116; color: #fecaca; }
+    .is-hidden { display: none !important; }
+
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 16px;
+      margin: 0 0 18px;
+      padding: 12px 16px;
+      border-radius: 12px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
+    .legend b { color: var(--text); }
+    .legend .swatch {
+      display: inline-block;
+      width: 14px; height: 14px;
+      border-radius: 4px;
+      vertical-align: -2px;
+      margin-right: 6px;
+    }
+
+    .tier-board {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .tier-row {
+      display: grid;
+      grid-template-columns: 92px 1fr;
+      gap: 0;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.02);
+      min-height: 92px;
+    }
+
+    .tier-label {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2px;
+      padding: 8px 6px;
+      text-align: center;
+      color: #0b1220;
+      font-weight: 800;
+    }
+    .tier-label .t-range { font-size: 0.98rem; line-height: 1.1; }
+    .tier-label .t-sub { font-size: 0.7rem; font-weight: 700; opacity: 0.78; }
+    .tier-label .t-count { font-size: 0.72rem; font-weight: 700; opacity: 0.85; }
+
+    .tier-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-content: center;
+      padding: 10px 12px;
+    }
+
+    .tier-row.is-empty .tier-items::before {
+      content: "—";
+      color: var(--subtle);
+      font-size: 0.9rem;
+    }
+
+    .chip {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 76px;
+      text-decoration: none;
+      color: var(--text);
+    }
+    .chip .thumb {
+      position: relative;
+      width: 60px;
+      height: 60px;
+    }
+    .chip .thumb img,
+    .chip .thumb .ph {
+      width: 100%;
+      height: 100%;
+      border-radius: 14px;
+      border: 2px solid rgba(255, 255, 255, 0.18);
+      background: var(--panel-2);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.35);
+      object-fit: cover;
+      display: block;
+    }
+    .chip .thumb .ph {
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem;
+    }
+    .chip .wait {
+      position: absolute;
+      right: -4px; bottom: -4px;
+      min-width: 26px;
+      padding: 1px 5px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: #0b1220;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+      border: 1.5px solid rgba(0,0,0,0.25);
+    }
+    .chip .wait .u { font-size: 0.6rem; font-weight: 700; }
+    .chip .pp {
+      position: absolute;
+      left: -4px; top: -4px;
+      padding: 0 4px;
+      border-radius: 6px;
+      font-size: 0.62rem;
+      font-weight: 800;
+      background: #7c3aed;
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.3);
+    }
+    .chip .nm {
+      margin-top: 5px;
+      font-size: 0.66rem;
+      line-height: 1.2;
+      text-align: center;
+      color: var(--muted);
+      max-width: 76px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .chip.is-closed .thumb { filter: grayscale(1) brightness(0.6); }
+
+    @media (max-width: 540px) {
+      .tier-row { grid-template-columns: 72px 1fr; min-height: 84px; }
+      .tier-label .t-range { font-size: 0.86rem; }
+      .chip { width: 66px; }
+      .chip .thumb { width: 54px; height: 54px; }
+      .chip .nm { max-width: 66px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="app-header">
+      <div>
+        <h1>TDL 混雑ティア</h1>
+        <p class="lead">いま空いている／混んでいるアトラクションをひと目で。待ち時間ごとの段（ティア）に、各アトラクションのアイコンを並べています。</p>
+      </div>
+      <div class="header-actions" aria-label="ページ操作">
+        <span class="last-fetch" id="lastFetch">最終更新: --</span>
+        <a href="./index.html" class="link-button"><span aria-hidden="true">←</span> 計算機に戻る</a>
+        <a href="./history.html" class="link-button"><span aria-hidden="true">📊</span> 過去データ</a>
+        <a href="./info.html" class="link-button"><span aria-hidden="true">🌤</span> 天気 ／ イベント</a>
+        <button type="button" id="refreshButton">更新</button>
+      </div>
+    </header>
+
+    <div id="errorBanner" class="banner error is-hidden"></div>
+    <div id="loadingBanner" class="banner">待ち時間を取得中です…</div>
+
+    <div class="legend" id="legend" aria-hidden="true"></div>
+
+    <div class="tier-board" id="board" aria-live="polite"></div>
+  </div>
+
+  <script>
+    'use strict';
+
+    const DATA_URL = './data/latest.json';
+    const ICONS_URL = './data/icons.json';
+
+    // Tier bands, top (most crowded) to bottom. `match(wait)` decides standby buckets.
+    const TIERS = [
+      { key: 's',      color: '#ef4444', range: '90分〜',   sub: '激混雑',  match: (w) => w >= 90 },
+      { key: 'a',      color: '#f97316', range: '60–89分',  sub: '混雑',    match: (w) => w >= 60 && w < 90 },
+      { key: 'b',      color: '#f59e0b', range: '40–59分',  sub: 'やや混雑', match: (w) => w >= 40 && w < 60 },
+      { key: 'c',      color: '#facc15', range: '20–39分',  sub: '普通',    match: (w) => w >= 20 && w < 40 },
+      { key: 'd',      color: '#84cc16', range: '1–19分',   sub: '空いてる', match: (w) => w >= 1 && w < 20 },
+      { key: 'free',   color: '#38bdf8', range: '待ちなし', sub: '運営中',  match: null },
+      { key: 'closed', color: '#94a3b8', range: '休止',     sub: '案内終了', match: null }
+    ];
+
+    const els = {
+      board: document.getElementById('board'),
+      legend: document.getElementById('legend'),
+      error: document.getElementById('errorBanner'),
+      loading: document.getElementById('loadingBanner'),
+      lastFetch: document.getElementById('lastFetch'),
+      refresh: document.getElementById('refreshButton')
+    };
+
+    let icons = {};
+
+    function setError(msg) {
+      if (!msg) { els.error.classList.add('is-hidden'); els.error.textContent = ''; return; }
+      els.error.textContent = msg;
+      els.error.classList.remove('is-hidden');
+    }
+
+    function formatDateTime(iso) {
+      const d = new Date(iso);
+      if (Number.isNaN(d.getTime())) return '--';
+      const f = new Intl.DateTimeFormat('ja-JP', {
+        timeZone: 'Asia/Tokyo', month: 'numeric', day: 'numeric',
+        hour: '2-digit', minute: '2-digit'
+      });
+      return f.format(d);
+    }
+
+    async function fetchJson(url) {
+      const res = await fetch(url, { cache: 'no-store' });
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      return res.json();
+    }
+
+    // Decide which tier an attraction belongs to.
+    function classify(attr) {
+      const status = String(attr.status || '').toUpperCase();
+      const isOpen = attr.is_open === true || status === 'OPERATING';
+      const wait = typeof attr.wait_minutes === 'number' && Number.isFinite(attr.wait_minutes) && attr.wait_minutes > 0
+        ? attr.wait_minutes : null;
+      if (!isOpen) return 'closed';
+      if (wait === null) return 'free';
+      for (const t of TIERS) {
+        if (t.match && t.match(wait)) return t.key;
+      }
+      return 'free';
+    }
+
+    function makeChip(attr, tier) {
+      const chip = document.createElement('a');
+      chip.className = 'chip' + (tier.key === 'closed' ? ' is-closed' : '');
+      chip.href = './index.html';
+      const name = attr.name_ja || attr.name_en || attr.id;
+      const wait = typeof attr.wait_minutes === 'number' && attr.wait_minutes > 0 ? attr.wait_minutes : null;
+      const ppOnly = String(attr.access_mode || '') === 'PP_ONLY';
+      chip.title = wait !== null ? `${name}：${wait}分待ち` : `${name}：${tier.sub}`;
+
+      const thumb = document.createElement('div');
+      thumb.className = 'thumb';
+      const url = icons[attr.id];
+      if (url) {
+        const img = document.createElement('img');
+        img.src = url;
+        img.alt = name;
+        img.loading = 'lazy';
+        img.addEventListener('error', () => {
+          img.remove();
+          const ph = document.createElement('div');
+          ph.className = 'ph';
+          ph.textContent = '🎠';
+          thumb.prepend(ph);
+        });
+        thumb.appendChild(img);
+      } else {
+        const ph = document.createElement('div');
+        ph.className = 'ph';
+        ph.textContent = '🎠';
+        thumb.appendChild(ph);
+      }
+
+      if (wait !== null) {
+        const badge = document.createElement('span');
+        badge.className = 'wait';
+        badge.style.background = tier.color;
+        badge.innerHTML = `${wait}<span class="u">分</span>`;
+        thumb.appendChild(badge);
+      }
+      if (ppOnly) {
+        const pp = document.createElement('span');
+        pp.className = 'pp';
+        pp.textContent = 'PP';
+        thumb.appendChild(pp);
+      }
+
+      const nm = document.createElement('span');
+      nm.className = 'nm';
+      nm.textContent = name;
+
+      chip.appendChild(thumb);
+      chip.appendChild(nm);
+      return chip;
+    }
+
+    function render(attractions) {
+      els.board.replaceChildren();
+
+      // Bucket attractions by tier key.
+      const buckets = {};
+      for (const t of TIERS) buckets[t.key] = [];
+      for (const a of attractions) {
+        buckets[classify(a)].push(a);
+      }
+      // Within a standby tier, show most-crowded first; closed/free by name.
+      const byWaitDesc = (x, y) => (y.wait_minutes || 0) - (x.wait_minutes || 0);
+      const byName = (x, y) => String(x.name_ja || '').localeCompare(String(y.name_ja || ''), 'ja');
+
+      for (const tier of TIERS) {
+        const list = buckets[tier.key];
+        if (tier.key === 'closed' || tier.key === 'free') list.sort(byName);
+        else list.sort(byWaitDesc);
+
+        const row = document.createElement('div');
+        row.className = 'tier-row' + (list.length === 0 ? ' is-empty' : '');
+
+        const label = document.createElement('div');
+        label.className = 'tier-label';
+        label.style.background = tier.color;
+        label.innerHTML =
+          `<span class="t-range">${tier.range}</span>` +
+          `<span class="t-sub">${tier.sub}</span>` +
+          `<span class="t-count">${list.length}件</span>`;
+
+        const items = document.createElement('div');
+        items.className = 'tier-items';
+        for (const a of list) items.appendChild(makeChip(a, tier));
+
+        row.appendChild(label);
+        row.appendChild(items);
+        els.board.appendChild(row);
+      }
+    }
+
+    function renderLegend() {
+      els.legend.innerHTML =
+        '<span><b>見方:</b> 上の段ほど混雑。アイコン右下の数字が待ち時間（分）。</span>' +
+        TIERS.map((t) => `<span><span class="swatch" style="background:${t.color}"></span>${t.range}</span>`).join('') +
+        '<span><span class="swatch" style="background:#7c3aed"></span>PP = プレミアアクセス専用</span>';
+    }
+
+    async function load() {
+      setError('');
+      els.loading.classList.remove('is-hidden');
+      els.refresh.disabled = true;
+      try {
+        if (!Object.keys(icons).length) {
+          try {
+            const ic = await fetchJson(ICONS_URL);
+            icons = (ic && ic.icons) || {};
+          } catch (_) { icons = {}; }
+        }
+        const data = await fetchJson(DATA_URL);
+        const attractions = Array.isArray(data.attractions) ? data.attractions : [];
+        const filtered = attractions.filter((a) =>
+          a && a.name_en !== 'Tomorrowland Hall' && a.name_ja !== 'トゥモローランド・ホール');
+        els.lastFetch.textContent = '最終更新: ' + formatDateTime(data.fetched_at);
+        render(filtered);
+        renderLegend();
+      } catch (err) {
+        setError('待ち時間データを取得できませんでした。時間をおいて「更新」を押してください。');
+        els.board.replaceChildren();
+      } finally {
+        els.loading.classList.add('is-hidden');
+        els.refresh.disabled = false;
+      }
+    }
+
+    els.refresh.addEventListener('click', load);
+    load();
+  </script>
+</body>
+</html>
