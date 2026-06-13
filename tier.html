@@ -281,8 +281,8 @@
       { key: 'a',      color: '#f97316', range: '60–89分',  sub: '混雑',    match: (w) => w >= 60 && w < 90 },
       { key: 'b',      color: '#f59e0b', range: '40–59分',  sub: 'やや混雑', match: (w) => w >= 40 && w < 60 },
       { key: 'c',      color: '#facc15', range: '20–39分',  sub: '普通',    match: (w) => w >= 20 && w < 40 },
-      { key: 'd',      color: '#84cc16', range: '1–19分',   sub: '空いてる', match: (w) => w >= 1 && w < 20 },
-      { key: 'free',   color: '#38bdf8', range: '待ちなし', sub: '運営中',  match: null },
+      { key: 'd',      color: '#84cc16', range: '10–19分',  sub: '空いてる', match: (w) => w >= 10 && w < 20 },
+      { key: 'free',   color: '#38bdf8', range: '待ちなし', sub: '〜9分',   match: null },
       { key: 'closed', color: '#94a3b8', range: '休止',     sub: '案内終了', match: null }
     ];
 
