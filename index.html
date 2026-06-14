@@ -452,10 +452,101 @@
     }
 
     .detail-toggle {
+      display: inline-flex;
+      align-items: center;
+      margin-top: 8px;
+      min-height: 32px;
+      padding: 4px 12px;
+      font-size: 0.8rem;
+    }
+
+    .detail-panel {
+      grid-column: 1 / -1;
       display: none;
-      min-height: 38px;
-      align-self: center;
-      font-size: 0.85rem;
+      gap: 12px;
+      margin-top: 4px;
+      padding: 12px 14px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 8px;
+      background: rgba(8, 16, 32, 0.6);
+    }
+
+    .attraction-card.details-open .detail-panel {
+      display: grid;
+    }
+
+    .detail-section {
+      display: grid;
+      gap: 4px;
+    }
+
+    .detail-section-label {
+      color: #93c5fd;
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.03em;
+    }
+
+    .detail-bgs {
+      margin: 0;
+      color: var(--text);
+      font-size: 0.88rem;
+      line-height: 1.6;
+      overflow-wrap: anywhere;
+    }
+
+    .detail-bgs:first-of-type {
+      font-weight: 700;
+    }
+
+    .detail-text {
+      margin: 0;
+      color: var(--text);
+      font-size: 0.88rem;
+      overflow-wrap: anywhere;
+    }
+
+    .detail-height {
+      color: #fcd34d;
+      font-weight: 700;
+    }
+
+    .detail-closure {
+      color: #fecaca;
+      font-weight: 700;
+    }
+
+    .detail-dl {
+      margin: 0;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 4px 14px;
+    }
+
+    .detail-dl dt {
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .detail-dl dd {
+      margin: 0;
+      color: var(--text);
+      font-size: 0.86rem;
+      overflow-wrap: anywhere;
+    }
+
+    .detail-link {
+      justify-self: start;
+      color: #93c5fd;
+      text-decoration: underline;
+      font-size: 0.8rem;
+    }
+
+    .attraction-card.is-focused {
+      border-color: #93c5fd;
+      box-shadow: 0 0 0 2px rgba(147, 197, 253, 0.55), 0 10px 24px rgba(0, 0, 0, 0.18);
     }
 
     .name-block {
@@ -638,11 +729,6 @@
         grid-column: 1 / -1;
       }
 
-      .detail-toggle {
-        display: inline-flex;
-        justify-self: end;
-      }
-
       .attraction-card .carry-field-block,
       .attraction-card .crowd-field-block,
       .attraction-card .closure-period {
@@ -780,6 +866,8 @@
     };
 
     const CLOUD_DATA_URL = `${PARK_META[PARK].dataDir}/latest.json`;
+    const DETAILS_URL = `${PARK_META[PARK].dataDir}/details.json`;
+    const FOCUS_ID = new URLSearchParams(location.search).get('focus') || '';
     const API_URL = PARK_META[PARK].themeparks;
     const FALLBACK_URL = PARK_META[PARK].fallback;
     const DEFAULT_PARALLEL_FACTOR = 0.35;
@@ -887,7 +975,10 @@
         lastFetch: readStoredString(LAST_FETCH_KEY) || '',
         lastFetchIso: '',
         openMemoIds: new Set(),
-        isLoading: false
+        isLoading: false,
+        details: {},
+        focusId: FOCUS_ID,
+        focusScrolled: false
       };
 
       const cardMap = new Map();
@@ -925,7 +1016,7 @@
 
       init();
 
-      function init() {
+      async function init() {
         applyParkChrome();
         elements.parallelFactor.value = String(DEFAULT_PARALLEL_FACTOR);
         const savedFactor = readStoredNumber(PARALLEL_FACTOR_KEY);
@@ -937,7 +1028,21 @@
         updateFactorLabel();
         bindEvents();
         logLegacyMemoNotice();
+        await loadDetails();
         fetchWaitTimes();
+      }
+
+      // アトラクション解説（BGS・基本情報・提供企業・利用制限・休止情報）を読み込む。
+      // 静的データのため失敗しても待ち時間表示は継続する。
+      async function loadDetails() {
+        try {
+          const data = await fetchJson(DETAILS_URL, 1500);
+          if (data && data.details && typeof data.details === 'object') {
+            state.details = data.details;
+          }
+        } catch (error) {
+          // 解説データが無いパーク／未取得時は黙って無視する。
+        }
       }
 
       // パークに応じてタイトル・ナビゲーションを設定し、3点メニューに他パークへの切替を並べる。
@@ -1209,6 +1314,18 @@
         });
         elements.attractionList.appendChild(fragment);
         calculateCrowd();
+        focusTargetCard();
+      }
+
+      // ティア表などから ?focus=<id> で遷移してきた場合、該当カードまでスクロールして強調する。
+      function focusTargetCard() {
+        if (!state.focusId || state.focusScrolled) return;
+        const card = cardMap.get(state.focusId);
+        if (!card) return;
+        state.focusScrolled = true;
+        requestAnimationFrame(() => {
+          card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
       }
 
       function createAttractionCard(attraction, index) {
@@ -1355,25 +1472,134 @@
         hourlyValue.textContent = '';
         crowdField.append(crowdLabel, crowdValue, hourlyValue);
 
+        const detailPanel = createDetailPanel(attraction);
+
         const detailToggle = document.createElement('button');
         detailToggle.type = 'button';
         detailToggle.className = 'detail-toggle secondary';
         detailToggle.setAttribute('aria-expanded', 'false');
         detailToggle.textContent = '詳細 ▾';
-        detailToggle.addEventListener('click', () => {
-          const open = card.classList.toggle('details-open');
+        const setDetailOpen = (open) => {
+          card.classList.toggle('details-open', open);
           detailToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
           detailToggle.textContent = open ? '閉じる ▴' : '詳細 ▾';
-        });
+        };
+        detailToggle.addEventListener('click', () => setDetailOpen(!card.classList.contains('details-open')));
+        nameBlock.appendChild(detailToggle);
 
-        card.append(nameBlock, waitField, detailToggle, carryField, crowdField);
+        card.append(nameBlock, waitField, carryField, crowdField);
+        if (detailPanel) {
+          card.appendChild(detailPanel);
+        }
         if (state.openMemoIds.has(attraction.id)) {
           card.appendChild(createMemoPanel(attraction));
+        }
+        if (state.focusId && attraction.id === state.focusId) {
+          card.classList.add('is-focused');
+          setDetailOpen(true);
         }
         cardMap.set(attraction.id, card);
         crowdOutputMap.set(attraction.id, crowdValue);
         hourlyOutputMap.set(attraction.id, hourlyValue);
         return card;
+      }
+
+      // BGS・基本情報・提供企業・利用制限（身長）・休止期間をまとめた解説パネル。
+      // 解説データが無いアトラクションでも、休止情報だけは表示できる場合がある。
+      function createDetailPanel(attraction) {
+        const info = state.details[attraction.id] || {};
+        const hasClosure = attraction.closureInfo && attraction.closureInfo.period;
+        if (!info.bgs && !(info.basic && info.basic.length) && !info.sponsor && !info.height && !hasClosure) {
+          return null;
+        }
+
+        const panel = document.createElement('div');
+        panel.className = 'detail-panel';
+
+        const addSection = (label, build) => {
+          const sec = document.createElement('div');
+          sec.className = 'detail-section';
+          const h = document.createElement('div');
+          h.className = 'detail-section-label';
+          h.textContent = label;
+          sec.appendChild(h);
+          build(sec);
+          panel.appendChild(sec);
+        };
+
+        if (info.bgs) {
+          addSection('🎭 バックグラウンドストーリー', (sec) => {
+            info.bgs.split('\n').forEach((line) => {
+              if (!line) return;
+              const p = document.createElement('p');
+              p.className = 'detail-bgs';
+              p.textContent = line;
+              sec.appendChild(p);
+            });
+          });
+        }
+
+        if (info.basic && info.basic.length) {
+          addSection('基本情報', (sec) => {
+            const dl = document.createElement('dl');
+            dl.className = 'detail-dl';
+            info.basic.forEach((row) => {
+              const dt = document.createElement('dt');
+              dt.textContent = row.label;
+              const dd = document.createElement('dd');
+              dd.textContent = row.value;
+              dl.append(dt, dd);
+            });
+            sec.appendChild(dl);
+          });
+        }
+
+        if (info.sponsor) {
+          addSection('提供企業', (sec) => {
+            const p = document.createElement('p');
+            p.className = 'detail-text';
+            p.textContent = info.sponsor;
+            sec.appendChild(p);
+          });
+        }
+
+        if (info.height) {
+          addSection('利用制限（身長）', (sec) => {
+            const p = document.createElement('p');
+            p.className = 'detail-text detail-height';
+            p.textContent = info.height;
+            sec.appendChild(p);
+          });
+        }
+
+        if (hasClosure) {
+          addSection('休止期間', (sec) => {
+            const p = document.createElement('p');
+            p.className = 'detail-text detail-closure';
+            p.textContent = attraction.closureInfo.period;
+            sec.appendChild(p);
+            const src = attraction.closureInfo.source_url || (info.source_url || '');
+            if (src) {
+              const link = document.createElement('a');
+              link.href = src;
+              link.target = '_blank';
+              link.rel = 'noopener noreferrer';
+              link.className = 'detail-link';
+              link.textContent = '公式情報を見る';
+              sec.appendChild(link);
+            }
+          });
+        } else if (info.source_url) {
+          const link = document.createElement('a');
+          link.href = info.source_url;
+          link.target = '_blank';
+          link.rel = 'noopener noreferrer';
+          link.className = 'detail-link detail-source';
+          link.textContent = '公式ページを見る';
+          panel.appendChild(link);
+        }
+
+        return panel;
       }
 
       function createMemoPanel(attraction) {
