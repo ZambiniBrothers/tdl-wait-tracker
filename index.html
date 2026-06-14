@@ -689,19 +689,18 @@
   <div class="page">
     <header class="app-header">
       <div>
-        <h1>TDL 待ち時間 逆算カリキュレーター</h1>
+        <h1 id="appTitle">TDL 待ち時間 逆算カリキュレーター</h1>
         <p class="lead">待ち時間とキャリーから、各アトラクションの並び人数と来園者数を概算します。</p>
       </div>
       <div class="header-actions" aria-label="データ操作">
         <span class="last-fetch" id="lastFetch">最終更新: --</span>
-        <a href="./tier.html" class="link-button"><span aria-hidden="true">🎯</span> 混雑ティア</a>
-        <a href="./history.html" class="link-button"><span aria-hidden="true">📊</span> 過去データ</a>
-        <a href="./info.html" class="link-button"><span aria-hidden="true">🌤</span> 舞浜の天気 ／ 周辺イベント</a>
-        <button type="button" id="refreshButton">更新</button>
+        <a href="./tier.html" class="link-button" id="navTier"><span aria-hidden="true">🎯</span> 混雑ティア</a>
+        <a href="./history.html" class="link-button" id="navHistory"><span aria-hidden="true">📊</span> 過去データ</a>
+        <a href="./info.html" class="link-button" id="navInfo"><span aria-hidden="true">🌤</span> 舞浜の天気 ／ 周辺イベント</a>
         <div class="overflow-menu" id="overflowMenu">
           <button type="button" id="overflowToggle" class="secondary overflow-toggle" aria-label="その他のメニュー" aria-haspopup="true" aria-expanded="false">⋯</button>
           <div class="overflow-list is-hidden" id="overflowList" role="menu">
-            <button type="button" id="resetCarryButton" class="overflow-item is-danger" role="menuitem">全キャリーをリセット</button>
+            <a href="./index.html?park=tds" class="overflow-item" id="parkSwitchLink" role="menuitem"><span aria-hidden="true">🌊</span> ディズニーシー版へ</a>
           </div>
         </div>
       </div>
@@ -760,15 +759,39 @@
   </div>
 
   <script>
-    const CLOUD_DATA_URL = './data/latest.json';
-    const API_URL = 'https://api.themeparks.wiki/v1/entity/3cc919f1-d16d-43e0-8c3f-1dd269bd1a42/live';
-    const FALLBACK_URL = 'https://api.allorigins.win/get?url=https%3A%2F%2Fqueue-times.com%2Fparks%2F274%2Fqueue_times.json';
+    // ?park=tds でディズニーシー版。既定はランド（tdl）。
+    const PARK = new URLSearchParams(location.search).get('park') === 'tds' ? 'tds' : 'tdl';
+    const PARK_CONFIG = {
+      tdl: {
+        title: 'TDL 待ち時間 逆算カリキュレーター',
+        dataUrl: './data/latest.json',
+        themeparks: 'https://api.themeparks.wiki/v1/entity/3cc919f1-d16d-43e0-8c3f-1dd269bd1a42/live',
+        fallback: 'https://api.allorigins.win/get?url=https%3A%2F%2Fqueue-times.com%2Fparks%2F274%2Fqueue_times.json',
+        switchLabel: '🌊 ディズニーシー版へ',
+        switchHref: './index.html?park=tds',
+        navSuffix: ''
+      },
+      tds: {
+        title: 'TDS 待ち時間 逆算カリキュレーター',
+        dataUrl: './data/tds/latest.json',
+        themeparks: null,
+        fallback: null,
+        switchLabel: '🏰 ディズニーランド版へ',
+        switchHref: './index.html',
+        navSuffix: '?park=tds'
+      }
+    };
+    const PARK_CFG = PARK_CONFIG[PARK];
+
+    const CLOUD_DATA_URL = PARK_CFG.dataUrl;
+    const API_URL = PARK_CFG.themeparks;
+    const FALLBACK_URL = PARK_CFG.fallback;
     const DEFAULT_PARALLEL_FACTOR = 0.35;
-    const PARALLEL_FACTOR_KEY = 'tdl-parallel-factor';
-    const LAST_FETCH_KEY = 'tdl-last-fetch';
-    const MANUAL_WAIT_PREFIX = 'tdl-manual-wait-';
-    const CARRY_PREFIX = 'tdl-carry-';
-    const MEMO_PREFIX = 'tdl-memo-';
+    const PARALLEL_FACTOR_KEY = `${PARK}-parallel-factor`;
+    const LAST_FETCH_KEY = `${PARK}-last-fetch`;
+    const MANUAL_WAIT_PREFIX = `${PARK}-manual-wait-`;
+    const CARRY_PREFIX = `${PARK}-carry-`;
+    const MEMO_PREFIX = `${PARK}-memo-`;
 
     const MANUAL_ATTRACTION_NAMES = [
       "Peter Pan's Flight",
@@ -878,11 +901,14 @@
 
       const elements = {
         lastFetch: document.getElementById('lastFetch'),
-        refreshButton: document.getElementById('refreshButton'),
+        appTitle: document.getElementById('appTitle'),
+        navTier: document.getElementById('navTier'),
+        navHistory: document.getElementById('navHistory'),
+        navInfo: document.getElementById('navInfo'),
+        parkSwitchLink: document.getElementById('parkSwitchLink'),
         overflowMenu: document.getElementById('overflowMenu'),
         overflowToggle: document.getElementById('overflowToggle'),
         overflowList: document.getElementById('overflowList'),
-        resetCarryButton: document.getElementById('resetCarryButton'),
         totalQueuePeople: document.getElementById('totalQueuePeople'),
         estimatedVisitors: document.getElementById('estimatedVisitors'),
         parallelFactor: document.getElementById('parallelFactor'),
@@ -904,6 +930,7 @@
       init();
 
       function init() {
+        applyParkChrome();
         elements.parallelFactor.value = String(DEFAULT_PARALLEL_FACTOR);
         const savedFactor = readStoredNumber(PARALLEL_FACTOR_KEY);
         if (isValidFactor(savedFactor)) {
@@ -917,13 +944,22 @@
         fetchWaitTimes();
       }
 
+      // パーク（ランド/シー）に応じてタイトル・ナビゲーション・切替リンクを設定。
+      function applyParkChrome() {
+        if (elements.appTitle) elements.appTitle.textContent = PARK_CFG.title;
+        const suffix = PARK_CFG.navSuffix;
+        if (elements.navTier) elements.navTier.setAttribute('href', `./tier.html${suffix}`);
+        if (elements.navHistory) elements.navHistory.setAttribute('href', `./history.html${suffix}`);
+        if (elements.navInfo) elements.navInfo.setAttribute('href', `./info.html${suffix}`);
+        if (elements.parkSwitchLink) {
+          elements.parkSwitchLink.setAttribute('href', PARK_CFG.switchHref);
+          elements.parkSwitchLink.textContent = PARK_CFG.switchLabel;
+        }
+        document.title = PARK_CFG.title;
+      }
+
       function bindEvents() {
-        elements.refreshButton.addEventListener('click', fetchWaitTimes);
         elements.retryButton.addEventListener('click', fetchWaitTimes);
-        elements.resetCarryButton.addEventListener('click', () => {
-          resetAllCarry();
-          closeOverflowMenu();
-        });
         elements.overflowToggle.addEventListener('click', toggleOverflowMenu);
         document.addEventListener('click', (event) => {
           if (!elements.overflowMenu.contains(event.target)) {
@@ -953,7 +989,6 @@
         setLoading(true);
         setError('');
         elements.manualBanner.classList.add('is-hidden');
-        elements.refreshButton.disabled = true;
 
         try {
           const cloudData = await fetchJson(CLOUD_DATA_URL, 1000);
@@ -966,6 +1001,16 @@
           return;
         } catch (cloudError) {
           // Missing local/cloud data should silently fall through to the live APIs.
+        }
+
+        // TDS には TDL 用の外部フォールバック（ThemeParks/queue-times）が無いため、
+        // 取得済みクラウドデータのみを使い、失敗時はそのまま終了する。
+        if (!API_URL) {
+          setLoading(false);
+          if (state.attractions.length === 0) {
+            setError('待ち時間データを取得できませんでした。少し時間をおいて再読み込みしてください。');
+          }
+          return;
         }
 
         try {
@@ -997,7 +1042,6 @@
           }
         } finally {
           setLoading(false);
-          elements.refreshButton.disabled = false;
         }
       }
 
@@ -1078,7 +1122,9 @@
                 }
               : null;
             return {
-              id: normalizeAttractionId(nameEn),
+              // バックエンドが付与した id を優先（TDS は施設ID由来でユニーク）。
+              // TDL では従来どおり英名から導出した id と一致するため互換。
+              id: (typeof item.id === 'string' && item.id) ? item.id : normalizeAttractionId(nameEn),
               name: nameEn,
               nameJa,
               status,
@@ -1464,14 +1510,6 @@
         elements.manualBanner.classList.add('is-hidden');
         setError('');
         renderAttractions();
-      }
-
-      function resetAllCarry() {
-        state.attractions.forEach((attraction) => removeStorage(CARRY_PREFIX + attraction.id));
-        elements.attractionList.querySelectorAll('.carry-input').forEach((input) => {
-          input.value = '';
-        });
-        calculateCrowd();
       }
 
       function toggleOverflowMenu() {

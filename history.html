@@ -513,12 +513,13 @@
   <div class="page">
     <header class="app-header">
       <div>
-        <h1>TDL 待ち時間 履歴</h1>
+        <h1 id="appTitle">TDL 待ち時間 履歴</h1>
         <p class="lead">日付を選ぶと、その日の営業時間 (9:00–21:00) の推移グラフが表示されます。</p>
       </div>
       <div class="header-actions" aria-label="ページ操作">
-        <a href="./index.html" class="link-button"><span aria-hidden="true">←</span> 計算機に戻る</a>
-        <a href="./tier.html" class="link-button"><span aria-hidden="true">🎯</span> 混雑ティア</a>
+        <a href="./index.html" class="link-button" id="navIndex"><span aria-hidden="true">←</span> 計算機に戻る</a>
+        <a href="./tier.html" class="link-button" id="navTier"><span aria-hidden="true">🎯</span> 混雑ティア</a>
+        <a href="./info.html" class="link-button" id="navInfo"><span aria-hidden="true">🌤</span> 天気 ／ イベント</a>
       </div>
     </header>
 
@@ -629,10 +630,13 @@
 
   <script>
     (() => {
-      const INDEX_URL = './data/snapshots/index.json';
+      const PARK = new URLSearchParams(location.search).get('park') === 'tds' ? 'tds' : 'tdl';
+      const BASE = PARK === 'tds' ? './data/tds' : './data';
+      const NAV_SUFFIX = PARK === 'tds' ? '?park=tds' : '';
+      const INDEX_URL = `${BASE}/snapshots/index.json`;
       const DEFAULT_PARALLEL_FACTOR = 0.35;
-      const PARALLEL_FACTOR_KEY = 'tdl-parallel-factor';
-      const CARRY_PREFIX = 'tdl-carry-';
+      const PARALLEL_FACTOR_KEY = `${PARK}-parallel-factor`;
+      const CARRY_PREFIX = `${PARK}-carry-`;
       const OPEN_START_HOUR = 9;
       const OPEN_END_HOUR = 21;
       const MIN_VIEW_MINUTES = 20;
@@ -706,9 +710,23 @@
       init();
 
       function init() {
+        applyParkChrome();
         bindEvents();
         loadIndex();
         startLiveRefresh();
+      }
+
+      // パーク（ランド/シー）に応じてタイトルとナビゲーション先を設定。
+      function applyParkChrome() {
+        if (PARK === 'tds') {
+          const t = document.getElementById('appTitle');
+          if (t) t.textContent = 'TDS 待ち時間 履歴';
+          document.title = 'TDS 待ち時間 履歴';
+        }
+        const set = (id, href) => { const el = document.getElementById(id); if (el) el.setAttribute('href', href); };
+        set('navIndex', `./index.html${NAV_SUFFIX}`);
+        set('navTier', `./tier.html${NAV_SUFFIX}`);
+        set('navInfo', `./info.html${NAV_SUFFIX}`);
       }
 
       // YYYY-MM-DD（JST）。当日かどうかの判定に使う。
@@ -836,7 +854,7 @@
         if (!silent) setError('');
 
         try {
-          const series = await fetchJson(`./data/snapshots/${date}/series.json`, { signal: controller.signal });
+          const series = await fetchJson(`${BASE}/snapshots/${date}/series.json`, { signal: controller.signal });
           if (state.seriesAbortController !== controller) {
             return;
           }
@@ -1359,7 +1377,9 @@
       function getShowSchedule() {
         if (!state.currentDate) return [];
         const dynamic = Array.isArray(state.series && state.series.shows) ? state.series.shows : [];
-        const schedule = dynamic.length ? dynamic : SHOW_SCHEDULE;
+        // 取得済みのショー時刻があればそれを使う。無い場合の標準スケジュールはランド固有なので
+        // ランドのみフォールバックし、シーでは何も表示しない（誤った時刻を出さない）。
+        const schedule = dynamic.length ? dynamic : (PARK === 'tdl' ? SHOW_SCHEDULE : []);
         const out = [];
         for (const show of schedule) {
           if (!show || typeof show.time !== 'string') continue;

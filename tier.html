@@ -249,15 +249,14 @@
   <div class="page">
     <header class="app-header">
       <div>
-        <h1>TDL 混雑ティア</h1>
+        <h1 id="appTitle">TDL 混雑ティア</h1>
         <p class="lead">いま空いている／混んでいるアトラクションをひと目で。待ち時間ごとの段（ティア）に、各アトラクションのアイコンを並べています。</p>
       </div>
       <div class="header-actions" aria-label="ページ操作">
         <span class="last-fetch" id="lastFetch">最終更新: --</span>
-        <a href="./index.html" class="link-button"><span aria-hidden="true">←</span> 計算機に戻る</a>
-        <a href="./history.html" class="link-button"><span aria-hidden="true">📊</span> 過去データ</a>
-        <a href="./info.html" class="link-button"><span aria-hidden="true">🌤</span> 天気 ／ イベント</a>
-        <button type="button" id="refreshButton">更新</button>
+        <a href="./index.html" class="link-button" id="navIndex"><span aria-hidden="true">←</span> 計算機に戻る</a>
+        <a href="./history.html" class="link-button" id="navHistory"><span aria-hidden="true">📊</span> 過去データ</a>
+        <a href="./info.html" class="link-button" id="navInfo"><span aria-hidden="true">🌤</span> 天気 ／ イベント</a>
       </div>
     </header>
 
@@ -272,8 +271,11 @@
   <script>
     'use strict';
 
-    const DATA_URL = './data/latest.json';
-    const ICONS_URL = './data/icons.json';
+    const PARK = new URLSearchParams(location.search).get('park') === 'tds' ? 'tds' : 'tdl';
+    const BASE = PARK === 'tds' ? './data/tds' : './data';
+    const NAV_SUFFIX = PARK === 'tds' ? '?park=tds' : '';
+    const DATA_URL = `${BASE}/latest.json`;
+    const ICONS_URL = `${BASE}/icons.json`;
 
     // Tier bands, top (most crowded) to bottom. `match(wait)` decides standby buckets.
     const TIERS = [
@@ -292,10 +294,23 @@
       error: document.getElementById('errorBanner'),
       loading: document.getElementById('loadingBanner'),
       lastFetch: document.getElementById('lastFetch'),
-      refresh: document.getElementById('refreshButton')
+      appTitle: document.getElementById('appTitle'),
+      navIndex: document.getElementById('navIndex'),
+      navHistory: document.getElementById('navHistory'),
+      navInfo: document.getElementById('navInfo')
     };
 
     let icons = {};
+
+    function applyParkChrome() {
+      if (PARK === 'tds') {
+        els.appTitle.textContent = 'TDS 混雑ティア';
+        document.title = 'TDS 混雑ティア（待ち時間ひと目チェック）';
+      }
+      els.navIndex.setAttribute('href', `./index.html${NAV_SUFFIX}`);
+      els.navHistory.setAttribute('href', `./history.html${NAV_SUFFIX}`);
+      els.navInfo.setAttribute('href', `./info.html${NAV_SUFFIX}`);
+    }
 
     function setError(msg) {
       if (!msg) { els.error.classList.add('is-hidden'); els.error.textContent = ''; return; }
@@ -437,7 +452,6 @@
     async function load() {
       setError('');
       els.loading.classList.remove('is-hidden');
-      els.refresh.disabled = true;
       try {
         if (!Object.keys(icons).length) {
           try {
@@ -453,15 +467,14 @@
         render(filtered);
         renderLegend();
       } catch (err) {
-        setError('待ち時間データを取得できませんでした。時間をおいて「更新」を押してください。');
+        setError('待ち時間データを取得できませんでした。しばらくしてから再読み込みしてください。');
         els.board.replaceChildren();
       } finally {
         els.loading.classList.add('is-hidden');
-        els.refresh.disabled = false;
       }
     }
 
-    els.refresh.addEventListener('click', load);
+    applyParkChrome();
     load();
   </script>
 </body>

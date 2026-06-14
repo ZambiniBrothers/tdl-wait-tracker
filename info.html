@@ -234,10 +234,18 @@
         <p class="lead">来園日の参考情報。舞浜（浦安市）の天気と、千葉・東京・埼玉・神奈川のイベント情報リンクをまとめています。</p>
       </div>
       <div>
-        <a href="./index.html" class="link-button"><span aria-hidden="true">←</span> 待ち時間に戻る</a>
-        <a href="./tier.html" class="link-button"><span aria-hidden="true">🎯</span> 混雑ティア</a>
+        <a href="./index.html" class="link-button" id="navIndex"><span aria-hidden="true">←</span> 待ち時間に戻る</a>
+        <a href="./tier.html" class="link-button" id="navTier"><span aria-hidden="true">🎯</span> 混雑ティア</a>
+        <a href="./history.html" class="link-button" id="navHistory"><span aria-hidden="true">📊</span> 過去データ</a>
       </div>
     </header>
+    <script>
+      (() => {
+        const suffix = new URLSearchParams(location.search).get('park') === 'tds' ? '?park=tds' : '';
+        [['navIndex','./index.html'],['navTier','./tier.html'],['navHistory','./history.html']]
+          .forEach(([id, base]) => { const el = document.getElementById(id); if (el) el.setAttribute('href', base + suffix); });
+      })();
+    </script>
 
     <section class="panel" aria-labelledby="weatherTitle">
       <h2 id="weatherTitle">舞浜の天気</h2>
