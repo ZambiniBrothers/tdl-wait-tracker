@@ -636,6 +636,8 @@
       const OPEN_START_HOUR = 9;
       const OPEN_END_HOUR = 21;
       const MIN_VIEW_MINUTES = 20;
+      // 当日のグラフを開いている間、新しいスナップショット（約10分毎）を取り込むポーリング間隔。
+      const LIVE_REFRESH_MS = 3 * 60 * 1000;
       const JST_OFFSET_MS = 9 * 60 * 60 * 1000;
       const SVG_NS = 'http://www.w3.org/2000/svg';
 
@@ -669,7 +671,8 @@
         dataAttempted: false,
         lastTap: null,
         tapTooltipTimer: null,
-        suppressDblClick: 0
+        suppressDblClick: 0,
+        liveTimer: null
       };
 
       const elements = {
@@ -705,6 +708,32 @@
       function init() {
         bindEvents();
         loadIndex();
+        startLiveRefresh();
+      }
+
+      // YYYY-MM-DD（JST）。当日かどうかの判定に使う。
+      function todayJst() {
+        return new Intl.DateTimeFormat('en-CA', {
+          timeZone: 'Asia/Tokyo', year: 'numeric', month: '2-digit', day: '2-digit'
+        }).format(new Date());
+      }
+
+      // 当日のグラフを表示中は、操作の邪魔をしない範囲で定期的にデータを取り込み、
+      // 新しい点をグラフに追記する（表示中のズーム/横移動は維持）。
+      function startLiveRefresh() {
+        if (state.liveTimer) clearInterval(state.liveTimer);
+        state.liveTimer = setInterval(maybeRefreshLive, LIVE_REFRESH_MS);
+        document.addEventListener('visibilitychange', () => {
+          if (!document.hidden) maybeRefreshLive();
+        });
+      }
+
+      function maybeRefreshLive() {
+        if (document.hidden) return;
+        if (!state.currentDate || state.currentDate !== todayJst()) return;
+        if (state.dragState || state.touchState) return;      // 操作中は触らない
+        if (state.seriesAbortController) return;               // 既に読み込み中
+        loadDateData(state.currentDate, { preserveView: true, silent: true });
       }
 
       function bindEvents() {
@@ -792,7 +821,8 @@
         await loadDateData(elements.dateSelect.value);
       }
 
-      async function loadDateData(date) {
+      async function loadDateData(date, opts = {}) {
+        const { preserveView = false, silent = false } = opts;
         if (!date) {
           return;
         }
@@ -803,7 +833,7 @@
         const controller = new AbortController();
         state.seriesAbortController = controller;
 
-        setError('');
+        if (!silent) setError('');
 
         try {
           const series = await fetchJson(`./data/snapshots/${date}/series.json`, { signal: controller.signal });
@@ -814,8 +844,11 @@
 
           state.dayStartMs = Date.parse(`${date}T${pad(OPEN_START_HOUR)}:00:00+09:00`);
           state.dayEndMs = Date.parse(`${date}T${pad(OPEN_END_HOUR)}:00:00+09:00`);
-          state.viewStartMs = state.dayStartMs;
-          state.viewEndMs = state.dayEndMs;
+          // 自動更新（preserveView）時は表示中のズーム/横移動を維持し、新しい点だけ追記する。
+          if (!preserveView || !Number.isFinite(state.viewStartMs) || !Number.isFinite(state.viewEndMs)) {
+            state.viewStartMs = state.dayStartMs;
+            state.viewEndMs = state.dayEndMs;
+          }
 
           const points = Array.isArray(series.points) ? series.points : [];
           let latestIdx = points.length - 1;
@@ -856,10 +889,15 @@
           if (points.length === 0) {
             elements.chartNote.textContent = `${date} に取得済みスナップショットがありません`;
           } else {
-            elements.chartNote.textContent = `${date} 営業時間 (9:00–21:00) の推移 / ${points.length}件`;
+            const live = date === todayJst() ? '・自動更新中（約10分毎）' : '';
+            elements.chartNote.textContent = `${date} 営業時間 (9:00–21:00) の推移 / ${points.length}件${live}`;
           }
         } catch (error) {
           if (controller.signal.aborted) {
+            return;
+          }
+          // 自動更新が一時的に失敗しても、表示中のグラフは保持して静かに次回へ。
+          if (silent) {
             return;
           }
           setError(`${date} のデータを読み込めませんでした。`);
