@@ -64,6 +64,25 @@ jobs:
             fi
           done
 
+      - name: Collect USJ wait times
+        id: collect_usj
+        continue-on-error: true
+        env:
+          TZ: Asia/Tokyo
+        run: |
+          for i in 1 2 3; do
+            node scripts/collect-usj.mjs && break
+            if [ "$i" = "3" ]; then
+              echo "USJ collection failed after retries (non-fatal)."
+              break
+            fi
+            if [ "$i" = "1" ]; then
+              sleep 10
+            else
+              sleep 30
+            fi
+          done
+
       - name: Notify on failure
         if: ${{ failure() && steps.collect.outcome == 'failure' }}
         uses: actions/github-script@v7

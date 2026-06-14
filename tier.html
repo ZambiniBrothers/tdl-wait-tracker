@@ -271,9 +271,13 @@
   <script>
     'use strict';
 
-    const PARK = new URLSearchParams(location.search).get('park') === 'tds' ? 'tds' : 'tdl';
-    const BASE = PARK === 'tds' ? './data/tds' : './data';
-    const NAV_SUFFIX = PARK === 'tds' ? '?park=tds' : '';
+    const PARK = (() => {
+      const p = new URLSearchParams(location.search).get('park');
+      return (p === 'tds' || p === 'usj') ? p : 'tdl';
+    })();
+    const PARK_NAME = { tdl: 'TDL', tds: 'TDS', usj: 'USJ' }[PARK];
+    const BASE = PARK === 'tdl' ? './data' : `./data/${PARK}`;
+    const NAV_SUFFIX = PARK === 'tdl' ? '' : `?park=${PARK}`;
     const DATA_URL = `${BASE}/latest.json`;
     const ICONS_URL = `${BASE}/icons.json`;
 
@@ -303,9 +307,9 @@
     let icons = {};
 
     function applyParkChrome() {
-      if (PARK === 'tds') {
-        els.appTitle.textContent = 'TDS 混雑ティア';
-        document.title = 'TDS 混雑ティア（待ち時間ひと目チェック）';
+      if (PARK !== 'tdl') {
+        els.appTitle.textContent = `${PARK_NAME} 混雑ティア`;
+        document.title = `${PARK_NAME} 混雑ティア（待ち時間ひと目チェック）`;
       }
       els.navIndex.setAttribute('href', `./index.html${NAV_SUFFIX}`);
       els.navHistory.setAttribute('href', `./history.html${NAV_SUFFIX}`);

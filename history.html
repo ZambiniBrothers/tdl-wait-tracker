@@ -630,9 +630,13 @@
 
   <script>
     (() => {
-      const PARK = new URLSearchParams(location.search).get('park') === 'tds' ? 'tds' : 'tdl';
-      const BASE = PARK === 'tds' ? './data/tds' : './data';
-      const NAV_SUFFIX = PARK === 'tds' ? '?park=tds' : '';
+      const PARK = (() => {
+        const p = new URLSearchParams(location.search).get('park');
+        return (p === 'tds' || p === 'usj') ? p : 'tdl';
+      })();
+      const PARK_NAME = { tdl: 'TDL', tds: 'TDS', usj: 'USJ' }[PARK];
+      const BASE = PARK === 'tdl' ? './data' : `./data/${PARK}`;
+      const NAV_SUFFIX = PARK === 'tdl' ? '' : `?park=${PARK}`;
       const INDEX_URL = `${BASE}/snapshots/index.json`;
       const DEFAULT_PARALLEL_FACTOR = 0.35;
       const PARALLEL_FACTOR_KEY = `${PARK}-parallel-factor`;
@@ -718,10 +722,10 @@
 
       // パーク（ランド/シー）に応じてタイトルとナビゲーション先を設定。
       function applyParkChrome() {
-        if (PARK === 'tds') {
+        if (PARK !== 'tdl') {
           const t = document.getElementById('appTitle');
-          if (t) t.textContent = 'TDS 待ち時間 履歴';
-          document.title = 'TDS 待ち時間 履歴';
+          if (t) t.textContent = `${PARK_NAME} 待ち時間 履歴`;
+          document.title = `${PARK_NAME} 待ち時間 履歴`;
         }
         const set = (id, href) => { const el = document.getElementById(id); if (el) el.setAttribute('href', href); };
         set('navIndex', `./index.html${NAV_SUFFIX}`);

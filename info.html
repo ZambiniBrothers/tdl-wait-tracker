@@ -241,7 +241,9 @@
     </header>
     <script>
       (() => {
-        const suffix = new URLSearchParams(location.search).get('park') === 'tds' ? '?park=tds' : '';
+        const p = new URLSearchParams(location.search).get('park');
+        const park = (p === 'tds' || p === 'usj') ? p : 'tdl';
+        const suffix = park === 'tdl' ? '' : `?park=${park}`;
         [['navIndex','./index.html'],['navTier','./tier.html'],['navHistory','./history.html']]
           .forEach(([id, base]) => { const el = document.getElementById(id); if (el) el.setAttribute('href', base + suffix); });
       })();

@@ -759,33 +759,29 @@
   </div>
 
   <script>
-    // ?park=tds でディズニーシー版。既定はランド（tdl）。
-    const PARK = new URLSearchParams(location.search).get('park') === 'tds' ? 'tds' : 'tdl';
-    const PARK_CONFIG = {
-      tdl: {
-        title: 'TDL 待ち時間 逆算カリキュレーター',
-        dataUrl: './data/latest.json',
-        themeparks: 'https://api.themeparks.wiki/v1/entity/3cc919f1-d16d-43e0-8c3f-1dd269bd1a42/live',
-        fallback: 'https://api.allorigins.win/get?url=https%3A%2F%2Fqueue-times.com%2Fparks%2F274%2Fqueue_times.json',
-        switchLabel: '🌊 ディズニーシー版へ',
-        switchHref: './index.html?park=tds',
-        navSuffix: ''
-      },
-      tds: {
-        title: 'TDS 待ち時間 逆算カリキュレーター',
-        dataUrl: './data/tds/latest.json',
-        themeparks: null,
-        fallback: null,
-        switchLabel: '🏰 ディズニーランド版へ',
-        switchHref: './index.html',
-        navSuffix: '?park=tds'
-      }
+    // ?park=tds（シー） / ?park=usj（ユニバ）。既定はランド（tdl）。
+    const PARK_META = {
+      tdl: { name: 'TDL', long: 'ディズニーランド', icon: '🏰', dataDir: './data', suffix: '',
+             themeparks: 'https://api.themeparks.wiki/v1/entity/3cc919f1-d16d-43e0-8c3f-1dd269bd1a42/live',
+             fallback: 'https://api.allorigins.win/get?url=https%3A%2F%2Fqueue-times.com%2Fparks%2F274%2Fqueue_times.json' },
+      tds: { name: 'TDS', long: 'ディズニーシー', icon: '🌊', dataDir: './data/tds', suffix: '?park=tds',
+             themeparks: null, fallback: null },
+      usj: { name: 'USJ', long: 'ユニバーサル・スタジオ・ジャパン', icon: '🎬', dataDir: './data/usj', suffix: '?park=usj',
+             themeparks: null, fallback: null }
     };
-    const PARK_CFG = PARK_CONFIG[PARK];
+    const PARK_ORDER = ['tdl', 'tds', 'usj'];
+    const PARK = (() => {
+      const p = new URLSearchParams(location.search).get('park');
+      return (p === 'tds' || p === 'usj') ? p : 'tdl';
+    })();
+    const PARK_CFG = {
+      title: `${PARK_META[PARK].name} 待ち時間 逆算カリキュレーター`,
+      navSuffix: PARK_META[PARK].suffix
+    };
 
-    const CLOUD_DATA_URL = PARK_CFG.dataUrl;
-    const API_URL = PARK_CFG.themeparks;
-    const FALLBACK_URL = PARK_CFG.fallback;
+    const CLOUD_DATA_URL = `${PARK_META[PARK].dataDir}/latest.json`;
+    const API_URL = PARK_META[PARK].themeparks;
+    const FALLBACK_URL = PARK_META[PARK].fallback;
     const DEFAULT_PARALLEL_FACTOR = 0.35;
     const PARALLEL_FACTOR_KEY = `${PARK}-parallel-factor`;
     const LAST_FETCH_KEY = `${PARK}-last-fetch`;
@@ -944,16 +940,24 @@
         fetchWaitTimes();
       }
 
-      // パーク（ランド/シー）に応じてタイトル・ナビゲーション・切替リンクを設定。
+      // パークに応じてタイトル・ナビゲーションを設定し、3点メニューに他パークへの切替を並べる。
       function applyParkChrome() {
         if (elements.appTitle) elements.appTitle.textContent = PARK_CFG.title;
         const suffix = PARK_CFG.navSuffix;
         if (elements.navTier) elements.navTier.setAttribute('href', `./tier.html${suffix}`);
         if (elements.navHistory) elements.navHistory.setAttribute('href', `./history.html${suffix}`);
         if (elements.navInfo) elements.navInfo.setAttribute('href', `./info.html${suffix}`);
-        if (elements.parkSwitchLink) {
-          elements.parkSwitchLink.setAttribute('href', PARK_CFG.switchHref);
-          elements.parkSwitchLink.textContent = PARK_CFG.switchLabel;
+        if (elements.overflowList) {
+          elements.overflowList.replaceChildren();
+          PARK_ORDER.filter((key) => key !== PARK).forEach((key) => {
+            const meta = PARK_META[key];
+            const link = document.createElement('a');
+            link.className = 'overflow-item';
+            link.setAttribute('role', 'menuitem');
+            link.setAttribute('href', `./index.html${meta.suffix}`);
+            link.innerHTML = `<span aria-hidden="true">${meta.icon}</span> ${meta.long}版へ`;
+            elements.overflowList.appendChild(link);
+          });
         }
         document.title = PARK_CFG.title;
       }
