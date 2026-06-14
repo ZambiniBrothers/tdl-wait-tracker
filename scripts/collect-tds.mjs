@@ -6,6 +6,9 @@ import path from 'node:path';
 
 const BASE_DIR = path.join('data', 'tds');
 const TDS_OFFICIAL_URL = 'https://www.tokyodisneyresort.jp/_/realtime/tds_attraction.json';
+const TDS_SHOW_URL = 'https://www.tokyodisneyresort.jp/tds/show.html';
+const TDS_SHOW_SCHEDULE_URL = (id) => `https://www.tokyodisneyresort.jp/tds/show/schedule/${id}/`;
+const TIMEOUT_MS = 10_000;
 const TDR_TIMEOUT_MS = 15_000;
 
 // OperatingStatusCD の分類（collect.mjs と同一）。
@@ -104,6 +107,180 @@ async function fetchTdsOfficial() {
     .filter((attraction) => attraction);
 }
 
+async function fetchText(url, timeoutMs = TIMEOUT_MS) {
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), timeoutMs);
+  try {
+    const response = await fetch(url, {
+      signal: controller.signal,
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (compatible; tdl-wait-tracker/1.0)',
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+        'Accept-Language': 'ja,en;q=0.5'
+      }
+    });
+    if (!response.ok) throw new Error(`HTTP ${response.status} ${response.statusText}`);
+    return await response.text();
+  } finally {
+    clearTimeout(timeout);
+  }
+}
+
+// ===== ショー/パレード時刻の取得（collect.mjs のTDL用ロジックと同一・URLのみTDS） =====
+function dedupeAndSortShows(items) {
+  const seen = new Set();
+  return items
+    .filter((item) => item && typeof item.time === 'string')
+    .map((item) => ({
+      time: item.time,
+      label: String(item.label || '').replace(/\s+/g, ' ').trim(),
+      name_ja: String(item.name_ja || item.label || '').replace(/\s+/g, ' ').trim()
+    }))
+    .filter((item) => item.label)
+    .filter((item) => {
+      const key = `${item.time}\u0000${item.label}`;
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    })
+    .sort((a, b) => a.time.localeCompare(b.time))
+    .slice(0, 40);
+}
+
+function jstTodayYmd() {
+  const parts = new Intl.DateTimeFormat('en-CA', {
+    timeZone: 'Asia/Tokyo', year: 'numeric', month: '2-digit', day: '2-digit'
+  }).formatToParts(new Date());
+  const get = (type) => (parts.find((p) => p.type === type) || {}).value || '';
+  return `${get('year')}${get('month')}${get('day')}`;
+}
+
+function jstDayWeekday() {
+  const parts = new Intl.DateTimeFormat('ja-JP', {
+    timeZone: 'Asia/Tokyo', day: 'numeric', weekday: 'short'
+  }).formatToParts(new Date());
+  const day = (parts.find((p) => p.type === 'day') || {}).value || '';
+  const weekday = ((parts.find((p) => p.type === 'weekday') || {}).value || '').replace(/[曜日]/g, '');
+  return { day: String(Number(day)), weekday };
+}
+
+function cleanShowName(rawHeading) {
+  return String(rawHeading || '')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/\s+/g, ' ')
+    .replace(/\s*(?:NEW|New)\s*$/, '')
+    .trim();
+}
+
+function extractListBlockTimes(region, today) {
+  const times = [];
+  const dateBlockRe = new RegExp(`date-${today}\\b`, 'g');
+  const nextDateRe = /date-\d{8}\b/g;
+  const liTimeRe = /<li>\s*([01]?\d|2[0-3])[:：]([0-5]\d)\s*<\/li>/g;
+  let bm;
+  while ((bm = dateBlockRe.exec(region))) {
+    nextDateRe.lastIndex = bm.index + bm[0].length;
+    const nm = nextDateRe.exec(region);
+    const ulEnd = region.indexOf('</ul>', bm.index);
+    const candidates = [nm ? nm.index : region.length];
+    if (ulEnd >= 0) candidates.push(ulEnd + 5);
+    const blockEnd = Math.min(...candidates);
+    const window = region.slice(bm.index, blockEnd);
+    let tm;
+    liTimeRe.lastIndex = 0;
+    while ((tm = liTimeRe.exec(window))) {
+      times.push(`${tm[1].padStart(2, '0')}:${tm[2]}`);
+    }
+  }
+  return times;
+}
+
+function hasIconTag(region, keyword) {
+  const re = /<div class="iconTag">([^<]*)<\/div>/g;
+  let m;
+  while ((m = re.exec(region))) {
+    if (m[1].includes(keyword)) return true;
+  }
+  return false;
+}
+
+function parseShowList(html) {
+  const source = String(html || '');
+  const today = jstTodayYmd();
+  const headingRe = /<h3 class="heading3">([\s\S]*?)<\/h3>/g;
+  const heads = [];
+  let hm;
+  while ((hm = headingRe.exec(source))) {
+    heads.push({ index: hm.index, name: cleanShowName(hm[1]) });
+  }
+  const shows = [];
+  for (let i = 0; i < heads.length; i++) {
+    const { index, name } = heads[i];
+    if (!name || name.includes('{{')) continue;
+    const end = i + 1 < heads.length ? heads[i + 1].index : source.length;
+    const region = source.slice(index, end);
+    const schedMatch = region.match(/\/tds\/show\/schedule\/(\d+)\//);
+    shows.push({
+      name,
+      scheduleId: schedMatch ? schedMatch[1] : null,
+      requiresEntry: hasIconTag(region, 'エントリー受付'),
+      requiresReservation: hasIconTag(region, '予約'),
+      listTimes: extractListBlockTimes(region, today)
+    });
+  }
+  return shows;
+}
+
+function parseScheduleDayTimes(scheduleHtml, day, weekday) {
+  const rowRe = /<th[^>]*>\s*(\d{1,2})\s*[（(]\s*([日月火水木金土])\s*[）)]\s*<\/th>\s*<td>([\s\S]*?)<\/td>/g;
+  const timeRe = /([01]?\d|2[0-3])[:：]([0-5]\d)/g;
+  let m;
+  while ((m = rowRe.exec(scheduleHtml))) {
+    if (Number(m[1]) !== Number(day) || m[2] !== weekday) continue;
+    const times = new Set();
+    let t;
+    timeRe.lastIndex = 0;
+    while ((t = timeRe.exec(m[3]))) times.add(`${t[1].padStart(2, '0')}:${t[2]}`);
+    return [...times];
+  }
+  return [];
+}
+
+async function fetchTdsShows() {
+  try {
+    const html = await fetchText(TDS_SHOW_URL, TDR_TIMEOUT_MS);
+    const shows = parseShowList(html);
+    const { day, weekday } = jstDayWeekday();
+    const items = [];
+    let excluded = 0;
+    for (const show of shows) {
+      if (show.requiresEntry || show.requiresReservation) {
+        excluded++;
+        continue;
+      }
+      let times = [];
+      if (show.scheduleId) {
+        try {
+          const scheduleHtml = await fetchText(TDS_SHOW_SCHEDULE_URL(show.scheduleId), TDR_TIMEOUT_MS);
+          times = parseScheduleDayTimes(scheduleHtml, day, weekday);
+        } catch (error) {
+          console.error(`[tds] warning: schedule fetch failed (${show.scheduleId}): ${error?.message || error}`);
+        }
+      }
+      if (times.length === 0) times = show.listTimes;
+      for (const time of times) items.push({ time, label: show.name, name_ja: show.name });
+    }
+    const finalItems = dedupeAndSortShows(items);
+    console.error(`[tds] shows=${shows.length} excluded=${excluded} parsed=${finalItems.length} sample=${JSON.stringify(finalItems.slice(0, 6))}`);
+    if (finalItems.length > 0) {
+      return { source_url: TDS_SHOW_URL, fetched_at: new Date().toISOString(), items: finalItems };
+    }
+  } catch (error) {
+    console.error(`[tds] warning: show scrape failed: ${error?.message || error}`);
+  }
+  return null;
+}
+
 function summarize(attractions) {
   const count = attractions.length;
   const openCount = attractions.filter((a) => a.is_open).length;
@@ -146,10 +323,14 @@ function writeDailySeries(dateDir, date, daySnapshots) {
   const sorted = daySnapshots.slice().sort((a, b) => String(a.time).localeCompare(String(b.time)));
   const points = [];
   const attractions = new Map();
+  let latestShows = [];
 
   for (const { time, snapshot } of sorted) {
     const ms = Date.parse(snapshot?.fetched_at);
     if (!Number.isFinite(ms)) continue;
+
+    const snapshotShows = Array.isArray(snapshot?.shows?.items) ? snapshot.shows.items : [];
+    if (snapshotShows.length > 0) latestShows = snapshotShows;
 
     points.push({
       ms,
@@ -213,7 +394,7 @@ function writeDailySeries(dateDir, date, daySnapshots) {
     updated_at: new Date().toISOString(),
     points,
     attractions: Object.fromEntries(attractions),
-    shows: []
+    shows: latestShows
   };
   writeFileSync(path.join(dateDir, 'series.json'), `${JSON.stringify(series, null, 2)}\n`, 'utf8');
 }
@@ -275,6 +456,7 @@ function writeSnapshotIndex(now = new Date()) {
 try {
   const attractions = await fetchTdsOfficial();
   if (attractions.length === 0) throw new Error('TDS official returned 0 attractions');
+  const showInfo = await fetchTdsShows();
   const now = new Date();
   const payload = {
     fetched_at: now.toISOString(),
@@ -282,11 +464,11 @@ try {
     attractions,
     summary: summarize(attractions),
     closures: null,
-    shows: { source_url: 'https://www.tokyodisneyresort.jp/tds/show.html', fetched_at: now.toISOString(), items: [] }
+    shows: showInfo || { source_url: TDS_SHOW_URL, fetched_at: now.toISOString(), items: [] }
   };
   const paths = writeSnapshot(payload, now);
   const index = writeSnapshotIndex(now);
-  console.log(`[tds] source=${payload.source} count=${payload.summary.count} max_wait=${payload.summary.max_wait} open=${payload.summary.open_count}`);
+  console.log(`[tds] source=${payload.source} count=${payload.summary.count} max_wait=${payload.summary.max_wait} open=${payload.summary.open_count} shows=${payload.shows.items.length}`);
   console.log(`[tds] saved ${paths.latestPath}`);
   console.log(`[tds] saved ${index.indexPath} (${index.count} entries)`);
 } catch (error) {
