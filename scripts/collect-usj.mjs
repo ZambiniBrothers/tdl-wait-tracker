@@ -59,6 +59,10 @@ async function fetchJson(url, timeoutMs = TIMEOUT_MS) {
   }
 }
 
+// queue-times は閉園後も最後の値（is_open:true / wait:10 等）を返し続けるため、
+// last_updated が一定時間より古いライドは「鮮度なし＝休止」とみなす。
+const STALE_MS = 45 * 60 * 1000;
+
 async function fetchUsjAttractions() {
   const data = await fetchJson(USJ_QUEUE_TIMES_URL);
   const rides = [];
@@ -69,13 +73,16 @@ async function fetchUsjAttractions() {
   }
   if (Array.isArray(data?.rides)) rides.push(...data.rides);
 
+  const nowMs = Date.now();
   const seen = new Set();
   return rides
     .map((ride) => {
       const id = ride?.id;
       const name = String(ride?.name || '').replace(/\s+/g, ' ').trim();
       if (id == null || !name) return null;
-      const isOpen = ride?.is_open === true;
+      const updatedMs = Date.parse(ride?.last_updated);
+      const fresh = Number.isFinite(updatedMs) && (nowMs - updatedMs) <= STALE_MS;
+      const isOpen = ride?.is_open === true && fresh;
       const waitNum = Number(ride?.wait_time);
       const wait = isOpen && Number.isFinite(waitNum) && waitNum > 0 ? waitNum : null;
       return {
