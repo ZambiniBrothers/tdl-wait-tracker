@@ -383,6 +383,25 @@
       white-space: nowrap;
     }
 
+    .tooltip.is-show {
+      white-space: normal;
+      max-width: 220px;
+      border-color: rgba(250, 204, 21, 0.55);
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .tooltip.is-show .tip-show-time {
+      color: #facc15;
+      font-weight: 700;
+    }
+
+    .tooltip.is-show .tip-show-name {
+      color: var(--text);
+      line-height: 1.3;
+    }
+
     .chart-hint {
       color: var(--subtle);
       font-size: 0.78rem;
@@ -579,7 +598,7 @@
         <div id="chartEmpty" class="chart-empty is-hidden">表示できるグラフデータがありません</div>
         <div id="tooltip" class="tooltip is-hidden"></div>
       </div>
-      <p class="chart-hint">ホイールで拡大縮小 / 左ドラッグで横移動 / ダブルクリックでリセット ／ <span style="color:#facc15;">黄色の縦線</span>はショー・パレードの時刻（取得不可日は標準時刻）</p>
+      <p class="chart-hint">ホイール / ダブルタップで拡大・全体表示 / ドラッグで横移動 ／ <span style="color:#facc15;">黄色の縦線</span>はショー・パレード（カーソルやタップで名称と開始時刻を表示）</p>
     </section>
 
     <section class="chart-panel" aria-labelledby="tableTitle">
@@ -647,7 +666,10 @@
         touchState: null,
         renderFrame: null,
         seriesAbortController: null,
-        dataAttempted: false
+        dataAttempted: false,
+        lastTap: null,
+        tapTooltipTimer: null,
+        suppressDblClick: 0
       };
 
       const elements = {
@@ -702,7 +724,7 @@
         elements.chartWrap.addEventListener('mousedown', handleMouseDown);
         elements.chartWrap.addEventListener('mousemove', handleHover);
         elements.chartWrap.addEventListener('mouseleave', handleMouseLeave);
-        elements.chartWrap.addEventListener('dblclick', resetView);
+        elements.chartWrap.addEventListener('dblclick', handleDblClick);
         window.addEventListener('mousemove', handleDrag);
         window.addEventListener('mouseup', handleMouseUp);
         window.addEventListener('blur', handleMouseUp);
@@ -1062,14 +1084,11 @@
         }
         elements.chartEmpty.classList.add('is-hidden');
 
-        const allWaits = points.map((p) => p.wait);
-        const actualMaxWait = Math.max.apply(null, allWaits);
-        const rawMaxWait = Math.max(30, Math.ceil(actualMaxWait / 10) * 10);
-        // Pick the Y-axis major step so the top label is exactly maxWait.
-        const majorY = rawMaxWait <= 30 ? 10
-          : rawMaxWait <= 120 ? 20
-          : 50;
-        const maxWait = Math.ceil(rawMaxWait / majorY) * majorY;
+        const allWaits = points.map((p) => p.wait || 0);
+        const actualMaxWait = allWaits.length ? Math.max.apply(null, allWaits) : 0;
+        // Y軸の上端は「その日の最長待ち時間」に合わせ、ピークがグラフ上端に届くようにする
+        // （最長時間がひと目で分かる）。ただし下限は30分で、30分以下の日でも30分目盛りは見せる。
+        const maxWait = Math.max(30, actualMaxWait);
 
         const attraction = state.attractionsById[state.selectedAttractionId];
         const attractionName = attraction && (attraction.name_ja || attraction.name_en);
@@ -1200,15 +1219,24 @@
           }
         }
 
-        // Major lines + labels
-        for (let v = 0; v <= maxWait; v += majorY) {
+        // Major lines + labels. Build ticks from the majorY grid but always finish
+        // with the exact maxWait (= today's longest wait) at the very top so the
+        // peak value is labeled. Drop the last grid tick if it would crowd the top.
+        const majorTicks = [];
+        for (let v = 0; v < maxWait; v += majorY) majorTicks.push(v);
+        const lastTick = majorTicks[majorTicks.length - 1];
+        if (lastTick !== 0 && maxWait - lastTick < majorY * 0.5) majorTicks.pop();
+        majorTicks.push(maxWait);
+
+        for (const v of majorTicks) {
           const y = yFor(v);
           const line = document.createElementNS(SVG_NS, 'line');
           line.setAttribute('x1', String(pad.left));
           line.setAttribute('x2', String(width - pad.right));
           line.setAttribute('y1', String(y));
           line.setAttribute('y2', String(y));
-          line.setAttribute('stroke', 'rgba(255,255,255,0.14)');
+          const isTop = v === maxWait;
+          line.setAttribute('stroke', isTop ? 'rgba(255,255,255,0.28)' : 'rgba(255,255,255,0.14)');
           line.setAttribute('pointer-events', 'none');
           elements.waitChart.appendChild(line);
 
@@ -1216,7 +1244,8 @@
           text.setAttribute('x', String(pad.left - 6));
           text.setAttribute('y', String(y + 4));
           text.setAttribute('text-anchor', 'end');
-          text.setAttribute('fill', '#b7c7dc');
+          text.setAttribute('fill', isTop ? '#f7fbff' : '#b7c7dc');
+          if (isTop) text.setAttribute('font-weight', '700');
           text.setAttribute('font-size', '12');
           text.textContent = `${v}分`;
           elements.waitChart.appendChild(text);
@@ -1287,20 +1316,49 @@
         }
       }
 
+      // 当日のショー/パレード一覧を {ms, time, label} で返す。
+      // series.shows（当日取得分）があればそれを、無ければ標準スケジュールを使う。
+      function getShowSchedule() {
+        if (!state.currentDate) return [];
+        const dynamic = Array.isArray(state.series && state.series.shows) ? state.series.shows : [];
+        const schedule = dynamic.length ? dynamic : SHOW_SCHEDULE;
+        const out = [];
+        for (const show of schedule) {
+          if (!show || typeof show.time !== 'string') continue;
+          const ms = Date.parse(`${state.currentDate}T${show.time}:00+09:00`);
+          if (!Number.isFinite(ms)) continue;
+          out.push({ ms, time: show.time, label: show.label || show.name_ja || '' });
+        }
+        return out;
+      }
+
+      // カーソル/タップ位置(ms)に最も近いショーを、しきい値(px)以内なら返す。
+      function findShowNear(cursorMs, msPerPx) {
+        const thresholdMs = 9 * msPerPx;
+        let best = null;
+        let bestDelta = Infinity;
+        for (const show of getShowSchedule()) {
+          if (show.ms < state.viewStartMs || show.ms > state.viewEndMs) continue;
+          const delta = Math.abs(show.ms - cursorMs);
+          if (delta < bestDelta) {
+            bestDelta = delta;
+            best = show;
+          }
+        }
+        return best && bestDelta <= thresholdMs ? best : null;
+      }
+
       function drawShowMarkers(width, height, pad, viewStartMs, viewEndMs) {
         if (!state.currentDate) return;
         const plotW = width - pad.left - pad.right;
         const span = Math.max(1, viewEndMs - viewStartMs);
         const top = pad.top;
         const bottom = height - pad.bottom;
-        const dynamic = Array.isArray(state.series && state.series.shows) ? state.series.shows : [];
-        const schedule = dynamic.length ? dynamic : SHOW_SCHEDULE;
 
-        schedule.forEach((show) => {
-          if (!show || typeof show.time !== 'string') return;
-          const ms = Date.parse(`${state.currentDate}T${show.time}:00+09:00`);
-          if (!Number.isFinite(ms) || ms < viewStartMs || ms > viewEndMs) return;
-          const x = pad.left + ((ms - viewStartMs) / span) * plotW;
+        // 線のみ描画（名称はカーソル/タップ時にツールチップで表示）。
+        for (const show of getShowSchedule()) {
+          if (show.ms < viewStartMs || show.ms > viewEndMs) continue;
+          const x = pad.left + ((show.ms - viewStartMs) / span) * plotW;
 
           const line = document.createElementNS(SVG_NS, 'line');
           line.setAttribute('x1', String(x));
@@ -1313,22 +1371,7 @@
           line.setAttribute('stroke-opacity', '0.65');
           line.setAttribute('pointer-events', 'none');
           elements.waitChart.appendChild(line);
-
-          if (show.label) {
-            const label = document.createElementNS(SVG_NS, 'text');
-            label.setAttribute('x', String(x));
-            label.setAttribute('y', String(top + 2));
-            label.setAttribute('transform', `rotate(90 ${x} ${top + 2})`);
-            label.setAttribute('dx', '4');
-            label.setAttribute('dy', '-3');
-            label.setAttribute('fill', '#facc15');
-            label.setAttribute('font-size', '10');
-            label.setAttribute('text-anchor', 'start');
-            label.setAttribute('pointer-events', 'none');
-            label.textContent = show.label;
-            elements.waitChart.appendChild(label);
-          }
-        });
+        }
       }
 
       function handleWheel(event) {
@@ -1417,7 +1460,13 @@
         }
         const plotW = Math.max(1, rect.width - pad.left - pad.right);
         const ratio = (x - pad.left) / plotW;
-        const cursorMs = state.viewStartMs + ratio * (state.viewEndMs - state.viewStartMs);
+        const viewSpan = state.viewEndMs - state.viewStartMs;
+        const cursorMs = state.viewStartMs + ratio * viewSpan;
+        const show = findShowNear(cursorMs, viewSpan / plotW);
+        if (show) {
+          showTooltipForShow(event, show);
+          return;
+        }
         let nearest = null;
         let minDelta = Infinity;
         for (const p of state.currentPoints) {
@@ -1545,7 +1594,7 @@
           state.touchState = null;
           elements.chartWrap.classList.remove('is-dragging');
           if (ts && ts.type === 'pan' && !ts.moved && event.type !== 'touchcancel') {
-            showTooltipAt(ts.lastClientX, ts.lastClientY);
+            handleTap(ts.lastClientX, ts.lastClientY);
           }
           return;
         }
@@ -1566,6 +1615,70 @@
         }
       }
 
+      // 1本指タップ: ダブルタップなら拡大/全体表示をトグル、単発ならツールチップ表示。
+      function handleTap(clientX, clientY) {
+        const now = Date.now();
+        const lt = state.lastTap;
+        const isDouble = lt && (now - lt.time) < 320
+          && Math.abs(clientX - lt.x) < 44 && Math.abs(clientY - lt.y) < 44;
+        if (isDouble) {
+          state.lastTap = null;
+          state.suppressDblClick = now;
+          if (state.tapTooltipTimer) {
+            clearTimeout(state.tapTooltipTimer);
+            state.tapTooltipTimer = null;
+          }
+          hideTooltip();
+          toggleZoom(clientX);
+          return;
+        }
+        state.lastTap = { time: now, x: clientX, y: clientY };
+        // 2発目のタップを待てるよう、単発のツールチップ表示を少し遅らせる。
+        if (state.tapTooltipTimer) clearTimeout(state.tapTooltipTimer);
+        state.tapTooltipTimer = setTimeout(() => {
+          state.tapTooltipTimer = null;
+          showTooltipAt(clientX, clientY);
+        }, 300);
+      }
+
+      // ダブルタップ/ダブルクリックで「30分刻みまで拡大」⇔「全体表示」をトグルする。
+      function toggleZoom(focalClientX) {
+        if (!Number.isFinite(state.dayStartMs)) return;
+        const dayspan = state.dayEndMs - state.dayStartMs;
+        const curSpan = state.viewEndMs - state.viewStartMs;
+        // 3時間スパン = X軸が30分刻みで表示される拡大レベル。
+        const zoomInSpan = Math.min(dayspan, 3 * 60 * 60 * 1000);
+        const isZoomedOut = curSpan >= dayspan - 1000;
+
+        if (isZoomedOut) {
+          const rect = elements.chartWrap.getBoundingClientRect();
+          const pad = state.chartDims.pad;
+          let ratio = 0.5;
+          if (rect.width > 0 && Number.isFinite(focalClientX)) {
+            const plotW = Math.max(1, rect.width - pad.left - pad.right);
+            ratio = clamp((focalClientX - rect.left - pad.left) / plotW, 0, 1);
+          }
+          const focalMs = state.viewStartMs + ratio * curSpan;
+          let newStart = focalMs - ratio * zoomInSpan;
+          let newEnd = newStart + zoomInSpan;
+          if (newStart < state.dayStartMs) { newStart = state.dayStartMs; newEnd = newStart + zoomInSpan; }
+          if (newEnd > state.dayEndMs) { newEnd = state.dayEndMs; newStart = newEnd - zoomInSpan; }
+          state.viewStartMs = newStart;
+          state.viewEndMs = newEnd;
+        } else {
+          state.viewStartMs = state.dayStartMs;
+          state.viewEndMs = state.dayEndMs;
+        }
+        hideTooltip();
+        scheduleRender();
+      }
+
+      function handleDblClick(event) {
+        // 直前のタッチ・ダブルタップが合成した dblclick は無視する。
+        if (state.suppressDblClick && Date.now() - state.suppressDblClick < 600) return;
+        toggleZoom(event.clientX);
+      }
+
       function showTooltipAt(clientX, clientY) {
         if (!state.currentPoints || state.currentPoints.length === 0) return;
         const rect = elements.chartWrap.getBoundingClientRect();
@@ -1574,7 +1687,13 @@
         if (x < pad.left || x > rect.width - pad.right) return;
         const plotW = Math.max(1, rect.width - pad.left - pad.right);
         const ratio = (x - pad.left) / plotW;
-        const cursorMs = state.viewStartMs + ratio * (state.viewEndMs - state.viewStartMs);
+        const viewSpan = state.viewEndMs - state.viewStartMs;
+        const cursorMs = state.viewStartMs + ratio * viewSpan;
+        const show = findShowNear(cursorMs, viewSpan / plotW);
+        if (show) {
+          showTooltipForShow({ clientX, clientY }, show);
+          return;
+        }
         let nearest = null;
         let minDelta = Infinity;
         for (const p of state.currentPoints) {
@@ -1604,7 +1723,23 @@
         else if (!point.isOpen) note = ' / 休止中';
         else if (point.interpolated) note = ' / 補間値';
         else note = '';
+        elements.tooltip.classList.remove('is-show');
         elements.tooltip.textContent = `${formatJstHourMin(point.ms)} / ${point.wait}分${note}`;
+        elements.tooltip.classList.remove('is-hidden');
+        moveTooltip(event);
+      }
+
+      function showTooltipForShow(event, show) {
+        elements.tooltip.classList.add('is-show');
+        elements.tooltip.replaceChildren();
+        const time = document.createElement('span');
+        time.className = 'tip-show-time';
+        time.textContent = `🎭 ${show.time}〜`;
+        const name = document.createElement('span');
+        name.className = 'tip-show-name';
+        name.textContent = show.label || 'ショー・パレード';
+        elements.tooltip.appendChild(time);
+        elements.tooltip.appendChild(name);
         elements.tooltip.classList.remove('is-hidden');
         moveTooltip(event);
       }
