@@ -355,7 +355,7 @@
     function makeChip(attr, tier) {
       const chip = document.createElement('a');
       chip.className = 'chip' + (tier.key === 'closed' ? ' is-closed' : '');
-      chip.href = './index.html';
+      chip.href = `./index.html${NAV_SUFFIX}`;
       const name = attr.name_ja || attr.name_en || attr.id;
       const wait = typeof attr.wait_minutes === 'number' && attr.wait_minutes > 0 ? attr.wait_minutes : null;
       const ppOnly = String(attr.access_mode || '') === 'PP_ONLY';
