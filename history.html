@@ -216,6 +216,102 @@
       color: var(--subtle);
     }
 
+    .chart-combo {
+      position: relative;
+    }
+
+    .chart-select-button {
+      width: 100%;
+      min-height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      border: 1px solid #486483;
+      border-radius: 8px;
+      background: #071426;
+      color: var(--text);
+      padding: 8px 12px;
+      font: inherit;
+      font-weight: 700;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .chart-select-button:focus-visible {
+      outline: 3px solid #93c5fd;
+      outline-offset: 2px;
+    }
+
+    .chart-select-value {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .chart-select-caret {
+      color: var(--subtle);
+      font-size: 0.8rem;
+      flex: none;
+    }
+
+    .chart-select-popup {
+      position: absolute;
+      top: calc(100% + 4px);
+      left: 0;
+      right: 0;
+      z-index: 40;
+      display: grid;
+      gap: 8px;
+      padding: 8px;
+      border: 1px solid #486483;
+      border-radius: 8px;
+      background: #0a1a30;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45);
+    }
+
+    .chart-select-popup.is-hidden {
+      display: none;
+    }
+
+    .chart-select-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      max-height: 320px;
+      overflow-y: auto;
+    }
+
+    .chart-select-list li {
+      padding: 9px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .chart-select-list li:hover {
+      background: rgba(147, 197, 253, 0.14);
+    }
+
+    .chart-select-list li.is-selected {
+      background: rgba(147, 197, 253, 0.24);
+    }
+
+    /* 休止中（動いていない）アトラクションはグレー表記 */
+    .chart-select-list li.is-closed-opt {
+      color: #94a3b8;
+    }
+
+    .chart-select-list li.is-empty {
+      color: var(--subtle);
+      cursor: default;
+    }
+
+    .chart-select-list li.is-empty:hover {
+      background: none;
+    }
+
     .summary-card {
       display: grid;
       gap: 18px;
@@ -589,9 +685,17 @@
           <div class="source-note" id="chartNote">アトラクションを選択すると待ち時間の推移を表示します</div>
         </div>
         <div class="field chart-select-field">
-          <label for="chartSelect">アトラクションを選択</label>
-          <input type="search" id="chartSearch" class="chart-search" placeholder="名前で絞り込み（例: プー / ホーン）" autocomplete="off" aria-label="アトラクション名で絞り込み">
-          <select id="chartSelect" aria-label="グラフ表示するアトラクションを選択（あいうえお順）" size="1"></select>
+          <label id="chartSelectLabel">アトラクションを選択</label>
+          <div class="chart-combo" id="chartCombo">
+            <button type="button" id="chartSelectButton" class="chart-select-button" aria-haspopup="listbox" aria-expanded="false">
+              <span id="chartSelectValue" class="chart-select-value">アトラクションを選択</span>
+              <span class="chart-select-caret" aria-hidden="true">▾</span>
+            </button>
+            <div class="chart-select-popup is-hidden" id="chartSelectPopup">
+              <input type="search" id="chartSearch" class="chart-search" placeholder="名前で絞り込み（例: プー / ホーン）" autocomplete="off" aria-label="アトラクション名で絞り込み">
+              <ul class="chart-select-list" id="chartSelectList" role="listbox" aria-label="アトラクション一覧（稼働中→休止中の順）"></ul>
+            </div>
+          </div>
         </div>
       </div>
       <div class="chart-wrap" id="chartWrap">
@@ -699,7 +803,11 @@
         errorMessage: document.getElementById('errorMessage'),
         retryButton: document.getElementById('retryButton'),
         emptyBanner: document.getElementById('emptyBanner'),
-        chartSelect: document.getElementById('chartSelect'),
+        chartCombo: document.getElementById('chartCombo'),
+        chartSelectButton: document.getElementById('chartSelectButton'),
+        chartSelectValue: document.getElementById('chartSelectValue'),
+        chartSelectPopup: document.getElementById('chartSelectPopup'),
+        chartSelectList: document.getElementById('chartSelectList'),
         chartSearch: document.getElementById('chartSearch'),
         chartNote: document.getElementById('chartNote'),
         waitChart: document.getElementById('waitChart'),
@@ -761,8 +869,14 @@
       function bindEvents() {
         elements.dateSelect.addEventListener('change', handleDateChange);
         elements.latestButton.addEventListener('click', selectLatest);
-        elements.chartSelect.addEventListener('change', handleAttractionChange);
+        elements.chartSelectButton.addEventListener('click', toggleChartSelect);
         elements.chartSearch.addEventListener('input', handleSearchInput);
+        document.addEventListener('click', (event) => {
+          if (!elements.chartCombo.contains(event.target)) closeChartSelect();
+        });
+        document.addEventListener('keydown', (event) => {
+          if (event.key === 'Escape') closeChartSelect();
+        });
         elements.retryButton.addEventListener('click', loadIndex);
 
         let resizeTimer;
@@ -937,9 +1051,47 @@
         }
       }
 
-      function handleAttractionChange() {
-        state.selectedAttractionId = elements.chartSelect.value;
-        renderFromSeries();
+      function toggleChartSelect() {
+        if (elements.chartSelectPopup.classList.contains('is-hidden')) openChartSelect();
+        else closeChartSelect();
+      }
+
+      function openChartSelect() {
+        if (elements.chartSelectButton.disabled) return;
+        elements.chartSelectPopup.classList.remove('is-hidden');
+        elements.chartSelectButton.setAttribute('aria-expanded', 'true');
+        // 開いたら検索にフォーカスし、選択中の項目までスクロールする。
+        requestAnimationFrame(() => {
+          if (elements.chartSearch) elements.chartSearch.focus();
+          const selected = elements.chartSelectList.querySelector('li.is-selected');
+          if (selected) selected.scrollIntoView({ block: 'nearest' });
+        });
+      }
+
+      function closeChartSelect() {
+        elements.chartSelectPopup.classList.add('is-hidden');
+        elements.chartSelectButton.setAttribute('aria-expanded', 'false');
+      }
+
+      // 一覧から選択：状態を更新してボタン表記を反映し、ポップアップを閉じてグラフを再描画する。
+      function selectAttraction(id) {
+        if (!id) return;
+        const attr = state.attractionsById[id];
+        elements.chartSelectValue.textContent = (attr && (attr.name_ja || attr.name_en)) || id;
+        closeChartSelect();
+        if (id !== state.selectedAttractionId) {
+          state.selectedAttractionId = id;
+          renderFromSeries();
+        }
+        updateChartSelectHighlight();
+      }
+
+      function updateChartSelectHighlight() {
+        elements.chartSelectList.querySelectorAll('li[data-id]').forEach((li) => {
+          const on = li.dataset.id === state.selectedAttractionId;
+          li.classList.toggle('is-selected', on);
+          li.setAttribute('aria-selected', on ? 'true' : 'false');
+        });
       }
 
       function renderFromSeries() {
@@ -1780,7 +1932,7 @@
 
       function showTooltip(event, point) {
         let note;
-        if (point.status === 'DOWN') note = ' / システム調整';
+        if (point.status === 'DOWN') note = ' / 一時運営中止';
         else if (point.accessMode === 'PP_ONLY') note = ' / PPのみ案内';
         else if (!point.isOpen) note = ' / 休止中';
         else if (point.interpolated) note = ' / 補間値';
@@ -1859,34 +2011,46 @@
       }
 
       function renderChartSelectOptions(list) {
-        const previous = state.selectedAttractionId || elements.chartSelect.value;
-        elements.chartSelect.replaceChildren();
-        list.forEach((attraction) => {
-          const option = document.createElement('option');
-          option.value = attraction.id;
-          option.textContent = attraction.name_ja || attraction.name_en || attraction.id;
-          // 休止中（動いていない）アトラクションはグレー表記にする。
-          if (attraction.is_open !== true) {
-            option.style.color = '#94a3b8';
-          }
-          elements.chartSelect.appendChild(option);
-        });
-        // Keep prior selection if still visible; otherwise pick the first match
-        // so the user immediately sees the filtered attraction's graph.
+        const previous = state.selectedAttractionId;
+        elements.chartSelectList.replaceChildren();
+
+        if (list.length === 0) {
+          const empty = document.createElement('li');
+          empty.className = 'is-empty';
+          empty.textContent = '該当するアトラクションがありません';
+          elements.chartSelectList.appendChild(empty);
+        } else {
+          list.forEach((attraction) => {
+            const li = document.createElement('li');
+            li.dataset.id = attraction.id;
+            li.setAttribute('role', 'option');
+            li.textContent = attraction.name_ja || attraction.name_en || attraction.id;
+            // 休止中（動いていない）アトラクションはグレー表記にする。
+            if (attraction.is_open !== true) {
+              li.classList.add('is-closed-opt');
+            }
+            li.addEventListener('click', () => selectAttraction(attraction.id));
+            elements.chartSelectList.appendChild(li);
+          });
+        }
+
+        // 直前の選択が一覧に残っていれば維持、無ければ先頭を選ぶ（絞り込み時に即グラフ表示）。
         let nextId = '';
         if (list.some((item) => item.id === previous)) {
           nextId = previous;
         } else if (list.length > 0) {
           nextId = list[0].id;
         }
-        if (nextId) {
-          elements.chartSelect.value = nextId;
-        }
         if (nextId !== state.selectedAttractionId) {
           state.selectedAttractionId = nextId;
           renderFromSeries();
         }
-        elements.chartSelect.disabled = list.length === 0;
+        const selectedAttr = nextId ? state.attractionsById[nextId] : null;
+        elements.chartSelectValue.textContent = selectedAttr
+          ? (selectedAttr.name_ja || selectedAttr.name_en || nextId)
+          : 'アトラクションを選択';
+        updateChartSelectHighlight();
+        elements.chartSelectButton.disabled = list.length === 0 && (state.chartSelectSource || []).length === 0;
       }
 
       function handleSearchInput() {
@@ -2018,8 +2182,9 @@
       function setControlsDisabled(disabled) {
         elements.dateSelect.disabled = disabled;
         elements.latestButton.disabled = disabled;
-        elements.chartSelect.disabled = disabled;
+        elements.chartSelectButton.disabled = disabled;
         elements.chartSearch.disabled = disabled;
+        if (disabled) closeChartSelect();
       }
 
       function readParallelFactor() {
