@@ -39,11 +39,13 @@
       padding: 22px clamp(14px, 3vw, 28px) 42px;
     }
 
+    /* 見出し文言を必ずデータボタンの上に表示する（常に縦積み）。
+       これで画面幅に関わらずボタンが細長くならない。 */
     .app-header {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) auto;
-      gap: 18px;
-      align-items: end;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 14px;
       padding: 10px 0 20px;
     }
 
@@ -51,16 +53,6 @@
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      align-content: start;
-    }
-
-    /* 画面が狭いときは見出し文言をデータボタンの上に重ねて（縦積み）、
-       ボタンが細長くならないようにする。 */
-    @media (max-width: 760px) {
-      .app-header {
-        grid-template-columns: 1fr;
-        align-items: start;
-      }
     }
 
     h1 {
