@@ -1845,8 +1845,11 @@
       }
 
       function populateChartSelect(attractions) {
-        // Always store attractions sorted by Japanese reading (あいうえお order).
+        // 稼働中のアトラクションを先（あいうえお順）、休止中を後（あいうえお順）にまとめる。
         const sorted = attractions.slice().sort((a, b) => {
+          const aOpen = a.is_open === true;
+          const bOpen = b.is_open === true;
+          if (aOpen !== bOpen) return aOpen ? -1 : 1;
           const an = a.name_ja || a.name_en || '';
           const bn = b.name_ja || b.name_en || '';
           return an.localeCompare(bn, 'ja');
@@ -1862,6 +1865,10 @@
           const option = document.createElement('option');
           option.value = attraction.id;
           option.textContent = attraction.name_ja || attraction.name_en || attraction.id;
+          // 休止中（動いていない）アトラクションはグレー表記にする。
+          if (attraction.is_open !== true) {
+            option.style.color = '#94a3b8';
+          }
           elements.chartSelect.appendChild(option);
         });
         // Keep prior selection if still visible; otherwise pick the first match
