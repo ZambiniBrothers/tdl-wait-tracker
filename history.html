@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; img-src 'self' data:; base-uri 'none'; form-action 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://api.open-meteo.com; base-uri 'none'; form-action 'none'">
   <title>TDL 待ち時間 履歴</title>
   <style>
     :root {
@@ -504,6 +504,78 @@
       margin-top: 6px;
     }
 
+    .weather-strip {
+      display: grid;
+      grid-template-columns: auto repeat(4, 1fr);
+      gap: 8px;
+      align-items: stretch;
+      margin: 0 0 12px;
+      padding: 10px 12px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 8px;
+      background: rgba(8, 16, 32, 0.55);
+    }
+
+    .weather-strip-title {
+      display: flex;
+      align-items: center;
+      font-size: 0.78rem;
+      font-weight: 800;
+      color: #93c5fd;
+      letter-spacing: 0.02em;
+    }
+
+    .weather-slot {
+      display: grid;
+      gap: 2px;
+      justify-items: center;
+      text-align: center;
+      padding: 4px 2px;
+      border-left: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .weather-slot-when {
+      font-size: 0.72rem;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .weather-slot-icon {
+      font-size: 1.4rem;
+      line-height: 1.1;
+    }
+
+    .weather-slot-temp {
+      font-size: 0.82rem;
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .weather-slot-rain {
+      font-size: 0.7rem;
+      color: #93c5fd;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .weather-strip.is-note {
+      grid-template-columns: 1fr;
+      color: var(--subtle);
+      font-size: 0.8rem;
+    }
+
+    @media (max-width: 560px) {
+      .weather-strip {
+        grid-template-columns: repeat(4, 1fr);
+      }
+      .weather-strip-title {
+        grid-column: 1 / -1;
+        margin-bottom: 2px;
+      }
+      .weather-slot:nth-child(2) {
+        border-left: none;
+      }
+    }
+
     .table-wrap {
       overflow-x: auto;
       border: 1px solid rgba(255, 255, 255, 0.12);
@@ -633,10 +705,6 @@
     <section class="summary-card" aria-labelledby="summaryTitle">
       <h2 id="summaryTitle" class="visually-hidden">履歴サマリー</h2>
       <div class="summary-metrics">
-        <div class="metric">
-          <span class="metric-label">並び総人数</span>
-          <span class="metric-value" id="totalQueuePeople">--</span>
-        </div>
         <div class="metric is-primary">
           <span class="metric-label">来園者推定</span>
           <span class="metric-value" id="estimatedVisitors">--</span>
@@ -698,6 +766,7 @@
           </div>
         </div>
       </div>
+      <div id="weatherStrip" class="weather-strip is-hidden" aria-label="この日の天気"></div>
       <div class="chart-wrap" id="chartWrap">
         <svg id="waitChart" class="chart-svg" role="img" aria-label="待ち時間推移グラフ"></svg>
         <div id="chartEmpty" class="chart-empty is-hidden">表示できるグラフデータがありません</div>
@@ -753,6 +822,26 @@
       const JST_OFFSET_MS = 9 * 60 * 60 * 1000;
       const SVG_NS = 'http://www.w3.org/2000/svg';
 
+      // 天気記録用：パーク所在地の座標（TDL/TDS=舞浜、USJ=大阪此花区）。
+      const WEATHER_COORD = PARK === 'usj'
+        ? { lat: 34.6658, lon: 135.4323 }
+        : { lat: 35.6329, lon: 139.8826 };
+      // 1日を4区分（代表時刻）でサンプリングして天気の移り変わりを表示する。
+      const WEATHER_SLOTS = [
+        { when: '午前', hour: 9 },
+        { when: 'お昼', hour: 12 },
+        { when: '午後', hour: 15 },
+        { when: '夕方', hour: 18 }
+      ];
+      const WMO_WEATHER = {
+        0: '☀️', 1: '🌤️', 2: '⛅', 3: '☁️', 45: '🌫️', 48: '🌫️',
+        51: '🌦️', 53: '🌦️', 55: '🌧️', 61: '🌧️', 63: '🌧️', 65: '🌧️',
+        71: '🌨️', 73: '🌨️', 75: '❄️', 77: '🌨️', 80: '🌦️', 81: '🌧️',
+        82: '⛈️', 85: '🌨️', 86: '❄️', 95: '⛈️', 96: '⛈️', 99: '⛈️'
+      };
+      let weatherAbortController = null;
+      const weatherCache = Object.create(null);
+
       // パーク内のショー/パレードの標準時刻（編集可能）。
       // time は JST の "HH:MM"。グラフのX軸上にこの時刻で黄色い縦線を描画する。
       const SHOW_SCHEDULE = [
@@ -790,7 +879,6 @@
       const elements = {
         dateSelect: document.getElementById('dateSelect'),
         latestButton: document.getElementById('latestButton'),
-        totalQueuePeople: document.getElementById('totalQueuePeople'),
         estimatedVisitors: document.getElementById('estimatedVisitors'),
         averageWait: document.getElementById('averageWait'),
         maxWait: document.getElementById('maxWait'),
@@ -803,6 +891,7 @@
         errorMessage: document.getElementById('errorMessage'),
         retryButton: document.getElementById('retryButton'),
         emptyBanner: document.getElementById('emptyBanner'),
+        weatherStrip: document.getElementById('weatherStrip'),
         chartCombo: document.getElementById('chartCombo'),
         chartSelectButton: document.getElementById('chartSelectButton'),
         chartSelectValue: document.getElementById('chartSelectValue'),
@@ -963,6 +1052,7 @@
           return;
         }
         state.currentDate = date;
+        if (!silent) loadWeatherForDate(date);
         if (state.seriesAbortController) {
           state.seriesAbortController.abort();
         }
@@ -1092,6 +1182,97 @@
           li.classList.toggle('is-selected', on);
           li.setAttribute('aria-selected', on ? 'true' : 'false');
         });
+      }
+
+      // 選択した日付の天気（午前・お昼・午後・夕方）を Open-Meteo から取得して上部に表示する。
+      // Open-Meteo は過去約92日〜先16日の時間別データに対応。範囲外・取得失敗時は静かに非表示にする。
+      async function loadWeatherForDate(date) {
+        if (!elements.weatherStrip) return;
+        if (weatherCache[date]) {
+          renderWeatherStrip(weatherCache[date]);
+          return;
+        }
+        showWeatherNote('天気を取得しています…');
+        if (weatherAbortController) weatherAbortController.abort();
+        const controller = new AbortController();
+        weatherAbortController = controller;
+        const url = `https://api.open-meteo.com/v1/forecast?latitude=${WEATHER_COORD.lat}&longitude=${WEATHER_COORD.lon}`
+          + `&hourly=weather_code,temperature_2m,precipitation_probability&start_date=${date}&end_date=${date}&timezone=Asia%2FTokyo`;
+        try {
+          const res = await fetch(url, { signal: controller.signal });
+          if (!res.ok) throw new Error(`HTTP ${res.status}`);
+          const data = await res.json();
+          if (weatherAbortController !== controller) return;
+          const slots = extractWeatherSlots(data);
+          if (!slots) { hideWeatherStrip(); return; }
+          weatherCache[date] = slots;
+          renderWeatherStrip(slots);
+        } catch (error) {
+          if (controller.signal.aborted) return;
+          hideWeatherStrip();
+        }
+      }
+
+      function extractWeatherSlots(data) {
+        const h = data && data.hourly;
+        if (!h || !Array.isArray(h.time)) return null;
+        const idxByHour = {};
+        h.time.forEach((t, i) => {
+          const hh = Number(String(t).slice(11, 13));
+          if (Number.isFinite(hh)) idxByHour[hh] = i;
+        });
+        const slots = WEATHER_SLOTS.map(({ when, hour }) => {
+          const i = idxByHour[hour];
+          if (i === undefined) return { when, icon: '❓', temp: null, rain: null };
+          const code = h.weather_code ? h.weather_code[i] : null;
+          return {
+            when,
+            icon: WMO_WEATHER[code] || '❓',
+            temp: h.temperature_2m ? h.temperature_2m[i] : null,
+            rain: h.precipitation_probability ? h.precipitation_probability[i] : null
+          };
+        });
+        return slots.some((s) => typeof s.temp === 'number') ? slots : null;
+      }
+
+      function renderWeatherStrip(slots) {
+        elements.weatherStrip.classList.remove('is-note', 'is-hidden');
+        elements.weatherStrip.replaceChildren();
+        const title = document.createElement('div');
+        title.className = 'weather-strip-title';
+        title.textContent = '🌤 この日の天気';
+        elements.weatherStrip.appendChild(title);
+        slots.forEach((s) => {
+          const slot = document.createElement('div');
+          slot.className = 'weather-slot';
+          const when = document.createElement('div');
+          when.className = 'weather-slot-when';
+          when.textContent = s.when;
+          const icon = document.createElement('div');
+          icon.className = 'weather-slot-icon';
+          icon.textContent = s.icon;
+          const temp = document.createElement('div');
+          temp.className = 'weather-slot-temp';
+          temp.textContent = (typeof s.temp === 'number') ? `${Math.round(s.temp)}℃` : '--';
+          const rain = document.createElement('div');
+          rain.className = 'weather-slot-rain';
+          rain.textContent = (typeof s.rain === 'number') ? `☔${Math.round(s.rain)}%` : '';
+          slot.append(when, icon, temp, rain);
+          elements.weatherStrip.appendChild(slot);
+        });
+      }
+
+      function showWeatherNote(text) {
+        elements.weatherStrip.classList.remove('is-hidden');
+        elements.weatherStrip.classList.add('is-note');
+        elements.weatherStrip.replaceChildren();
+        const span = document.createElement('div');
+        span.textContent = text;
+        elements.weatherStrip.appendChild(span);
+      }
+
+      function hideWeatherStrip() {
+        elements.weatherStrip.classList.add('is-hidden');
       }
 
       function renderFromSeries() {
@@ -2100,7 +2281,6 @@
         const averageWait = toFiniteNumber(summaryObj.average_wait, calculateAverageWait(attractions));
         const maxWait = toFiniteNumber(summaryObj.max_wait, calculateMaxWait(attractions));
 
-        elements.totalQueuePeople.textContent = crowd.total > 0 ? `${formatNumber(crowd.total)}人` : '--';
         elements.estimatedVisitors.textContent = estimated > 0 ? `${formatNumber(estimated)}人` : '--';
         elements.averageWait.textContent = `${formatDecimal(averageWait)}分`;
         elements.maxWait.textContent = `${formatNumber(maxWait)}分`;
@@ -2108,12 +2288,11 @@
         elements.sourceName.textContent = source ? String(source) : '--';
         elements.countSummary.textContent = `${formatNumber(count)}件 / ${formatNumber(openCount)}件`;
         elements.coverageNote.textContent = crowd.missing > 0
-          ? `キャリー未入力のアトラクション ${crowd.missing}件は並び総人数に含まれていません。並列係数は ${Math.round(factor * 100)}% です。`
+          ? `キャリー未入力のアトラクション ${crowd.missing}件は来園者推定に含まれていません。並列係数は ${Math.round(factor * 100)}% です。`
           : `並列係数は ${Math.round(factor * 100)}% です。`;
       }
 
       function resetSummary() {
-        elements.totalQueuePeople.textContent = '--';
         elements.estimatedVisitors.textContent = '--';
         elements.averageWait.textContent = '--';
         elements.maxWait.textContent = '--';
