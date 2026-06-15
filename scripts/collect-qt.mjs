@@ -24,6 +24,91 @@ const TIMEOUT_MS = 12_000;
 const STALE_MS = 45 * 60 * 1000;
 const ID_PREFIX = `a-${PARK_KEY}-`;
 
+// 有名アトラクションの英語名→日本語名（パーク横断で共通）。正規化キーで variant を吸収する。
+const JA_MAP = {
+  'space mountain': 'スペース・マウンテン',
+  'hyperspace mountain': 'ハイパースペース・マウンテン',
+  'star wars hyperspace mountain': 'スター・ウォーズ：ハイパースペース・マウンテン',
+  'big thunder mountain': 'ビッグサンダー・マウンテン',
+  'big thunder mountain railroad': 'ビッグサンダー・マウンテン',
+  'splash mountain': 'スプラッシュ・マウンテン',
+  'matterhorn bobsleds': 'マッターホルン・ボブスレー',
+  'pirates of the caribbean': 'カリブの海賊',
+  'pirates of the caribbean battle for the sunken treasure': 'カリブの海賊：沈没船の財宝をめぐるバトル',
+  'haunted mansion': 'ホーンテッドマンション',
+  'phantom manor': 'ファントム・マナー',
+  'mystic manor': 'ミスティック・マナー',
+  "it's a small world": 'イッツ・ア・スモールワールド',
+  'jungle cruise': 'ジャングルクルーズ',
+  'jungle river cruise': 'ジャングルリバークルーズ',
+  "peter pan's flight": 'ピーターパン空の旅',
+  'indiana jones adventure': 'インディ・ジョーンズ・アドベンチャー',
+  'indiana jones and the temple of peril': 'インディ・ジョーンズと危難の魔宮',
+  'star tours - the adventures continue': 'スター・ツアーズ',
+  'star tours: the adventures continue': 'スター・ツアーズ',
+  'star wars: rise of the resistance': 'スター・ウォーズ：ライズ・オブ・ザ・レジスタンス',
+  'millennium falcon: smugglers run': 'ミレニアム・ファルコン：スマグラーズ・ラン',
+  'autopia': 'オートピア',
+  'dumbo the flying elephant': '空飛ぶダンボ',
+  'alice in wonderland': 'ふしぎの国のアリス',
+  "alice's curious labyrinth": 'ふしぎの国のアリスの迷路',
+  'mad tea party': 'マッドティーパーティー',
+  'tron lightcycle / run': 'トロン・ライトサイクル・ラン',
+  'tron lightcycle power run': 'トロン・ライトサイクル・パワーラン',
+  'test track': 'テスト・トラック',
+  "soarin' over california": 'ソアリン・オーバー・カリフォルニア',
+  "soarin' across america": 'ソアリン・アクロス・アメリカ',
+  'soaring over the horizon': 'ソアリン：ファンタスティック・フライト',
+  'spaceship earth': 'スペースシップ・アース',
+  'mission: space': 'ミッション：スペース',
+  'the twilight zone tower of terror': 'タワー・オブ・テラー',
+  'slinky dog dash': 'スリンキー・ドッグ・ダッシュ',
+  'toy story mania!': 'トイ・ストーリー・マニア！',
+  'toy story midway mania!': 'トイ・ストーリー・マニア！',
+  'seven dwarfs mine train': '七人のこびとのマイントレイン',
+  'expedition everest - legend of the forbidden mountain': 'エクスペディション・エベレスト',
+  'avatar flight of passage': 'アバター：フライト・オブ・パッセージ',
+  'kilimanjaro safaris': 'キリマンジャロ・サファリ',
+  'frozen ever after': 'フローズン・エバーアフター',
+  "remy's ratatouille adventure": 'レミーのおいしいレストラン',
+  'ratatouille: the adventure': 'レミーのおいしいレストラン',
+  "ratatouille : l'aventure totalement toquée de rémy": 'レミーのおいしいレストラン',
+  "crush's coaster": 'クラッシュ・コースター',
+  'radiator springs racers': 'レーシング・イン・ラジエーター・スプリングス',
+  'guardians of the galaxy - mission: breakout!': 'ガーディアンズ・オブ・ギャラクシー：ミッション・ブレイクアウト！',
+  'guardians of the galaxy: cosmic rewind': 'ガーディアンズ・オブ・ギャラクシー：コズミック・リワインド',
+  'incredicoaster': 'インクレディコースター',
+  "mickey & minnie's runaway railway": 'ミッキー＆ミニーのランナウェイ・レイルウェイ',
+  "mickey's philharmagic": 'ミッキーのフィルハーマジック',
+  'buzz lightyear astro blasters': 'バズ・ライトイヤーのアストロブラスター',
+  "buzz lightyear's space ranger spin": 'バズ・ライトイヤーのスペース・レンジャー・スピン',
+  'buzz lightyear laser blast': 'バズ・ライトイヤー・レーザーブラスト',
+  'buzz lightyear planet rescue': 'バズ・ライトイヤー・プラネット・レスキュー',
+  'finding nemo submarine voyage': 'ファインディング・ニモ・サブマリン・ボヤッジ',
+  'big grizzly mountain runaway mine cars': 'ビッググリズリー・マウンテン',
+  'casey jr. circus train': 'キャシー・ジュニア・サーカストレイン',
+  "casey jr. - le petit train du cirque": 'キャシー・ジュニア・サーカストレイン'
+};
+
+function normKey(s) {
+  return String(s || '')
+    .replace(/[®™*​]/g, '')        // ® ™ * ゼロ幅
+    .replace(/\s+single rider$/i, '')
+    .replace(/\s*[–—-]\s*presented by.*$/i, '')
+    .replace(/\s*presented by.*$/i, '')
+    .replace(/,\s*presented by.*$/i, '')
+    .replace(/[’‘']/g, "'")
+    .replace(/["“”]/g, '')
+    .replace(/[–—]/g, '-')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .toLowerCase();
+}
+
+function jaName(name) {
+  return JA_MAP[normKey(name)] || String(name || '').replace(/\s+/g, ' ').trim();
+}
+
 async function fetchJson(url, timeoutMs = TIMEOUT_MS) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
@@ -67,7 +152,7 @@ async function fetchAttractions() {
       return {
         id: `${ID_PREFIX}${id}`,
         name_en: name,
-        name_ja: name,
+        name_ja: jaName(name),
         wait_minutes: wait,
         is_open: isOpen,
         status: isOpen ? 'OPERATING' : 'CLOSED',
