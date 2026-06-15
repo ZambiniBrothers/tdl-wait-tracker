@@ -803,11 +803,33 @@
 
   <script>
     (() => {
+      const PARK_NAMES = {
+        tdl: 'TDL', tds: 'TDS', usj: 'USJ',
+        dlr: 'DLR', dca: 'DCA', mk: 'MK', epcot: 'EPCOT', dhs: 'DHS', ak: 'AK',
+        dlp: 'DLP', wds: 'WDS', hkdl: 'HKDL', shdl: 'SHDL'
+      };
+      // パーク所在地のIANAタイムゾーン（営業時間/日付の境界・時刻表示に使用。DSTも自動対応）。
+      const PARK_TZ_MAP = {
+        tdl: 'Asia/Tokyo', tds: 'Asia/Tokyo', usj: 'Asia/Tokyo',
+        dlr: 'America/Los_Angeles', dca: 'America/Los_Angeles',
+        mk: 'America/New_York', epcot: 'America/New_York', dhs: 'America/New_York', ak: 'America/New_York',
+        dlp: 'Europe/Paris', wds: 'Europe/Paris',
+        hkdl: 'Asia/Hong_Kong', shdl: 'Asia/Shanghai'
+      };
+      const PARK_COORD = {
+        tdl: { lat: 35.6329, lon: 139.8826 }, tds: { lat: 35.6267, lon: 139.8851 }, usj: { lat: 34.6658, lon: 135.4323 },
+        dlr: { lat: 33.8121, lon: -117.9190 }, dca: { lat: 33.8060, lon: -117.9189 },
+        mk: { lat: 28.4177, lon: -81.5812 }, epcot: { lat: 28.3747, lon: -81.5494 },
+        dhs: { lat: 28.3575, lon: -81.5586 }, ak: { lat: 28.3590, lon: -81.5907 },
+        dlp: { lat: 48.8722, lon: 2.7758 }, wds: { lat: 48.8682, lon: 2.7800 },
+        hkdl: { lat: 22.3130, lon: 114.0413 }, shdl: { lat: 31.1443, lon: 121.6573 }
+      };
       const PARK = (() => {
         const p = new URLSearchParams(location.search).get('park');
-        return (p === 'tds' || p === 'usj') ? p : 'tdl';
+        return PARK_NAMES[p] ? p : 'tdl';
       })();
-      const PARK_NAME = { tdl: 'TDL', tds: 'TDS', usj: 'USJ' }[PARK];
+      const PARK_NAME = PARK_NAMES[PARK];
+      const PARK_TZ = PARK_TZ_MAP[PARK] || 'Asia/Tokyo';
       const BASE = PARK === 'tdl' ? './data' : `./data/${PARK}`;
       const NAV_SUFFIX = PARK === 'tdl' ? '' : `?park=${PARK}`;
       const INDEX_URL = `${BASE}/snapshots/index.json`;
@@ -819,13 +841,36 @@
       const MIN_VIEW_MINUTES = 20;
       // 当日のグラフを開いている間、新しいスナップショット（約10分毎）を取り込むポーリング間隔。
       const LIVE_REFRESH_MS = 3 * 60 * 1000;
-      const JST_OFFSET_MS = 9 * 60 * 60 * 1000;
       const SVG_NS = 'http://www.w3.org/2000/svg';
 
-      // 天気記録用：パーク所在地の座標（TDL/TDS=舞浜、USJ=大阪此花区）。
-      const WEATHER_COORD = PARK === 'usj'
-        ? { lat: 34.6658, lon: 135.4323 }
-        : { lat: 35.6329, lon: 139.8826 };
+      // パークTZのある瞬間 ms におけるUTCからのオフセット(ms)を返す（DST対応）。
+      function parkOffsetMs(ms) {
+        const parts = new Intl.DateTimeFormat('en-US', {
+          timeZone: PARK_TZ, hour12: false,
+          year: 'numeric', month: '2-digit', day: '2-digit',
+          hour: '2-digit', minute: '2-digit', second: '2-digit'
+        }).formatToParts(new Date(ms));
+        const m = {};
+        for (const p of parts) m[p.type] = p.value;
+        const h = m.hour === '24' ? 0 : Number(m.hour);
+        const asUTC = Date.UTC(Number(m.year), Number(m.month) - 1, Number(m.day), h, Number(m.minute), Number(m.second));
+        return asUTC - ms;
+      }
+
+      // パーク現地の "YYYY-MM-DD" + 時(:分) を絶対時刻(ms)に変換する（DST境界も補正）。
+      function parkLocalToMs(dateStr, hour, minute = 0) {
+        const hh = String(hour).padStart(2, '0');
+        const mm = String(minute).padStart(2, '0');
+        const guess = Date.parse(`${dateStr}T${hh}:${mm}:00Z`);
+        let off = parkOffsetMs(guess);
+        let ms = guess - off;
+        const off2 = parkOffsetMs(ms);
+        if (off2 !== off) ms = guess - off2;
+        return ms;
+      }
+
+      // 天気記録用：パーク所在地の座標。
+      const WEATHER_COORD = PARK_COORD[PARK] || PARK_COORD.tdl;
       // 1日を4区分（代表時刻）でサンプリングして天気の移り変わりを表示する。
       const WEATHER_SLOTS = [
         { when: '午前', hour: 9 },
@@ -930,10 +975,10 @@
         set('navInfo', `./info.html${NAV_SUFFIX}`);
       }
 
-      // YYYY-MM-DD（JST）。当日かどうかの判定に使う。
+      // YYYY-MM-DD（パーク現地）。当日かどうかの判定に使う。
       function todayJst() {
         return new Intl.DateTimeFormat('en-CA', {
-          timeZone: 'Asia/Tokyo', year: 'numeric', month: '2-digit', day: '2-digit'
+          timeZone: PARK_TZ, year: 'numeric', month: '2-digit', day: '2-digit'
         }).format(new Date());
       }
 
@@ -1068,8 +1113,8 @@
           }
           state.series = series;
 
-          state.dayStartMs = Date.parse(`${date}T${pad(OPEN_START_HOUR)}:00:00+09:00`);
-          state.dayEndMs = Date.parse(`${date}T${pad(OPEN_END_HOUR)}:00:00+09:00`);
+          state.dayStartMs = parkLocalToMs(date, OPEN_START_HOUR);
+          state.dayEndMs = parkLocalToMs(date, OPEN_END_HOUR);
           // 自動更新（preserveView）時は表示中のズーム/横移動を維持し、新しい点だけ追記する。
           if (!preserveView || !Number.isFinite(state.viewStartMs) || !Number.isFinite(state.viewEndMs)) {
             state.viewStartMs = state.dayStartMs;
@@ -1688,11 +1733,11 @@
 
         const plotW = width - pad.left - pad.right;
         const span = Math.max(1, viewEndMs - viewStartMs);
-        const jstStart = viewStartMs + JST_OFFSET_MS;
+        const localStart = viewStartMs + parkOffsetMs(viewStartMs);
 
         // Major grid lines + tick marks + labels
         const intervalMs = majorMin * 60000;
-        const remainder = ((jstStart % intervalMs) + intervalMs) % intervalMs;
+        const remainder = ((localStart % intervalMs) + intervalMs) % intervalMs;
         let tick = viewStartMs + (remainder === 0 ? 0 : intervalMs - remainder);
 
         while (tick <= viewEndMs) {
@@ -1741,7 +1786,8 @@
         const out = [];
         for (const show of schedule) {
           if (!show || typeof show.time !== 'string') continue;
-          const ms = Date.parse(`${state.currentDate}T${show.time}:00+09:00`);
+          const [sh, sm] = show.time.split(':');
+          const ms = parkLocalToMs(state.currentDate, Number(sh), Number(sm || 0));
           if (!Number.isFinite(ms)) continue;
           out.push({ ms, time: show.time, label: show.label || show.name_ja || '' });
         }
@@ -2425,13 +2471,13 @@
       function formatDateTime(value) {
         const ms = Date.parse(value);
         if (!Number.isFinite(ms)) return '--';
-        const jst = new Date(ms + JST_OFFSET_MS);
-        return `${jst.getUTCFullYear()}-${pad(jst.getUTCMonth() + 1)}-${pad(jst.getUTCDate())} ${pad(jst.getUTCHours())}:${pad(jst.getUTCMinutes())}:${pad(jst.getUTCSeconds())}`;
+        const d = new Date(ms + parkOffsetMs(ms));
+        return `${d.getUTCFullYear()}-${pad(d.getUTCMonth() + 1)}-${pad(d.getUTCDate())} ${pad(d.getUTCHours())}:${pad(d.getUTCMinutes())}:${pad(d.getUTCSeconds())}`;
       }
 
       function formatJstHourMin(ms) {
-        const jst = new Date(ms + JST_OFFSET_MS);
-        return `${pad(jst.getUTCHours())}:${pad(jst.getUTCMinutes())}`;
+        const d = new Date(ms + parkOffsetMs(ms));
+        return `${pad(d.getUTCHours())}:${pad(d.getUTCMinutes())}`;
       }
 
       function clamp(value, lo, hi) {

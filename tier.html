@@ -271,11 +271,16 @@
   <script>
     'use strict';
 
+    const PARK_NAMES = {
+      tdl: 'TDL', tds: 'TDS', usj: 'USJ',
+      dlr: 'DLR', dca: 'DCA', mk: 'MK', epcot: 'EPCOT', dhs: 'DHS', ak: 'AK',
+      dlp: 'DLP', wds: 'WDS', hkdl: 'HKDL', shdl: 'SHDL'
+    };
     const PARK = (() => {
       const p = new URLSearchParams(location.search).get('park');
-      return (p === 'tds' || p === 'usj') ? p : 'tdl';
+      return PARK_NAMES[p] ? p : 'tdl';
     })();
-    const PARK_NAME = { tdl: 'TDL', tds: 'TDS', usj: 'USJ' }[PARK];
+    const PARK_NAME = PARK_NAMES[PARK];
     const BASE = PARK === 'tdl' ? './data' : `./data/${PARK}`;
     const NAV_SUFFIX = PARK === 'tdl' ? '' : `?park=${PARK}`;
     const DATA_URL = `${BASE}/latest.json`;

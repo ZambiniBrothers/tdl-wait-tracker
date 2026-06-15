@@ -858,12 +858,22 @@
       tds: { name: 'TDS', long: 'ディズニーシー', icon: '🌊', dataDir: './data/tds', suffix: '?park=tds',
              themeparks: null, fallback: null },
       usj: { name: 'USJ', long: 'ユニバーサル・スタジオ・ジャパン', icon: '🎬', dataDir: './data/usj', suffix: '?park=usj',
-             themeparks: null, fallback: null }
+             themeparks: null, fallback: null },
+      dlr: { name: 'DLR', long: 'アナハイム・ディズニーランド', icon: '🏰', dataDir: './data/dlr', suffix: '?park=dlr', themeparks: null, fallback: null },
+      dca: { name: 'DCA', long: 'ディズニー・カリフォルニア・アドベンチャー', icon: '🎢', dataDir: './data/dca', suffix: '?park=dca', themeparks: null, fallback: null },
+      mk: { name: 'MK', long: 'マジックキングダム（WDW）', icon: '🏰', dataDir: './data/mk', suffix: '?park=mk', themeparks: null, fallback: null },
+      epcot: { name: 'EPCOT', long: 'エプコット（WDW）', icon: '🌐', dataDir: './data/epcot', suffix: '?park=epcot', themeparks: null, fallback: null },
+      dhs: { name: 'DHS', long: 'ディズニー・ハリウッド・スタジオ（WDW）', icon: '🎬', dataDir: './data/dhs', suffix: '?park=dhs', themeparks: null, fallback: null },
+      ak: { name: 'AK', long: 'ディズニー・アニマルキングダム（WDW）', icon: '🦁', dataDir: './data/ak', suffix: '?park=ak', themeparks: null, fallback: null },
+      dlp: { name: 'DLP', long: 'ディズニーランド・パリ', icon: '🏰', dataDir: './data/dlp', suffix: '?park=dlp', themeparks: null, fallback: null },
+      wds: { name: 'WDS', long: 'アドベンチャー・ワールド・パリ', icon: '🎬', dataDir: './data/wds', suffix: '?park=wds', themeparks: null, fallback: null },
+      hkdl: { name: 'HKDL', long: '香港ディズニーランド', icon: '🏰', dataDir: './data/hkdl', suffix: '?park=hkdl', themeparks: null, fallback: null },
+      shdl: { name: 'SHDL', long: '上海ディズニーランド', icon: '🏰', dataDir: './data/shdl', suffix: '?park=shdl', themeparks: null, fallback: null }
     };
-    const PARK_ORDER = ['tdl', 'tds', 'usj'];
+    const PARK_ORDER = ['tdl', 'tds', 'usj', 'dlr', 'dca', 'mk', 'epcot', 'dhs', 'ak', 'dlp', 'wds', 'hkdl', 'shdl'];
     const PARK = (() => {
       const p = new URLSearchParams(location.search).get('park');
-      return (p === 'tds' || p === 'usj') ? p : 'tdl';
+      return PARK_META[p] ? p : 'tdl';
     })();
     const PARK_CFG = {
       title: `${PARK_META[PARK].name} 待ち時間 逆算カリキュレーター`,

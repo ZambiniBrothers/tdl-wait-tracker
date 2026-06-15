@@ -83,6 +83,28 @@ jobs:
             fi
           done
 
+      - name: Collect overseas Disney parks
+        id: collect_overseas
+        continue-on-error: true
+        run: |
+          # key:queue-times-id:timezone（TZはスナップショットの現地日付整合に使用）
+          PARKS="dlr:16:America/Los_Angeles dca:17:America/Los_Angeles mk:6:America/New_York epcot:5:America/New_York dhs:7:America/New_York ak:8:America/New_York dlp:4:Europe/Paris wds:28:Europe/Paris hkdl:31:Asia/Hong_Kong shdl:30:Asia/Shanghai"
+          for entry in $PARKS; do
+            KEY="${entry%%:*}"
+            REST="${entry#*:}"
+            QID="${REST%%:*}"
+            TZONE="${REST#*:}"
+            echo "--- collecting $KEY (queue-times $QID, TZ=$TZONE) ---"
+            for i in 1 2 3; do
+              PARK_KEY="$KEY" QT_PARK_ID="$QID" TZ="$TZONE" node scripts/collect-qt.mjs && break
+              if [ "$i" = "3" ]; then
+                echo "$KEY collection failed after retries (non-fatal)."
+                break
+              fi
+              sleep 8
+            done
+          done
+
       - name: Notify on failure
         if: ${{ failure() && steps.collect.outcome == 'failure' }}
         uses: actions/github-script@v7

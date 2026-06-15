@@ -250,7 +250,8 @@
     <script>
       (() => {
         const p = new URLSearchParams(location.search).get('park');
-        const park = (p === 'tds' || p === 'usj') ? p : 'tdl';
+        const VALID = ['tdl','tds','usj','dlr','dca','mk','epcot','dhs','ak','dlp','wds','hkdl','shdl'];
+        const park = VALID.includes(p) ? p : 'tdl';
         const suffix = park === 'tdl' ? '' : `?park=${park}`;
         [['navIndex','./index.html'],['navTier','./tier.html'],['navHistory','./history.html']]
           .forEach(([id, base]) => { const el = document.getElementById(id); if (el) el.setAttribute('href', base + suffix); });
@@ -285,7 +286,8 @@
     (() => {
       const PARK = (() => {
         const p = new URLSearchParams(location.search).get('park');
-        return (p === 'tds' || p === 'usj') ? p : 'tdl';
+        const VALID = ['tdl','tds','usj','dlr','dca','mk','epcot','dhs','ak','dlp','wds','hkdl','shdl'];
+        return VALID.includes(p) ? p : 'tdl';
       })();
       const WMO_CODE = {
         0: { icon: '☀️', label: '快晴' },
@@ -374,6 +376,35 @@
           ]
         }
       };
+      // 海外パークは天気＋公式サイトのリンクをまとめて表示する。
+      function overseas(nameJa, lat, lon, official, calendar) {
+        return {
+          docTitle: `${nameJa}の天気・公式情報`,
+          headerTitle: `${nameJa}の天気 ／ 公式情報`,
+          headerLead: `来園日の参考情報。${nameJa}の天気と公式サイトのリンクをまとめています。`,
+          weatherTitle: `${nameJa}の天気`,
+          lat,
+          lon,
+          areas: [
+            { key: 'official', label: '公式・情報', events: [
+              { title: `${nameJa} 公式サイト`, url: official, desc: 'チケット・運営時間・カレンダー' },
+              { title: 'パーク・カレンダー / 運営時間', url: calendar, desc: '来園日の運営時間・イベントを確認' }
+            ] }
+          ]
+        };
+      }
+      Object.assign(PARK_INFO, {
+        dlr: overseas('アナハイム・ディズニーランド', 33.8121, -117.9190, 'https://disneyland.disney.go.com/', 'https://disneyland.disney.go.com/calendars/'),
+        dca: overseas('ディズニー・カリフォルニア・アドベンチャー', 33.8060, -117.9189, 'https://disneyland.disney.go.com/', 'https://disneyland.disney.go.com/calendars/'),
+        mk: overseas('マジックキングダム（WDW）', 28.4177, -81.5812, 'https://disneyworld.disney.go.com/', 'https://disneyworld.disney.go.com/calendars/'),
+        epcot: overseas('エプコット（WDW）', 28.3747, -81.5494, 'https://disneyworld.disney.go.com/', 'https://disneyworld.disney.go.com/calendars/'),
+        dhs: overseas('ディズニー・ハリウッド・スタジオ（WDW）', 28.3575, -81.5586, 'https://disneyworld.disney.go.com/', 'https://disneyworld.disney.go.com/calendars/'),
+        ak: overseas('ディズニー・アニマルキングダム（WDW）', 28.3590, -81.5907, 'https://disneyworld.disney.go.com/', 'https://disneyworld.disney.go.com/calendars/'),
+        dlp: overseas('ディズニーランド・パリ', 48.8722, 2.7758, 'https://www.disneylandparis.com/', 'https://www.disneylandparis.com/en-gb/calendar/'),
+        wds: overseas('アドベンチャー・ワールド・パリ', 48.8682, 2.7800, 'https://www.disneylandparis.com/', 'https://www.disneylandparis.com/en-gb/calendar/'),
+        hkdl: overseas('香港ディズニーランド', 22.3130, 114.0413, 'https://www.hongkongdisneyland.com/', 'https://www.hongkongdisneyland.com/calendar/'),
+        shdl: overseas('上海ディズニーランド', 31.1443, 121.6573, 'https://www.shanghaidisneyresort.com/', 'https://www.shanghaidisneyresort.com/en/calendar/')
+      });
       const CFG = PARK_INFO[PARK] || MAIHAMA;
       const EVENTS = Object.fromEntries(CFG.areas.map((a) => [a.key, a.events]));
 
