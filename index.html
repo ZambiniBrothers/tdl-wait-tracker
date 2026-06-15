@@ -647,6 +647,11 @@
       font-size: 0.92rem;
     }
 
+    .wait-value.noinfo {
+      color: var(--subtle);
+      font-size: 0.92rem;
+    }
+
     .wait-value.pp-only {
       color: #fcd34d;
       font-size: 0.95rem;
@@ -1420,7 +1425,10 @@
             }
           } else if (isSystemAdjustment(attraction)) {
             waitValue.className = 'wait-value adjusting';
-            waitValue.textContent = 'システム調整';
+            waitValue.textContent = '一時運営中止';
+          } else if (isNoInfo(attraction)) {
+            waitValue.className = 'wait-value noinfo';
+            waitValue.textContent = '情報なし';
           } else {
             waitValue.className = 'wait-value closed';
             waitValue.textContent = '休止中';
@@ -1921,6 +1929,10 @@
 
       function isSystemAdjustment(attraction) {
         return attraction.status === 'DOWN';
+      }
+
+      function isNoInfo(attraction) {
+        return attraction.status === 'NO_INFO';
       }
 
       function isPpOnly(attraction) {

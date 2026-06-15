@@ -130,6 +130,38 @@ function snapshotPath(now) {
   return path.join(BASE_DIR, 'snapshots', `${year}-${month}-${day}`, `${hours}${minutes}.json`);
 }
 
+// 当日（JST）の既存スナップショットから「一度でも運営した（＝待ち時間を記録できた）」施設IDを集める。
+// queue-times は休止理由を区別しないため、運営実績の有無で「一時運営中止(DOWN)」と「情報なし(NO_INFO)」を分ける。
+function operatedTodayIds(now) {
+  const ids = new Set();
+  const year = now.getFullYear();
+  const month = String(now.getMonth() + 1).padStart(2, '0');
+  const day = String(now.getDate()).padStart(2, '0');
+  const dir = path.join(BASE_DIR, 'snapshots', `${year}-${month}-${day}`);
+  let files = [];
+  try {
+    files = readdirSync(dir).filter((file) => /^\d{4}\.json$/.test(file));
+  } catch {
+    return ids; // その日最初の収集（ディレクトリ未作成）
+  }
+  for (const file of files) {
+    try {
+      const snap = JSON.parse(readFileSync(path.join(dir, file), 'utf8'));
+      const list = Array.isArray(snap?.attractions) ? snap.attractions : [];
+      for (const attr of list) {
+        if (!attr || typeof attr.id !== 'string') continue;
+        const operated = attr.is_open === true
+          || attr.status === 'OPERATING'
+          || (typeof attr.wait_minutes === 'number' && Number.isFinite(attr.wait_minutes));
+        if (operated) ids.add(attr.id);
+      }
+    } catch {
+      // 壊れたスナップショットはスキップ
+    }
+  }
+  return ids;
+}
+
 function writeSnapshot(payload, now) {
   const latestPath = path.join(BASE_DIR, 'latest.json');
   const historyPath = snapshotPath(now);
@@ -270,6 +302,13 @@ try {
   const attractions = await fetchUsjAttractions();
   if (attractions.length === 0) throw new Error('USJ queue-times returned 0 attractions');
   const now = new Date();
+  // 休止中の施設を、当日の運営実績に応じて DOWN（一時運営中止）/ NO_INFO（情報なし）へ振り分ける。
+  // 朝から一度も運営していない（待ち時間未記録）施設は NO_INFO とし、再開後はそのまま OPERATING に戻る。
+  const operated = operatedTodayIds(now);
+  for (const attr of attractions) {
+    if (attr.status === 'OPERATING') continue;
+    attr.status = operated.has(attr.id) ? 'DOWN' : 'NO_INFO';
+  }
   const payload = {
     fetched_at: now.toISOString(),
     source: 'queue-times',
