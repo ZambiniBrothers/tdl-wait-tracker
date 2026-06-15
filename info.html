@@ -47,6 +47,22 @@
       padding: 10px 0 20px;
     }
 
+    .header-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-content: start;
+    }
+
+    /* 画面が狭いときは見出し文言をデータボタンの上に重ねて（縦積み）、
+       ボタンが細長くならないようにする。 */
+    @media (max-width: 760px) {
+      .app-header {
+        grid-template-columns: 1fr;
+        align-items: start;
+      }
+    }
+
     h1 {
       margin: 0 0 6px;
       font-size: clamp(1.55rem, 4vw, 2.55rem);
@@ -230,10 +246,10 @@
   <div class="page">
     <header class="app-header">
       <div>
-        <h1>舞浜の天気 ／ 周辺イベント</h1>
-        <p class="lead">来園日の参考情報。舞浜（浦安市）の天気と、千葉・東京・埼玉・神奈川のイベント情報リンクをまとめています。</p>
+        <h1 id="headerTitle">舞浜の天気 ／ 周辺イベント</h1>
+        <p class="lead" id="headerLead">来園日の参考情報。舞浜（浦安市）の天気と、千葉・東京・埼玉・神奈川のイベント情報リンクをまとめています。</p>
       </div>
-      <div>
+      <div class="header-nav">
         <a href="./index.html" class="link-button" id="navIndex"><span aria-hidden="true">←</span> 待ち時間に戻る</a>
         <a href="./tier.html" class="link-button" id="navTier"><span aria-hidden="true">🎯</span> 混雑ティア</a>
         <a href="./history.html" class="link-button" id="navHistory"><span aria-hidden="true">📊</span> 過去データ</a>
@@ -250,7 +266,7 @@
     </script>
 
     <section class="panel" aria-labelledby="weatherTitle">
-      <h2 id="weatherTitle">舞浜の天気</h2>
+      <h2 id="weatherTitle">天気</h2>
       <div id="currentWeather" class="current-weather is-hidden">
         <div class="current-icon" id="currentIcon">☁️</div>
         <div>
@@ -267,12 +283,7 @@
 
     <section class="panel" aria-labelledby="eventsTitle">
       <h2 id="eventsTitle">周辺イベント情報</h2>
-      <div class="event-tabs" role="tablist" aria-label="エリア選択">
-        <button type="button" class="event-tab" role="tab" aria-pressed="true" data-area="chiba">千葉県</button>
-        <button type="button" class="event-tab" role="tab" aria-pressed="false" data-area="tokyo">東京都</button>
-        <button type="button" class="event-tab" role="tab" aria-pressed="false" data-area="saitama">埼玉県</button>
-        <button type="button" class="event-tab" role="tab" aria-pressed="false" data-area="kanagawa">神奈川県</button>
-      </div>
+      <div class="event-tabs" role="tablist" aria-label="エリア選択" id="eventTabs"></div>
       <div id="eventLinks" class="event-links"></div>
       <p class="status">※ イベント情報は外部の情報サイトへのリンクです。リンク先で詳細をご確認ください。</p>
     </section>
@@ -280,8 +291,10 @@
 
   <script>
     (() => {
-      const LAT = 35.6329;
-      const LON = 139.8826;
+      const PARK = (() => {
+        const p = new URLSearchParams(location.search).get('park');
+        return (p === 'tds' || p === 'usj') ? p : 'tdl';
+      })();
       const WMO_CODE = {
         0: { icon: '☀️', label: '快晴' },
         1: { icon: '🌤️', label: 'おおむね晴れ' },
@@ -309,26 +322,68 @@
         99: { icon: '⛈️', label: '激しい雷雨' }
       };
 
-      const EVENTS = {
-        chiba: [
-          { title: 'まるごとe!ちば（千葉県公式観光物産サイト）', url: 'https://maruchiba.jp/event/', desc: '千葉県内のイベント・観光情報' },
-          { title: '浦安市公式 イベント情報', url: 'https://www.city.urayasu.lg.jp/kanko/event/', desc: '舞浜エリア（浦安市）のイベント' },
-          { title: 'Walkerplus 千葉のイベント', url: 'https://www.walkerplus.com/event_list/ar0312/', desc: '千葉県のイベントカレンダー' }
-        ],
-        tokyo: [
-          { title: 'GO TOKYO（東京観光公式）イベント', url: 'https://www.gotokyo.org/jp/destinations/eastern-tokyo/events.html', desc: '東京都内のイベント情報' },
-          { title: 'Walkerplus 東京のイベント', url: 'https://www.walkerplus.com/event_list/ar0313/', desc: '東京都のイベントカレンダー' },
-          { title: 'Lets Enjoy TOKYO', url: 'https://www.enjoytokyo.jp/feature/event/', desc: '東京のおでかけ・イベント' }
-        ],
-        saitama: [
-          { title: 'ちょこたび埼玉（県観光協会）', url: 'https://chocotabi-saitama.jp/event', desc: '埼玉県内のイベント' },
-          { title: 'Walkerplus 埼玉のイベント', url: 'https://www.walkerplus.com/event_list/ar0311/', desc: '埼玉県のイベントカレンダー' }
-        ],
-        kanagawa: [
-          { title: 'かながわのイベント（県公式）', url: 'https://www.pref.kanagawa.jp/docs/cnt/event/index.html', desc: '神奈川県のイベント情報' },
-          { title: 'Walkerplus 神奈川のイベント', url: 'https://www.walkerplus.com/event_list/ar0314/', desc: '神奈川県のイベントカレンダー' }
+      // パーク所在地に応じた天気の座標・見出し・周辺イベントリンク。
+      // TDL / TDS は舞浜（浦安市）、USJ は大阪（此花区）。
+      const MAIHAMA = {
+        docTitle: '舞浜の天気・周辺イベント情報',
+        headerTitle: '舞浜の天気 ／ 周辺イベント',
+        headerLead: '来園日の参考情報。舞浜（浦安市）の天気と、千葉・東京・埼玉・神奈川のイベント情報リンクをまとめています。',
+        weatherTitle: '舞浜の天気',
+        lat: 35.6329,
+        lon: 139.8826,
+        areas: [
+          { key: 'chiba', label: '千葉県', events: [
+            { title: 'まるごとe!ちば（千葉県公式観光物産サイト）', url: 'https://maruchiba.jp/event/', desc: '千葉県内のイベント・観光情報' },
+            { title: '浦安市公式 イベント情報', url: 'https://www.city.urayasu.lg.jp/kanko/event/', desc: '舞浜エリア（浦安市）のイベント' },
+            { title: 'Walkerplus 千葉のイベント', url: 'https://www.walkerplus.com/event_list/ar0312/', desc: '千葉県のイベントカレンダー' }
+          ] },
+          { key: 'tokyo', label: '東京都', events: [
+            { title: 'GO TOKYO（東京観光公式）イベント', url: 'https://www.gotokyo.org/jp/destinations/eastern-tokyo/events.html', desc: '東京都内のイベント情報' },
+            { title: 'Walkerplus 東京のイベント', url: 'https://www.walkerplus.com/event_list/ar0313/', desc: '東京都のイベントカレンダー' },
+            { title: 'Lets Enjoy TOKYO', url: 'https://www.enjoytokyo.jp/feature/event/', desc: '東京のおでかけ・イベント' }
+          ] },
+          { key: 'saitama', label: '埼玉県', events: [
+            { title: 'ちょこたび埼玉（県観光協会）', url: 'https://chocotabi-saitama.jp/event', desc: '埼玉県内のイベント' },
+            { title: 'Walkerplus 埼玉のイベント', url: 'https://www.walkerplus.com/event_list/ar0311/', desc: '埼玉県のイベントカレンダー' }
+          ] },
+          { key: 'kanagawa', label: '神奈川県', events: [
+            { title: 'かながわのイベント（県公式）', url: 'https://www.pref.kanagawa.jp/docs/cnt/event/index.html', desc: '神奈川県のイベント情報' },
+            { title: 'Walkerplus 神奈川のイベント', url: 'https://www.walkerplus.com/event_list/ar0314/', desc: '神奈川県のイベントカレンダー' }
+          ] }
         ]
       };
+      const PARK_INFO = {
+        tdl: MAIHAMA,
+        tds: MAIHAMA,
+        usj: {
+          docTitle: 'USJ（大阪）の天気・周辺イベント情報',
+          headerTitle: 'USJ周辺の天気 ／ 周辺イベント',
+          headerLead: '来園日の参考情報。USJ（大阪市此花区）の天気と、大阪・京都・兵庫・奈良のイベント情報リンクをまとめています。',
+          weatherTitle: 'USJ（大阪）の天気',
+          lat: 34.6658,
+          lon: 135.4323,
+          areas: [
+            { key: 'osaka', label: '大阪府', events: [
+              { title: 'OSAKA-INFO（大阪観光局）イベント', url: 'https://osaka-info.jp/event/', desc: '大阪のイベント・観光情報' },
+              { title: 'Walkerplus 大阪のイベント', url: 'https://www.walkerplus.com/event_list/ar0427/', desc: '大阪府のイベントカレンダー' }
+            ] },
+            { key: 'kyoto', label: '京都府', events: [
+              { title: '京都観光Navi（市公式）イベント', url: 'https://ja.kyoto.travel/event/', desc: '京都のイベント情報' },
+              { title: 'Walkerplus 京都のイベント', url: 'https://www.walkerplus.com/event_list/ar0426/', desc: '京都府のイベントカレンダー' }
+            ] },
+            { key: 'hyogo', label: '兵庫県', events: [
+              { title: 'ひょうごツーリズムガイド イベント', url: 'https://www.hyogo-tourism.jp/event/', desc: '兵庫のイベント情報' },
+              { title: 'Walkerplus 兵庫のイベント', url: 'https://www.walkerplus.com/event_list/ar0428/', desc: '兵庫県のイベントカレンダー' }
+            ] },
+            { key: 'nara', label: '奈良県', events: [
+              { title: '奈良県観光公式（あをによし なら旅ネット）', url: 'https://yamatoji.nara-kankou.or.jp/event/', desc: '奈良のイベント情報' },
+              { title: 'Walkerplus 奈良のイベント', url: 'https://www.walkerplus.com/event_list/ar0429/', desc: '奈良県のイベントカレンダー' }
+            ] }
+          ]
+        }
+      };
+      const CFG = PARK_INFO[PARK] || MAIHAMA;
+      const EVENTS = Object.fromEntries(CFG.areas.map((a) => [a.key, a.events]));
 
       const els = {
         weatherStatus: document.getElementById('weatherStatus'),
@@ -340,23 +395,43 @@
         currentRain: document.getElementById('currentRain'),
         forecast: document.getElementById('forecast'),
         eventLinks: document.getElementById('eventLinks'),
-        tabs: Array.from(document.querySelectorAll('.event-tab'))
+        eventTabs: document.getElementById('eventTabs')
       };
 
       init();
 
       function init() {
-        bindTabs();
-        renderEvents('chiba');
+        applyChrome();
+        buildTabs();
+        if (CFG.areas[0]) renderEvents(CFG.areas[0].key);
         fetchWeather();
       }
 
-      function bindTabs() {
-        els.tabs.forEach((tab) => {
-          tab.addEventListener('click', () => {
-            els.tabs.forEach((t) => t.setAttribute('aria-pressed', t === tab ? 'true' : 'false'));
-            renderEvents(tab.dataset.area);
+      function applyChrome() {
+        document.title = CFG.docTitle;
+        const h1 = document.getElementById('headerTitle');
+        if (h1) h1.textContent = CFG.headerTitle;
+        const lead = document.getElementById('headerLead');
+        if (lead) lead.textContent = CFG.headerLead;
+        const wt = document.getElementById('weatherTitle');
+        if (wt) wt.textContent = CFG.weatherTitle;
+      }
+
+      function buildTabs() {
+        els.eventTabs.replaceChildren();
+        CFG.areas.forEach((area, i) => {
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'event-tab';
+          btn.setAttribute('role', 'tab');
+          btn.setAttribute('aria-pressed', i === 0 ? 'true' : 'false');
+          btn.dataset.area = area.key;
+          btn.textContent = area.label;
+          btn.addEventListener('click', () => {
+            els.eventTabs.querySelectorAll('.event-tab').forEach((t) => t.setAttribute('aria-pressed', t === btn ? 'true' : 'false'));
+            renderEvents(area.key);
           });
+          els.eventTabs.appendChild(btn);
         });
       }
 
@@ -383,7 +458,7 @@
       }
 
       async function fetchWeather() {
-        const url = `https://api.open-meteo.com/v1/forecast?latitude=${LAT}&longitude=${LON}&current=temperature_2m,apparent_temperature,weather_code,precipitation_probability&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max&timezone=Asia%2FTokyo&forecast_days=7`;
+        const url = `https://api.open-meteo.com/v1/forecast?latitude=${CFG.lat}&longitude=${CFG.lon}&current=temperature_2m,apparent_temperature,weather_code,precipitation_probability&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max&timezone=Asia%2FTokyo&forecast_days=7`;
         try {
           const response = await fetch(url);
           if (!response.ok) throw new Error(`HTTP ${response.status}`);
