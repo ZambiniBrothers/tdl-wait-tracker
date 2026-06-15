@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-06-15T07:30:27.212Z",
+  "fetched_at": "2026-06-15T07:35:59.712Z",
   "source": "tdr-official",
   "attractions": [
     {
@@ -65,12 +65,12 @@
       "id": "a-omnibus",
       "name_en": "Omnibus",
       "name_ja": "オムニバス",
-      "wait_minutes": 10,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "CLOSED",
       "access_mode": "STANDBY",
-      "official_status_cd": "001",
-      "official_status_label": "運営中"
+      "official_status_cd": "002",
+      "official_status_label": "案内終了"
     },
     {
       "id": "a-pirates-of-the-caribbean",
@@ -475,7 +475,7 @@
       "id": "a-enchanted-tale-of-beauty-and-the-beast",
       "name_en": "Enchanted Tale of Beauty and the Beast",
       "name_ja": "美女と野獣“魔法のものがたり”",
-      "wait_minutes": 50,
+      "wait_minutes": 40,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -507,13 +507,13 @@
   ],
   "summary": {
     "count": 37,
-    "open_count": 28,
+    "open_count": 27,
     "average_wait": 20.5,
     "max_wait": 70
   },
   "closures": {
     "source_url": "https://www.tokyodisneyresort.jp/tdl/monthly/stop.html",
-    "fetched_at": "2026-06-15T07:30:23.583Z",
+    "fetched_at": "2026-06-15T07:35:50.034Z",
     "closures": {
       "a-big-thunder-mountain": {
         "name_ja": "ビッグサンダー・マウンテン",
@@ -619,7 +619,7 @@
   },
   "shows": {
     "source_url": "https://www.tokyodisneyresort.jp/tdl/show.html",
-    "fetched_at": "2026-06-15T07:30:27.212Z",
+    "fetched_at": "2026-06-15T07:35:59.712Z",
     "items": [
       {
         "time": "13:40",
