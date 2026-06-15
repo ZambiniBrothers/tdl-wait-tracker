@@ -1112,6 +1112,21 @@
         const dayStart = state.dayStartMs;
         const dayEnd = state.dayEndMs;
         const INTERP_MAX_GAP_MS = 30 * 60 * 1000;
+
+        // USJ用: 当日に一度でも運営できた（＝待ち時間を取得できた）かどうか。
+        // 取得できていれば、取得できていなかった時間帯を赤ポチで可視化する。
+        let operatedToday = false;
+        for (let i = 0; i < seriesPoints.length; i += 1) {
+          const sp = seriesPoints[i];
+          const ms = sp && sp.ms;
+          if (!Number.isFinite(ms) || ms < dayStart || ms > dayEnd) continue;
+          const st = hasStatuses ? String(attr.statuses[i] || '') : '';
+          if (st === 'OPERATING' || (attr.opens && attr.opens[i] === true)) {
+            operatedToday = true;
+            break;
+          }
+        }
+
         const collected = [];
         for (let i = 0; i < seriesPoints.length; i += 1) {
           const sp = seriesPoints[i];
@@ -1143,6 +1158,9 @@
             });
           } else if (status === 'DOWN') {
             collected.push({ ms, wait: 0, isOpen: false, status: 'DOWN', accessMode: 'STANDBY', interpolated: false });
+          } else if (PARK === 'usj' && operatedToday) {
+            // USJ: 取得できなかった（情報なし / 休止）時間も、当日運営実績があれば赤ポチで表示する。
+            collected.push({ ms, wait: 0, isOpen: false, status: 'NO_INFO', accessMode: 'STANDBY', interpolated: false });
           }
         }
 
@@ -1220,8 +1238,11 @@
 
           const waitTd = document.createElement('td');
           if (point.status === 'DOWN') {
-            waitTd.textContent = 'システム調整';
+            waitTd.textContent = '一時運営中止';
             waitTd.classList.add('is-adjusting');
+          } else if (point.status === 'NO_INFO') {
+            waitTd.textContent = '情報なし';
+            waitTd.classList.add('is-closed');
           } else if (point.accessMode === 'PP_ONLY') {
             waitTd.textContent = 'PPのみ';
             waitTd.classList.add('is-pp-only');
@@ -1358,7 +1379,7 @@
           const dot = document.createElementNS(SVG_NS, 'circle');
           dot.setAttribute('cx', String(x));
           dot.setAttribute('cy', String(y));
-          const isDown = point.status === 'DOWN';
+          const isDown = point.status === 'DOWN' || point.status === 'NO_INFO';
           const isPpOnly = point.accessMode === 'PP_ONLY';
           const isInterp = point.interpolated === true;
           dot.setAttribute('r', (isDown || isPpOnly) ? '5' : (isInterp ? '3.5' : '4'));
@@ -1933,6 +1954,7 @@
       function showTooltip(event, point) {
         let note;
         if (point.status === 'DOWN') note = ' / 一時運営中止';
+        else if (point.status === 'NO_INFO') note = ' / 情報なし';
         else if (point.accessMode === 'PP_ONLY') note = ' / PPのみ案内';
         else if (!point.isOpen) note = ' / 休止中';
         else if (point.interpolated) note = ' / 補間値';
