@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-06-16T17:31:14.689Z",
+  "fetched_at": "2026-06-16T17:38:23.451Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -40,8 +40,8 @@
       "name_en": "Walt Disney's Enchanted Tiki Room",
       "name_ja": "Walt Disney's Enchanted Tiki Room",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -215,9 +215,9 @@
       "id": "a-dlr-282",
       "name_en": "Pinocchio's Daring Journey",
       "name_ja": "Pinocchio's Daring Journey",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -259,7 +259,7 @@
       "id": "a-dlr-323",
       "name_en": "Big Thunder Mountain Railroad",
       "name_ja": "ビッグサンダー・マウンテン",
-      "wait_minutes": 25,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -600,7 +600,7 @@
       "id": "a-dlr-286",
       "name_en": "Star Tours - The Adventures Continue",
       "name_ja": "スター・ツアーズ",
-      "wait_minutes": 10,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -621,14 +621,14 @@
   ],
   "summary": {
     "count": 56,
-    "open_count": 45,
-    "average_wait": 17.5,
+    "open_count": 47,
+    "average_wait": 17,
     "max_wait": 45
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/16/queue_times.json",
-    "fetched_at": "2026-06-16T17:31:14.689Z",
+    "fetched_at": "2026-06-16T17:38:23.451Z",
     "items": []
   }
 }
