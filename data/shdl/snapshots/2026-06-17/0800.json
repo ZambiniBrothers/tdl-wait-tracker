@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-06-17T00:01:10.280Z",
+  "fetched_at": "2026-06-17T00:03:54.214Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -39,9 +39,9 @@
       "id": "a-shdl-3002",
       "name_en": "Soaring Over the Horizon",
       "name_ja": "ソアリン：ファンタスティック・フライト",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 30,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -83,9 +83,9 @@
       "id": "a-shdl-2988",
       "name_en": "Hunny Pot Spin",
       "name_ja": "Hunny Pot Spin",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -215,9 +215,9 @@
       "id": "a-shdl-3000",
       "name_en": "Jet Packs",
       "name_ja": "Jet Packs",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -292,9 +292,9 @@
       "id": "a-shdl-5635",
       "name_en": "Woody’s Roundup",
       "name_ja": "Woody’s Roundup",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 10,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -368,14 +368,14 @@
   ],
   "summary": {
     "count": 33,
-    "open_count": 1,
-    "average_wait": 5,
-    "max_wait": 5
+    "open_count": 5,
+    "average_wait": 11,
+    "max_wait": 30
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/30/queue_times.json",
-    "fetched_at": "2026-06-17T00:01:10.280Z",
+    "fetched_at": "2026-06-17T00:03:54.214Z",
     "items": []
   }
 }
