@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-06-18T17:43:29.360Z",
+  "fetched_at": "2026-06-18T17:46:22.524Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -325,9 +325,9 @@
       "id": "a-dlp-20",
       "name_en": "Mad Hatter's Tea Cups",
       "name_ja": "Mad Hatter's Tea Cups",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -347,7 +347,7 @@
       "id": "a-dlp-22",
       "name_en": "Peter Pan's Flight",
       "name_ja": "ピーターパン空の旅",
-      "wait_minutes": 40,
+      "wait_minutes": 35,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -467,14 +467,14 @@
   ],
   "summary": {
     "count": 42,
-    "open_count": 14,
-    "average_wait": 18.5,
-    "max_wait": 40
+    "open_count": 15,
+    "average_wait": 16.8,
+    "max_wait": 35
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/4/queue_times.json",
-    "fetched_at": "2026-06-18T17:43:29.360Z",
+    "fetched_at": "2026-06-18T17:46:22.524Z",
     "items": []
   }
 }

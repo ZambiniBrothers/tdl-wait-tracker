@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-06-18T17:43:27.634Z",
+  "fetched_at": "2026-06-18T17:46:20.999Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -17,7 +17,7 @@
       "id": "a-dca-8843",
       "name_en": "WEB SLINGERS: A Spider-Man Adventure",
       "name_ja": "WEB SLINGERS: A Spider-Man Adventure",
-      "wait_minutes": 40,
+      "wait_minutes": 55,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -61,9 +61,9 @@
       "id": "a-dca-295",
       "name_en": "Radiator Springs Racers",
       "name_ja": "レーシング・イン・ラジエーター・スプリングス",
-      "wait_minutes": 75,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -73,8 +73,8 @@
       "name_en": "Radiator Springs Racers Single Rider",
       "name_ja": "レーシング・イン・ラジエーター・スプリングス",
       "wait_minutes": null,
-      "is_open": true,
-      "status": "OPERATING",
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -325,7 +325,7 @@
       "id": "a-dca-313",
       "name_en": "Toy Story Midway Mania!",
       "name_ja": "トイ・ストーリー・マニア！",
-      "wait_minutes": 40,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -357,14 +357,14 @@
   ],
   "summary": {
     "count": 32,
-    "open_count": 25,
-    "average_wait": 25.3,
-    "max_wait": 75
+    "open_count": 23,
+    "average_wait": 22.5,
+    "max_wait": 55
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/17/queue_times.json",
-    "fetched_at": "2026-06-18T17:43:27.634Z",
+    "fetched_at": "2026-06-18T17:46:20.999Z",
     "items": []
   }
 }
