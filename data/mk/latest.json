@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-06-19T13:46:14.595Z",
+  "fetched_at": "2026-06-19T13:48:19.623Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -17,7 +17,7 @@
       "id": "a-mk-134",
       "name_en": "Jungle Cruise",
       "name_ja": "ジャングルクルーズ",
-      "wait_minutes": 30,
+      "wait_minutes": 25,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -215,9 +215,9 @@
       "id": "a-mk-126",
       "name_en": "The Barnstormer",
       "name_ja": "The Barnstormer",
-      "wait_minutes": 5,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -226,7 +226,7 @@
       "id": "a-mk-142",
       "name_en": "The Many Adventures of Winnie the Pooh",
       "name_ja": "The Many Adventures of Winnie the Pooh",
-      "wait_minutes": 10,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -281,7 +281,7 @@
       "id": "a-mk-13630",
       "name_en": "Tiana's Bayou Adventure",
       "name_ja": "Tiana's Bayou Adventure",
-      "wait_minutes": 20,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -445,14 +445,14 @@
   ],
   "summary": {
     "count": 40,
-    "open_count": 35,
-    "average_wait": 14.3,
+    "open_count": 34,
+    "average_wait": 14.4,
     "max_wait": 60
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/6/queue_times.json",
-    "fetched_at": "2026-06-19T13:46:14.595Z",
+    "fetched_at": "2026-06-19T13:48:19.623Z",
     "items": []
   }
 }
