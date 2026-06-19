@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-06-19T00:10:54.356Z",
+  "fetched_at": "2026-06-19T00:16:17.067Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -105,7 +105,7 @@
       "id": "a-shdl-2990",
       "name_en": "Seven Dwarfs Mine Train",
       "name_ja": "七人のこびとのマイントレイン",
-      "wait_minutes": 40,
+      "wait_minutes": 50,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -193,9 +193,9 @@
       "id": "a-shdl-2999",
       "name_en": "Buzz Lightyear Planet Rescue",
       "name_ja": "バズ・ライトイヤー・プラネット・レスキュー",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -259,9 +259,9 @@
       "id": "a-shdl-5633",
       "name_en": "Rex’s Racer",
       "name_ja": "Rex’s Racer",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -357,14 +357,14 @@
   ],
   "summary": {
     "count": 32,
-    "open_count": 12,
-    "average_wait": 15,
+    "open_count": 14,
+    "average_wait": 14.2,
     "max_wait": 50
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/30/queue_times.json",
-    "fetched_at": "2026-06-19T00:10:54.356Z",
+    "fetched_at": "2026-06-19T00:16:17.067Z",
     "items": []
   }
 }

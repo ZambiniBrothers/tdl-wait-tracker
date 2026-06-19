@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-06-19T00:10:52.209Z",
+  "fetched_at": "2026-06-19T00:16:15.309Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -149,9 +149,9 @@
       "id": "a-epcot-160",
       "name_en": "Test Track",
       "name_ja": "テスト・トラック",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 75,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -161,8 +161,8 @@
       "name_en": "Test Track Presented by Chevrolet Single Rider",
       "name_ja": "テスト・トラック",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -237,9 +237,9 @@
       "id": "a-epcot-153",
       "name_en": "The Seas with Nemo & Friends",
       "name_ja": "The Seas with Nemo & Friends",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -390,14 +390,14 @@
   ],
   "summary": {
     "count": 35,
-    "open_count": 29,
-    "average_wait": 29.6,
+    "open_count": 32,
+    "average_wait": 31.1,
     "max_wait": 75
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/5/queue_times.json",
-    "fetched_at": "2026-06-19T00:10:52.209Z",
+    "fetched_at": "2026-06-19T00:16:15.309Z",
     "items": []
   }
 }
