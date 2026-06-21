@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-06-21T06:31:05.573Z",
+  "fetched_at": "2026-06-21T06:37:45.877Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -61,9 +61,9 @@
       "id": "a-wds-31",
       "name_en": "Cars Quatre Roues Rallye",
       "name_ja": "Cars Quatre Roues Rallye",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -83,7 +83,7 @@
       "id": "a-wds-32",
       "name_en": "Crush's Coaster",
       "name_ja": "クラッシュ・コースター",
-      "wait_minutes": 5,
+      "wait_minutes": 45,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -94,7 +94,7 @@
       "id": "a-wds-7277",
       "name_en": "Crush's Coaster Single Rider",
       "name_ja": "クラッシュ・コースター",
-      "wait_minutes": 5,
+      "wait_minutes": 25,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -116,7 +116,7 @@
       "id": "a-wds-37",
       "name_en": "Ratatouille : L’Aventure Totalement Toquée de Rémy​",
       "name_ja": "レミーのおいしいレストラン",
-      "wait_minutes": null,
+      "wait_minutes": 5,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -127,7 +127,7 @@
       "id": "a-wds-7279",
       "name_en": "Ratatouille: The Adventure Single Rider",
       "name_ja": "レミーのおいしいレストラン",
-      "wait_minutes": null,
+      "wait_minutes": 5,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -194,8 +194,8 @@
       "name_en": "Entry to World of Frozen",
       "name_ja": "Entry to World of Frozen",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -204,7 +204,7 @@
       "id": "a-wds-15413",
       "name_en": "Frozen Ever After",
       "name_ja": "フローズン・エバーアフター",
-      "wait_minutes": 5,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -225,14 +225,14 @@
   ],
   "summary": {
     "count": 20,
-    "open_count": 11,
-    "average_wait": 5,
-    "max_wait": 5
+    "open_count": 13,
+    "average_wait": 10.8,
+    "max_wait": 45
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/28/queue_times.json",
-    "fetched_at": "2026-06-21T06:31:05.573Z",
+    "fetched_at": "2026-06-21T06:37:45.877Z",
     "items": []
   }
 }
