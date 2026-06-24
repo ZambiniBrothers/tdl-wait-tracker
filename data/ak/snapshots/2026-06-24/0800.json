@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-06-24T12:01:07.088Z",
+  "fetched_at": "2026-06-24T12:09:48.719Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -28,9 +28,9 @@
       "id": "a-ak-113",
       "name_en": "Kilimanjaro Safaris",
       "name_ja": "キリマンジャロ・サファリ",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 10,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -40,8 +40,8 @@
       "name_en": "Wildlife Express Train",
       "name_ja": "Wildlife Express Train",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -138,9 +138,9 @@
       "id": "a-ak-116",
       "name_en": "Meet Favorite Disney Pals at Adventurers Outpost",
       "name_ja": "Meet Favorite Disney Pals at Adventurers Outpost",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 10,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -225,14 +225,14 @@
   ],
   "summary": {
     "count": 20,
-    "open_count": 13,
-    "average_wait": 28.3,
+    "open_count": 16,
+    "average_wait": 21,
     "max_wait": 65
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/8/queue_times.json",
-    "fetched_at": "2026-06-24T12:01:07.088Z",
+    "fetched_at": "2026-06-24T12:09:48.719Z",
     "items": []
   }
 }
