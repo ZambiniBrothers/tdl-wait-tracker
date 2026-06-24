@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-06-24T09:30:48.090Z",
+  "fetched_at": "2026-06-24T09:38:50.399Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -270,9 +270,9 @@
       "id": "a-dlp-18",
       "name_en": "Dumbo the Flying Elephant",
       "name_ja": "空飛ぶダンボ",
-      "wait_minutes": 30,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -325,9 +325,9 @@
       "id": "a-dlp-20",
       "name_en": "Mad Hatter's Tea Cups",
       "name_ja": "Mad Hatter's Tea Cups",
-      "wait_minutes": 10,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -347,7 +347,7 @@
       "id": "a-dlp-22",
       "name_en": "Peter Pan's Flight",
       "name_ja": "ピーターパン空の旅",
-      "wait_minutes": 65,
+      "wait_minutes": 60,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -369,7 +369,7 @@
       "id": "a-dlp-25",
       "name_en": "Big Thunder Mountain",
       "name_ja": "ビッグサンダー・マウンテン",
-      "wait_minutes": 40,
+      "wait_minutes": 35,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -392,8 +392,8 @@
       "name_en": "Frontierland Playground",
       "name_ja": "Frontierland Playground",
       "wait_minutes": null,
-      "is_open": true,
-      "status": "OPERATING",
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -402,7 +402,7 @@
       "id": "a-dlp-26",
       "name_en": "Phantom Manor",
       "name_ja": "ファントム・マナー",
-      "wait_minutes": 5,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -467,14 +467,14 @@
   ],
   "summary": {
     "count": 42,
-    "open_count": 27,
-    "average_wait": 20.6,
-    "max_wait": 65
+    "open_count": 24,
+    "average_wait": 20.3,
+    "max_wait": 60
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/4/queue_times.json",
-    "fetched_at": "2026-06-24T09:30:48.090Z",
+    "fetched_at": "2026-06-24T09:38:50.399Z",
     "items": []
   }
 }
