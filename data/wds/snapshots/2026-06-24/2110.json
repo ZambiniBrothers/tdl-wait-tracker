@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-06-24T19:13:21.224Z",
+  "fetched_at": "2026-06-24T19:15:53.606Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -28,7 +28,7 @@
       "id": "a-wds-10845",
       "name_en": "Spider-Man W.E.B. Adventure",
       "name_ja": "Spider-Man W.E.B. Adventure",
-      "wait_minutes": 35,
+      "wait_minutes": 40,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -39,7 +39,7 @@
       "id": "a-wds-10846",
       "name_en": "Spider-Man W.E.B. Adventure Single Rider",
       "name_ja": "Spider-Man W.E.B. Adventure Single Rider",
-      "wait_minutes": 15,
+      "wait_minutes": 5,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -83,9 +83,9 @@
       "id": "a-wds-32",
       "name_en": "Crush's Coaster",
       "name_ja": "クラッシュ・コースター",
-      "wait_minutes": 55,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -94,9 +94,9 @@
       "id": "a-wds-7277",
       "name_en": "Crush's Coaster Single Rider",
       "name_ja": "クラッシュ・コースター",
-      "wait_minutes": 25,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -116,7 +116,7 @@
       "id": "a-wds-37",
       "name_en": "Ratatouille : L’Aventure Totalement Toquée de Rémy​",
       "name_ja": "レミーのおいしいレストラン",
-      "wait_minutes": 35,
+      "wait_minutes": 40,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -127,7 +127,7 @@
       "id": "a-wds-7279",
       "name_en": "Ratatouille: The Adventure Single Rider",
       "name_ja": "レミーのおいしいレストラン",
-      "wait_minutes": 25,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -138,9 +138,9 @@
       "id": "a-wds-34",
       "name_en": "RC Racer",
       "name_ja": "RC Racer",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -149,9 +149,9 @@
       "id": "a-wds-7280",
       "name_en": "RC Racer Single Rider",
       "name_ja": "RC Racer Single Rider",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -204,7 +204,7 @@
       "id": "a-wds-15413",
       "name_en": "Frozen Ever After",
       "name_ja": "フローズン・エバーアフター",
-      "wait_minutes": 45,
+      "wait_minutes": 40,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -226,13 +226,13 @@
   "summary": {
     "count": 20,
     "open_count": 13,
-    "average_wait": 24.2,
-    "max_wait": 55
+    "average_wait": 17.1,
+    "max_wait": 40
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/28/queue_times.json",
-    "fetched_at": "2026-06-24T19:13:21.224Z",
+    "fetched_at": "2026-06-24T19:15:53.606Z",
     "items": []
   }
 }
