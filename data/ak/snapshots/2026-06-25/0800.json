@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-06-25T12:01:01.483Z",
+  "fetched_at": "2026-06-25T12:09:34.463Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -28,9 +28,9 @@
       "id": "a-ak-113",
       "name_en": "Kilimanjaro Safaris",
       "name_ja": "キリマンジャロ・サファリ",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 20,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -40,8 +40,8 @@
       "name_en": "Wildlife Express Train",
       "name_ja": "Wildlife Express Train",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -138,9 +138,9 @@
       "id": "a-ak-116",
       "name_en": "Meet Favorite Disney Pals at Adventurers Outpost",
       "name_ja": "Meet Favorite Disney Pals at Adventurers Outpost",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 10,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -182,7 +182,7 @@
       "id": "a-ak-4439",
       "name_en": "Avatar Flight of Passage",
       "name_ja": "アバター：フライト・オブ・パッセージ",
-      "wait_minutes": 45,
+      "wait_minutes": 55,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -225,14 +225,14 @@
   ],
   "summary": {
     "count": 20,
-    "open_count": 13,
-    "average_wait": 17.5,
-    "max_wait": 45
+    "open_count": 16,
+    "average_wait": 18.3,
+    "max_wait": 55
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/8/queue_times.json",
-    "fetched_at": "2026-06-25T12:01:01.483Z",
+    "fetched_at": "2026-06-25T12:09:34.463Z",
     "items": []
   }
 }

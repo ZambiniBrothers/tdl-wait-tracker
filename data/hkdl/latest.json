@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-06-25T12:01:02.519Z",
+  "fetched_at": "2026-06-25T12:09:35.512Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -117,8 +117,8 @@
       "name_en": "Explorer's Club Restaurant",
       "name_ja": "Explorer's Club Restaurant",
       "wait_minutes": null,
-      "is_open": true,
-      "status": "OPERATING",
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -204,7 +204,7 @@
       "id": "a-hkdl-3822",
       "name_en": "Hyperspace Mountain",
       "name_ja": "ハイパースペース・マウンテン",
-      "wait_minutes": 15,
+      "wait_minutes": 5,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -248,7 +248,7 @@
       "id": "a-hkdl-2837",
       "name_en": "Jungle River Cruise",
       "name_ja": "ジャングルリバークルーズ",
-      "wait_minutes": 25,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -446,7 +446,7 @@
       "id": "a-hkdl-2840",
       "name_en": "RC Racer",
       "name_ja": "RC Racer",
-      "wait_minutes": 40,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -512,7 +512,7 @@
       "id": "a-hkdl-2842",
       "name_en": "Toy Soldier Parachute Drop",
       "name_ja": "Toy Soldier Parachute Drop",
-      "wait_minutes": 30,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -555,14 +555,14 @@
   ],
   "summary": {
     "count": 50,
-    "open_count": 35,
-    "average_wait": 16.9,
-    "max_wait": 40
+    "open_count": 34,
+    "average_wait": 14.1,
+    "max_wait": 30
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/31/queue_times.json",
-    "fetched_at": "2026-06-25T12:01:02.519Z",
+    "fetched_at": "2026-06-25T12:09:35.512Z",
     "items": []
   }
 }
