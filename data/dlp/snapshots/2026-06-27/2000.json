@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-06-27T18:00:43.687Z",
+  "fetched_at": "2026-06-27T18:07:45.045Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -149,9 +149,9 @@
       "id": "a-dlp-7",
       "name_en": "Orbitron®",
       "name_ja": "Orbitron®",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 40,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -270,7 +270,7 @@
       "id": "a-dlp-18",
       "name_en": "Dumbo the Flying Elephant",
       "name_ja": "空飛ぶダンボ",
-      "wait_minutes": 30,
+      "wait_minutes": 45,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -467,14 +467,14 @@
   ],
   "summary": {
     "count": 42,
-    "open_count": 19,
-    "average_wait": 15.8,
+    "open_count": 20,
+    "average_wait": 18.6,
     "max_wait": 50
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/4/queue_times.json",
-    "fetched_at": "2026-06-27T18:00:43.687Z",
+    "fetched_at": "2026-06-27T18:07:45.045Z",
     "items": []
   }
 }
