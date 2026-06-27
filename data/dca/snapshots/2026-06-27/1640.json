@@ -1,12 +1,12 @@
 {
-  "fetched_at": "2026-06-27T23:45:25.970Z",
+  "fetched_at": "2026-06-27T23:46:56.559Z",
   "source": "queue-times",
   "attractions": [
     {
       "id": "a-dca-329",
       "name_en": "Guardians of the Galaxy - Mission: BREAKOUT!",
       "name_ja": "ガーディアンズ・オブ・ギャラクシー：ミッション・ブレイクアウト！",
-      "wait_minutes": 50,
+      "wait_minutes": 75,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -39,9 +39,9 @@
       "id": "a-dca-13961",
       "name_en": "Luigi's Rollickin' Roadsters",
       "name_ja": "Luigi's Rollickin' Roadsters",
-      "wait_minutes": 15,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -346,14 +346,14 @@
   ],
   "summary": {
     "count": 31,
-    "open_count": 27,
-    "average_wait": 25.6,
-    "max_wait": 60
+    "open_count": 26,
+    "average_wait": 27.6,
+    "max_wait": 75
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/17/queue_times.json",
-    "fetched_at": "2026-06-27T23:45:25.970Z",
+    "fetched_at": "2026-06-27T23:46:56.559Z",
     "items": []
   }
 }
