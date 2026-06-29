@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-06-29T22:00:42.271Z",
+  "fetched_at": "2026-06-29T22:04:43.833Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -325,7 +325,7 @@
       "id": "a-mk-140",
       "name_en": "Haunted Mansion",
       "name_ja": "ホーンテッドマンション",
-      "wait_minutes": 40,
+      "wait_minutes": 45,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -336,9 +336,9 @@
       "id": "a-mk-356",
       "name_en": "The Hall of Presidents",
       "name_ja": "The Hall of Presidents",
-      "wait_minutes": 15,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -358,7 +358,7 @@
       "id": "a-mk-146",
       "name_en": "Meet Mickey at Town Square Theater",
       "name_ja": "Meet Mickey at Town Square Theater",
-      "wait_minutes": 30,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -413,7 +413,7 @@
       "id": "a-mk-138",
       "name_en": "Space Mountain",
       "name_ja": "スペース・マウンテン",
-      "wait_minutes": 45,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -467,14 +467,14 @@
   ],
   "summary": {
     "count": 42,
-    "open_count": 27,
-    "average_wait": 24.2,
+    "open_count": 26,
+    "average_wait": 23.7,
     "max_wait": 70
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/6/queue_times.json",
-    "fetched_at": "2026-06-29T22:00:42.271Z",
+    "fetched_at": "2026-06-29T22:04:43.833Z",
     "items": []
   }
 }
