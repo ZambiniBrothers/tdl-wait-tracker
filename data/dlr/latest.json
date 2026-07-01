@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-01T20:14:07.708Z",
+  "fetched_at": "2026-07-01T20:16:28.856Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -17,9 +17,9 @@
       "id": "a-dlr-326",
       "name_en": "Indiana Jones™ Adventure",
       "name_ja": "インディ・ジョーンズ・アドベンチャー",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 20,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -424,7 +424,7 @@
       "id": "a-dlr-11526",
       "name_en": "Mickey & Minnie's Runaway Railway",
       "name_ja": "ミッキー＆ミニーのランナウェイ・レイルウェイ",
-      "wait_minutes": 25,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -468,9 +468,9 @@
       "id": "a-dlr-332",
       "name_en": "Roger Rabbit's Car Toon Spin",
       "name_ja": "Roger Rabbit's Car Toon Spin",
-      "wait_minutes": 45,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -479,7 +479,7 @@
       "id": "a-dlr-13958",
       "name_en": "Haunted Mansion",
       "name_ja": "ホーンテッドマンション",
-      "wait_minutes": 30,
+      "wait_minutes": 13,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -545,7 +545,7 @@
       "id": "a-dlr-317",
       "name_en": "Autopia",
       "name_ja": "オートピア",
-      "wait_minutes": 30,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -600,7 +600,7 @@
       "id": "a-dlr-286",
       "name_en": "Star Tours - The Adventures Continue",
       "name_ja": "スター・ツアーズ",
-      "wait_minutes": 10,
+      "wait_minutes": 5,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -622,13 +622,13 @@
   "summary": {
     "count": 56,
     "open_count": 46,
-    "average_wait": 23.1,
+    "average_wait": 20.9,
     "max_wait": 60
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/16/queue_times.json",
-    "fetched_at": "2026-07-01T20:14:07.708Z",
+    "fetched_at": "2026-07-01T20:16:28.856Z",
     "items": []
   }
 }
