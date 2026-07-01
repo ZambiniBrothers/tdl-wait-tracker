@@ -1,6 +1,6 @@
 {
   "date": "2026-07-01",
-  "updated_at": "2026-07-01T06:12:26.501Z",
+  "updated_at": "2026-07-01T06:15:28.004Z",
   "points": [
     {
       "ms": 1782856847186,
@@ -411,15 +411,15 @@
       }
     },
     {
-      "ms": 1782886346281,
+      "ms": 1782886527779,
       "time": "0810",
-      "fetched_at": "2026-07-01T06:12:26.281Z",
+      "fetched_at": "2026-07-01T06:15:27.779Z",
       "source": "queue-times",
       "summary": {
         "count": 42,
-        "open_count": 0,
-        "average_wait": 0,
-        "max_wait": 0
+        "open_count": 1,
+        "average_wait": 5,
+        "max_wait": 5
       }
     }
   ],
@@ -4110,7 +4110,7 @@
         null,
         null,
         null,
-        null
+        5
       ],
       "opens": [
         false,
@@ -4147,7 +4147,7 @@
         false,
         false,
         false,
-        false
+        true
       ],
       "statuses": [
         "NO_INFO",
@@ -4184,7 +4184,7 @@
         "NO_INFO",
         "NO_INFO",
         "NO_INFO",
-        "NO_INFO"
+        "OPERATING"
       ],
       "access_modes": [
         "STANDBY",
