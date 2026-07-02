@@ -1,14 +1,14 @@
 {
-  "fetched_at": "2026-07-02T15:31:29.477Z",
+  "fetched_at": "2026-07-02T15:36:04.188Z",
   "source": "queue-times",
   "attractions": [
     {
       "id": "a-wds-10848",
       "name_en": "Avengers Assemble: Flight Force",
       "name_ja": "Avengers Assemble: Flight Force",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 35,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -17,9 +17,9 @@
       "id": "a-wds-10849",
       "name_en": "Avengers Assemble: Flight Force Single Rider",
       "name_ja": "Avengers Assemble: Flight Force Single Rider",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 20,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -28,7 +28,7 @@
       "id": "a-wds-10845",
       "name_en": "Spider-Man W.E.B. Adventure",
       "name_ja": "Spider-Man W.E.B. Adventure",
-      "wait_minutes": 45,
+      "wait_minutes": 40,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -72,7 +72,7 @@
       "id": "a-wds-29",
       "name_en": "Cars ROAD TRIP",
       "name_ja": "Cars ROAD TRIP",
-      "wait_minutes": 60,
+      "wait_minutes": 65,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -83,7 +83,7 @@
       "id": "a-wds-32",
       "name_en": "Crush's Coaster",
       "name_ja": "クラッシュ・コースター",
-      "wait_minutes": 90,
+      "wait_minutes": 80,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -116,7 +116,7 @@
       "id": "a-wds-37",
       "name_en": "Ratatouille : L’Aventure Totalement Toquée de Rémy​",
       "name_ja": "レミーのおいしいレストラン",
-      "wait_minutes": 55,
+      "wait_minutes": 65,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -127,7 +127,7 @@
       "id": "a-wds-7279",
       "name_en": "Ratatouille: The Adventure Single Rider",
       "name_ja": "レミーのおいしいレストラン",
-      "wait_minutes": 20,
+      "wait_minutes": 25,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -149,7 +149,7 @@
       "id": "a-wds-7280",
       "name_en": "RC Racer Single Rider",
       "name_ja": "RC Racer Single Rider",
-      "wait_minutes": 50,
+      "wait_minutes": 65,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -182,7 +182,7 @@
       "id": "a-wds-7281",
       "name_en": "Toy Soldiers Parachute Drop Single Rider",
       "name_ja": "Toy Soldiers Parachute Drop Single Rider",
-      "wait_minutes": 20,
+      "wait_minutes": 25,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -225,14 +225,14 @@
   ],
   "summary": {
     "count": 20,
-    "open_count": 18,
-    "average_wait": 43.5,
-    "max_wait": 90
+    "open_count": 20,
+    "average_wait": 43.2,
+    "max_wait": 80
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/28/queue_times.json",
-    "fetched_at": "2026-07-02T15:31:29.477Z",
+    "fetched_at": "2026-07-02T15:36:04.188Z",
     "items": []
   }
 }
