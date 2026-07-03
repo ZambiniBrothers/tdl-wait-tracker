@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-03T23:01:33.850Z",
+  "fetched_at": "2026-07-03T23:08:58.285Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -127,7 +127,7 @@
       "id": "a-mk-135",
       "name_en": "Mad Tea Party",
       "name_ja": "マッドティーパーティー",
-      "wait_minutes": 10,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -138,9 +138,9 @@
       "id": "a-mk-147",
       "name_en": "Meet Ariel at Her Grotto",
       "name_ja": "Meet Ariel at Her Grotto",
-      "wait_minutes": 30,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -149,7 +149,7 @@
       "id": "a-mk-6700",
       "name_en": "Meet Cinderella and Princess Tiana at Princess Fairytale Hall",
       "name_ja": "Meet Cinderella and Princess Tiana at Princess Fairytale Hall",
-      "wait_minutes": 25,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -160,9 +160,9 @@
       "id": "a-mk-144",
       "name_en": "Meet Daring Disney Pals as Circus Stars at Pete's Silly Sideshow",
       "name_ja": "Meet Daring Disney Pals as Circus Stars at Pete's Silly Sideshow",
-      "wait_minutes": 30,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -171,9 +171,9 @@
       "id": "a-mk-145",
       "name_en": "Meet Dashing Disney Pals as Circus Stars at Pete's Silly Sideshow",
       "name_ja": "Meet Dashing Disney Pals as Circus Stars at Pete's Silly Sideshow",
-      "wait_minutes": 45,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -182,7 +182,7 @@
       "id": "a-mk-6699",
       "name_en": "Meet Visiting Princesses at Princess Fairytale Hall",
       "name_ja": "Meet Visiting Princesses at Princess Fairytale Hall",
-      "wait_minutes": 15,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -248,7 +248,7 @@
       "id": "a-mk-142",
       "name_en": "The Many Adventures of Winnie the Pooh",
       "name_ja": "The Many Adventures of Winnie the Pooh",
-      "wait_minutes": 25,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -391,7 +391,7 @@
       "id": "a-mk-131",
       "name_en": "Buzz Lightyear’s Space Ranger Spin",
       "name_ja": "バズ・ライトイヤーのスペース・レンジャー・スピン",
-      "wait_minutes": 65,
+      "wait_minutes": 75,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -446,7 +446,7 @@
       "id": "a-mk-11527",
       "name_en": "TRON Lightcycle / Run",
       "name_ja": "トロン・ライトサイクル・ラン",
-      "wait_minutes": 60,
+      "wait_minutes": 80,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -467,14 +467,14 @@
   ],
   "summary": {
     "count": 42,
-    "open_count": 26,
-    "average_wait": 23.8,
-    "max_wait": 65
+    "open_count": 23,
+    "average_wait": 24.5,
+    "max_wait": 80
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/6/queue_times.json",
-    "fetched_at": "2026-07-03T23:01:33.850Z",
+    "fetched_at": "2026-07-03T23:08:58.285Z",
     "items": []
   }
 }
