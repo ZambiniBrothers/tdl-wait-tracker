@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-03T00:10:43.972Z",
+  "fetched_at": "2026-07-03T00:16:25.693Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -204,9 +204,9 @@
       "id": "a-shdl-3000",
       "name_en": "Jet Packs",
       "name_ja": "Jet Packs",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 10,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -237,9 +237,9 @@
       "id": "a-shdl-2985",
       "name_en": "TRON Lightcycle Power Run – Presented by Chevrolet",
       "name_ja": "トロン・ライトサイクル・パワーラン",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 20,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -357,14 +357,14 @@
   ],
   "summary": {
     "count": 32,
-    "open_count": 18,
-    "average_wait": 10.9,
+    "open_count": 20,
+    "average_wait": 11.4,
     "max_wait": 50
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/30/queue_times.json",
-    "fetched_at": "2026-07-03T00:10:43.972Z",
+    "fetched_at": "2026-07-03T00:16:25.693Z",
     "items": []
   }
 }
