@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-04T12:31:01.603Z",
+  "fetched_at": "2026-07-04T12:37:44.579Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -50,9 +50,9 @@
       "id": "a-epcot-159",
       "name_en": "Spaceship Earth",
       "name_ja": "スペースシップ・アース",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -61,9 +61,9 @@
       "id": "a-epcot-10916",
       "name_en": "Guardians of the Galaxy: Cosmic Rewind",
       "name_ja": "ガーディアンズ・オブ・ギャラクシー：コズミック・リワインド",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 75,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -73,8 +73,8 @@
       "name_en": "Mission: SPACE",
       "name_ja": "ミッション：スペース",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -83,9 +83,9 @@
       "id": "a-epcot-160",
       "name_en": "Test Track",
       "name_ja": "テスト・トラック",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 50,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -95,8 +95,8 @@
       "name_en": "Test Track Presented by Chevrolet Single Rider",
       "name_ja": "テスト・トラック",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -117,8 +117,8 @@
       "name_en": "Journey of Water, Inspired by Moana",
       "name_ja": "Journey of Water, Inspired by Moana",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -139,8 +139,8 @@
       "name_en": "SeaBase Aquarium",
       "name_ja": "SeaBase Aquarium",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -150,8 +150,8 @@
       "name_en": "Soarin' Across America",
       "name_ja": "ソアリン・アクロス・アメリカ",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -160,9 +160,9 @@
       "id": "a-epcot-153",
       "name_en": "The Seas with Nemo & Friends",
       "name_ja": "The Seas with Nemo & Friends",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -194,8 +194,8 @@
       "name_en": "Frozen Ever After",
       "name_ja": "フローズン・エバーアフター",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -226,9 +226,9 @@
       "id": "a-epcot-10914",
       "name_en": "Remy's Ratatouille Adventure",
       "name_ja": "レミーのおいしいレストラン",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 50,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -238,8 +238,8 @@
       "name_en": "Remy's Ratatouille Adventure Single Rider",
       "name_ja": "レミーのおいしいレストラン",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -247,14 +247,14 @@
   ],
   "summary": {
     "count": 22,
-    "open_count": 0,
-    "average_wait": 0,
-    "max_wait": 0
+    "open_count": 12,
+    "average_wait": 37,
+    "max_wait": 75
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/5/queue_times.json",
-    "fetched_at": "2026-07-04T12:31:01.603Z",
+    "fetched_at": "2026-07-04T12:37:44.579Z",
     "items": []
   }
 }
