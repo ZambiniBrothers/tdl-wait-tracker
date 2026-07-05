@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-05T20:31:00.920Z",
+  "fetched_at": "2026-07-05T20:36:36.651Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -117,8 +117,8 @@
       "name_en": "Meet Edna Mode at the Edna Mode Experience",
       "name_ja": "Meet Edna Mode at the Edna Mode Experience",
       "wait_minutes": null,
-      "is_open": true,
-      "status": "OPERATING",
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -204,7 +204,7 @@
       "id": "a-dhs-16342",
       "name_en": "Rock ’n’ Roller Coaster Starring The Muppets",
       "name_ja": "Rock ’n’ Roller Coaster Starring The Muppets",
-      "wait_minutes": 35,
+      "wait_minutes": 45,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -215,7 +215,7 @@
       "id": "a-dhs-123",
       "name_en": "The Twilight Zone™ Tower of Terror",
       "name_ja": "タワー・オブ・テラー",
-      "wait_minutes": 15,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -237,9 +237,9 @@
       "id": "a-dhs-5476",
       "name_en": "Slinky Dog Dash",
       "name_ja": "スリンキー・ドッグ・ダッシュ",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 40,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -259,13 +259,13 @@
   "summary": {
     "count": 23,
     "open_count": 21,
-    "average_wait": 17.7,
-    "max_wait": 35
+    "average_wait": 20.8,
+    "max_wait": 45
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/7/queue_times.json",
-    "fetched_at": "2026-07-05T20:31:00.920Z",
+    "fetched_at": "2026-07-05T20:36:36.651Z",
     "items": []
   }
 }
