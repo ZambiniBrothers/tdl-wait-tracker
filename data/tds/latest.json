@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-10T08:31:27.329Z",
+  "fetched_at": "2026-07-10T08:37:42.009Z",
   "source": "tdr-official",
   "attractions": [
     {
@@ -50,7 +50,7 @@
       "id": "a-236",
       "name_en": "キャラバンカルーセル",
       "name_ja": "キャラバンカルーセル",
-      "wait_minutes": 20,
+      "wait_minutes": 5,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -72,7 +72,7 @@
       "id": "a-220",
       "name_en": "ジャスミンのフライングカーペット",
       "name_ja": "ジャスミンのフライングカーペット",
-      "wait_minutes": 20,
+      "wait_minutes": 25,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -116,7 +116,7 @@
       "id": "a-219",
       "name_en": "ソアリン：ファンタスティック・フライト",
       "name_ja": "ソアリン：ファンタスティック・フライト",
-      "wait_minutes": 160,
+      "wait_minutes": 180,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -138,7 +138,7 @@
       "id": "a-246",
       "name_en": "タートル・トーク",
       "name_ja": "タートル・トーク",
-      "wait_minutes": 30,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -160,7 +160,7 @@
       "id": "a-231",
       "name_en": "ディズニーシー・エレクトリックレールウェイ（ポートディスカバリー）",
       "name_ja": "ディズニーシー・エレクトリックレールウェイ（ポートディスカバリー）",
-      "wait_minutes": 15,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -171,34 +171,34 @@
       "id": "a-228",
       "name_en": "ディズニーシー・トランジットスチーマーライン（アメリカンウォーターフロント）",
       "name_ja": "ディズニーシー・トランジットスチーマーライン（アメリカンウォーターフロント）",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
-      "official_status_cd": "004",
-      "official_status_label": "一時運営中止"
+      "official_status_cd": "001",
+      "official_status_label": "運営中"
     },
     {
       "id": "a-227",
       "name_en": "ディズニーシー・トランジットスチーマーライン（メディテレーニアンハーバー）",
       "name_ja": "ディズニーシー・トランジットスチーマーライン（メディテレーニアンハーバー）",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 10,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
-      "official_status_cd": "004",
-      "official_status_label": "一時運営中止"
+      "official_status_cd": "001",
+      "official_status_label": "運営中"
     },
     {
       "id": "a-229",
       "name_en": "ディズニーシー・トランジットスチーマーライン（ロストリバーデルタ）",
       "name_ja": "ディズニーシー・トランジットスチーマーライン（ロストリバーデルタ）",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
-      "official_status_cd": "004",
-      "official_status_label": "一時運営中止"
+      "official_status_cd": "001",
+      "official_status_label": "運営中"
     },
     {
       "id": "a-218",
@@ -215,7 +215,7 @@
       "id": "a-247",
       "name_en": "ニモ＆フレンズ・シーライダー",
       "name_ja": "ニモ＆フレンズ・シーライダー",
-      "wait_minutes": 30,
+      "wait_minutes": 40,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -358,18 +358,18 @@
       "id": "a-230",
       "name_en": "ヴェネツィアン・ゴンドラ",
       "name_ja": "ヴェネツィアン・ゴンドラ",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 40,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
-      "official_status_cd": "004",
-      "official_status_label": "一時運営中止"
+      "official_status_cd": "001",
+      "official_status_label": "運営中"
     },
     {
       "id": "a-224",
       "name_en": "海底２万マイル",
       "name_ja": "海底２万マイル",
-      "wait_minutes": 40,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -379,14 +379,14 @@
   ],
   "summary": {
     "count": 34,
-    "open_count": 24,
-    "average_wait": 47.7,
-    "max_wait": 160
+    "open_count": 28,
+    "average_wait": 42.9,
+    "max_wait": 180
   },
   "closures": null,
   "shows": {
     "source_url": "https://www.tokyodisneyresort.jp/tds/show.html",
-    "fetched_at": "2026-07-10T08:31:27.329Z",
+    "fetched_at": "2026-07-10T08:37:42.009Z",
     "items": [
       {
         "time": "17:00",
