@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-10T11:31:18.057Z",
+  "fetched_at": "2026-07-10T11:33:02.006Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -171,9 +171,9 @@
       "id": "a-ak-14943",
       "name_en": "Zootopia: Better Zoogether!",
       "name_ja": "Zootopia: Better Zoogether!",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 10,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -182,9 +182,9 @@
       "id": "a-ak-4439",
       "name_en": "Avatar Flight of Passage",
       "name_ja": "アバター：フライト・オブ・パッセージ",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 45,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -193,9 +193,9 @@
       "id": "a-ak-4438",
       "name_en": "Na'vi River Journey",
       "name_ja": "Na'vi River Journey",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 10,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -225,14 +225,14 @@
   ],
   "summary": {
     "count": 20,
-    "open_count": 4,
-    "average_wait": 0,
-    "max_wait": 0
+    "open_count": 7,
+    "average_wait": 21.7,
+    "max_wait": 45
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/8/queue_times.json",
-    "fetched_at": "2026-07-10T11:31:18.057Z",
+    "fetched_at": "2026-07-10T11:33:02.006Z",
     "items": []
   }
 }
