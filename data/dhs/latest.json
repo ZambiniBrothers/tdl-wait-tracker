@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-10T22:11:01.846Z",
+  "fetched_at": "2026-07-10T22:16:21.383Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -138,7 +138,7 @@
       "id": "a-dhs-117",
       "name_en": "Toy Story Mania!",
       "name_ja": "トイ・ストーリー・マニア！",
-      "wait_minutes": 45,
+      "wait_minutes": 50,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -171,9 +171,9 @@
       "id": "a-dhs-6369",
       "name_en": "Star Wars: Rise of the Resistance",
       "name_ja": "スター・ウォーズ：ライズ・オブ・ザ・レジスタンス",
-      "wait_minutes": 65,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -183,8 +183,8 @@
       "name_en": "Star Wars: Rise of the Resistance Single Rider",
       "name_ja": "スター・ウォーズ：ライズ・オブ・ザ・レジスタンス",
       "wait_minutes": null,
-      "is_open": true,
-      "status": "OPERATING",
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -258,14 +258,14 @@
   ],
   "summary": {
     "count": 23,
-    "open_count": 20,
-    "average_wait": 44.5,
+    "open_count": 18,
+    "average_wait": 43,
     "max_wait": 115
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/7/queue_times.json",
-    "fetched_at": "2026-07-10T22:11:01.846Z",
+    "fetched_at": "2026-07-10T22:16:21.383Z",
     "items": []
   }
 }
