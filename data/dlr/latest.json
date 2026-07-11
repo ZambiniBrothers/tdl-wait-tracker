@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-11T19:30:59.297Z",
+  "fetched_at": "2026-07-11T19:35:57.277Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -138,7 +138,7 @@
       "id": "a-dlr-275",
       "name_en": "Dumbo the Flying Elephant",
       "name_ja": "空飛ぶダンボ",
-      "wait_minutes": 40,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -193,7 +193,7 @@
       "id": "a-dlr-280",
       "name_en": "Mr. Toad's Wild Ride",
       "name_ja": "Mr. Toad's Wild Ride",
-      "wait_minutes": 10,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -281,9 +281,9 @@
       "id": "a-dlr-456",
       "name_en": "Mark Twain Riverboat",
       "name_ja": "Mark Twain Riverboat",
-      "wait_minutes": 10,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -490,7 +490,7 @@
       "id": "a-dlr-289",
       "name_en": "Pirates of the Caribbean",
       "name_ja": "カリブの海賊",
-      "wait_minutes": 25,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -621,14 +621,14 @@
   ],
   "summary": {
     "count": 56,
-    "open_count": 48,
-    "average_wait": 22,
+    "open_count": 47,
+    "average_wait": 22.4,
     "max_wait": 60
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/16/queue_times.json",
-    "fetched_at": "2026-07-11T19:30:59.297Z",
+    "fetched_at": "2026-07-11T19:35:57.277Z",
     "items": []
   }
 }

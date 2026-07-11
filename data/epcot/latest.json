@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-11T19:31:01.192Z",
+  "fetched_at": "2026-07-11T19:35:59.110Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -50,9 +50,9 @@
       "id": "a-epcot-159",
       "name_en": "Spaceship Earth",
       "name_ja": "スペースシップ・アース",
-      "wait_minutes": 10,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -61,7 +61,7 @@
       "id": "a-epcot-10916",
       "name_en": "Guardians of the Galaxy: Cosmic Rewind",
       "name_ja": "ガーディアンズ・オブ・ギャラクシー：コズミック・リワインド",
-      "wait_minutes": 65,
+      "wait_minutes": 60,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -83,7 +83,7 @@
       "id": "a-epcot-160",
       "name_en": "Test Track",
       "name_ja": "テスト・トラック",
-      "wait_minutes": 65,
+      "wait_minutes": 55,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -247,14 +247,14 @@
   ],
   "summary": {
     "count": 22,
-    "open_count": 22,
-    "average_wait": 26.7,
+    "open_count": 21,
+    "average_wait": 26.8,
     "max_wait": 75
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/5/queue_times.json",
-    "fetched_at": "2026-07-11T19:31:01.192Z",
+    "fetched_at": "2026-07-11T19:35:59.110Z",
     "items": []
   }
 }
