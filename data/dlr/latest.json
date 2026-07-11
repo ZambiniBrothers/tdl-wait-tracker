@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-11T16:00:58.250Z",
+  "fetched_at": "2026-07-11T16:02:18.339Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -17,7 +17,7 @@
       "id": "a-dlr-326",
       "name_en": "Indiana Jones™ Adventure",
       "name_ja": "インディ・ジョーンズ・アドベンチャー",
-      "wait_minutes": 15,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -248,7 +248,7 @@
       "id": "a-dlr-305",
       "name_en": "Storybook Land Canal Boats",
       "name_ja": "Storybook Land Canal Boats",
-      "wait_minutes": 5,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -458,8 +458,8 @@
       "name_en": "Minnie's House",
       "name_ja": "Minnie's House",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -545,7 +545,7 @@
       "id": "a-dlr-317",
       "name_en": "Autopia",
       "name_ja": "オートピア",
-      "wait_minutes": 5,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -621,14 +621,14 @@
   ],
   "summary": {
     "count": 56,
-    "open_count": 44,
-    "average_wait": 9,
+    "open_count": 45,
+    "average_wait": 9.5,
     "max_wait": 45
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/16/queue_times.json",
-    "fetched_at": "2026-07-11T16:00:58.250Z",
+    "fetched_at": "2026-07-11T16:02:18.339Z",
     "items": []
   }
 }
