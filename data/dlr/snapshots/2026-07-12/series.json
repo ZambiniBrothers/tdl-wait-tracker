@@ -1,6 +1,6 @@
 {
   "date": "2026-07-12",
-  "updated_at": "2026-07-12T07:01:12.864Z",
+  "updated_at": "2026-07-12T07:16:12.710Z",
   "points": [
     {
       "ms": 1783839672488,
@@ -13,6 +13,18 @@
         "average_wait": 11.4,
         "max_wait": 55
       }
+    },
+    {
+      "ms": 1783840572260,
+      "time": "0010",
+      "fetched_at": "2026-07-12T07:16:12.260Z",
+      "source": "queue-times",
+      "summary": {
+        "count": 56,
+        "open_count": 2,
+        "average_wait": 30,
+        "max_wait": 30
+      }
     }
   ],
   "attractions": {
@@ -20,15 +32,19 @@
       "name_en": "Adventureland Treehouse inspired by Walt Disney’s Swiss Family Robinson",
       "name_ja": "Adventureland Treehouse inspired by Walt Disney’s Swiss Family Robinson",
       "waits": [
+        null,
         null
       ],
       "opens": [
-        true
+        true,
+        false
       ],
       "statuses": [
-        "OPERATING"
+        "OPERATING",
+        "DOWN"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -36,15 +52,19 @@
       "name_en": "Indiana Jones™ Adventure",
       "name_ja": "インディ・ジョーンズ・アドベンチャー",
       "waits": [
-        25
+        25,
+        null
       ],
       "opens": [
-        true
+        true,
+        false
       ],
       "statuses": [
-        "OPERATING"
+        "OPERATING",
+        "DOWN"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -52,15 +72,19 @@
       "name_en": "Jungle Cruise",
       "name_ja": "ジャングルクルーズ",
       "waits": [
-        10
+        10,
+        null
       ],
       "opens": [
-        true
+        true,
+        false
       ],
       "statuses": [
-        "OPERATING"
+        "OPERATING",
+        "DOWN"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -68,15 +92,19 @@
       "name_en": "Walt Disney's Enchanted Tiki Room",
       "name_ja": "Walt Disney's Enchanted Tiki Room",
       "waits": [
+        null,
         null
       ],
       "opens": [
-        true
+        true,
+        false
       ],
       "statuses": [
-        "OPERATING"
+        "OPERATING",
+        "DOWN"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -84,15 +112,19 @@
       "name_en": "Davy Crockett's Explorer Canoes",
       "name_ja": "Davy Crockett's Explorer Canoes",
       "waits": [
+        null,
         null
       ],
       "opens": [
+        false,
         false
       ],
       "statuses": [
+        "NO_INFO",
         "NO_INFO"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -100,15 +132,19 @@
       "name_en": "The Many Adventures of Winnie the Pooh",
       "name_ja": "The Many Adventures of Winnie the Pooh",
       "waits": [
-        5
+        5,
+        null
       ],
       "opens": [
-        true
+        true,
+        false
       ],
       "statuses": [
-        "OPERATING"
+        "OPERATING",
+        "DOWN"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -116,15 +152,19 @@
       "name_en": "Tiana's Bayou Adventure",
       "name_ja": "Tiana's Bayou Adventure",
       "waits": [
+        null,
         null
       ],
       "opens": [
+        false,
         false
       ],
       "statuses": [
+        "NO_INFO",
         "NO_INFO"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -132,15 +172,19 @@
       "name_en": "Tiana's Bayou Adventure Single Rider",
       "name_ja": "Tiana's Bayou Adventure Single Rider",
       "waits": [
+        null,
         null
       ],
       "opens": [
+        false,
         false
       ],
       "statuses": [
+        "NO_INFO",
         "NO_INFO"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -148,15 +192,19 @@
       "name_en": "\"it's a small world\"",
       "name_ja": "イッツ・ア・スモールワールド",
       "waits": [
-        5
+        5,
+        null
       ],
       "opens": [
-        true
+        true,
+        false
       ],
       "statuses": [
-        "OPERATING"
+        "OPERATING",
+        "DOWN"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -164,15 +212,19 @@
       "name_en": "Alice in Wonderland",
       "name_ja": "ふしぎの国のアリス",
       "waits": [
-        15
+        15,
+        null
       ],
       "opens": [
-        true
+        true,
+        false
       ],
       "statuses": [
-        "OPERATING"
+        "OPERATING",
+        "DOWN"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -180,15 +232,19 @@
       "name_en": "Bluey’s Best Day Ever! at Fantasyland Theatre",
       "name_ja": "Bluey’s Best Day Ever! at Fantasyland Theatre",
       "waits": [
+        null,
         null
       ],
       "opens": [
+        true,
         true
       ],
       "statuses": [
+        "OPERATING",
         "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -196,15 +252,19 @@
       "name_en": "Casey Jr. Circus Train",
       "name_ja": "キャシー・ジュニア・サーカストレイン",
       "waits": [
-        5
+        5,
+        null
       ],
       "opens": [
-        true
+        true,
+        false
       ],
       "statuses": [
-        "OPERATING"
+        "OPERATING",
+        "DOWN"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -212,15 +272,19 @@
       "name_en": "Dumbo the Flying Elephant",
       "name_ja": "空飛ぶダンボ",
       "waits": [
-        5
+        5,
+        null
       ],
       "opens": [
-        true
+        true,
+        false
       ],
       "statuses": [
-        "OPERATING"
+        "OPERATING",
+        "DOWN"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -228,15 +292,19 @@
       "name_en": "King Arthur Carrousel",
       "name_ja": "King Arthur Carrousel",
       "waits": [
+        null,
         null
       ],
       "opens": [
+        false,
         false
       ],
       "statuses": [
+        "NO_INFO",
         "NO_INFO"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -244,15 +312,19 @@
       "name_en": "Mad Tea Party",
       "name_ja": "マッドティーパーティー",
       "waits": [
-        5
+        5,
+        null
       ],
       "opens": [
-        true
+        true,
+        false
       ],
       "statuses": [
-        "OPERATING"
+        "OPERATING",
+        "DOWN"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -260,15 +332,19 @@
       "name_en": "Matterhorn Bobsleds",
       "name_ja": "マッターホルン・ボブスレー",
       "waits": [
-        10
+        10,
+        null
       ],
       "opens": [
-        true
+        true,
+        false
       ],
       "statuses": [
-        "OPERATING"
+        "OPERATING",
+        "DOWN"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -276,15 +352,19 @@
       "name_en": "Meet Disney Princesses at Royal Hall",
       "name_ja": "Meet Disney Princesses at Royal Hall",
       "waits": [
+        null,
         null
       ],
       "opens": [
+        false,
         false
       ],
       "statuses": [
+        "NO_INFO",
         "NO_INFO"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -292,15 +372,19 @@
       "name_en": "Mr. Toad's Wild Ride",
       "name_ja": "Mr. Toad's Wild Ride",
       "waits": [
-        5
+        5,
+        null
       ],
       "opens": [
-        true
+        true,
+        false
       ],
       "statuses": [
-        "OPERATING"
+        "OPERATING",
+        "DOWN"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -308,15 +392,19 @@
       "name_en": "Peter Pan's Flight",
       "name_ja": "ピーターパン空の旅",
       "waits": [
-        20
+        20,
+        null
       ],
       "opens": [
-        true
+        true,
+        false
       ],
       "statuses": [
-        "OPERATING"
+        "OPERATING",
+        "DOWN"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -324,15 +412,19 @@
       "name_en": "Pinocchio's Daring Journey",
       "name_ja": "Pinocchio's Daring Journey",
       "waits": [
-        5
+        5,
+        null
       ],
       "opens": [
-        true
+        true,
+        false
       ],
       "statuses": [
-        "OPERATING"
+        "OPERATING",
+        "DOWN"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -340,15 +432,19 @@
       "name_en": "Sleeping Beauty Castle Walkthrough",
       "name_ja": "Sleeping Beauty Castle Walkthrough",
       "waits": [
+        null,
         null
       ],
       "opens": [
+        false,
         false
       ],
       "statuses": [
+        "NO_INFO",
         "NO_INFO"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -356,15 +452,19 @@
       "name_en": "Snow White's Enchanted Wish",
       "name_ja": "Snow White's Enchanted Wish",
       "waits": [
-        5
+        5,
+        null
       ],
       "opens": [
-        true
+        true,
+        false
       ],
       "statuses": [
-        "OPERATING"
+        "OPERATING",
+        "DOWN"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -372,15 +472,19 @@
       "name_en": "Storybook Land Canal Boats",
       "name_ja": "Storybook Land Canal Boats",
       "waits": [
-        15
+        15,
+        null
       ],
       "opens": [
-        true
+        true,
+        false
       ],
       "statuses": [
-        "OPERATING"
+        "OPERATING",
+        "DOWN"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -388,15 +492,19 @@
       "name_en": "Big Thunder Mountain Railroad",
       "name_ja": "ビッグサンダー・マウンテン",
       "waits": [
-        25
+        25,
+        null
       ],
       "opens": [
-        true
+        true,
+        false
       ],
       "statuses": [
-        "OPERATING"
+        "OPERATING",
+        "DOWN"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -404,15 +512,19 @@
       "name_en": "Frontierland Shootin' Exposition",
       "name_ja": "Frontierland Shootin' Exposition",
       "waits": [
+        null,
         null
       ],
       "opens": [
+        false,
         false
       ],
       "statuses": [
+        "NO_INFO",
         "NO_INFO"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -420,15 +532,19 @@
       "name_en": "Mark Twain Riverboat",
       "name_ja": "Mark Twain Riverboat",
       "waits": [
+        null,
         null
       ],
       "opens": [
+        false,
         false
       ],
       "statuses": [
+        "NO_INFO",
         "NO_INFO"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -436,15 +552,19 @@
       "name_en": "Pirate's Lair on Tom Sawyer Island",
       "name_ja": "Pirate's Lair on Tom Sawyer Island",
       "waits": [
+        null,
         null
       ],
       "opens": [
+        false,
         false
       ],
       "statuses": [
+        "NO_INFO",
         "NO_INFO"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -452,15 +572,19 @@
       "name_en": "Sailing Ship Columbia",
       "name_ja": "Sailing Ship Columbia",
       "waits": [
+        null,
         null
       ],
       "opens": [
+        false,
         false
       ],
       "statuses": [
+        "NO_INFO",
         "NO_INFO"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -468,15 +592,19 @@
       "name_en": "Disneyland Railroad",
       "name_ja": "Disneyland Railroad",
       "waits": [
-        5
+        5,
+        null
       ],
       "opens": [
-        true
+        true,
+        false
       ],
       "statuses": [
-        "OPERATING"
+        "OPERATING",
+        "DOWN"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -484,15 +612,19 @@
       "name_en": "Great Moments with Mr. Lincoln",
       "name_ja": "Great Moments with Mr. Lincoln",
       "waits": [
+        null,
         null
       ],
       "opens": [
+        false,
         false
       ],
       "statuses": [
+        "NO_INFO",
         "NO_INFO"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -500,15 +632,19 @@
       "name_en": "Main Street Cinema",
       "name_ja": "Main Street Cinema",
       "waits": [
+        null,
         null
       ],
       "opens": [
+        false,
         false
       ],
       "statuses": [
+        "NO_INFO",
         "NO_INFO"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -516,15 +652,19 @@
       "name_en": "Main Street Vehicles",
       "name_ja": "Main Street Vehicles",
       "waits": [
+        null,
         null
       ],
       "opens": [
+        false,
         false
       ],
       "statuses": [
+        "NO_INFO",
         "NO_INFO"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -532,15 +672,19 @@
       "name_en": "Opera House - Walt Disney - A Magical Life",
       "name_ja": "Opera House - Walt Disney - A Magical Life",
       "waits": [
+        null,
         null
       ],
       "opens": [
+        false,
         false
       ],
       "statuses": [
+        "NO_INFO",
         "NO_INFO"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -548,15 +692,19 @@
       "name_en": "The Disney Gallery",
       "name_ja": "The Disney Gallery",
       "waits": [
+        null,
         null
       ],
       "opens": [
+        false,
         false
       ],
       "statuses": [
+        "NO_INFO",
         "NO_INFO"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -564,15 +712,19 @@
       "name_en": "Walt Disney - A Magical Life",
       "name_ja": "Walt Disney - A Magical Life",
       "waits": [
+        null,
         null
       ],
       "opens": [
+        false,
         false
       ],
       "statuses": [
+        "NO_INFO",
         "NO_INFO"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -580,15 +732,19 @@
       "name_en": "Chip 'n' Dale's GADGETcoaster",
       "name_ja": "Chip 'n' Dale's GADGETcoaster",
       "waits": [
-        5
+        5,
+        null
       ],
       "opens": [
-        true
+        true,
+        false
       ],
       "statuses": [
-        "OPERATING"
+        "OPERATING",
+        "DOWN"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -596,15 +752,19 @@
       "name_en": "Donald's Duck Pond",
       "name_ja": "Donald's Duck Pond",
       "waits": [
+        null,
         null
       ],
       "opens": [
+        false,
         false
       ],
       "statuses": [
+        "NO_INFO",
         "NO_INFO"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -612,15 +772,19 @@
       "name_en": "Goofy's How-to-Play Yard",
       "name_ja": "Goofy's How-to-Play Yard",
       "waits": [
+        null,
         null
       ],
       "opens": [
-        true
+        true,
+        false
       ],
       "statuses": [
-        "OPERATING"
+        "OPERATING",
+        "DOWN"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -628,15 +792,19 @@
       "name_en": "Mickey & Minnie's Runaway Railway",
       "name_ja": "ミッキー＆ミニーのランナウェイ・レイルウェイ",
       "waits": [
-        5
+        5,
+        null
       ],
       "opens": [
-        true
+        true,
+        false
       ],
       "statuses": [
-        "OPERATING"
+        "OPERATING",
+        "DOWN"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -644,15 +812,19 @@
       "name_en": "Mickey's House and Meet Mickey Mouse",
       "name_ja": "Mickey's House and Meet Mickey Mouse",
       "waits": [
+        null,
         null
       ],
       "opens": [
+        false,
         false
       ],
       "statuses": [
+        "NO_INFO",
         "NO_INFO"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -660,15 +832,19 @@
       "name_en": "Mickey's House and Meet Mickey Mouse",
       "name_ja": "Mickey's House and Meet Mickey Mouse",
       "waits": [
+        null,
         null
       ],
       "opens": [
+        false,
         false
       ],
       "statuses": [
+        "NO_INFO",
         "NO_INFO"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -676,15 +852,19 @@
       "name_en": "Minnie's House",
       "name_ja": "Minnie's House",
       "waits": [
+        null,
         null
       ],
       "opens": [
+        false,
         false
       ],
       "statuses": [
+        "NO_INFO",
         "NO_INFO"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -692,15 +872,19 @@
       "name_en": "Roger Rabbit's Car Toon Spin",
       "name_ja": "Roger Rabbit's Car Toon Spin",
       "waits": [
-        5
+        5,
+        null
       ],
       "opens": [
-        true
+        true,
+        false
       ],
       "statuses": [
-        "OPERATING"
+        "OPERATING",
+        "DOWN"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -708,15 +892,19 @@
       "name_en": "Haunted Mansion",
       "name_ja": "ホーンテッドマンション",
       "waits": [
-        13
+        13,
+        null
       ],
       "opens": [
-        true
+        true,
+        false
       ],
       "statuses": [
-        "OPERATING"
+        "OPERATING",
+        "DOWN"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -724,15 +912,19 @@
       "name_en": "Pirates of the Caribbean",
       "name_ja": "カリブの海賊",
       "waits": [
-        5
+        5,
+        null
       ],
       "opens": [
-        true
+        true,
+        false
       ],
       "statuses": [
-        "OPERATING"
+        "OPERATING",
+        "DOWN"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -740,15 +932,19 @@
       "name_en": "Millennium Falcon: Smugglers Run",
       "name_ja": "ミレニアム・ファルコン：スマグラーズ・ラン",
       "waits": [
-        15
+        15,
+        null
       ],
       "opens": [
-        true
+        true,
+        false
       ],
       "statuses": [
-        "OPERATING"
+        "OPERATING",
+        "DOWN"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -756,15 +952,19 @@
       "name_en": "Millennium Falcon: Smugglers Run Single Rider",
       "name_ja": "ミレニアム・ファルコン：スマグラーズ・ラン",
       "waits": [
+        null,
         null
       ],
       "opens": [
-        true
+        true,
+        false
       ],
       "statuses": [
-        "OPERATING"
+        "OPERATING",
+        "DOWN"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -772,15 +972,19 @@
       "name_en": "Star Wars: Rise of the Resistance",
       "name_ja": "スター・ウォーズ：ライズ・オブ・ザ・レジスタンス",
       "waits": [
+        30,
         30
       ],
       "opens": [
+        true,
         true
       ],
       "statuses": [
+        "OPERATING",
         "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -788,15 +992,19 @@
       "name_en": "Astro Orbitor",
       "name_ja": "Astro Orbitor",
       "waits": [
-        10
+        10,
+        null
       ],
       "opens": [
-        true
+        true,
+        false
       ],
       "statuses": [
-        "OPERATING"
+        "OPERATING",
+        "DOWN"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -804,15 +1012,19 @@
       "name_en": "Autopia",
       "name_ja": "オートピア",
       "waits": [
-        10
+        10,
+        null
       ],
       "opens": [
-        true
+        true,
+        false
       ],
       "statuses": [
-        "OPERATING"
+        "OPERATING",
+        "DOWN"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -820,15 +1032,19 @@
       "name_en": "Buzz Lightyear Astro Blasters",
       "name_ja": "バズ・ライトイヤーのアストロブラスター",
       "waits": [
-        5
+        5,
+        null
       ],
       "opens": [
-        true
+        true,
+        false
       ],
       "statuses": [
-        "OPERATING"
+        "OPERATING",
+        "DOWN"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -836,15 +1052,19 @@
       "name_en": "Disneyland Monorail",
       "name_ja": "Disneyland Monorail",
       "waits": [
-        5
+        5,
+        null
       ],
       "opens": [
-        true
+        true,
+        false
       ],
       "statuses": [
-        "OPERATING"
+        "OPERATING",
+        "DOWN"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -852,15 +1072,19 @@
       "name_en": "Finding Nemo Submarine Voyage",
       "name_ja": "ファインディング・ニモ・サブマリン・ボヤッジ",
       "waits": [
-        5
+        5,
+        null
       ],
       "opens": [
-        true
+        true,
+        false
       ],
       "statuses": [
-        "OPERATING"
+        "OPERATING",
+        "DOWN"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -868,15 +1092,19 @@
       "name_en": "Pixar Short Film Spotlight",
       "name_ja": "Pixar Short Film Spotlight",
       "waits": [
+        null,
         null
       ],
       "opens": [
+        false,
         false
       ],
       "statuses": [
+        "NO_INFO",
         "NO_INFO"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -884,15 +1112,19 @@
       "name_en": "Space Mountain",
       "name_ja": "スペース・マウンテン",
       "waits": [
-        55
+        55,
+        null
       ],
       "opens": [
-        true
+        true,
+        false
       ],
       "statuses": [
-        "OPERATING"
+        "OPERATING",
+        "DOWN"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -900,15 +1132,19 @@
       "name_en": "Star Tours - The Adventures Continue",
       "name_ja": "スター・ツアーズ",
       "waits": [
-        10
+        10,
+        null
       ],
       "opens": [
-        true
+        true,
+        false
       ],
       "statuses": [
-        "OPERATING"
+        "OPERATING",
+        "DOWN"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     }
