@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-12T01:01:06.612Z",
+  "fetched_at": "2026-07-12T01:07:45.160Z",
   "source": "tdr-official",
   "attractions": [
     {
@@ -92,12 +92,12 @@
       "id": "a-country-bear-theater",
       "name_en": "Country Bear Theater",
       "name_ja": "カントリーベア・シアター",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "CLOSED",
+      "wait_minutes": 20,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
-      "official_status_cd": "008",
-      "official_status_label": "準備中"
+      "official_status_cd": "001",
+      "official_status_label": "運営中"
     },
     {
       "id": "a-gadgets-go-coaster",
@@ -130,23 +130,23 @@
       "id": "a-goofys-paint-n-play-house",
       "name_en": "Goofy's Paint 'n' Play House",
       "name_ja": "グーフィーのペイント＆プレイハウス",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "CLOSED",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
-      "official_status_cd": "008",
-      "official_status_label": "準備中"
+      "official_status_cd": "001",
+      "official_status_label": "運営中"
     },
     {
       "id": "a-cinderellas-fairy-tale-hall",
       "name_en": "Cinderella's Fairy Tale Hall",
       "name_ja": "シンデレラのフェアリーテイル・ホール",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "CLOSED",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
-      "official_status_cd": "008",
-      "official_status_label": "準備中",
+      "official_status_cd": "001",
+      "official_status_label": "運営中",
       "closure_info": {
         "name_ja": "シンデレラのフェアリーテイル・ホール",
         "period": "2026/10/26 〜 2026/10/30",
@@ -195,12 +195,12 @@
       "id": "a-stitch-encounter",
       "name_en": "Stitch Encounter",
       "name_ja": "スティッチ・エンカウンター",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "CLOSED",
+      "wait_minutes": 10,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
-      "official_status_cd": "008",
-      "official_status_label": "準備中",
+      "official_status_cd": "001",
+      "official_status_label": "運営中",
       "closure_info": {
         "name_ja": "スティッチ・エンカウンター",
         "period": "2026/11/2 〜 2026/11/30",
@@ -211,7 +211,7 @@
       "id": "a-splash-mountain",
       "name_en": "Splash Mountain",
       "name_ja": "スプラッシュ・マウンテン",
-      "wait_minutes": 70,
+      "wait_minutes": 60,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -336,7 +336,7 @@
       "id": "a-the-happy-ride-with-baymax",
       "name_en": "The Happy Ride with Baymax",
       "name_ja": "ベイマックスのハッピーライド",
-      "wait_minutes": 120,
+      "wait_minutes": 140,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -423,7 +423,7 @@
       "id": "a-snow-whites-adventures",
       "name_en": "Snow White's Adventures",
       "name_ja": "白雪姫と七人のこびと",
-      "wait_minutes": 20,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -466,34 +466,34 @@
       "id": "a-mark-twain-riverboat",
       "name_en": "Mark Twain Riverboat",
       "name_ja": "蒸気船マークトウェイン号",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "CLOSED",
+      "wait_minutes": 10,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
-      "official_status_cd": "008",
-      "official_status_label": "準備中"
+      "official_status_cd": "001",
+      "official_status_label": "運営中"
     },
     {
       "id": "a-the-enchanted-tiki-room-stitch-presents-aloha-e-komo-mai",
       "name_en": "The Enchanted Tiki Room: Stitch Presents 'Aloha E Komo Mai!'",
       "name_ja": "魅惑のチキルーム：スティッチ・プレゼンツ“アロハ・エ・コモ・マイ！”",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "CLOSED",
+      "wait_minutes": 10,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
-      "official_status_cd": "008",
-      "official_status_label": "準備中"
+      "official_status_cd": "001",
+      "official_status_label": "運営中"
     }
   ],
   "summary": {
     "count": 37,
-    "open_count": 23,
-    "average_wait": 27.1,
-    "max_wait": 120
+    "open_count": 29,
+    "average_wait": 23.5,
+    "max_wait": 140
   },
   "closures": {
     "source_url": "https://www.tokyodisneyresort.jp/tdl/monthly/stop.html",
-    "fetched_at": "2026-07-12T01:00:56.223Z",
+    "fetched_at": "2026-07-12T01:07:40.493Z",
     "closures": {
       "a-peter-pans-flight": {
         "name_ja": "ピーターパン空の旅",
@@ -574,7 +574,7 @@
   },
   "shows": {
     "source_url": "https://www.tokyodisneyresort.jp/tdl/show.html",
-    "fetched_at": "2026-07-12T01:01:06.612Z",
+    "fetched_at": "2026-07-12T01:07:45.160Z",
     "items": [
       {
         "time": "17:00",

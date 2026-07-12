@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-12T01:01:16.058Z",
+  "fetched_at": "2026-07-12T01:07:52.570Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -17,7 +17,7 @@
       "id": "a-mk-134",
       "name_en": "Jungle Cruise",
       "name_ja": "ジャングルクルーズ",
-      "wait_minutes": 15,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -149,9 +149,9 @@
       "id": "a-mk-6700",
       "name_en": "Meet Cinderella and a Visiting Princess at Princess Fairytale Hall",
       "name_ja": "Meet Cinderella and a Visiting Princess at Princess Fairytale Hall",
-      "wait_minutes": 15,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -182,9 +182,9 @@
       "id": "a-mk-6699",
       "name_en": "Meet Princess Tiana and a Visiting Princess at Princess Fairytale Hall",
       "name_ja": "Meet Princess Tiana and a Visiting Princess at Princess Fairytale Hall",
-      "wait_minutes": 15,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -226,7 +226,7 @@
       "id": "a-mk-129",
       "name_en": "Seven Dwarfs Mine Train",
       "name_ja": "七人のこびとのマイントレイン",
-      "wait_minutes": 60,
+      "wait_minutes": 45,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -248,7 +248,7 @@
       "id": "a-mk-142",
       "name_en": "The Many Adventures of Winnie the Pooh",
       "name_ja": "The Many Adventures of Winnie the Pooh",
-      "wait_minutes": 20,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -281,7 +281,7 @@
       "id": "a-mk-130",
       "name_en": "Big Thunder Mountain Railroad",
       "name_ja": "ビッグサンダー・マウンテン",
-      "wait_minutes": 40,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -336,9 +336,9 @@
       "id": "a-mk-356",
       "name_en": "The Hall of Presidents",
       "name_ja": "The Hall of Presidents",
-      "wait_minutes": 15,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -467,14 +467,14 @@
   ],
   "summary": {
     "count": 42,
-    "open_count": 31,
-    "average_wait": 19.8,
+    "open_count": 28,
+    "average_wait": 19,
     "max_wait": 85
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/6/queue_times.json",
-    "fetched_at": "2026-07-12T01:01:16.058Z",
+    "fetched_at": "2026-07-12T01:07:52.570Z",
     "items": []
   }
 }
