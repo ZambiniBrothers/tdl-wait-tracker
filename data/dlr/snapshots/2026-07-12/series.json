@@ -1,6 +1,6 @@
 {
   "date": "2026-07-12",
-  "updated_at": "2026-07-13T00:00:57.779Z",
+  "updated_at": "2026-07-13T00:16:11.081Z",
   "points": [
     {
       "ms": 1783839672488,
@@ -913,6 +913,18 @@
         "average_wait": 20.8,
         "max_wait": 65
       }
+    },
+    {
+      "ms": 1783901770627,
+      "time": "1710",
+      "fetched_at": "2026-07-13T00:16:10.627Z",
+      "source": "queue-times",
+      "summary": {
+        "count": 56,
+        "open_count": 42,
+        "average_wait": 20.5,
+        "max_wait": 55
+      }
     }
   ],
   "attractions": {
@@ -920,6 +932,7 @@
       "name_en": "Adventureland Treehouse inspired by Walt Disney’s Swiss Family Robinson",
       "name_ja": "Adventureland Treehouse inspired by Walt Disney’s Swiss Family Robinson",
       "waits": [
+        null,
         null,
         null,
         null,
@@ -1073,6 +1086,7 @@
         true,
         true,
         true,
+        true,
         true
       ],
       "statuses": [
@@ -1151,9 +1165,11 @@
         "OPERATING",
         "OPERATING",
         "OPERATING",
+        "OPERATING",
         "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY",
         "STANDBY",
         "STANDBY",
@@ -1311,7 +1327,8 @@
         45,
         45,
         45,
-        35
+        35,
+        50
       ],
       "opens": [
         true,
@@ -1359,6 +1376,7 @@
         false,
         false,
         false,
+        true,
         true,
         true,
         true,
@@ -1467,9 +1485,11 @@
         "OPERATING",
         "OPERATING",
         "OPERATING",
+        "OPERATING",
         "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY",
         "STANDBY",
         "STANDBY",
@@ -1627,6 +1647,7 @@
         null,
         null,
         15,
+        15,
         15
       ],
       "opens": [
@@ -1704,6 +1725,7 @@
         true,
         false,
         false,
+        true,
         true,
         true
       ],
@@ -1783,9 +1805,11 @@
         "DOWN",
         "DOWN",
         "OPERATING",
+        "OPERATING",
         "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY",
         "STANDBY",
         "STANDBY",
@@ -1943,6 +1967,7 @@
         null,
         null,
         null,
+        null,
         null
       ],
       "opens": [
@@ -1982,6 +2007,7 @@
         false,
         false,
         false,
+        true,
         true,
         true,
         true,
@@ -2099,9 +2125,11 @@
         "OPERATING",
         "OPERATING",
         "OPERATING",
+        "OPERATING",
         "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY",
         "STANDBY",
         "STANDBY",
@@ -2259,7 +2287,8 @@
         5,
         5,
         5,
-        5
+        5,
+        null
       ],
       "opens": [
         false,
@@ -2337,7 +2366,8 @@
         true,
         true,
         true,
-        true
+        true,
+        false
       ],
       "statuses": [
         "NO_INFO",
@@ -2415,9 +2445,11 @@
         "OPERATING",
         "OPERATING",
         "OPERATING",
-        "OPERATING"
+        "OPERATING",
+        "DOWN"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY",
         "STANDBY",
         "STANDBY",
@@ -2575,6 +2607,7 @@
         5,
         5,
         5,
+        null,
         null
       ],
       "opens": [
@@ -2653,6 +2686,7 @@
         true,
         true,
         true,
+        false,
         false
       ],
       "statuses": [
@@ -2731,9 +2765,11 @@
         "OPERATING",
         "OPERATING",
         "OPERATING",
+        "DOWN",
         "DOWN"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY",
         "STANDBY",
         "STANDBY",
@@ -2891,6 +2927,7 @@
         45,
         45,
         45,
+        45,
         45
       ],
       "opens": [
@@ -2940,6 +2977,7 @@
         false,
         false,
         false,
+        true,
         true,
         true,
         true,
@@ -3047,9 +3085,11 @@
         "OPERATING",
         "OPERATING",
         "OPERATING",
+        "OPERATING",
         "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY",
         "STANDBY",
         "STANDBY",
@@ -3207,6 +3247,7 @@
         null,
         null,
         null,
+        null,
         null
       ],
       "opens": [
@@ -3256,6 +3297,7 @@
         false,
         false,
         false,
+        true,
         true,
         true,
         true,
@@ -3363,9 +3405,11 @@
         "OPERATING",
         "OPERATING",
         "OPERATING",
+        "OPERATING",
         "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY",
         "STANDBY",
         "STANDBY",
@@ -3523,6 +3567,7 @@
         5,
         5,
         5,
+        5,
         5
       ],
       "opens": [
@@ -3568,6 +3613,7 @@
         true,
         true,
         false,
+        true,
         true,
         true,
         true,
@@ -3679,9 +3725,11 @@
         "OPERATING",
         "OPERATING",
         "OPERATING",
+        "OPERATING",
         "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY",
         "STANDBY",
         "STANDBY",
@@ -3839,6 +3887,7 @@
         20,
         20,
         20,
+        20,
         20
       ],
       "opens": [
@@ -3895,6 +3944,7 @@
         true,
         false,
         false,
+        true,
         true,
         true,
         true,
@@ -3995,9 +4045,11 @@
         "OPERATING",
         "OPERATING",
         "OPERATING",
+        "OPERATING",
         "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY",
         "STANDBY",
         "STANDBY",
@@ -4155,9 +4207,11 @@
         null,
         null,
         null,
+        null,
         null
       ],
       "opens": [
+        true,
         true,
         true,
         true,
@@ -4311,9 +4365,11 @@
         "OPERATING",
         "OPERATING",
         "OPERATING",
+        "OPERATING",
         "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY",
         "STANDBY",
         "STANDBY",
@@ -4471,6 +4527,7 @@
         5,
         5,
         5,
+        5,
         5
       ],
       "opens": [
@@ -4510,6 +4567,7 @@
         false,
         false,
         false,
+        true,
         true,
         true,
         true,
@@ -4627,9 +4685,11 @@
         "OPERATING",
         "OPERATING",
         "OPERATING",
+        "OPERATING",
         "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY",
         "STANDBY",
         "STANDBY",
@@ -4787,6 +4847,7 @@
         15,
         15,
         15,
+        20,
         20
       ],
       "opens": [
@@ -4826,6 +4887,7 @@
         false,
         false,
         false,
+        true,
         true,
         true,
         true,
@@ -4943,9 +5005,11 @@
         "OPERATING",
         "OPERATING",
         "OPERATING",
+        "OPERATING",
         "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY",
         "STANDBY",
         "STANDBY",
@@ -5103,9 +5167,11 @@
         null,
         null,
         null,
+        null,
         null
       ],
       "opens": [
+        false,
         false,
         false,
         false,
@@ -5259,9 +5325,11 @@
         "NO_INFO",
         "NO_INFO",
         "NO_INFO",
+        "NO_INFO",
         "NO_INFO"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY",
         "STANDBY",
         "STANDBY",
@@ -5419,6 +5487,7 @@
         5,
         5,
         5,
+        5,
         5
       ],
       "opens": [
@@ -5458,6 +5527,7 @@
         false,
         false,
         false,
+        true,
         true,
         true,
         true,
@@ -5575,9 +5645,11 @@
         "OPERATING",
         "OPERATING",
         "OPERATING",
+        "OPERATING",
         "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY",
         "STANDBY",
         "STANDBY",
@@ -5735,6 +5807,7 @@
         null,
         null,
         null,
+        null,
         null
       ],
       "opens": [
@@ -5809,6 +5882,7 @@
         true,
         true,
         true,
+        false,
         false,
         false,
         false,
@@ -5891,9 +5965,11 @@
         "DOWN",
         "DOWN",
         "DOWN",
+        "DOWN",
         "DOWN"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY",
         "STANDBY",
         "STANDBY",
@@ -6051,6 +6127,7 @@
         30,
         30,
         30,
+        30,
         30
       ],
       "opens": [
@@ -6098,6 +6175,7 @@
         false,
         false,
         false,
+        true,
         true,
         true,
         true,
@@ -6207,9 +6285,11 @@
         "OPERATING",
         "OPERATING",
         "OPERATING",
+        "OPERATING",
         "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY",
         "STANDBY",
         "STANDBY",
@@ -6367,6 +6447,7 @@
         15,
         15,
         15,
+        15,
         15
       ],
       "opens": [
@@ -6406,6 +6487,7 @@
         false,
         false,
         false,
+        true,
         true,
         true,
         true,
@@ -6523,9 +6605,11 @@
         "OPERATING",
         "OPERATING",
         "OPERATING",
+        "OPERATING",
         "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY",
         "STANDBY",
         "STANDBY",
@@ -6683,6 +6767,7 @@
         30,
         30,
         30,
+        20,
         20
       ],
       "opens": [
@@ -6751,6 +6836,7 @@
         true,
         false,
         false,
+        true,
         true,
         true,
         true,
@@ -6839,9 +6925,11 @@
         "OPERATING",
         "OPERATING",
         "OPERATING",
+        "OPERATING",
         "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY",
         "STANDBY",
         "STANDBY",
@@ -6999,6 +7087,7 @@
         5,
         5,
         5,
+        10,
         10
       ],
       "opens": [
@@ -7074,6 +7163,7 @@
         true,
         true,
         false,
+        true,
         true,
         true,
         true,
@@ -7155,9 +7245,11 @@
         "OPERATING",
         "OPERATING",
         "OPERATING",
+        "OPERATING",
         "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY",
         "STANDBY",
         "STANDBY",
@@ -7315,9 +7407,11 @@
         null,
         null,
         null,
+        null,
         null
       ],
       "opens": [
+        false,
         false,
         false,
         false,
@@ -7471,9 +7565,11 @@
         "NO_INFO",
         "NO_INFO",
         "NO_INFO",
+        "NO_INFO",
         "NO_INFO"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY",
         "STANDBY",
         "STANDBY",
@@ -7631,6 +7727,7 @@
         15,
         15,
         15,
+        10,
         10
       ],
       "opens": [
@@ -7670,6 +7767,7 @@
         false,
         false,
         false,
+        true,
         true,
         true,
         true,
@@ -7787,9 +7885,11 @@
         "OPERATING",
         "OPERATING",
         "OPERATING",
+        "OPERATING",
         "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY",
         "STANDBY",
         "STANDBY",
@@ -7947,7 +8047,8 @@
         5,
         5,
         5,
-        10
+        10,
+        5
       ],
       "opens": [
         true,
@@ -7986,6 +8087,7 @@
         false,
         false,
         false,
+        true,
         true,
         true,
         true,
@@ -8103,9 +8205,11 @@
         "OPERATING",
         "OPERATING",
         "OPERATING",
+        "OPERATING",
         "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY",
         "STANDBY",
         "STANDBY",
@@ -8263,6 +8367,7 @@
         30,
         30,
         25,
+        30,
         30
       ],
       "opens": [
@@ -8302,6 +8407,7 @@
         false,
         false,
         false,
+        true,
         true,
         true,
         true,
@@ -8419,9 +8525,11 @@
         "OPERATING",
         "OPERATING",
         "OPERATING",
+        "OPERATING",
         "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY",
         "STANDBY",
         "STANDBY",
@@ -8579,9 +8687,11 @@
         null,
         null,
         null,
+        null,
         null
       ],
       "opens": [
+        false,
         false,
         false,
         false,
@@ -8735,9 +8845,11 @@
         "NO_INFO",
         "NO_INFO",
         "NO_INFO",
+        "NO_INFO",
         "NO_INFO"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY",
         "STANDBY",
         "STANDBY",
@@ -8895,6 +9007,7 @@
         10,
         10,
         10,
+        10,
         10
       ],
       "opens": [
@@ -8937,6 +9050,7 @@
         false,
         false,
         false,
+        true,
         true,
         true,
         true,
@@ -9051,9 +9165,11 @@
         "OPERATING",
         "OPERATING",
         "OPERATING",
+        "OPERATING",
         "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY",
         "STANDBY",
         "STANDBY",
@@ -9211,6 +9327,7 @@
         5,
         5,
         5,
+        null,
         null
       ],
       "opens": [
@@ -9289,6 +9406,7 @@
         true,
         true,
         true,
+        false,
         false
       ],
       "statuses": [
@@ -9367,9 +9485,11 @@
         "OPERATING",
         "OPERATING",
         "OPERATING",
+        "DOWN",
         "DOWN"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY",
         "STANDBY",
         "STANDBY",
@@ -9527,6 +9647,7 @@
         null,
         null,
         null,
+        null,
         null
       ],
       "opens": [
@@ -9599,6 +9720,7 @@
         true,
         true,
         true,
+        false,
         false,
         false,
         false,
@@ -9683,9 +9805,11 @@
         "DOWN",
         "DOWN",
         "DOWN",
+        "DOWN",
         "DOWN"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY",
         "STANDBY",
         "STANDBY",
@@ -9843,6 +9967,7 @@
         10,
         10,
         10,
+        10,
         10
       ],
       "opens": [
@@ -9882,6 +10007,7 @@
         false,
         false,
         false,
+        true,
         true,
         true,
         true,
@@ -9999,9 +10125,11 @@
         "OPERATING",
         "OPERATING",
         "OPERATING",
+        "OPERATING",
         "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY",
         "STANDBY",
         "STANDBY",
@@ -10159,6 +10287,7 @@
         null,
         null,
         null,
+        null,
         null
       ],
       "opens": [
@@ -10221,6 +10350,7 @@
         true,
         true,
         true,
+        false,
         false,
         false,
         false,
@@ -10315,9 +10445,11 @@
         "DOWN",
         "DOWN",
         "DOWN",
+        "DOWN",
         "DOWN"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY",
         "STANDBY",
         "STANDBY",
@@ -10475,6 +10607,7 @@
         null,
         null,
         null,
+        null,
         null
       ],
       "opens": [
@@ -10513,6 +10646,7 @@
         false,
         false,
         false,
+        true,
         true,
         true,
         true,
@@ -10631,9 +10765,11 @@
         "OPERATING",
         "OPERATING",
         "OPERATING",
+        "OPERATING",
         "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY",
         "STANDBY",
         "STANDBY",
@@ -10791,6 +10927,7 @@
         null,
         null,
         null,
+        null,
         null
       ],
       "opens": [
@@ -10860,6 +10997,7 @@
         true,
         true,
         true,
+        false,
         false,
         false,
         false,
@@ -10947,9 +11085,11 @@
         "DOWN",
         "DOWN",
         "DOWN",
+        "DOWN",
         "DOWN"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY",
         "STANDBY",
         "STANDBY",
@@ -11107,6 +11247,7 @@
         null,
         null,
         null,
+        null,
         null
       ],
       "opens": [
@@ -11146,6 +11287,7 @@
         false,
         false,
         false,
+        true,
         true,
         true,
         true,
@@ -11263,9 +11405,11 @@
         "OPERATING",
         "OPERATING",
         "OPERATING",
+        "OPERATING",
         "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY",
         "STANDBY",
         "STANDBY",
@@ -11423,6 +11567,7 @@
         null,
         null,
         null,
+        null,
         null
       ],
       "opens": [
@@ -11461,6 +11606,7 @@
         false,
         false,
         false,
+        true,
         true,
         true,
         true,
@@ -11579,9 +11725,11 @@
         "OPERATING",
         "OPERATING",
         "OPERATING",
+        "OPERATING",
         "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY",
         "STANDBY",
         "STANDBY",
@@ -11739,6 +11887,7 @@
         null,
         null,
         null,
+        null,
         null
       ],
       "opens": [
@@ -11803,6 +11952,7 @@
         false,
         false,
         false,
+        true,
         true,
         true,
         true,
@@ -11895,9 +12045,11 @@
         "OPERATING",
         "OPERATING",
         "OPERATING",
+        "OPERATING",
         "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY",
         "STANDBY",
         "STANDBY",
@@ -12055,6 +12207,7 @@
         20,
         20,
         25,
+        25,
         25
       ],
       "opens": [
@@ -12094,6 +12247,7 @@
         false,
         false,
         false,
+        true,
         true,
         true,
         true,
@@ -12211,9 +12365,11 @@
         "OPERATING",
         "OPERATING",
         "OPERATING",
+        "OPERATING",
         "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY",
         "STANDBY",
         "STANDBY",
@@ -12371,6 +12527,7 @@
         null,
         null,
         null,
+        null,
         null
       ],
       "opens": [
@@ -12410,6 +12567,7 @@
         false,
         false,
         false,
+        true,
         true,
         true,
         true,
@@ -12527,9 +12685,11 @@
         "OPERATING",
         "OPERATING",
         "OPERATING",
+        "OPERATING",
         "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY",
         "STANDBY",
         "STANDBY",
@@ -12687,6 +12847,7 @@
         null,
         null,
         null,
+        null,
         null
       ],
       "opens": [
@@ -12726,6 +12887,7 @@
         false,
         false,
         false,
+        true,
         true,
         true,
         true,
@@ -12843,9 +13005,11 @@
         "OPERATING",
         "OPERATING",
         "OPERATING",
+        "OPERATING",
         "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY",
         "STANDBY",
         "STANDBY",
@@ -13003,7 +13167,8 @@
         40,
         40,
         40,
-        30
+        30,
+        null
       ],
       "opens": [
         true,
@@ -13081,7 +13246,8 @@
         true,
         true,
         true,
-        true
+        true,
+        false
       ],
       "statuses": [
         "OPERATING",
@@ -13159,9 +13325,11 @@
         "OPERATING",
         "OPERATING",
         "OPERATING",
-        "OPERATING"
+        "OPERATING",
+        "DOWN"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY",
         "STANDBY",
         "STANDBY",
@@ -13319,6 +13487,7 @@
         15,
         15,
         15,
+        30,
         30
       ],
       "opens": [
@@ -13358,6 +13527,7 @@
         false,
         false,
         false,
+        true,
         true,
         true,
         true,
@@ -13475,9 +13645,11 @@
         "OPERATING",
         "OPERATING",
         "OPERATING",
+        "OPERATING",
         "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY",
         "STANDBY",
         "STANDBY",
@@ -13635,9 +13807,11 @@
         null,
         null,
         null,
+        null,
         null
       ],
       "opens": [
+        false,
         false,
         false,
         false,
@@ -13791,9 +13965,11 @@
         "NO_INFO",
         "NO_INFO",
         "NO_INFO",
+        "NO_INFO",
         "NO_INFO"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY",
         "STANDBY",
         "STANDBY",
@@ -13951,6 +14127,7 @@
         null,
         null,
         null,
+        null,
         null
       ],
       "opens": [
@@ -13993,6 +14170,7 @@
         false,
         false,
         false,
+        true,
         true,
         true,
         true,
@@ -14107,9 +14285,11 @@
         "OPERATING",
         "OPERATING",
         "OPERATING",
+        "OPERATING",
         "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY",
         "STANDBY",
         "STANDBY",
@@ -14267,6 +14447,7 @@
         null,
         null,
         null,
+        null,
         null
       ],
       "opens": [
@@ -14341,6 +14522,7 @@
         true,
         true,
         true,
+        false,
         false,
         false,
         false,
@@ -14423,9 +14605,11 @@
         "DOWN",
         "DOWN",
         "DOWN",
+        "DOWN",
         "DOWN"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY",
         "STANDBY",
         "STANDBY",
@@ -14583,7 +14767,8 @@
         30,
         30,
         30,
-        40
+        40,
+        25
       ],
       "opens": [
         true,
@@ -14622,6 +14807,7 @@
         false,
         false,
         false,
+        true,
         true,
         true,
         true,
@@ -14739,9 +14925,11 @@
         "OPERATING",
         "OPERATING",
         "OPERATING",
+        "OPERATING",
         "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY",
         "STANDBY",
         "STANDBY",
@@ -14899,7 +15087,8 @@
         20,
         20,
         20,
-        30
+        30,
+        25
       ],
       "opens": [
         true,
@@ -14964,6 +15153,7 @@
         true,
         true,
         false,
+        true,
         true,
         true,
         true,
@@ -15055,9 +15245,11 @@
         "OPERATING",
         "OPERATING",
         "OPERATING",
+        "OPERATING",
         "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY",
         "STANDBY",
         "STANDBY",
@@ -15215,6 +15407,7 @@
         10,
         10,
         10,
+        10,
         10
       ],
       "opens": [
@@ -15254,6 +15447,7 @@
         false,
         false,
         false,
+        true,
         true,
         true,
         true,
@@ -15371,9 +15565,11 @@
         "OPERATING",
         "OPERATING",
         "OPERATING",
+        "OPERATING",
         "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY",
         "STANDBY",
         "STANDBY",
@@ -15531,6 +15727,7 @@
         null,
         null,
         null,
+        null,
         null
       ],
       "opens": [
@@ -15570,6 +15767,7 @@
         false,
         false,
         false,
+        true,
         true,
         true,
         true,
@@ -15687,9 +15885,11 @@
         "OPERATING",
         "OPERATING",
         "OPERATING",
+        "OPERATING",
         "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY",
         "STANDBY",
         "STANDBY",
@@ -15847,6 +16047,7 @@
         45,
         45,
         40,
+        55,
         55
       ],
       "opens": [
@@ -15893,6 +16094,7 @@
         false,
         false,
         false,
+        true,
         true,
         true,
         true,
@@ -16003,9 +16205,11 @@
         "OPERATING",
         "OPERATING",
         "OPERATING",
+        "OPERATING",
         "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY",
         "STANDBY",
         "STANDBY",
@@ -16163,6 +16367,7 @@
         15,
         15,
         15,
+        10,
         10
       ],
       "opens": [
@@ -16202,6 +16407,7 @@
         false,
         false,
         false,
+        true,
         true,
         true,
         true,
@@ -16319,9 +16525,11 @@
         "OPERATING",
         "OPERATING",
         "OPERATING",
+        "OPERATING",
         "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY",
         "STANDBY",
         "STANDBY",
@@ -16479,6 +16687,7 @@
         15,
         15,
         20,
+        20,
         20
       ],
       "opens": [
@@ -16518,6 +16727,7 @@
         false,
         false,
         false,
+        true,
         true,
         true,
         true,
@@ -16635,9 +16845,11 @@
         "OPERATING",
         "OPERATING",
         "OPERATING",
+        "OPERATING",
         "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY",
         "STANDBY",
         "STANDBY",
@@ -16795,6 +17007,7 @@
         15,
         15,
         15,
+        15,
         15
       ],
       "opens": [
@@ -16834,6 +17047,7 @@
         false,
         false,
         false,
+        true,
         true,
         true,
         true,
@@ -16951,9 +17165,11 @@
         "OPERATING",
         "OPERATING",
         "OPERATING",
+        "OPERATING",
         "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY",
         "STANDBY",
         "STANDBY",
@@ -17111,6 +17327,7 @@
         5,
         5,
         5,
+        5,
         5
       ],
       "opens": [
@@ -17150,6 +17367,7 @@
         false,
         false,
         false,
+        true,
         true,
         true,
         true,
@@ -17267,9 +17485,11 @@
         "OPERATING",
         "OPERATING",
         "OPERATING",
+        "OPERATING",
         "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY",
         "STANDBY",
         "STANDBY",
@@ -17427,7 +17647,8 @@
         10,
         10,
         15,
-        20
+        20,
+        25
       ],
       "opens": [
         true,
@@ -17466,6 +17687,7 @@
         false,
         false,
         false,
+        true,
         true,
         true,
         true,
@@ -17583,9 +17805,11 @@
         "OPERATING",
         "OPERATING",
         "OPERATING",
+        "OPERATING",
         "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY",
         "STANDBY",
         "STANDBY",
@@ -17743,9 +17967,11 @@
         null,
         null,
         null,
+        null,
         null
       ],
       "opens": [
+        false,
         false,
         false,
         false,
@@ -17899,9 +18125,11 @@
         "NO_INFO",
         "NO_INFO",
         "NO_INFO",
+        "NO_INFO",
         "NO_INFO"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY",
         "STANDBY",
         "STANDBY",
@@ -18059,7 +18287,8 @@
         55,
         55,
         60,
-        65
+        65,
+        55
       ],
       "opens": [
         true,
@@ -18125,6 +18354,7 @@
         true,
         false,
         false,
+        true,
         true,
         true,
         true,
@@ -18215,9 +18445,11 @@
         "OPERATING",
         "OPERATING",
         "OPERATING",
+        "OPERATING",
         "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY",
         "STANDBY",
         "STANDBY",
@@ -18375,6 +18607,7 @@
         10,
         10,
         10,
+        10,
         10
       ],
       "opens": [
@@ -18414,6 +18647,7 @@
         false,
         false,
         false,
+        true,
         true,
         true,
         true,
@@ -18531,9 +18765,11 @@
         "OPERATING",
         "OPERATING",
         "OPERATING",
+        "OPERATING",
         "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY",
         "STANDBY",
         "STANDBY",
