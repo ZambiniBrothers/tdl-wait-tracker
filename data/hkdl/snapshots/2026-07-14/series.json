@@ -1,6 +1,6 @@
 {
   "date": "2026-07-14",
-  "updated_at": "2026-07-14T02:31:14.997Z",
+  "updated_at": "2026-07-14T02:45:41.925Z",
   "points": [
     {
       "ms": 1783996274612,
@@ -13,6 +13,18 @@
         "average_wait": 5.8,
         "max_wait": 10
       }
+    },
+    {
+      "ms": 1783997141266,
+      "time": "1040",
+      "fetched_at": "2026-07-14T02:45:41.266Z",
+      "source": "queue-times",
+      "summary": {
+        "count": 50,
+        "open_count": 39,
+        "average_wait": 11.3,
+        "max_wait": 20
+      }
     }
   ],
   "attractions": {
@@ -20,15 +32,19 @@
       "name_en": "\"it's a small world\"",
       "name_ja": "イッツ・ア・スモールワールド",
       "waits": [
+        5,
         5
       ],
       "opens": [
+        true,
         true
       ],
       "statuses": [
+        "OPERATING",
         "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -36,15 +52,19 @@
       "name_en": "Animation Academy",
       "name_ja": "Animation Academy",
       "waits": [
+        null,
         null
       ],
       "opens": [
-        false
+        false,
+        true
       ],
       "statuses": [
-        "NO_INFO"
+        "NO_INFO",
+        "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -52,15 +72,19 @@
       "name_en": "Ant-Man and The Wasp: Nano Battle!",
       "name_ja": "Ant-Man and The Wasp: Nano Battle!",
       "waits": [
-        5
+        5,
+        10
       ],
       "opens": [
+        true,
         true
       ],
       "statuses": [
+        "OPERATING",
         "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -68,15 +92,19 @@
       "name_en": "Barrel of Fun",
       "name_ja": "Barrel of Fun",
       "waits": [
+        null,
         null
       ],
       "opens": [
+        true,
         true
       ],
       "statuses": [
+        "OPERATING",
         "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -84,15 +112,19 @@
       "name_en": "Big Grizzly Mountain Runaway Mine Cars",
       "name_ja": "ビッググリズリー・マウンテン",
       "waits": [
-        null
+        null,
+        10
       ],
       "opens": [
-        false
+        false,
+        true
       ],
       "statuses": [
-        "NO_INFO"
+        "NO_INFO",
+        "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -100,15 +132,19 @@
       "name_en": "Big Grizzly Mountain Runaway Mine Cars Single Rider",
       "name_ja": "ビッググリズリー・マウンテン",
       "waits": [
+        null,
         null
       ],
       "opens": [
-        false
+        false,
+        true
       ],
       "statuses": [
-        "NO_INFO"
+        "NO_INFO",
+        "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -116,15 +152,19 @@
       "name_en": "Castle of Magical Dreams",
       "name_ja": "Castle of Magical Dreams",
       "waits": [
+        null,
         null
       ],
       "opens": [
+        true,
         true
       ],
       "statuses": [
+        "OPERATING",
         "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -132,15 +172,19 @@
       "name_en": "Cinderella Carousel",
       "name_ja": "Cinderella Carousel",
       "waits": [
+        null,
         null
       ],
       "opens": [
+        true,
         true
       ],
       "statuses": [
+        "OPERATING",
         "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -148,15 +192,19 @@
       "name_en": "Duffy and Friends Play House",
       "name_ja": "Duffy and Friends Play House",
       "waits": [
+        null,
         null
       ],
       "opens": [
+        true,
         true
       ],
       "statuses": [
+        "OPERATING",
         "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -164,15 +212,19 @@
       "name_en": "Dumbo the Flying Elephant",
       "name_ja": "空飛ぶダンボ",
       "waits": [
+        null,
         null
       ],
       "opens": [
+        true,
         true
       ],
       "statuses": [
+        "OPERATING",
         "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -180,15 +232,19 @@
       "name_en": "Explorer's Club Restaurant",
       "name_ja": "Explorer's Club Restaurant",
       "waits": [
+        null,
         null
       ],
       "opens": [
+        false,
         false
       ],
       "statuses": [
+        "NO_INFO",
         "NO_INFO"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -196,15 +252,19 @@
       "name_en": "Fairy Tale Forest",
       "name_ja": "Fairy Tale Forest",
       "waits": [
+        null,
         null
       ],
       "opens": [
+        true,
         true
       ],
       "statuses": [
+        "OPERATING",
         "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -212,15 +272,19 @@
       "name_en": "Fantasy Gardens",
       "name_ja": "Fantasy Gardens",
       "waits": [
+        null,
         null
       ],
       "opens": [
+        true,
         true
       ],
       "statuses": [
+        "OPERATING",
         "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -228,15 +292,19 @@
       "name_en": "Frozen Ever After – Presented by Blue Cross",
       "name_ja": "フローズン・エバーアフター",
       "waits": [
+        5,
         5
       ],
       "opens": [
+        true,
         true
       ],
       "statuses": [
+        "OPERATING",
         "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -244,15 +312,19 @@
       "name_en": "Garden of Wonders",
       "name_ja": "Garden of Wonders",
       "waits": [
+        null,
         null
       ],
       "opens": [
+        true,
         true
       ],
       "statuses": [
+        "OPERATING",
         "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -260,15 +332,19 @@
       "name_en": "Geyser Gulch",
       "name_ja": "Geyser Gulch",
       "waits": [
+        null,
         null
       ],
       "opens": [
+        true,
         true
       ],
       "statuses": [
+        "OPERATING",
         "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -276,15 +352,19 @@
       "name_en": "Hong Kong Disneyland Railroad - Main Street Station",
       "name_ja": "Hong Kong Disneyland Railroad - Main Street Station",
       "waits": [
+        null,
         null
       ],
       "opens": [
+        true,
         true
       ],
       "statuses": [
+        "OPERATING",
         "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -292,15 +372,19 @@
       "name_en": "Hong Kong Disneyland Railroad – Fantasyland Station",
       "name_ja": "Hong Kong Disneyland Railroad – Fantasyland Station",
       "waits": [
+        null,
         null
       ],
       "opens": [
+        false,
         false
       ],
       "statuses": [
+        "NO_INFO",
         "NO_INFO"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -308,15 +392,19 @@
       "name_en": "Hyperspace Mountain",
       "name_ja": "ハイパースペース・マウンテン",
       "waits": [
-        5
+        5,
+        10
       ],
       "opens": [
+        true,
         true
       ],
       "statuses": [
+        "OPERATING",
         "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -324,15 +412,19 @@
       "name_en": "Hyperspace Mountain Single Rider",
       "name_ja": "ハイパースペース・マウンテン",
       "waits": [
+        null,
         null
       ],
       "opens": [
+        true,
         true
       ],
       "statuses": [
+        "OPERATING",
         "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -340,15 +432,19 @@
       "name_en": "Iron Man Experience - Presented by AIA",
       "name_ja": "Iron Man Experience - Presented by AIA",
       "waits": [
+        5,
         5
       ],
       "opens": [
+        true,
         true
       ],
       "statuses": [
+        "OPERATING",
         "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -356,15 +452,19 @@
       "name_en": "Iron Man Tech Showcase - Presented by Stark Industries",
       "name_ja": "Iron Man Tech Showcase - Presented by Stark Industries",
       "waits": [
+        null,
         null
       ],
       "opens": [
+        false,
         false
       ],
       "statuses": [
+        "NO_INFO",
         "NO_INFO"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -372,15 +472,19 @@
       "name_en": "Jungle River Cruise",
       "name_ja": "ジャングルリバークルーズ",
       "waits": [
-        10
+        10,
+        15
       ],
       "opens": [
+        true,
         true
       ],
       "statuses": [
+        "OPERATING",
         "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -388,15 +492,19 @@
       "name_en": "Liki Tikis",
       "name_ja": "Liki Tikis",
       "waits": [
+        null,
         null
       ],
       "opens": [
+        true,
         true
       ],
       "statuses": [
+        "OPERATING",
         "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -404,15 +512,19 @@
       "name_en": "Mad Hatter Tea Cups",
       "name_ja": "Mad Hatter Tea Cups",
       "waits": [
+        null,
         null
       ],
       "opens": [
+        true,
         true
       ],
       "statuses": [
+        "OPERATING",
         "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -420,15 +532,19 @@
       "name_en": "Main Street Corner Cafe Hosted by Coca-Cola®",
       "name_ja": "Main Street Corner Cafe Hosted by Coca-Cola®",
       "waits": [
+        null,
         null
       ],
       "opens": [
+        false,
         false
       ],
       "statuses": [
+        "NO_INFO",
         "NO_INFO"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -436,15 +552,19 @@
       "name_en": "Main Street Vehicles",
       "name_ja": "Main Street Vehicles",
       "waits": [
+        null,
         null
       ],
       "opens": [
+        true,
         true
       ],
       "statuses": [
+        "OPERATING",
         "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -452,15 +572,19 @@
       "name_en": "Meet ‘Olu Mel at Duffy and Friends Play House",
       "name_ja": "Meet ‘Olu Mel at Duffy and Friends Play House",
       "waits": [
+        null,
         null
       ],
       "opens": [
+        false,
         false
       ],
       "statuses": [
+        "NO_INFO",
         "NO_INFO"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -468,15 +592,19 @@
       "name_en": "Meet CookieAnn at Duffy and Friends Play House",
       "name_ja": "Meet CookieAnn at Duffy and Friends Play House",
       "waits": [
-        null
+        null,
+        20
       ],
       "opens": [
+        true,
         true
       ],
       "statuses": [
+        "OPERATING",
         "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -484,15 +612,19 @@
       "name_en": "Meet Duffy at Duffy and Friends Play House",
       "name_ja": "Meet Duffy at Duffy and Friends Play House",
       "waits": [
+        null,
         null
       ],
       "opens": [
+        false,
         false
       ],
       "statuses": [
+        "NO_INFO",
         "NO_INFO"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -500,15 +632,19 @@
       "name_en": "Meet Gelatoni at Duffy and Friends Play House",
       "name_ja": "Meet Gelatoni at Duffy and Friends Play House",
       "waits": [
-        null
+        null,
+        20
       ],
       "opens": [
+        true,
         true
       ],
       "statuses": [
+        "OPERATING",
         "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -516,15 +652,19 @@
       "name_en": "Meet LinaBell at Duffy and Friends Play House",
       "name_ja": "Meet LinaBell at Duffy and Friends Play House",
       "waits": [
-        null
+        null,
+        20
       ],
       "opens": [
+        true,
         true
       ],
       "statuses": [
+        "OPERATING",
         "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -532,15 +672,19 @@
       "name_en": "Meet ShellieMay at Duffy and Friends Play House",
       "name_ja": "Meet ShellieMay at Duffy and Friends Play House",
       "waits": [
+        null,
         null
       ],
       "opens": [
+        false,
         false
       ],
       "statuses": [
+        "NO_INFO",
         "NO_INFO"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -548,15 +692,19 @@
       "name_en": "Meet StellaLou at Duffy and Friends Play House",
       "name_ja": "Meet StellaLou at Duffy and Friends Play House",
       "waits": [
+        null,
         null
       ],
       "opens": [
+        false,
         false
       ],
       "statuses": [
+        "NO_INFO",
         "NO_INFO"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -564,15 +712,19 @@
       "name_en": "Mickey's PhilharMagic",
       "name_ja": "ミッキーのフィルハーマジック",
       "waits": [
-        null
+        null,
+        15
       ],
       "opens": [
-        false
+        false,
+        true
       ],
       "statuses": [
-        "NO_INFO"
+        "NO_INFO",
+        "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -580,15 +732,19 @@
       "name_en": "Mystic Manor",
       "name_ja": "ミスティック・マナー",
       "waits": [
-        null
+        null,
+        5
       ],
       "opens": [
-        false
+        false,
+        true
       ],
       "statuses": [
-        "NO_INFO"
+        "NO_INFO",
+        "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -596,15 +752,19 @@
       "name_en": "Mystic Point Freight Depot",
       "name_ja": "Mystic Point Freight Depot",
       "waits": [
+        null,
         null
       ],
       "opens": [
+        true,
         true
       ],
       "statuses": [
+        "OPERATING",
         "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -612,15 +772,19 @@
       "name_en": "Orbitron",
       "name_ja": "Orbitron",
       "waits": [
+        null,
         null
       ],
       "opens": [
+        true,
         true
       ],
       "statuses": [
+        "OPERATING",
         "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -628,15 +792,19 @@
       "name_en": "Playhouse in the Woods",
       "name_ja": "Playhouse in the Woods",
       "waits": [
+        null,
         null
       ],
       "opens": [
+        false,
         false
       ],
       "statuses": [
+        "NO_INFO",
         "NO_INFO"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -644,15 +812,19 @@
       "name_en": "Rafts to Tarzan's Treehouse",
       "name_ja": "Rafts to Tarzan's Treehouse",
       "waits": [
+        null,
         null
       ],
       "opens": [
+        true,
         true
       ],
       "statuses": [
+        "OPERATING",
         "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -660,15 +832,19 @@
       "name_en": "RC Racer",
       "name_ja": "RC Racer",
       "waits": [
-        null
+        null,
+        10
       ],
       "opens": [
-        false
+        false,
+        true
       ],
       "statuses": [
-        "NO_INFO"
+        "NO_INFO",
+        "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -676,15 +852,19 @@
       "name_en": "River View Cafe",
       "name_ja": "River View Cafe",
       "waits": [
+        null,
         null
       ],
       "opens": [
+        false,
         false
       ],
       "statuses": [
+        "NO_INFO",
         "NO_INFO"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -692,15 +872,19 @@
       "name_en": "Slinky Dog Spin",
       "name_ja": "Slinky Dog Spin",
       "waits": [
-        null
+        null,
+        10
       ],
       "opens": [
-        false
+        false,
+        true
       ],
       "statuses": [
-        "NO_INFO"
+        "NO_INFO",
+        "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -708,15 +892,19 @@
       "name_en": "Tarzan's Treehouse",
       "name_ja": "Tarzan's Treehouse",
       "waits": [
+        null,
         null
       ],
       "opens": [
+        false,
         false
       ],
       "statuses": [
+        "NO_INFO",
         "NO_INFO"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -724,15 +912,19 @@
       "name_en": "The Many Adventures of Winnie the Pooh",
       "name_ja": "The Many Adventures of Winnie the Pooh",
       "waits": [
+        null,
         null
       ],
       "opens": [
+        true,
         true
       ],
       "statuses": [
+        "OPERATING",
         "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -740,15 +932,19 @@
       "name_en": "The Royal Reception Hall",
       "name_ja": "The Royal Reception Hall",
       "waits": [
+        null,
         null
       ],
       "opens": [
-        false
+        false,
+        true
       ],
       "statuses": [
-        "NO_INFO"
+        "NO_INFO",
+        "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -756,15 +952,19 @@
       "name_en": "Toy Soldier Parachute Drop",
       "name_ja": "Toy Soldier Parachute Drop",
       "waits": [
-        null
+        null,
+        10
       ],
       "opens": [
-        false
+        false,
+        true
       ],
       "statuses": [
-        "NO_INFO"
+        "NO_INFO",
+        "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -772,15 +972,19 @@
       "name_en": "Toy Soldier Parachute Drop Single Rider",
       "name_ja": "Toy Soldier Parachute Drop Single Rider",
       "waits": [
+        null,
         null
       ],
       "opens": [
-        false
+        false,
+        true
       ],
       "statuses": [
-        "NO_INFO"
+        "NO_INFO",
+        "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -788,15 +992,19 @@
       "name_en": "Wandering Oaken’s Sliding Sleighs",
       "name_ja": "Wandering Oaken’s Sliding Sleighs",
       "waits": [
+        null,
         null
       ],
       "opens": [
+        true,
         true
       ],
       "statuses": [
+        "OPERATING",
         "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     },
@@ -804,15 +1012,19 @@
       "name_en": "Wild West Photo Fun",
       "name_ja": "Wild West Photo Fun",
       "waits": [
+        null,
         null
       ],
       "opens": [
+        true,
         true
       ],
       "statuses": [
+        "OPERATING",
         "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY"
       ]
     }
