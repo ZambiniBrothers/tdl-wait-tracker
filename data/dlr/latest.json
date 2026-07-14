@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-14T15:00:49.081Z",
+  "fetched_at": "2026-07-14T15:02:26.987Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -7,8 +7,8 @@
       "name_en": "Adventureland Treehouse inspired by Walt Disney’s Swiss Family Robinson",
       "name_ja": "Adventureland Treehouse inspired by Walt Disney’s Swiss Family Robinson",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -73,8 +73,8 @@
       "name_en": "Tiana's Bayou Adventure",
       "name_ja": "Tiana's Bayou Adventure",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -84,8 +84,8 @@
       "name_en": "Tiana's Bayou Adventure Single Rider",
       "name_ja": "Tiana's Bayou Adventure Single Rider",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -326,8 +326,8 @@
       "name_en": "Great Moments with Mr. Lincoln",
       "name_ja": "Great Moments with Mr. Lincoln",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -337,8 +337,8 @@
       "name_en": "Main Street Cinema",
       "name_ja": "Main Street Cinema",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -348,8 +348,8 @@
       "name_en": "Main Street Vehicles",
       "name_ja": "Main Street Vehicles",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -370,8 +370,8 @@
       "name_en": "The Disney Gallery",
       "name_ja": "The Disney Gallery",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -391,9 +391,9 @@
       "id": "a-dlr-324",
       "name_en": "Chip 'n' Dale's GADGETcoaster",
       "name_ja": "Chip 'n' Dale's GADGETcoaster",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -403,8 +403,8 @@
       "name_en": "Donald's Duck Pond",
       "name_ja": "Donald's Duck Pond",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -425,8 +425,8 @@
       "name_en": "Mickey & Minnie's Runaway Railway",
       "name_ja": "ミッキー＆ミニーのランナウェイ・レイルウェイ",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -621,14 +621,14 @@
   ],
   "summary": {
     "count": 56,
-    "open_count": 1,
-    "average_wait": 0,
-    "max_wait": 0
+    "open_count": 11,
+    "average_wait": 5,
+    "max_wait": 5
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/16/queue_times.json",
-    "fetched_at": "2026-07-14T15:00:49.081Z",
+    "fetched_at": "2026-07-14T15:02:26.987Z",
     "items": []
   }
 }
