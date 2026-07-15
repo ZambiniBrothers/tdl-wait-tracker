@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-15T21:01:00.314Z",
+  "fetched_at": "2026-07-15T21:08:44.911Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -28,7 +28,7 @@
       "id": "a-ak-113",
       "name_en": "Kilimanjaro Safaris",
       "name_ja": "キリマンジャロ・サファリ",
-      "wait_minutes": 5,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -39,9 +39,9 @@
       "id": "a-ak-655",
       "name_en": "Wildlife Express Train",
       "name_ja": "Wildlife Express Train",
-      "wait_minutes": 5,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -182,7 +182,7 @@
       "id": "a-ak-4439",
       "name_en": "Avatar Flight of Passage",
       "name_ja": "アバター：フライト・オブ・パッセージ",
-      "wait_minutes": 25,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -193,7 +193,7 @@
       "id": "a-ak-4438",
       "name_en": "Na'vi River Journey",
       "name_ja": "Na'vi River Journey",
-      "wait_minutes": 15,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -225,14 +225,14 @@
   ],
   "summary": {
     "count": 20,
-    "open_count": 18,
-    "average_wait": 13.3,
-    "max_wait": 25
+    "open_count": 17,
+    "average_wait": 16.3,
+    "max_wait": 30
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/8/queue_times.json",
-    "fetched_at": "2026-07-15T21:01:00.314Z",
+    "fetched_at": "2026-07-15T21:08:44.911Z",
     "items": []
   }
 }
