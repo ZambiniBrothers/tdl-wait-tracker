@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-15T18:44:15.426Z",
+  "fetched_at": "2026-07-15T18:46:05.060Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -94,7 +94,7 @@
       "id": "a-dlp-4",
       "name_en": "Autopia, presented by Avis",
       "name_ja": "Autopia, presented by Avis",
-      "wait_minutes": 75,
+      "wait_minutes": 60,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -149,7 +149,7 @@
       "id": "a-dlp-7",
       "name_en": "Orbitron®",
       "name_ja": "Orbitron®",
-      "wait_minutes": 45,
+      "wait_minutes": 35,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -204,9 +204,9 @@
       "id": "a-dlp-19",
       "name_en": "\"it's a small world\"",
       "name_ja": "イッツ・ア・スモールワールド",
-      "wait_minutes": 5,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -467,14 +467,14 @@
   ],
   "summary": {
     "count": 42,
-    "open_count": 25,
-    "average_wait": 16.8,
-    "max_wait": 75
+    "open_count": 24,
+    "average_wait": 16.1,
+    "max_wait": 60
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/4/queue_times.json",
-    "fetched_at": "2026-07-15T18:44:15.426Z",
+    "fetched_at": "2026-07-15T18:46:05.060Z",
     "items": []
   }
 }
