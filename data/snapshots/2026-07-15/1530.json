@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-15T06:30:24.096Z",
+  "fetched_at": "2026-07-15T06:32:03.396Z",
   "source": "tdr-official",
   "attractions": [
     {
@@ -70,12 +70,12 @@
       "id": "a-omnibus",
       "name_en": "Omnibus",
       "name_ja": "オムニバス",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
-      "official_status_cd": "004",
-      "official_status_label": "一時運営中止"
+      "official_status_cd": "001",
+      "official_status_label": "運営中"
     },
     {
       "id": "a-pirates-of-the-caribbean",
@@ -304,7 +304,7 @@
       "id": "a-peter-pans-flight",
       "name_en": "Peter Pan's Flight",
       "name_ja": "ピーターパン空の旅",
-      "wait_minutes": 25,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -455,7 +455,7 @@
       "id": "a-enchanted-tale-of-beauty-and-the-beast",
       "name_en": "Enchanted Tale of Beauty and the Beast",
       "name_ja": "美女と野獣“魔法のものがたり”",
-      "wait_minutes": 40,
+      "wait_minutes": 50,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -487,13 +487,13 @@
   ],
   "summary": {
     "count": 37,
-    "open_count": 30,
-    "average_wait": 15.9,
+    "open_count": 31,
+    "average_wait": 16,
     "max_wait": 60
   },
   "closures": {
     "source_url": "https://www.tokyodisneyresort.jp/tdl/monthly/stop.html",
-    "fetched_at": "2026-07-15T06:30:19.589Z",
+    "fetched_at": "2026-07-15T06:31:57.211Z",
     "closures": {
       "a-peter-pans-flight": {
         "name_ja": "ピーターパン空の旅",
@@ -574,7 +574,7 @@
   },
   "shows": {
     "source_url": "https://www.tokyodisneyresort.jp/tdl/show.html",
-    "fetched_at": "2026-07-15T06:30:24.096Z",
+    "fetched_at": "2026-07-15T06:32:03.396Z",
     "items": [
       {
         "time": "10:00",
