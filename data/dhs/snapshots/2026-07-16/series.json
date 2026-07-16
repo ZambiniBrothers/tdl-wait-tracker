@@ -1,6 +1,6 @@
 {
   "date": "2026-07-16",
-  "updated_at": "2026-07-16T04:30:55.563Z",
+  "updated_at": "2026-07-16T04:45:54.972Z",
   "points": [
     {
       "ms": 1784174460341,
@@ -37,6 +37,18 @@
         "average_wait": 12.2,
         "max_wait": 25
       }
+    },
+    {
+      "ms": 1784177154821,
+      "time": "0040",
+      "fetched_at": "2026-07-16T04:45:54.821Z",
+      "source": "queue-times",
+      "summary": {
+        "count": 23,
+        "open_count": 5,
+        "average_wait": 0,
+        "max_wait": 0
+      }
     }
   ],
   "attractions": {
@@ -46,9 +58,11 @@
       "waits": [
         null,
         null,
+        null,
         null
       ],
       "opens": [
+        true,
         true,
         true,
         true
@@ -56,9 +70,11 @@
       "statuses": [
         "OPERATING",
         "OPERATING",
+        "OPERATING",
         "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY",
         "STANDBY",
         "STANDBY"
@@ -70,9 +86,11 @@
       "waits": [
         null,
         null,
+        null,
         null
       ],
       "opens": [
+        false,
         false,
         false,
         false
@@ -80,9 +98,11 @@
       "statuses": [
         "NO_INFO",
         "NO_INFO",
+        "NO_INFO",
         "NO_INFO"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY",
         "STANDBY",
         "STANDBY"
@@ -94,9 +114,11 @@
       "waits": [
         null,
         null,
+        null,
         null
       ],
       "opens": [
+        true,
         true,
         true,
         true
@@ -104,9 +126,11 @@
       "statuses": [
         "OPERATING",
         "OPERATING",
+        "OPERATING",
         "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY",
         "STANDBY",
         "STANDBY"
@@ -118,9 +142,11 @@
       "waits": [
         null,
         null,
+        null,
         null
       ],
       "opens": [
+        false,
         false,
         false,
         false
@@ -128,9 +154,11 @@
       "statuses": [
         "NO_INFO",
         "NO_INFO",
+        "NO_INFO",
         "NO_INFO"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY",
         "STANDBY",
         "STANDBY"
@@ -142,9 +170,11 @@
       "waits": [
         null,
         null,
+        null,
         null
       ],
       "opens": [
+        false,
         false,
         false,
         false
@@ -152,9 +182,11 @@
       "statuses": [
         "NO_INFO",
         "NO_INFO",
+        "NO_INFO",
         "NO_INFO"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY",
         "STANDBY",
         "STANDBY"
@@ -166,9 +198,11 @@
       "waits": [
         null,
         null,
+        null,
         null
       ],
       "opens": [
+        true,
         true,
         true,
         true
@@ -176,9 +210,11 @@
       "statuses": [
         "OPERATING",
         "OPERATING",
+        "OPERATING",
         "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY",
         "STANDBY",
         "STANDBY"
@@ -190,9 +226,11 @@
       "waits": [
         null,
         null,
+        null,
         null
       ],
       "opens": [
+        true,
         true,
         true,
         true
@@ -200,9 +238,11 @@
       "statuses": [
         "OPERATING",
         "OPERATING",
+        "OPERATING",
         "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY",
         "STANDBY",
         "STANDBY"
@@ -214,9 +254,11 @@
       "waits": [
         null,
         null,
+        null,
         null
       ],
       "opens": [
+        false,
         false,
         false,
         false
@@ -224,9 +266,11 @@
       "statuses": [
         "NO_INFO",
         "NO_INFO",
+        "NO_INFO",
         "NO_INFO"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY",
         "STANDBY",
         "STANDBY"
@@ -238,19 +282,23 @@
       "waits": [
         5,
         5,
-        5
+        5,
+        null
       ],
       "opens": [
         true,
         true,
-        true
+        true,
+        false
       ],
       "statuses": [
         "OPERATING",
         "OPERATING",
-        "OPERATING"
+        "OPERATING",
+        "DOWN"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY",
         "STANDBY",
         "STANDBY"
@@ -262,9 +310,11 @@
       "waits": [
         null,
         null,
+        null,
         null
       ],
       "opens": [
+        false,
         false,
         false,
         false
@@ -272,9 +322,11 @@
       "statuses": [
         "NO_INFO",
         "NO_INFO",
+        "NO_INFO",
         "NO_INFO"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY",
         "STANDBY",
         "STANDBY"
@@ -286,19 +338,23 @@
       "waits": [
         10,
         10,
-        10
+        10,
+        null
       ],
       "opens": [
         true,
         true,
-        true
+        true,
+        false
       ],
       "statuses": [
         "OPERATING",
         "OPERATING",
-        "OPERATING"
+        "OPERATING",
+        "DOWN"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY",
         "STANDBY",
         "STANDBY"
@@ -310,9 +366,11 @@
       "waits": [
         null,
         null,
+        null,
         null
       ],
       "opens": [
+        false,
         false,
         false,
         false
@@ -320,9 +378,11 @@
       "statuses": [
         "NO_INFO",
         "NO_INFO",
+        "NO_INFO",
         "NO_INFO"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY",
         "STANDBY",
         "STANDBY"
@@ -334,19 +394,23 @@
       "waits": [
         30,
         30,
-        10
+        10,
+        null
       ],
       "opens": [
         true,
         true,
-        true
+        true,
+        false
       ],
       "statuses": [
         "OPERATING",
         "OPERATING",
-        "OPERATING"
+        "OPERATING",
+        "DOWN"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY",
         "STANDBY",
         "STANDBY"
@@ -358,19 +422,23 @@
       "waits": [
         5,
         5,
-        5
+        5,
+        null
       ],
       "opens": [
         true,
         true,
-        true
+        true,
+        false
       ],
       "statuses": [
         "OPERATING",
         "OPERATING",
-        "OPERATING"
+        "OPERATING",
+        "DOWN"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY",
         "STANDBY",
         "STANDBY"
@@ -382,19 +450,23 @@
       "waits": [
         null,
         null,
+        null,
         null
       ],
       "opens": [
         true,
         true,
-        true
+        true,
+        false
       ],
       "statuses": [
         "OPERATING",
         "OPERATING",
-        "OPERATING"
+        "OPERATING",
+        "DOWN"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY",
         "STANDBY",
         "STANDBY"
@@ -406,19 +478,23 @@
       "waits": [
         5,
         5,
-        5
+        5,
+        null
       ],
       "opens": [
         true,
         true,
-        true
+        true,
+        false
       ],
       "statuses": [
         "OPERATING",
         "OPERATING",
-        "OPERATING"
+        "OPERATING",
+        "DOWN"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY",
         "STANDBY",
         "STANDBY"
@@ -430,19 +506,23 @@
       "waits": [
         null,
         null,
+        null,
         null
       ],
       "opens": [
         true,
         true,
-        true
+        true,
+        false
       ],
       "statuses": [
         "OPERATING",
         "OPERATING",
-        "OPERATING"
+        "OPERATING",
+        "DOWN"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY",
         "STANDBY",
         "STANDBY"
@@ -454,9 +534,11 @@
       "waits": [
         null,
         null,
+        null,
         null
       ],
       "opens": [
+        true,
         true,
         true,
         true
@@ -464,9 +546,11 @@
       "statuses": [
         "OPERATING",
         "OPERATING",
+        "OPERATING",
         "OPERATING"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY",
         "STANDBY",
         "STANDBY"
@@ -478,19 +562,23 @@
       "waits": [
         null,
         null,
+        null,
         null
       ],
       "opens": [
         true,
         true,
-        true
+        true,
+        false
       ],
       "statuses": [
         "OPERATING",
         "OPERATING",
-        "OPERATING"
+        "OPERATING",
+        "DOWN"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY",
         "STANDBY",
         "STANDBY"
@@ -502,19 +590,23 @@
       "waits": [
         25,
         25,
-        25
+        25,
+        null
       ],
       "opens": [
         true,
         true,
-        true
+        true,
+        false
       ],
       "statuses": [
         "OPERATING",
         "OPERATING",
-        "OPERATING"
+        "OPERATING",
+        "DOWN"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY",
         "STANDBY",
         "STANDBY"
@@ -526,19 +618,23 @@
       "waits": [
         20,
         20,
-        20
+        20,
+        null
       ],
       "opens": [
         true,
         true,
-        true
+        true,
+        false
       ],
       "statuses": [
         "OPERATING",
         "OPERATING",
-        "OPERATING"
+        "OPERATING",
+        "DOWN"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY",
         "STANDBY",
         "STANDBY"
@@ -550,19 +646,23 @@
       "waits": [
         5,
         5,
-        5
+        5,
+        null
       ],
       "opens": [
         true,
         true,
-        true
+        true,
+        false
       ],
       "statuses": [
         "OPERATING",
         "OPERATING",
-        "OPERATING"
+        "OPERATING",
+        "DOWN"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY",
         "STANDBY",
         "STANDBY"
@@ -574,19 +674,23 @@
       "waits": [
         30,
         30,
-        25
+        25,
+        null
       ],
       "opens": [
         true,
         true,
-        true
+        true,
+        false
       ],
       "statuses": [
         "OPERATING",
         "OPERATING",
-        "OPERATING"
+        "OPERATING",
+        "DOWN"
       ],
       "access_modes": [
+        "STANDBY",
         "STANDBY",
         "STANDBY",
         "STANDBY"
