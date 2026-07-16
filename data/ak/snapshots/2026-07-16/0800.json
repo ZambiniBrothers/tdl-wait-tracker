@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-16T12:00:57.006Z",
+  "fetched_at": "2026-07-16T12:07:44.065Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -28,9 +28,9 @@
       "id": "a-ak-113",
       "name_en": "Kilimanjaro Safaris",
       "name_ja": "キリマンジャロ・サファリ",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 20,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -39,9 +39,9 @@
       "id": "a-ak-655",
       "name_en": "Wildlife Express Train",
       "name_ja": "Wildlife Express Train",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -50,7 +50,7 @@
       "id": "a-ak-110",
       "name_en": "Expedition Everest - Legend of the Forbidden Mountain",
       "name_ja": "エクスペディション・エベレスト",
-      "wait_minutes": null,
+      "wait_minutes": 5,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -95,8 +95,8 @@
       "name_en": "Animal Care at Conservation Station",
       "name_ja": "Animal Care at Conservation Station",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -128,8 +128,8 @@
       "name_en": "Discovery Island Trails",
       "name_ja": "Discovery Island Trails",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -138,9 +138,9 @@
       "id": "a-ak-116",
       "name_en": "Meet Favorite Disney Pals at Adventurers Outpost",
       "name_ja": "Meet Favorite Disney Pals at Adventurers Outpost",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 10,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -182,7 +182,7 @@
       "id": "a-ak-4439",
       "name_en": "Avatar Flight of Passage",
       "name_ja": "アバター：フライト・オブ・パッセージ",
-      "wait_minutes": 30,
+      "wait_minutes": 40,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -205,8 +205,8 @@
       "name_en": "The Oasis Exhibits",
       "name_ja": "The Oasis Exhibits",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -225,14 +225,14 @@
   ],
   "summary": {
     "count": 20,
-    "open_count": 9,
-    "average_wait": 16.7,
-    "max_wait": 30
+    "open_count": 15,
+    "average_wait": 14.3,
+    "max_wait": 40
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/8/queue_times.json",
-    "fetched_at": "2026-07-16T12:00:57.006Z",
+    "fetched_at": "2026-07-16T12:07:44.065Z",
     "items": []
   }
 }
