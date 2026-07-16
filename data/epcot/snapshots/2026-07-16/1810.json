@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-16T22:13:21.665Z",
+  "fetched_at": "2026-07-16T22:16:05.384Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -50,9 +50,9 @@
       "id": "a-epcot-159",
       "name_en": "Spaceship Earth",
       "name_ja": "スペースシップ・アース",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 20,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -149,7 +149,7 @@
       "id": "a-epcot-16467",
       "name_en": "Soarin' Across America",
       "name_ja": "ソアリン・アクロス・アメリカ",
-      "wait_minutes": 25,
+      "wait_minutes": 35,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -247,14 +247,14 @@
   ],
   "summary": {
     "count": 22,
-    "open_count": 20,
-    "average_wait": 26.5,
+    "open_count": 21,
+    "average_wait": 26.8,
     "max_wait": 60
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/5/queue_times.json",
-    "fetched_at": "2026-07-16T22:13:21.665Z",
+    "fetched_at": "2026-07-16T22:16:05.384Z",
     "items": []
   }
 }
