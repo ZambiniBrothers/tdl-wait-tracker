@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-16T06:00:50.834Z",
+  "fetched_at": "2026-07-16T06:06:33.434Z",
   "source": "tdr-official",
   "attractions": [
     {
@@ -83,7 +83,7 @@
       "id": "a-239",
       "name_en": "ジャンピン・ジェリーフィッシュ",
       "name_ja": "ジャンピン・ジェリーフィッシュ",
-      "wait_minutes": 25,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -226,12 +226,12 @@
       "id": "a-233",
       "name_en": "ビッグシティ・ヴィークル",
       "name_ja": "ビッグシティ・ヴィークル",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "CLOSED",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
-      "official_status_cd": "008",
-      "official_status_label": "準備中"
+      "official_status_cd": "001",
+      "official_status_label": "運営中"
     },
     {
       "id": "a-257",
@@ -248,7 +248,7 @@
       "id": "a-258",
       "name_en": "フェアリー・ティンカーベルのビジーバギー",
       "name_ja": "フェアリー・ティンカーベルのビジーバギー",
-      "wait_minutes": 30,
+      "wait_minutes": 40,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -292,7 +292,7 @@
       "id": "a-240",
       "name_en": "ブローフィッシュ・バルーンレース",
       "name_ja": "ブローフィッシュ・バルーンレース",
-      "wait_minutes": 30,
+      "wait_minutes": 40,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -360,16 +360,16 @@
       "name_ja": "ヴェネツィアン・ゴンドラ",
       "wait_minutes": null,
       "is_open": false,
-      "status": "CLOSED",
+      "status": "DOWN",
       "access_mode": "STANDBY",
-      "official_status_cd": "008",
-      "official_status_label": "準備中"
+      "official_status_cd": "004",
+      "official_status_label": "一時運営中止"
     },
     {
       "id": "a-224",
       "name_en": "海底２万マイル",
       "name_ja": "海底２万マイル",
-      "wait_minutes": 40,
+      "wait_minutes": 50,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -379,14 +379,14 @@
   ],
   "summary": {
     "count": 34,
-    "open_count": 26,
-    "average_wait": 49,
+    "open_count": 27,
+    "average_wait": 48.6,
     "max_wait": 160
   },
   "closures": null,
   "shows": {
     "source_url": "https://www.tokyodisneyresort.jp/tds/show.html",
-    "fetched_at": "2026-07-16T06:00:50.834Z",
+    "fetched_at": "2026-07-16T06:06:33.433Z",
     "items": [
       {
         "time": "17:00",
