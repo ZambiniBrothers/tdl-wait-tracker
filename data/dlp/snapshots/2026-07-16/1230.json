@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-16T10:30:46.082Z",
+  "fetched_at": "2026-07-16T10:33:23.103Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -17,9 +17,9 @@
       "id": "a-dlp-7306",
       "name_en": "Indiana Jones and the Temple of Peril Single Rider",
       "name_ja": "インディ・ジョーンズと危難の魔宮",
-      "wait_minutes": 20,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -28,9 +28,9 @@
       "id": "a-dlp-2",
       "name_en": "Indiana Jones™ and the Temple of Peril",
       "name_ja": "インディ・ジョーンズと危難の魔宮",
-      "wait_minutes": 35,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -160,7 +160,7 @@
       "id": "a-dlp-9",
       "name_en": "Star Tours: The Adventures Continue*",
       "name_ja": "スター・ツアーズ",
-      "wait_minutes": 25,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -237,7 +237,7 @@
       "id": "a-dlp-17",
       "name_en": "Casey Jr. – le Petit Train du Cirque",
       "name_ja": "キャシー・ジュニア・サーカストレイン",
-      "wait_minutes": 10,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -467,14 +467,14 @@
   ],
   "summary": {
     "count": 42,
-    "open_count": 36,
-    "average_wait": 25.6,
+    "open_count": 34,
+    "average_wait": 25.4,
     "max_wait": 55
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/4/queue_times.json",
-    "fetched_at": "2026-07-16T10:30:46.082Z",
+    "fetched_at": "2026-07-16T10:33:23.103Z",
     "items": []
   }
 }
