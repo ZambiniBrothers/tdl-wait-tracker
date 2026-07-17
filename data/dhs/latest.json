@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-17T19:44:39.511Z",
+  "fetched_at": "2026-07-17T19:46:03.393Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -116,9 +116,9 @@
       "id": "a-dhs-6361",
       "name_en": "Mickey & Minnie's Runaway Railway",
       "name_ja": "ミッキー＆ミニーのランナウェイ・レイルウェイ",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 50,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -215,7 +215,7 @@
       "id": "a-dhs-16342",
       "name_en": "Rock ’n’ Roller Coaster Starring The Muppets",
       "name_ja": "Rock ’n’ Roller Coaster Starring The Muppets",
-      "wait_minutes": 90,
+      "wait_minutes": 80,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -237,7 +237,7 @@
       "id": "a-dhs-5477",
       "name_en": "Alien Swirling Saucers",
       "name_ja": "Alien Swirling Saucers",
-      "wait_minutes": 15,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -258,14 +258,14 @@
   ],
   "summary": {
     "count": 23,
-    "open_count": 22,
-    "average_wait": 38.3,
+    "open_count": 23,
+    "average_wait": 39.6,
     "max_wait": 90
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/7/queue_times.json",
-    "fetched_at": "2026-07-17T19:44:39.511Z",
+    "fetched_at": "2026-07-17T19:46:03.393Z",
     "items": []
   }
 }
