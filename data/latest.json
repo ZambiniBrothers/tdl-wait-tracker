@@ -1,17 +1,17 @@
 {
-  "fetched_at": "2026-07-18T11:13:43.468Z",
+  "fetched_at": "2026-07-18T11:15:58.191Z",
   "source": "tdr-official",
   "attractions": [
     {
       "id": "a-alices-tea-party",
       "name_en": "Alice's Tea Party",
       "name_ja": "アリスのティーパーティー",
-      "wait_minutes": 5,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
-      "official_status_cd": "001",
-      "official_status_label": "運営中",
+      "official_status_cd": "004",
+      "official_status_label": "一時運営中止",
       "closure_info": {
         "name_ja": "アリスのティーパーティー",
         "period": "2026/8/7 〜 2026/8/11",
@@ -298,12 +298,12 @@
       "id": "a-pinocchios-daring-journey",
       "name_en": "Pinocchio's Daring Journey",
       "name_ja": "ピノキオの冒険旅行",
-      "wait_minutes": 5,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
-      "official_status_cd": "001",
-      "official_status_label": "運営中"
+      "official_status_cd": "004",
+      "official_status_label": "一時運営中止"
     },
     {
       "id": "a-peter-pans-flight",
@@ -460,7 +460,7 @@
       "id": "a-enchanted-tale-of-beauty-and-the-beast",
       "name_en": "Enchanted Tale of Beauty and the Beast",
       "name_ja": "美女と野獣“魔法のものがたり”",
-      "wait_minutes": 40,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -492,13 +492,13 @@
   ],
   "summary": {
     "count": 37,
-    "open_count": 18,
-    "average_wait": 15,
+    "open_count": 16,
+    "average_wait": 15.7,
     "max_wait": 60
   },
   "closures": {
     "source_url": "https://www.tokyodisneyresort.jp/tdl/monthly/stop.html",
-    "fetched_at": "2026-07-18T11:13:37.880Z",
+    "fetched_at": "2026-07-18T11:15:43.779Z",
     "closures": {
       "a-peter-pans-flight": {
         "name_ja": "ピーターパン空の旅",
@@ -584,7 +584,7 @@
   },
   "shows": {
     "source_url": "https://www.tokyodisneyresort.jp/tdl/show.html",
-    "fetched_at": "2026-07-18T11:13:43.468Z",
+    "fetched_at": "2026-07-18T11:15:58.191Z",
     "items": [
       {
         "time": "10:00",

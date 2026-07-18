@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-18T11:13:49.953Z",
+  "fetched_at": "2026-07-18T11:16:04.921Z",
   "source": "tdr-official",
   "attractions": [
     {
@@ -127,7 +127,7 @@
       "id": "a-243",
       "name_en": "タワー・オブ・テラー",
       "name_ja": "タワー・オブ・テラー",
-      "wait_minutes": 40,
+      "wait_minutes": 50,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -226,12 +226,12 @@
       "id": "a-233",
       "name_en": "ビッグシティ・ヴィークル",
       "name_ja": "ビッグシティ・ヴィークル",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
-      "official_status_cd": "004",
-      "official_status_label": "一時運営中止"
+      "official_status_cd": "001",
+      "official_status_label": "運営中"
     },
     {
       "id": "a-257",
@@ -379,14 +379,14 @@
   ],
   "summary": {
     "count": 34,
-    "open_count": 25,
+    "open_count": 26,
     "average_wait": 14.5,
-    "max_wait": 40
+    "max_wait": 50
   },
   "closures": null,
   "shows": {
     "source_url": "https://www.tokyodisneyresort.jp/tds/show.html",
-    "fetched_at": "2026-07-18T11:13:49.953Z",
+    "fetched_at": "2026-07-18T11:16:04.921Z",
     "items": [
       {
         "time": "17:00",
