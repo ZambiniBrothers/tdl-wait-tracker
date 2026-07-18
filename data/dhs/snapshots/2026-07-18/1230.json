@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-18T16:30:38.543Z",
+  "fetched_at": "2026-07-18T16:37:33.167Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -83,7 +83,7 @@
       "id": "a-dhs-6703",
       "name_en": "Meet Olaf at Celebrity Spotlight",
       "name_ja": "Meet Olaf at Celebrity Spotlight",
-      "wait_minutes": 15,
+      "wait_minutes": 5,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -127,9 +127,9 @@
       "id": "a-dhs-12425",
       "name_en": "Meet Edna Mode at the Edna Mode Experience",
       "name_ja": "Meet Edna Mode at the Edna Mode Experience",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 15,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -149,7 +149,7 @@
       "id": "a-dhs-6368",
       "name_en": "Millennium Falcon: Smugglers Run",
       "name_ja": "ミレニアム・ファルコン：スマグラーズ・ラン",
-      "wait_minutes": 45,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -171,7 +171,7 @@
       "id": "a-dhs-6369",
       "name_en": "Star Wars: Rise of the Resistance",
       "name_ja": "スター・ウォーズ：ライズ・オブ・ザ・レジスタンス",
-      "wait_minutes": 70,
+      "wait_minutes": 50,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -215,7 +215,7 @@
       "id": "a-dhs-16342",
       "name_en": "Rock ’n’ Roller Coaster Starring The Muppets",
       "name_ja": "Rock ’n’ Roller Coaster Starring The Muppets",
-      "wait_minutes": 55,
+      "wait_minutes": 60,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -258,14 +258,14 @@
   ],
   "summary": {
     "count": 23,
-    "open_count": 22,
-    "average_wait": 37.5,
-    "max_wait": 70
+    "open_count": 23,
+    "average_wait": 32.7,
+    "max_wait": 60
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/7/queue_times.json",
-    "fetched_at": "2026-07-18T16:30:38.543Z",
+    "fetched_at": "2026-07-18T16:37:33.167Z",
     "items": []
   }
 }
