@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-18T15:40:21.998Z",
+  "fetched_at": "2026-07-18T15:45:36.529Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -28,9 +28,9 @@
       "id": "a-mk-137",
       "name_en": "Pirates of the Caribbean",
       "name_ja": "カリブの海賊",
-      "wait_minutes": 20,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -72,7 +72,7 @@
       "id": "a-mk-133",
       "name_en": "\"it's a small world\"",
       "name_ja": "イッツ・ア・スモールワールド",
-      "wait_minutes": 15,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -116,7 +116,7 @@
       "id": "a-mk-128",
       "name_en": "Enchanted Tales with Belle",
       "name_ja": "Enchanted Tales with Belle",
-      "wait_minutes": 10,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -138,7 +138,7 @@
       "id": "a-mk-147",
       "name_en": "Meet Ariel at Her Grotto",
       "name_ja": "Meet Ariel at Her Grotto",
-      "wait_minutes": 10,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -259,7 +259,7 @@
       "id": "a-mk-127",
       "name_en": "Under the Sea - Journey of The Little Mermaid",
       "name_ja": "Under the Sea - Journey of The Little Mermaid",
-      "wait_minutes": 5,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -380,7 +380,7 @@
       "id": "a-mk-248",
       "name_en": "Astro Orbiter",
       "name_ja": "Astro Orbiter",
-      "wait_minutes": 15,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -391,7 +391,7 @@
       "id": "a-mk-131",
       "name_en": "Buzz Lightyear’s Space Ranger Spin",
       "name_ja": "バズ・ライトイヤーのスペース・レンジャー・スピン",
-      "wait_minutes": 35,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -435,7 +435,7 @@
       "id": "a-mk-1190",
       "name_en": "Tomorrowland Transit Authority PeopleMover",
       "name_ja": "Tomorrowland Transit Authority PeopleMover",
-      "wait_minutes": 5,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -467,14 +467,14 @@
   ],
   "summary": {
     "count": 42,
-    "open_count": 39,
-    "average_wait": 21,
+    "open_count": 38,
+    "average_wait": 21.5,
     "max_wait": 70
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/6/queue_times.json",
-    "fetched_at": "2026-07-18T15:40:21.998Z",
+    "fetched_at": "2026-07-18T15:45:36.529Z",
     "items": []
   }
 }
