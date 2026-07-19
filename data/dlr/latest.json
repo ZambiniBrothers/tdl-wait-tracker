@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-19T18:30:48.772Z",
+  "fetched_at": "2026-07-19T18:31:49.151Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -28,7 +28,7 @@
       "id": "a-dlr-296",
       "name_en": "Jungle Cruise",
       "name_ja": "ジャングルクルーズ",
-      "wait_minutes": 15,
+      "wait_minutes": 25,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -160,9 +160,9 @@
       "id": "a-dlr-278",
       "name_en": "Mad Tea Party",
       "name_ja": "マッドティーパーティー",
-      "wait_minutes": 5,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -193,7 +193,7 @@
       "id": "a-dlr-280",
       "name_en": "Mr. Toad's Wild Ride",
       "name_ja": "Mr. Toad's Wild Ride",
-      "wait_minutes": 5,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -215,7 +215,7 @@
       "id": "a-dlr-282",
       "name_en": "Pinocchio's Daring Journey",
       "name_ja": "Pinocchio's Daring Journey",
-      "wait_minutes": 5,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -534,7 +534,7 @@
       "id": "a-dlr-287",
       "name_en": "Astro Orbitor",
       "name_ja": "Astro Orbitor",
-      "wait_minutes": 10,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -600,7 +600,7 @@
       "id": "a-dlr-284",
       "name_en": "Space Mountain",
       "name_ja": "スペース・マウンテン",
-      "wait_minutes": 10,
+      "wait_minutes": 40,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -621,14 +621,14 @@
   ],
   "summary": {
     "count": 56,
-    "open_count": 49,
-    "average_wait": 14.6,
+    "open_count": 48,
+    "average_wait": 16.4,
     "max_wait": 55
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/16/queue_times.json",
-    "fetched_at": "2026-07-19T18:30:48.772Z",
+    "fetched_at": "2026-07-19T18:31:49.151Z",
     "items": []
   }
 }
