@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-20T23:31:16.319Z",
+  "fetched_at": "2026-07-20T23:39:10.078Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -39,7 +39,7 @@
       "id": "a-dca-13961",
       "name_en": "Luigi's Rollickin' Roadsters",
       "name_ja": "Luigi's Rollickin' Roadsters",
-      "wait_minutes": 10,
+      "wait_minutes": 25,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -105,7 +105,7 @@
       "id": "a-dca-17129",
       "name_en": "Soarin’ Across America",
       "name_ja": "ソアリン・アクロス・アメリカ",
-      "wait_minutes": 60,
+      "wait_minutes": 45,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -270,9 +270,9 @@
       "id": "a-dca-6643",
       "name_en": "Inside Out Emotional Whirlwind",
       "name_ja": "Inside Out Emotional Whirlwind",
-      "wait_minutes": 20,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -303,7 +303,7 @@
       "id": "a-dca-311",
       "name_en": "Pixar Pal-A-Round - Swinging",
       "name_ja": "Pixar Pal-A-Round - Swinging",
-      "wait_minutes": 45,
+      "wait_minutes": 40,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -335,14 +335,14 @@
   ],
   "summary": {
     "count": 30,
-    "open_count": 26,
-    "average_wait": 33.4,
+    "open_count": 25,
+    "average_wait": 33.9,
     "max_wait": 95
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/17/queue_times.json",
-    "fetched_at": "2026-07-20T23:31:16.319Z",
+    "fetched_at": "2026-07-20T23:39:10.078Z",
     "items": []
   }
 }
