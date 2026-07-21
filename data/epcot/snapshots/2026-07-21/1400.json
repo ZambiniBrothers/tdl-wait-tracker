@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-21T18:01:34.908Z",
+  "fetched_at": "2026-07-21T18:08:35.072Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -83,9 +83,9 @@
       "id": "a-epcot-160",
       "name_en": "Test Track",
       "name_ja": "テスト・トラック",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 85,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -95,8 +95,8 @@
       "name_en": "Test Track Presented by Chevrolet Single Rider",
       "name_ja": "テスト・トラック",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -149,7 +149,7 @@
       "id": "a-epcot-16467",
       "name_en": "Soarin' Across America",
       "name_ja": "ソアリン・アクロス・アメリカ",
-      "wait_minutes": 30,
+      "wait_minutes": 25,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -247,14 +247,14 @@
   ],
   "summary": {
     "count": 22,
-    "open_count": 19,
-    "average_wait": 23.9,
-    "max_wait": 60
+    "open_count": 21,
+    "average_wait": 27.7,
+    "max_wait": 85
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/5/queue_times.json",
-    "fetched_at": "2026-07-21T18:01:34.908Z",
+    "fetched_at": "2026-07-21T18:08:35.072Z",
     "items": []
   }
 }
