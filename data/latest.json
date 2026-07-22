@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-22T06:30:38.090Z",
+  "fetched_at": "2026-07-22T06:32:39.073Z",
   "source": "tdr-official",
   "attractions": [
     {
@@ -70,12 +70,12 @@
       "id": "a-omnibus",
       "name_en": "Omnibus",
       "name_ja": "オムニバス",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
-      "official_status_cd": "004",
-      "official_status_label": "一時運営中止"
+      "official_status_cd": "001",
+      "official_status_label": "運営中"
     },
     {
       "id": "a-pirates-of-the-caribbean",
@@ -492,13 +492,13 @@
   ],
   "summary": {
     "count": 37,
-    "open_count": 30,
-    "average_wait": 15.5,
+    "open_count": 31,
+    "average_wait": 15.2,
     "max_wait": 60
   },
   "closures": {
     "source_url": "https://www.tokyodisneyresort.jp/tdl/monthly/stop.html",
-    "fetched_at": "2026-07-22T06:30:31.627Z",
+    "fetched_at": "2026-07-22T06:32:32.498Z",
     "closures": {
       "a-peter-pans-flight": {
         "name_ja": "ピーターパン空の旅",
@@ -584,7 +584,7 @@
   },
   "shows": {
     "source_url": "https://www.tokyodisneyresort.jp/tdl/show.html",
-    "fetched_at": "2026-07-22T06:30:38.090Z",
+    "fetched_at": "2026-07-22T06:32:39.073Z",
     "items": [
       {
         "time": "10:00",
