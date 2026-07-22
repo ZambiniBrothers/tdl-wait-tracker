@@ -1,23 +1,23 @@
 {
-  "fetched_at": "2026-07-22T00:11:39.341Z",
+  "fetched_at": "2026-07-22T00:15:41.929Z",
   "source": "tdr-official",
   "attractions": [
     {
       "id": "a-234",
       "name_en": "アクアトピア",
       "name_ja": "アクアトピア",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
-      "official_status_cd": "004",
-      "official_status_label": "一時運営中止"
+      "official_status_cd": "001",
+      "official_status_label": "運営中"
     },
     {
       "id": "a-255",
       "name_en": "アナとエルサのフローズンジャーニー",
       "name_ja": "アナとエルサのフローズンジャーニー",
-      "wait_minutes": 80,
+      "wait_minutes": 90,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -105,7 +105,7 @@
       "id": "a-223",
       "name_en": "センター・オブ・ジ・アース",
       "name_ja": "センター・オブ・ジ・アース",
-      "wait_minutes": 40,
+      "wait_minutes": 50,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -116,7 +116,7 @@
       "id": "a-219",
       "name_en": "ソアリン：ファンタスティック・フライト",
       "name_ja": "ソアリン：ファンタスティック・フライト",
-      "wait_minutes": 70,
+      "wait_minutes": 80,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -127,7 +127,7 @@
       "id": "a-243",
       "name_en": "タワー・オブ・テラー",
       "name_ja": "タワー・オブ・テラー",
-      "wait_minutes": 30,
+      "wait_minutes": 40,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -138,7 +138,7 @@
       "id": "a-246",
       "name_en": "タートル・トーク",
       "name_ja": "タートル・トーク",
-      "wait_minutes": 20,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -237,7 +237,7 @@
       "id": "a-257",
       "name_en": "ピーターパンのネバーランドアドベンチャー",
       "name_ja": "ピーターパンのネバーランドアドベンチャー",
-      "wait_minutes": 10,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -379,14 +379,14 @@
   ],
   "summary": {
     "count": 34,
-    "open_count": 23,
-    "average_wait": 20,
-    "max_wait": 80
+    "open_count": 24,
+    "average_wait": 21.1,
+    "max_wait": 90
   },
   "closures": null,
   "shows": {
     "source_url": "https://www.tokyodisneyresort.jp/tds/show.html",
-    "fetched_at": "2026-07-22T00:11:39.341Z",
+    "fetched_at": "2026-07-22T00:15:41.929Z",
     "items": [
       {
         "time": "17:00",
