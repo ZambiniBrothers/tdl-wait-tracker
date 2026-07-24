@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-24T03:45:37.908Z",
+  "fetched_at": "2026-07-24T03:49:42.568Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -83,7 +83,7 @@
       "id": "a-dca-302",
       "name_en": "Grizzly River Run",
       "name_ja": "Grizzly River Run",
-      "wait_minutes": 30,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -182,9 +182,9 @@
       "id": "a-dca-298",
       "name_en": "Golden Zephyr",
       "name_ja": "Golden Zephyr",
-      "wait_minutes": 10,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -281,9 +281,9 @@
       "id": "a-dca-310",
       "name_en": "Jessie's Critter Carousel",
       "name_ja": "Jessie's Critter Carousel",
-      "wait_minutes": 10,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -292,7 +292,7 @@
       "id": "a-dca-300",
       "name_en": "Jumpin' Jellyfish",
       "name_ja": "Jumpin' Jellyfish",
-      "wait_minutes": 20,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -335,14 +335,14 @@
   ],
   "summary": {
     "count": 30,
-    "open_count": 25,
-    "average_wait": 33.1,
+    "open_count": 23,
+    "average_wait": 34.4,
     "max_wait": 130
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/17/queue_times.json",
-    "fetched_at": "2026-07-24T03:45:37.908Z",
+    "fetched_at": "2026-07-24T03:49:42.568Z",
     "items": []
   }
 }

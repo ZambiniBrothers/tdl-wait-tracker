@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-24T03:45:37.001Z",
+  "fetched_at": "2026-07-24T03:49:41.888Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -138,7 +138,7 @@
       "id": "a-dlr-275",
       "name_en": "Dumbo the Flying Elephant",
       "name_ja": "空飛ぶダンボ",
-      "wait_minutes": 10,
+      "wait_minutes": 25,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -149,9 +149,9 @@
       "id": "a-dlr-277",
       "name_en": "King Arthur Carrousel",
       "name_ja": "King Arthur Carrousel",
-      "wait_minutes": 5,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -567,9 +567,9 @@
       "id": "a-dlr-274",
       "name_en": "Disneyland Monorail",
       "name_ja": "Disneyland Monorail",
-      "wait_minutes": 10,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -600,7 +600,7 @@
       "id": "a-dlr-284",
       "name_en": "Space Mountain",
       "name_ja": "スペース・マウンテン",
-      "wait_minutes": 60,
+      "wait_minutes": 65,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -621,14 +621,14 @@
   ],
   "summary": {
     "count": 56,
-    "open_count": 28,
-    "average_wait": 22.8,
-    "max_wait": 60
+    "open_count": 26,
+    "average_wait": 25.2,
+    "max_wait": 65
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/16/queue_times.json",
-    "fetched_at": "2026-07-24T03:45:37.001Z",
+    "fetched_at": "2026-07-24T03:49:41.888Z",
     "items": []
   }
 }
