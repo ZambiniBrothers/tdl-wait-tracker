@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-25T16:01:34.778Z",
+  "fetched_at": "2026-07-25T16:07:32.726Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -72,7 +72,7 @@
       "id": "a-dlp-3",
       "name_en": "Pirates of the Caribbean",
       "name_ja": "カリブの海賊",
-      "wait_minutes": 20,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -139,8 +139,8 @@
       "name_en": "Mickey’s PhilharMagic",
       "name_ja": "ミッキーのフィルハーマジック",
       "wait_minutes": null,
-      "is_open": true,
-      "status": "OPERATING",
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -347,9 +347,9 @@
       "id": "a-dlp-22",
       "name_en": "Peter Pan's Flight",
       "name_ja": "ピーターパン空の旅",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 55,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -359,8 +359,8 @@
       "name_en": "Princess Pavilion",
       "name_ja": "Princess Pavilion",
       "wait_minutes": null,
-      "is_open": true,
-      "status": "OPERATING",
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -436,8 +436,8 @@
       "name_en": "Thunder Mesa Riverboat Landing",
       "name_ja": "Thunder Mesa Riverboat Landing",
       "wait_minutes": null,
-      "is_open": true,
-      "status": "OPERATING",
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -467,14 +467,14 @@
   ],
   "summary": {
     "count": 42,
-    "open_count": 33,
-    "average_wait": 16.4,
-    "max_wait": 45
+    "open_count": 31,
+    "average_wait": 17.8,
+    "max_wait": 55
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/4/queue_times.json",
-    "fetched_at": "2026-07-25T16:01:34.778Z",
+    "fetched_at": "2026-07-25T16:07:32.726Z",
     "items": []
   }
 }
