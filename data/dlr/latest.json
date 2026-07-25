@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-25T22:31:20.171Z",
+  "fetched_at": "2026-07-25T22:35:05.044Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -105,7 +105,7 @@
       "id": "a-dlr-285",
       "name_en": "Alice in Wonderland",
       "name_ja": "ふしぎの国のアリス",
-      "wait_minutes": 25,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -303,9 +303,9 @@
       "id": "a-dlr-328",
       "name_en": "Sailing Ship Columbia",
       "name_ja": "Sailing Ship Columbia",
-      "wait_minutes": 10,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -479,7 +479,7 @@
       "id": "a-dlr-13958",
       "name_en": "Haunted Mansion",
       "name_ja": "ホーンテッドマンション",
-      "wait_minutes": 30,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -501,7 +501,7 @@
       "id": "a-dlr-6339",
       "name_en": "Millennium Falcon: Smugglers Run",
       "name_ja": "ミレニアム・ファルコン：スマグラーズ・ラン",
-      "wait_minutes": 30,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -545,7 +545,7 @@
       "id": "a-dlr-317",
       "name_en": "Autopia",
       "name_ja": "オートピア",
-      "wait_minutes": 5,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -621,14 +621,14 @@
   ],
   "summary": {
     "count": 56,
-    "open_count": 47,
-    "average_wait": 18.9,
+    "open_count": 46,
+    "average_wait": 18.5,
     "max_wait": 55
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/16/queue_times.json",
-    "fetched_at": "2026-07-25T22:31:20.171Z",
+    "fetched_at": "2026-07-25T22:35:05.044Z",
     "items": []
   }
 }
