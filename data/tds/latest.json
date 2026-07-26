@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-26T04:46:18.660Z",
+  "fetched_at": "2026-07-26T04:47:36.542Z",
   "source": "tdr-official",
   "attractions": [
     {
@@ -204,7 +204,7 @@
       "id": "a-218",
       "name_en": "トイ・ストーリー・マニア！",
       "name_ja": "トイ・ストーリー・マニア！",
-      "wait_minutes": 5,
+      "wait_minutes": 150,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -238,11 +238,11 @@
       "name_en": "ピーターパンのネバーランドアドベンチャー",
       "name_ja": "ピーターパンのネバーランドアドベンチャー",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
-      "access_mode": "STANDBY",
-      "official_status_cd": "004",
-      "official_status_label": "一時運営中止"
+      "is_open": true,
+      "status": "OPERATING",
+      "access_mode": "PP_ONLY",
+      "official_status_cd": "045",
+      "official_status_label": "プライオリティ・アクセス・エントランスをご利用の方のみ案内中"
     },
     {
       "id": "a-258",
@@ -281,18 +281,18 @@
       "id": "a-237",
       "name_en": "フランダーのフライングフィッシュコースター",
       "name_ja": "フランダーのフライングフィッシュコースター",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
-      "official_status_cd": "004",
-      "official_status_label": "一時運営中止"
+      "official_status_cd": "001",
+      "official_status_label": "運営中"
     },
     {
       "id": "a-240",
       "name_en": "ブローフィッシュ・バルーンレース",
       "name_ja": "ブローフィッシュ・バルーンレース",
-      "wait_minutes": 40,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -379,14 +379,14 @@
   ],
   "summary": {
     "count": 34,
-    "open_count": 21,
-    "average_wait": 24.7,
-    "max_wait": 140
+    "open_count": 23,
+    "average_wait": 31.1,
+    "max_wait": 150
   },
   "closures": null,
   "shows": {
     "source_url": "https://www.tokyodisneyresort.jp/tds/show.html",
-    "fetched_at": "2026-07-26T04:46:18.659Z",
+    "fetched_at": "2026-07-26T04:47:36.542Z",
     "items": [
       {
         "time": "17:00",
