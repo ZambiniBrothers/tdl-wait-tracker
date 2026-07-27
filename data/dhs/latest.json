@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-27T18:01:34.392Z",
+  "fetched_at": "2026-07-27T18:07:20.656Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -50,7 +50,7 @@
       "id": "a-dhs-6704",
       "name_en": "Meet Disney Stars at Red Carpet Dreams",
       "name_ja": "Meet Disney Stars at Red Carpet Dreams",
-      "wait_minutes": 25,
+      "wait_minutes": 35,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -83,7 +83,7 @@
       "id": "a-dhs-6703",
       "name_en": "Meet Olaf at Celebrity Spotlight",
       "name_ja": "Meet Olaf at Celebrity Spotlight",
-      "wait_minutes": 20,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -171,7 +171,7 @@
       "id": "a-dhs-6369",
       "name_en": "Star Wars: Rise of the Resistance",
       "name_ja": "スター・ウォーズ：ライズ・オブ・ザ・レジスタンス",
-      "wait_minutes": 65,
+      "wait_minutes": 75,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -248,9 +248,9 @@
       "id": "a-dhs-5476",
       "name_en": "Slinky Dog Dash",
       "name_ja": "スリンキー・ドッグ・ダッシュ",
-      "wait_minutes": 100,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -258,14 +258,14 @@
   ],
   "summary": {
     "count": 23,
-    "open_count": 23,
-    "average_wait": 48.8,
-    "max_wait": 100
+    "open_count": 22,
+    "average_wait": 45.5,
+    "max_wait": 90
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/7/queue_times.json",
-    "fetched_at": "2026-07-27T18:01:34.392Z",
+    "fetched_at": "2026-07-27T18:07:20.656Z",
     "items": []
   }
 }
