@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-27T22:30:11.249Z",
+  "fetched_at": "2026-07-27T22:31:24.989Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -72,9 +72,9 @@
       "id": "a-dlr-14168",
       "name_en": "Tiana's Bayou Adventure",
       "name_ja": "Tiana's Bayou Adventure",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 65,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -84,8 +84,8 @@
       "name_en": "Tiana's Bayou Adventure Single Rider",
       "name_ja": "Tiana's Bayou Adventure Single Rider",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -182,7 +182,7 @@
       "id": "a-dlr-6711",
       "name_en": "Meet Disney Princesses at Royal Hall",
       "name_ja": "Meet Disney Princesses at Royal Hall",
-      "wait_minutes": 15,
+      "wait_minutes": 45,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -424,7 +424,7 @@
       "id": "a-dlr-11526",
       "name_en": "Mickey & Minnie's Runaway Railway",
       "name_ja": "ミッキー＆ミニーのランナウェイ・レイルウェイ",
-      "wait_minutes": 25,
+      "wait_minutes": 35,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -621,14 +621,14 @@
   ],
   "summary": {
     "count": 56,
-    "open_count": 43,
-    "average_wait": 25.3,
-    "max_wait": 60
+    "open_count": 45,
+    "average_wait": 27.7,
+    "max_wait": 65
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/16/queue_times.json",
-    "fetched_at": "2026-07-27T22:30:11.249Z",
+    "fetched_at": "2026-07-27T22:31:24.989Z",
     "items": []
   }
 }
