@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-28T01:01:19.728Z",
+  "fetched_at": "2026-07-28T01:05:50.870Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -83,7 +83,7 @@
       "id": "a-dca-302",
       "name_en": "Grizzly River Run",
       "name_ja": "Grizzly River Run",
-      "wait_minutes": 75,
+      "wait_minutes": 55,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -172,8 +172,8 @@
       "name_en": "The Bakery Tour",
       "name_ja": "The Bakery Tour",
       "wait_minutes": null,
-      "is_open": true,
-      "status": "OPERATING",
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -193,7 +193,7 @@
       "id": "a-dca-319",
       "name_en": "Goofy's Sky School",
       "name_ja": "Goofy's Sky School",
-      "wait_minutes": 40,
+      "wait_minutes": 60,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -335,14 +335,14 @@
   ],
   "summary": {
     "count": 30,
-    "open_count": 29,
+    "open_count": 28,
     "average_wait": 31.9,
     "max_wait": 80
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/17/queue_times.json",
-    "fetched_at": "2026-07-28T01:01:19.728Z",
+    "fetched_at": "2026-07-28T01:05:50.870Z",
     "items": []
   }
 }
