@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-29T11:40:22.668Z",
+  "fetched_at": "2026-07-29T11:46:08.085Z",
   "source": "tdr-official",
   "attractions": [
     {
@@ -54,7 +54,7 @@
       "id": "a-western-river-railroad",
       "name_en": "Western River Railroad",
       "name_ja": "ウエスタンリバー鉄道",
-      "wait_minutes": 15,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -271,12 +271,12 @@
       "id": "a-big-thunder-mountain",
       "name_en": "Big Thunder Mountain",
       "name_ja": "ビッグサンダー・マウンテン",
-      "wait_minutes": 25,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "CLOSED",
       "access_mode": "STANDBY",
-      "official_status_cd": "001",
-      "official_status_label": "運営中"
+      "official_status_cd": "002",
+      "official_status_label": "案内終了"
     },
     {
       "id": "a-beaver-brothers-explorer-canoes",
@@ -492,13 +492,13 @@
   ],
   "summary": {
     "count": 37,
-    "open_count": 15,
-    "average_wait": 10.5,
-    "max_wait": 25
+    "open_count": 14,
+    "average_wait": 9.5,
+    "max_wait": 20
   },
   "closures": {
     "source_url": "https://www.tokyodisneyresort.jp/tdl/monthly/stop.html",
-    "fetched_at": "2026-07-29T11:40:13.865Z",
+    "fetched_at": "2026-07-29T11:46:03.176Z",
     "closures": {
       "a-peter-pans-flight": {
         "name_ja": "ピーターパン空の旅",
@@ -584,7 +584,7 @@
   },
   "shows": {
     "source_url": "https://www.tokyodisneyresort.jp/tdl/show.html",
-    "fetched_at": "2026-07-29T11:40:22.668Z",
+    "fetched_at": "2026-07-29T11:46:08.085Z",
     "items": [
       {
         "time": "10:00",
