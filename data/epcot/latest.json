@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-29T22:31:18.507Z",
+  "fetched_at": "2026-07-29T22:39:47.241Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -39,9 +39,9 @@
       "id": "a-epcot-159",
       "name_en": "Spaceship Earth",
       "name_ja": "スペースシップ・アース",
-      "wait_minutes": 5,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -61,7 +61,7 @@
       "id": "a-epcot-158",
       "name_en": "Mission: SPACE",
       "name_ja": "ミッション：スペース",
-      "wait_minutes": 15,
+      "wait_minutes": 25,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -138,7 +138,7 @@
       "id": "a-epcot-16467",
       "name_en": "Soarin' Across America",
       "name_ja": "ソアリン・アクロス・アメリカ",
-      "wait_minutes": 15,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -204,9 +204,9 @@
       "id": "a-epcot-6701",
       "name_en": "Meet Anna and Elsa at Royal Sommerhus",
       "name_ja": "Meet Anna and Elsa at Royal Sommerhus",
-      "wait_minutes": 35,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -236,14 +236,14 @@
   ],
   "summary": {
     "count": 21,
-    "open_count": 20,
-    "average_wait": 25.8,
+    "open_count": 18,
+    "average_wait": 29.1,
     "max_wait": 85
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/5/queue_times.json",
-    "fetched_at": "2026-07-29T22:31:18.507Z",
+    "fetched_at": "2026-07-29T22:39:47.241Z",
     "items": []
   }
 }
