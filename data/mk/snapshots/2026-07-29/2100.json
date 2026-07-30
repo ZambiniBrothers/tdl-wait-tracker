@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-30T01:01:38.406Z",
+  "fetched_at": "2026-07-30T01:05:45.094Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -17,7 +17,7 @@
       "id": "a-mk-134",
       "name_en": "Jungle Cruise",
       "name_ja": "ジャングルクルーズ",
-      "wait_minutes": 35,
+      "wait_minutes": 40,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -149,9 +149,9 @@
       "id": "a-mk-6700",
       "name_en": "Meet Cinderella and a Visiting Princess at Princess Fairytale Hall",
       "name_ja": "Meet Cinderella and a Visiting Princess at Princess Fairytale Hall",
-      "wait_minutes": 20,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -182,9 +182,9 @@
       "id": "a-mk-6699",
       "name_en": "Meet Princess Tiana and a Visiting Princess at Princess Fairytale Hall",
       "name_ja": "Meet Princess Tiana and a Visiting Princess at Princess Fairytale Hall",
-      "wait_minutes": 10,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -226,9 +226,9 @@
       "id": "a-mk-129",
       "name_en": "Seven Dwarfs Mine Train",
       "name_ja": "七人のこびとのマイントレイン",
-      "wait_minutes": 65,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -303,7 +303,7 @@
       "id": "a-mk-13630",
       "name_en": "Tiana's Bayou Adventure",
       "name_ja": "Tiana's Bayou Adventure",
-      "wait_minutes": 85,
+      "wait_minutes": 70,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -325,9 +325,9 @@
       "id": "a-mk-356",
       "name_en": "The Hall of Presidents",
       "name_ja": "The Hall of Presidents",
-      "wait_minutes": 15,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -402,7 +402,7 @@
       "id": "a-mk-138",
       "name_en": "Space Mountain",
       "name_ja": "スペース・マウンテン",
-      "wait_minutes": 45,
+      "wait_minutes": 50,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -413,7 +413,7 @@
       "id": "a-mk-143",
       "name_en": "Tomorrowland Speedway",
       "name_ja": "Tomorrowland Speedway",
-      "wait_minutes": 20,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -435,7 +435,7 @@
       "id": "a-mk-11527",
       "name_en": "TRON Lightcycle / Run",
       "name_ja": "トロン・ライトサイクル・ラン",
-      "wait_minutes": 120,
+      "wait_minutes": 125,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -456,14 +456,14 @@
   ],
   "summary": {
     "count": 41,
-    "open_count": 31,
-    "average_wait": 26.7,
-    "max_wait": 120
+    "open_count": 27,
+    "average_wait": 26.3,
+    "max_wait": 125
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/6/queue_times.json",
-    "fetched_at": "2026-07-30T01:01:38.406Z",
+    "fetched_at": "2026-07-30T01:05:45.094Z",
     "items": []
   }
 }
