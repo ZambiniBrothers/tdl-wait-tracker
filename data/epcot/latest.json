@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-07T22:40:43.077Z",
+  "fetched_at": "2026-08-07T22:45:42.578Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -72,9 +72,9 @@
       "id": "a-epcot-160",
       "name_en": "Test Track",
       "name_ja": "テスト・トラック",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 120,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -84,8 +84,8 @@
       "name_en": "Test Track Presented by Chevrolet Single Rider",
       "name_ja": "テスト・トラック",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -236,14 +236,14 @@
   ],
   "summary": {
     "count": 21,
-    "open_count": 17,
-    "average_wait": 28.8,
-    "max_wait": 95
+    "open_count": 19,
+    "average_wait": 35.8,
+    "max_wait": 120
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/5/queue_times.json",
-    "fetched_at": "2026-08-07T22:40:43.077Z",
+    "fetched_at": "2026-08-07T22:45:42.578Z",
     "items": []
   }
 }
