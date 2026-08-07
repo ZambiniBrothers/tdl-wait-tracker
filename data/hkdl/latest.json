@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-07T11:11:30.223Z",
+  "fetched_at": "2026-08-07T11:16:03.908Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -50,9 +50,9 @@
       "id": "a-hkdl-2843",
       "name_en": "Big Grizzly Mountain Runaway Mine Cars",
       "name_ja": "ビッググリズリー・マウンテン",
-      "wait_minutes": 120,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -62,8 +62,8 @@
       "name_en": "Big Grizzly Mountain Runaway Mine Cars Single Rider",
       "name_ja": "ビッググリズリー・マウンテン",
       "wait_minutes": null,
-      "is_open": true,
-      "status": "OPERATING",
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -555,14 +555,14 @@
   ],
   "summary": {
     "count": 50,
-    "open_count": 31,
-    "average_wait": 35,
-    "max_wait": 120
+    "open_count": 29,
+    "average_wait": 29.3,
+    "max_wait": 70
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/31/queue_times.json",
-    "fetched_at": "2026-08-07T11:11:30.223Z",
+    "fetched_at": "2026-08-07T11:16:03.908Z",
     "items": []
   }
 }
