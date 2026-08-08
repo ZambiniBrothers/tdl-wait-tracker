@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-08T13:01:19.779Z",
+  "fetched_at": "2026-08-08T13:07:19.670Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -18,8 +18,8 @@
       "name_en": "Meet Ariel at Walt Disney Presents",
       "name_ja": "Meet Ariel at Walt Disney Presents",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -40,8 +40,8 @@
       "name_en": "Walt Disney Presents",
       "name_ja": "Walt Disney Presents",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -50,9 +50,9 @@
       "id": "a-dhs-6704",
       "name_en": "Meet Disney Stars at Red Carpet Dreams",
       "name_ja": "Meet Disney Stars at Red Carpet Dreams",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 20,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -83,9 +83,9 @@
       "id": "a-dhs-6703",
       "name_en": "Meet Olaf at Celebrity Spotlight",
       "name_ja": "Meet Olaf at Celebrity Spotlight",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -105,9 +105,9 @@
       "id": "a-dhs-7333",
       "name_en": "Vacation Fun - An Original Animated Short with Mickey & Minnie",
       "name_ja": "Vacation Fun - An Original Animated Short with Mickey & Minnie",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 10,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -128,8 +128,8 @@
       "name_en": "Meet Edna Mode at the Edna Mode Experience",
       "name_ja": "Meet Edna Mode at the Edna Mode Experience",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -138,7 +138,7 @@
       "id": "a-dhs-117",
       "name_en": "Toy Story Mania!",
       "name_ja": "トイ・ストーリー・マニア！",
-      "wait_minutes": 30,
+      "wait_minutes": 35,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -149,7 +149,7 @@
       "id": "a-dhs-6368",
       "name_en": "Millennium Falcon: Smugglers Run",
       "name_ja": "ミレニアム・ファルコン：スマグラーズ・ラン",
-      "wait_minutes": 15,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -226,7 +226,7 @@
       "id": "a-dhs-123",
       "name_en": "The Twilight Zone™ Tower of Terror",
       "name_ja": "タワー・オブ・テラー",
-      "wait_minutes": 15,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -237,7 +237,7 @@
       "id": "a-dhs-5477",
       "name_en": "Alien Swirling Saucers",
       "name_ja": "Alien Swirling Saucers",
-      "wait_minutes": 5,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -248,7 +248,7 @@
       "id": "a-dhs-5476",
       "name_en": "Slinky Dog Dash",
       "name_ja": "スリンキー・ドッグ・ダッシュ",
-      "wait_minutes": 55,
+      "wait_minutes": 70,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -258,14 +258,14 @@
   ],
   "summary": {
     "count": 23,
-    "open_count": 15,
-    "average_wait": 25.6,
-    "max_wait": 60
+    "open_count": 21,
+    "average_wait": 25,
+    "max_wait": 70
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/7/queue_times.json",
-    "fetched_at": "2026-08-08T13:01:19.779Z",
+    "fetched_at": "2026-08-08T13:07:19.670Z",
     "items": []
   }
 }
