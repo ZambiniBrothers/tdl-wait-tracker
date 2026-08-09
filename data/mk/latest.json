@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-09T00:31:48.469Z",
+  "fetched_at": "2026-08-09T00:37:16.122Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -281,9 +281,9 @@
       "id": "a-mk-130",
       "name_en": "Big Thunder Mountain Railroad",
       "name_ja": "ビッグサンダー・マウンテン",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 10,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -303,9 +303,9 @@
       "id": "a-mk-13630",
       "name_en": "Tiana's Bayou Adventure",
       "name_ja": "Tiana's Bayou Adventure",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 10,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -314,7 +314,7 @@
       "id": "a-mk-140",
       "name_en": "Haunted Mansion",
       "name_ja": "ホーンテッドマンション",
-      "wait_minutes": 40,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -369,9 +369,9 @@
       "id": "a-mk-248",
       "name_en": "Astro Orbiter",
       "name_ja": "Astro Orbiter",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 25,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -413,7 +413,7 @@
       "id": "a-mk-143",
       "name_en": "Tomorrowland Speedway",
       "name_ja": "Tomorrowland Speedway",
-      "wait_minutes": 5,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -478,14 +478,14 @@
   ],
   "summary": {
     "count": 43,
-    "open_count": 28,
-    "average_wait": 28.5,
+    "open_count": 31,
+    "average_wait": 27.3,
     "max_wait": 95
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/6/queue_times.json",
-    "fetched_at": "2026-08-09T00:31:48.469Z",
+    "fetched_at": "2026-08-09T00:37:16.122Z",
     "items": []
   }
 }

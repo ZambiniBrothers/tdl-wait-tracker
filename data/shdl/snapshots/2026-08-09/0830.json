@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-09T00:31:54.068Z",
+  "fetched_at": "2026-08-09T00:37:21.797Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -127,9 +127,9 @@
       "id": "a-shdl-2991",
       "name_en": "The Many Adventures of Winnie the Pooh",
       "name_ja": "The Many Adventures of Winnie the Pooh",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -204,9 +204,9 @@
       "id": "a-shdl-3000",
       "name_en": "Jet Packs",
       "name_ja": "Jet Packs",
-      "wait_minutes": 5,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -364,7 +364,7 @@
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/30/queue_times.json",
-    "fetched_at": "2026-08-09T00:31:54.068Z",
+    "fetched_at": "2026-08-09T00:37:21.797Z",
     "items": []
   }
 }
