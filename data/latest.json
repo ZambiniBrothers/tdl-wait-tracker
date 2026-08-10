@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-10T04:01:42.618Z",
+  "fetched_at": "2026-08-10T04:06:19.375Z",
   "source": "tdr-official",
   "attractions": [
     {
@@ -109,7 +109,7 @@
       "id": "a-castle-carrousel",
       "name_en": "Castle Carrousel",
       "name_ja": "キャッスルカルーセル",
-      "wait_minutes": 30,
+      "wait_minutes": 25,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -125,7 +125,7 @@
       "id": "a-goofys-paint-n-play-house",
       "name_en": "Goofy's Paint 'n' Play House",
       "name_ja": "グーフィーのペイント＆プレイハウス",
-      "wait_minutes": 10,
+      "wait_minutes": 5,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -460,7 +460,7 @@
       "id": "a-enchanted-tale-of-beauty-and-the-beast",
       "name_en": "Enchanted Tale of Beauty and the Beast",
       "name_ja": "美女と野獣“魔法のものがたり”",
-      "wait_minutes": 120,
+      "wait_minutes": 100,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -493,12 +493,12 @@
   "summary": {
     "count": 37,
     "open_count": 28,
-    "average_wait": 32.7,
+    "average_wait": 31.5,
     "max_wait": 120
   },
   "closures": {
     "source_url": "https://www.tokyodisneyresort.jp/tdl/monthly/stop.html",
-    "fetched_at": "2026-08-10T04:01:27.615Z",
+    "fetched_at": "2026-08-10T04:05:36.888Z",
     "closures": {
       "a-peter-pans-flight": {
         "name_ja": "ピーターパン空の旅",
@@ -582,5 +582,40 @@
       }
     }
   },
-  "shows": null
+  "shows": {
+    "source_url": "https://www.tokyodisneyresort.jp/tdl/show.html",
+    "fetched_at": "2026-08-10T04:06:19.375Z",
+    "items": [
+      {
+        "time": "10:00",
+        "label": "ベイマックスのミッション・クールダウン",
+        "name_ja": "ベイマックスのミッション・クールダウン"
+      },
+      {
+        "time": "12:50",
+        "label": "ベイマックスのミッション・クールダウン",
+        "name_ja": "ベイマックスのミッション・クールダウン"
+      },
+      {
+        "time": "14:55",
+        "label": "ベイマックスのミッション・クールダウン",
+        "name_ja": "ベイマックスのミッション・クールダウン"
+      },
+      {
+        "time": "17:00",
+        "label": "ディズニー・ハーモニー・イン・カラー",
+        "name_ja": "ディズニー・ハーモニー・イン・カラー"
+      },
+      {
+        "time": "19:45",
+        "label": "東京ディズニーランド・エレクトリカルパレード・ドリームライツ",
+        "name_ja": "東京ディズニーランド・エレクトリカルパレード・ドリームライツ"
+      },
+      {
+        "time": "20:55",
+        "label": "Reach for the Stars: Everlasting Dreams",
+        "name_ja": "Reach for the Stars: Everlasting Dreams"
+      }
+    ]
+  }
 }
