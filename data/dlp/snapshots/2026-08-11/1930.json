@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-11T17:31:57.006Z",
+  "fetched_at": "2026-08-11T17:37:52.242Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -94,9 +94,9 @@
       "id": "a-dlp-4",
       "name_en": "Autopia, presented by Avis",
       "name_ja": "Autopia, presented by Avis",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -160,7 +160,7 @@
       "id": "a-dlp-9",
       "name_en": "Star Tours: The Adventures Continue*",
       "name_ja": "スター・ツアーズ",
-      "wait_minutes": 20,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -204,7 +204,7 @@
       "id": "a-dlp-19",
       "name_en": "\"it's a small world\"",
       "name_ja": "イッツ・ア・スモールワールド",
-      "wait_minutes": 10,
+      "wait_minutes": 5,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -467,14 +467,14 @@
   ],
   "summary": {
     "count": 42,
-    "open_count": 32,
-    "average_wait": 23.5,
+    "open_count": 33,
+    "average_wait": 22.2,
     "max_wait": 80
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/4/queue_times.json",
-    "fetched_at": "2026-08-11T17:31:57.006Z",
+    "fetched_at": "2026-08-11T17:37:52.242Z",
     "items": []
   }
 }
