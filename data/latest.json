@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-11T06:31:35.679Z",
+  "fetched_at": "2026-08-11T06:33:10.597Z",
   "source": "tdr-official",
   "attractions": [
     {
@@ -65,12 +65,12 @@
       "id": "a-omnibus",
       "name_en": "Omnibus",
       "name_ja": "オムニバス",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
-      "official_status_cd": "004",
-      "official_status_label": "一時運営中止"
+      "official_status_cd": "001",
+      "official_status_label": "運営中"
     },
     {
       "id": "a-pirates-of-the-caribbean",
@@ -206,7 +206,7 @@
       "id": "a-splash-mountain",
       "name_en": "Splash Mountain",
       "name_ja": "スプラッシュ・マウンテン",
-      "wait_minutes": 60,
+      "wait_minutes": 70,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -412,7 +412,7 @@
       "id": "a-roger-rabbits-car-toon-spin",
       "name_en": "Roger Rabbit's Car Toon Spin",
       "name_ja": "ロジャーラビットのカートゥーンスピン",
-      "wait_minutes": 30,
+      "wait_minutes": 35,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -492,13 +492,13 @@
   ],
   "summary": {
     "count": 37,
-    "open_count": 28,
-    "average_wait": 21,
+    "open_count": 29,
+    "average_wait": 20.9,
     "max_wait": 80
   },
   "closures": {
     "source_url": "https://www.tokyodisneyresort.jp/tdl/monthly/stop.html",
-    "fetched_at": "2026-08-11T06:31:25.151Z",
+    "fetched_at": "2026-08-11T06:33:10.310Z",
     "closures": {
       "a-peter-pans-flight": {
         "name_ja": "ピーターパン空の旅",
@@ -584,7 +584,7 @@
   },
   "shows": {
     "source_url": "https://www.tokyodisneyresort.jp/tdl/show.html",
-    "fetched_at": "2026-08-11T06:31:35.679Z",
+    "fetched_at": "2026-08-11T06:33:10.597Z",
     "items": [
       {
         "time": "10:00",
