@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-11T10:02:21.963Z",
+  "fetched_at": "2026-08-11T10:09:08.586Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -160,7 +160,7 @@
       "id": "a-shdl-2993",
       "name_en": "Dumbo the Flying Elephant",
       "name_ja": "空飛ぶダンボ",
-      "wait_minutes": 10,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -215,9 +215,9 @@
       "id": "a-shdl-16392",
       "name_en": "Pixar Adventurous Journey",
       "name_ja": "Pixar Adventurous Journey",
-      "wait_minutes": 5,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -226,9 +226,9 @@
       "id": "a-shdl-3001",
       "name_en": "Space Chat With Stitch",
       "name_ja": "Space Chat With Stitch",
-      "wait_minutes": 15,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -237,7 +237,7 @@
       "id": "a-shdl-2985",
       "name_en": "TRON Lightcycle Power Run – Presented by Chevrolet",
       "name_ja": "トロン・ライトサイクル・パワーラン",
-      "wait_minutes": 50,
+      "wait_minutes": 40,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -357,14 +357,14 @@
   ],
   "summary": {
     "count": 32,
-    "open_count": 31,
-    "average_wait": 19,
+    "open_count": 29,
+    "average_wait": 19.8,
     "max_wait": 60
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/30/queue_times.json",
-    "fetched_at": "2026-08-11T10:02:21.963Z",
+    "fetched_at": "2026-08-11T10:09:08.586Z",
     "items": []
   }
 }
