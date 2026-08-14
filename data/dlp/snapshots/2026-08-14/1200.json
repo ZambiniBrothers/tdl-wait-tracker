@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-14T10:01:27.427Z",
+  "fetched_at": "2026-08-14T10:07:33.466Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -72,7 +72,7 @@
       "id": "a-dlp-3",
       "name_en": "Pirates of the Caribbean",
       "name_ja": "カリブの海賊",
-      "wait_minutes": 20,
+      "wait_minutes": 25,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -94,9 +94,9 @@
       "id": "a-dlp-4",
       "name_en": "Autopia, presented by Avis",
       "name_ja": "Autopia, presented by Avis",
-      "wait_minutes": 50,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -105,9 +105,9 @@
       "id": "a-dlp-5",
       "name_en": "Buzz Lightyear Laser Blast",
       "name_ja": "バズ・ライトイヤー・レーザーブラスト",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 20,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -139,8 +139,8 @@
       "name_en": "Mickey’s PhilharMagic",
       "name_ja": "ミッキーのフィルハーマジック",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -149,9 +149,9 @@
       "id": "a-dlp-7",
       "name_en": "Orbitron®",
       "name_ja": "Orbitron®",
-      "wait_minutes": 50,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -160,7 +160,7 @@
       "id": "a-dlp-9",
       "name_en": "Star Tours: The Adventures Continue*",
       "name_ja": "スター・ツアーズ",
-      "wait_minutes": 5,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -402,7 +402,7 @@
       "id": "a-dlp-26",
       "name_en": "Phantom Manor",
       "name_ja": "ファントム・マナー",
-      "wait_minutes": 5,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -468,13 +468,13 @@
   "summary": {
     "count": 42,
     "open_count": 29,
-    "average_wait": 20,
+    "average_wait": 17.8,
     "max_wait": 65
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/4/queue_times.json",
-    "fetched_at": "2026-08-14T10:01:27.427Z",
+    "fetched_at": "2026-08-14T10:07:33.466Z",
     "items": []
   }
 }

@@ -1,14 +1,14 @@
 {
-  "fetched_at": "2026-08-14T10:01:28.392Z",
+  "fetched_at": "2026-08-14T10:07:34.645Z",
   "source": "queue-times",
   "attractions": [
     {
       "id": "a-wds-10848",
       "name_en": "Avengers Assemble: Flight Force",
       "name_ja": "Avengers Assemble: Flight Force",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 20,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -17,9 +17,9 @@
       "id": "a-wds-10849",
       "name_en": "Avengers Assemble: Flight Force Single Rider",
       "name_ja": "Avengers Assemble: Flight Force Single Rider",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 15,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -39,7 +39,7 @@
       "id": "a-wds-10846",
       "name_en": "Spider-Man W.E.B. Adventure Single Rider",
       "name_ja": "Spider-Man W.E.B. Adventure Single Rider",
-      "wait_minutes": 25,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -83,7 +83,7 @@
       "id": "a-wds-32",
       "name_en": "Crush's Coaster",
       "name_ja": "クラッシュ・コースター",
-      "wait_minutes": 90,
+      "wait_minutes": 95,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -94,7 +94,7 @@
       "id": "a-wds-7277",
       "name_en": "Crush's Coaster Single Rider",
       "name_ja": "クラッシュ・コースター",
-      "wait_minutes": 35,
+      "wait_minutes": 45,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -105,9 +105,9 @@
       "id": "a-wds-33",
       "name_en": "Les Tapis Volants - Flying Carpets Over Agrabah®",
       "name_ja": "Les Tapis Volants - Flying Carpets Over Agrabah®",
-      "wait_minutes": 15,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -171,7 +171,7 @@
       "id": "a-wds-35",
       "name_en": "Toy Soldiers Parachute Drop",
       "name_ja": "Toy Soldiers Parachute Drop",
-      "wait_minutes": 40,
+      "wait_minutes": 45,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -182,7 +182,7 @@
       "id": "a-wds-7281",
       "name_en": "Toy Soldiers Parachute Drop Single Rider",
       "name_ja": "Toy Soldiers Parachute Drop Single Rider",
-      "wait_minutes": 20,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -204,7 +204,7 @@
       "id": "a-wds-15413",
       "name_en": "Frozen Ever After",
       "name_ja": "フローズン・エバーアフター",
-      "wait_minutes": 55,
+      "wait_minutes": 60,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -225,14 +225,14 @@
   ],
   "summary": {
     "count": 20,
-    "open_count": 18,
-    "average_wait": 33.8,
-    "max_wait": 90
+    "open_count": 19,
+    "average_wait": 33.9,
+    "max_wait": 95
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/28/queue_times.json",
-    "fetched_at": "2026-08-14T10:01:28.392Z",
+    "fetched_at": "2026-08-14T10:07:34.645Z",
     "items": []
   }
 }
