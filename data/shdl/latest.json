@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-15T10:31:41.978Z",
+  "fetched_at": "2026-08-15T10:36:44.148Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -61,7 +61,7 @@
       "id": "a-shdl-3080",
       "name_en": "“Once Upon a Time” Adventure",
       "name_ja": "“Once Upon a Time” Adventure",
-      "wait_minutes": 10,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -160,7 +160,7 @@
       "id": "a-shdl-2993",
       "name_en": "Dumbo the Flying Elephant",
       "name_ja": "空飛ぶダンボ",
-      "wait_minutes": 40,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -259,9 +259,9 @@
       "id": "a-shdl-5633",
       "name_en": "Rex’s Racer",
       "name_ja": "Rex’s Racer",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 90,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -270,7 +270,7 @@
       "id": "a-shdl-5634",
       "name_en": "Slinky Dog Spin",
       "name_ja": "Slinky Dog Spin",
-      "wait_minutes": 20,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -357,14 +357,14 @@
   ],
   "summary": {
     "count": 32,
-    "open_count": 28,
-    "average_wait": 25,
-    "max_wait": 75
+    "open_count": 29,
+    "average_wait": 28.1,
+    "max_wait": 90
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/30/queue_times.json",
-    "fetched_at": "2026-08-15T10:31:41.978Z",
+    "fetched_at": "2026-08-15T10:36:44.148Z",
     "items": []
   }
 }
