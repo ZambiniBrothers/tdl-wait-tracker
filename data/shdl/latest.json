@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-16T11:46:50.893Z",
+  "fetched_at": "2026-08-16T11:48:57.204Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -138,7 +138,7 @@
       "id": "a-shdl-2992",
       "name_en": "Voyage to the Crystal Grotto",
       "name_ja": "Voyage to the Crystal Grotto",
-      "wait_minutes": 10,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -237,7 +237,7 @@
       "id": "a-shdl-2985",
       "name_en": "TRON Lightcycle Power Run – Presented by Chevrolet",
       "name_ja": "トロン・ライトサイクル・パワーラン",
-      "wait_minutes": 75,
+      "wait_minutes": 60,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -337,8 +337,8 @@
       "name_en": "Zootopia Hot Pursuit Single Rider",
       "name_ja": "Zootopia Hot Pursuit Single Rider",
       "wait_minutes": null,
-      "is_open": true,
-      "status": "OPERATING",
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -347,9 +347,9 @@
       "id": "a-shdl-12392",
       "name_en": "Zootopia: Hot Pursuit",
       "name_ja": "Zootopia: Hot Pursuit",
-      "wait_minutes": 30,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -357,14 +357,14 @@
   ],
   "summary": {
     "count": 32,
-    "open_count": 29,
-    "average_wait": 24.8,
-    "max_wait": 75
+    "open_count": 27,
+    "average_wait": 24.3,
+    "max_wait": 70
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/30/queue_times.json",
-    "fetched_at": "2026-08-16T11:46:50.893Z",
+    "fetched_at": "2026-08-16T11:48:57.204Z",
     "items": []
   }
 }
