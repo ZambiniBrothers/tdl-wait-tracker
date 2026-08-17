@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-17T16:02:30.474Z",
+  "fetched_at": "2026-08-17T16:09:46.541Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -281,9 +281,9 @@
       "id": "a-dlr-456",
       "name_en": "Mark Twain Riverboat",
       "name_ja": "Mark Twain Riverboat",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -292,9 +292,9 @@
       "id": "a-dlr-331",
       "name_en": "Pirate's Lair on Tom Sawyer Island",
       "name_ja": "Pirate's Lair on Tom Sawyer Island",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -458,8 +458,8 @@
       "name_en": "Minnie's House",
       "name_ja": "Minnie's House",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -600,7 +600,7 @@
       "id": "a-dlr-284",
       "name_en": "Space Mountain",
       "name_ja": "スペース・マウンテン",
-      "wait_minutes": 20,
+      "wait_minutes": 35,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -621,14 +621,14 @@
   ],
   "summary": {
     "count": 56,
-    "open_count": 42,
-    "average_wait": 10.7,
+    "open_count": 45,
+    "average_wait": 10.8,
     "max_wait": 55
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/16/queue_times.json",
-    "fetched_at": "2026-08-17T16:02:30.474Z",
+    "fetched_at": "2026-08-17T16:09:46.541Z",
     "items": []
   }
 }
