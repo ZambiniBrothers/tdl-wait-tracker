@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-18T15:44:22.537Z",
+  "fetched_at": "2026-08-18T15:46:47.880Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -468,9 +468,9 @@
       "id": "a-dlr-332",
       "name_en": "Roger Rabbit's Car Toon Spin",
       "name_ja": "Roger Rabbit's Car Toon Spin",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -534,7 +534,7 @@
       "id": "a-dlr-287",
       "name_en": "Astro Orbitor",
       "name_ja": "Astro Orbitor",
-      "wait_minutes": 5,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -621,14 +621,14 @@
   ],
   "summary": {
     "count": 56,
-    "open_count": 41,
-    "average_wait": 9.3,
+    "open_count": 42,
+    "average_wait": 9.5,
     "max_wait": 40
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/16/queue_times.json",
-    "fetched_at": "2026-08-18T15:44:22.537Z",
+    "fetched_at": "2026-08-18T15:46:47.880Z",
     "items": []
   }
 }
