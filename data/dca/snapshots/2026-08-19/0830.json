@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-19T15:31:17.601Z",
+  "fetched_at": "2026-08-19T15:35:16.246Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -204,9 +204,9 @@
       "id": "a-dca-319",
       "name_en": "Goofy's Sky School",
       "name_ja": "Goofy's Sky School",
-      "wait_minutes": 5,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -358,9 +358,9 @@
       "id": "a-dca-4723",
       "name_en": "Mater's Graveyard JamBOOree",
       "name_ja": "Mater's Graveyard JamBOOree",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 10,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -380,13 +380,13 @@
   "summary": {
     "count": 34,
     "open_count": 25,
-    "average_wait": 15,
+    "average_wait": 15.3,
     "max_wait": 95
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/17/queue_times.json",
-    "fetched_at": "2026-08-19T15:31:17.601Z",
+    "fetched_at": "2026-08-19T15:35:16.246Z",
     "items": []
   }
 }
