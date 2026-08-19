@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-19T03:01:40.714Z",
+  "fetched_at": "2026-08-19T03:09:30.978Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -61,9 +61,9 @@
       "id": "a-dlr-306",
       "name_en": "The Many Adventures of Winnie the Pooh",
       "name_ja": "The Many Adventures of Winnie the Pooh",
-      "wait_minutes": 25,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -94,9 +94,9 @@
       "id": "a-dlr-307",
       "name_en": "\"it's a small world\"",
       "name_ja": "イッツ・ア・スモールワールド",
-      "wait_minutes": 5,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -105,9 +105,9 @@
       "id": "a-dlr-285",
       "name_en": "Alice in Wonderland",
       "name_ja": "ふしぎの国のアリス",
-      "wait_minutes": 20,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -204,9 +204,9 @@
       "id": "a-dlr-281",
       "name_en": "Peter Pan's Flight",
       "name_ja": "ピーターパン空の旅",
-      "wait_minutes": 25,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -359,8 +359,8 @@
       "name_en": "Opera House - Walt Disney - A Magical Life",
       "name_ja": "Opera House - Walt Disney - A Magical Life",
       "wait_minutes": null,
-      "is_open": true,
-      "status": "OPERATING",
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -381,8 +381,8 @@
       "name_en": "Walt Disney - A Magical Life",
       "name_ja": "Walt Disney - A Magical Life",
       "wait_minutes": null,
-      "is_open": true,
-      "status": "OPERATING",
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -391,9 +391,9 @@
       "id": "a-dlr-324",
       "name_en": "Chip 'n' Dale's GADGETcoaster",
       "name_ja": "Chip 'n' Dale's GADGETcoaster",
-      "wait_minutes": 30,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -414,8 +414,8 @@
       "name_en": "Goofy's How-to-Play Yard",
       "name_ja": "Goofy's How-to-Play Yard",
       "wait_minutes": null,
-      "is_open": true,
-      "status": "OPERATING",
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -424,9 +424,9 @@
       "id": "a-dlr-11526",
       "name_en": "Mickey & Minnie's Runaway Railway",
       "name_ja": "ミッキー＆ミニーのランナウェイ・レイルウェイ",
-      "wait_minutes": 40,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -468,9 +468,9 @@
       "id": "a-dlr-332",
       "name_en": "Roger Rabbit's Car Toon Spin",
       "name_ja": "Roger Rabbit's Car Toon Spin",
-      "wait_minutes": 30,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -545,7 +545,7 @@
       "id": "a-dlr-317",
       "name_en": "Autopia",
       "name_ja": "オートピア",
-      "wait_minutes": 25,
+      "wait_minutes": 35,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -556,7 +556,7 @@
       "id": "a-dlr-273",
       "name_en": "Buzz Lightyear Astro Blasters",
       "name_ja": "バズ・ライトイヤーのアストロブラスター",
-      "wait_minutes": 30,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -621,14 +621,14 @@
   ],
   "summary": {
     "count": 56,
-    "open_count": 38,
-    "average_wait": 25.7,
+    "open_count": 28,
+    "average_wait": 25.9,
     "max_wait": 65
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/16/queue_times.json",
-    "fetched_at": "2026-08-19T03:01:40.714Z",
+    "fetched_at": "2026-08-19T03:09:30.978Z",
     "items": []
   }
 }
