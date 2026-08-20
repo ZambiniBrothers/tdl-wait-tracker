@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-20T03:31:10.736Z",
+  "fetched_at": "2026-08-20T03:33:25.456Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -50,7 +50,7 @@
       "id": "a-hkdl-2843",
       "name_en": "Big Grizzly Mountain Runaway Mine Cars",
       "name_ja": "ビッググリズリー・マウンテン",
-      "wait_minutes": 10,
+      "wait_minutes": 60,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -204,7 +204,7 @@
       "id": "a-hkdl-3822",
       "name_en": "Hyperspace Mountain",
       "name_ja": "ハイパースペース・マウンテン",
-      "wait_minutes": 15,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -391,7 +391,7 @@
       "id": "a-hkdl-2844",
       "name_en": "Mystic Manor",
       "name_ja": "ミスティック・マナー",
-      "wait_minutes": 5,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -425,8 +425,8 @@
       "name_en": "Playhouse in the Woods",
       "name_ja": "Playhouse in the Woods",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -555,14 +555,14 @@
   ],
   "summary": {
     "count": 50,
-    "open_count": 41,
-    "average_wait": 17.7,
-    "max_wait": 50
+    "open_count": 42,
+    "average_wait": 21.4,
+    "max_wait": 60
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/31/queue_times.json",
-    "fetched_at": "2026-08-20T03:31:10.736Z",
+    "fetched_at": "2026-08-20T03:33:25.456Z",
     "items": []
   }
 }
