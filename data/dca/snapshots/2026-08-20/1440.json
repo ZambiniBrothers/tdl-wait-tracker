@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-20T21:41:07.261Z",
+  "fetched_at": "2026-08-20T21:46:03.953Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -94,9 +94,9 @@
       "id": "a-dca-302",
       "name_en": "Grizzly River Run",
       "name_ja": "Grizzly River Run",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 20,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -204,7 +204,7 @@
       "id": "a-dca-319",
       "name_en": "Goofy's Sky School",
       "name_ja": "Goofy's Sky School",
-      "wait_minutes": 25,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -259,7 +259,7 @@
       "id": "a-dca-322",
       "name_en": "Incredicoaster",
       "name_ja": "インクレディコースター",
-      "wait_minutes": 15,
+      "wait_minutes": 25,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -336,7 +336,7 @@
       "id": "a-dca-313",
       "name_en": "Toy Story Midway Mania!",
       "name_ja": "トイ・ストーリー・マニア！",
-      "wait_minutes": 45,
+      "wait_minutes": 40,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -379,14 +379,14 @@
   ],
   "summary": {
     "count": 34,
-    "open_count": 27,
+    "open_count": 28,
     "average_wait": 20,
     "max_wait": 55
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/17/queue_times.json",
-    "fetched_at": "2026-08-20T21:41:07.261Z",
+    "fetched_at": "2026-08-20T21:46:03.953Z",
     "items": []
   }
 }
