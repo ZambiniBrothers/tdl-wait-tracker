@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-20T09:31:12.951Z",
+  "fetched_at": "2026-08-20T09:38:34.461Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -94,7 +94,7 @@
       "id": "a-dlp-4",
       "name_en": "Autopia, presented by Avis",
       "name_ja": "Autopia, presented by Avis",
-      "wait_minutes": 75,
+      "wait_minutes": 60,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -204,7 +204,7 @@
       "id": "a-dlp-19",
       "name_en": "\"it's a small world\"",
       "name_ja": "イッツ・ア・スモールワールド",
-      "wait_minutes": 15,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -259,9 +259,9 @@
       "id": "a-dlp-11",
       "name_en": "Disneyland Railroad Main Street Station",
       "name_ja": "Disneyland Railroad Main Street Station",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 20,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -380,9 +380,9 @@
       "id": "a-dlp-2714",
       "name_en": "Disneyland Railroad Frontierland Depot",
       "name_ja": "Disneyland Railroad Frontierland Depot",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 10,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -402,9 +402,9 @@
       "id": "a-dlp-26",
       "name_en": "Phantom Manor",
       "name_ja": "ファントム・マナー",
-      "wait_minutes": 25,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -447,8 +447,8 @@
       "name_en": "Disneyland Railroad Main Street Station",
       "name_ja": "Disneyland Railroad Main Street Station",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -467,14 +467,14 @@
   ],
   "summary": {
     "count": 42,
-    "open_count": 31,
-    "average_wait": 29.1,
+    "open_count": 33,
+    "average_wait": 27.3,
     "max_wait": 75
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/4/queue_times.json",
-    "fetched_at": "2026-08-20T09:31:12.951Z",
+    "fetched_at": "2026-08-20T09:38:34.461Z",
     "items": []
   }
 }

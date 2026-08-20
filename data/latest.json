@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-20T09:30:55.063Z",
+  "fetched_at": "2026-08-20T09:38:19.151Z",
   "source": "tdr-official",
   "attractions": [
     {
@@ -17,7 +17,7 @@
       "id": "a-its-a-small-world",
       "name_en": "it's a small world",
       "name_ja": "イッツ・ア・スモールワールド",
-      "wait_minutes": 15,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -131,12 +131,12 @@
       "id": "a-cinderellas-fairy-tale-hall",
       "name_en": "Cinderella's Fairy Tale Hall",
       "name_ja": "シンデレラのフェアリーテイル・ホール",
-      "wait_minutes": 10,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "CLOSED",
       "access_mode": "STANDBY",
-      "official_status_cd": "001",
-      "official_status_label": "運営中",
+      "official_status_cd": "002",
+      "official_status_label": "案内終了",
       "closure_info": {
         "name_ja": "シンデレラのフェアリーテイル・ホール",
         "period": "2026/10/26 〜 2026/10/30",
@@ -147,7 +147,7 @@
       "id": "a-jungle-cruise-wildlife-expeditions",
       "name_en": "Jungle Cruise: Wildlife Expeditions",
       "name_ja": "ジャングルクルーズ：ワイルドライフ・エクスペディション",
-      "wait_minutes": 30,
+      "wait_minutes": 40,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -174,7 +174,7 @@
       "id": "a-star-tours-the-adventures-continue",
       "name_en": "Star Tours: The Adventures Continue",
       "name_ja": "スター・ツアーズ：ザ・アドベンチャーズ・コンティニュー",
-      "wait_minutes": 10,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -201,7 +201,7 @@
       "id": "a-splash-mountain",
       "name_en": "Splash Mountain",
       "name_ja": "スプラッシュ・マウンテン",
-      "wait_minutes": 70,
+      "wait_minutes": 60,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -423,7 +423,7 @@
       "id": "a-snow-whites-adventures",
       "name_en": "Snow White's Adventures",
       "name_ja": "白雪姫と七人のこびと",
-      "wait_minutes": 15,
+      "wait_minutes": 25,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -487,13 +487,13 @@
   ],
   "summary": {
     "count": 37,
-    "open_count": 28,
-    "average_wait": 25.2,
+    "open_count": 27,
+    "average_wait": 26.2,
     "max_wait": 120
   },
   "closures": {
     "source_url": "https://www.tokyodisneyresort.jp/tdl/monthly/stop.html",
-    "fetched_at": "2026-08-20T09:30:45.132Z",
+    "fetched_at": "2026-08-20T09:38:10.863Z",
     "closures": {
       "a-peter-pans-flight": {
         "name_ja": "ピーターパン空の旅",
@@ -574,7 +574,7 @@
   },
   "shows": {
     "source_url": "https://www.tokyodisneyresort.jp/tdl/show.html",
-    "fetched_at": "2026-08-20T09:30:55.063Z",
+    "fetched_at": "2026-08-20T09:38:19.151Z",
     "items": [
       {
         "time": "10:00",
