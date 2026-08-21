@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-21T14:01:16.330Z",
+  "fetched_at": "2026-08-21T14:02:22.568Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -369,9 +369,9 @@
       "id": "a-mk-248",
       "name_en": "Astro Orbiter",
       "name_ja": "Astro Orbiter",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -413,7 +413,7 @@
       "id": "a-mk-143",
       "name_en": "Tomorrowland Speedway",
       "name_ja": "Tomorrowland Speedway",
-      "wait_minutes": 25,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -424,9 +424,9 @@
       "id": "a-mk-1190",
       "name_en": "Tomorrowland Transit Authority PeopleMover",
       "name_ja": "Tomorrowland Transit Authority PeopleMover",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -489,14 +489,14 @@
   ],
   "summary": {
     "count": 44,
-    "open_count": 32,
-    "average_wait": 16.9,
+    "open_count": 34,
+    "average_wait": 16,
     "max_wait": 55
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/6/queue_times.json",
-    "fetched_at": "2026-08-21T14:01:16.330Z",
+    "fetched_at": "2026-08-21T14:02:22.568Z",
     "items": []
   }
 }
