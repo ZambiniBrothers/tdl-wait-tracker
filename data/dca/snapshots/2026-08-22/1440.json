@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-22T21:45:59.767Z",
+  "fetched_at": "2026-08-22T21:48:31.341Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -292,9 +292,9 @@
       "id": "a-dca-310",
       "name_en": "Jessie's Critter Carousel",
       "name_ja": "Jessie's Critter Carousel",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -314,7 +314,7 @@
       "id": "a-dca-311",
       "name_en": "Pixar Pal-A-Round - Swinging",
       "name_ja": "Pixar Pal-A-Round - Swinging",
-      "wait_minutes": 10,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -325,7 +325,7 @@
       "id": "a-dca-5557",
       "name_en": "Pixar Pal-A-Round – Non-Swinging",
       "name_ja": "Pixar Pal-A-Round – Non-Swinging",
-      "wait_minutes": 5,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -336,9 +336,9 @@
       "id": "a-dca-313",
       "name_en": "Toy Story Midway Mania!",
       "name_ja": "トイ・ストーリー・マニア！",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 35,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -379,14 +379,14 @@
   ],
   "summary": {
     "count": 34,
-    "open_count": 24,
-    "average_wait": 24.7,
+    "open_count": 26,
+    "average_wait": 25.5,
     "max_wait": 60
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/17/queue_times.json",
-    "fetched_at": "2026-08-22T21:45:59.767Z",
+    "fetched_at": "2026-08-22T21:48:31.341Z",
     "items": []
   }
 }
