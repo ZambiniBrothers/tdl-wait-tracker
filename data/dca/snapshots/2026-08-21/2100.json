@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-22T04:01:07.254Z",
+  "fetched_at": "2026-08-22T04:09:06.637Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -39,7 +39,7 @@
       "id": "a-dca-2608",
       "name_en": "Luigi's Honkin' Haul-O-Ween",
       "name_ja": "Luigi's Honkin' Haul-O-Ween",
-      "wait_minutes": 35,
+      "wait_minutes": 25,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -116,7 +116,7 @@
       "id": "a-dca-17129",
       "name_en": "Soarin’ Across America",
       "name_ja": "ソアリン・アクロス・アメリカ",
-      "wait_minutes": 35,
+      "wait_minutes": 45,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -138,9 +138,9 @@
       "id": "a-dca-6440",
       "name_en": "Mickey's PhilharMagic",
       "name_ja": "ミッキーのフィルハーマジック",
-      "wait_minutes": 10,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -248,9 +248,9 @@
       "id": "a-dca-866",
       "name_en": "Games of Pixar Pier",
       "name_ja": "Games of Pixar Pier",
-      "wait_minutes": 5,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -336,7 +336,7 @@
       "id": "a-dca-313",
       "name_en": "Toy Story Midway Mania!",
       "name_ja": "トイ・ストーリー・マニア！",
-      "wait_minutes": 50,
+      "wait_minutes": 25,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -347,7 +347,7 @@
       "id": "a-dca-5146",
       "name_en": "Guardians of the Galaxy - Monsters After Dark",
       "name_ja": "Guardians of the Galaxy - Monsters After Dark",
-      "wait_minutes": 90,
+      "wait_minutes": 95,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -379,14 +379,14 @@
   ],
   "summary": {
     "count": 34,
-    "open_count": 23,
-    "average_wait": 35,
-    "max_wait": 90
+    "open_count": 21,
+    "average_wait": 37.5,
+    "max_wait": 95
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/17/queue_times.json",
-    "fetched_at": "2026-08-22T04:01:07.254Z",
+    "fetched_at": "2026-08-22T04:09:06.637Z",
     "items": []
   }
 }
