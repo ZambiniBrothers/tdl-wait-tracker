@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-22T22:30:59.279Z",
+  "fetched_at": "2026-08-22T22:36:28.697Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -17,9 +17,9 @@
       "id": "a-ak-651",
       "name_en": "Gorilla Falls Exploration Trail",
       "name_ja": "Gorilla Falls Exploration Trail",
-      "wait_minutes": 5,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -50,7 +50,7 @@
       "id": "a-ak-110",
       "name_en": "Expedition Everest - Legend of the Forbidden Mountain",
       "name_ja": "エクスペディション・エベレスト",
-      "wait_minutes": 15,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -182,7 +182,7 @@
       "id": "a-ak-4439",
       "name_en": "Avatar Flight of Passage",
       "name_ja": "アバター：フライト・オブ・パッセージ",
-      "wait_minutes": 25,
+      "wait_minutes": 35,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -216,8 +216,8 @@
       "name_en": "Wilderness Explorers",
       "name_ja": "Wilderness Explorers",
       "wait_minutes": null,
-      "is_open": true,
-      "status": "OPERATING",
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -225,14 +225,14 @@
   ],
   "summary": {
     "count": 20,
-    "open_count": 14,
-    "average_wait": 15,
-    "max_wait": 30
+    "open_count": 12,
+    "average_wait": 18,
+    "max_wait": 35
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/8/queue_times.json",
-    "fetched_at": "2026-08-22T22:30:59.279Z",
+    "fetched_at": "2026-08-22T22:36:28.697Z",
     "items": []
   }
 }
