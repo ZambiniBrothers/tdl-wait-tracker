@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-23T00:30:52.115Z",
+  "fetched_at": "2026-08-23T00:36:57.697Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -17,7 +17,7 @@
       "id": "a-dlr-326",
       "name_en": "Indiana Jones™ Adventure",
       "name_ja": "インディ・ジョーンズ・アドベンチャー",
-      "wait_minutes": 45,
+      "wait_minutes": 25,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -171,9 +171,9 @@
       "id": "a-dlr-279",
       "name_en": "Matterhorn Bobsleds",
       "name_ja": "マッターホルン・ボブスレー",
-      "wait_minutes": 50,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -632,14 +632,14 @@
   ],
   "summary": {
     "count": 57,
-    "open_count": 44,
-    "average_wait": 17.6,
+    "open_count": 43,
+    "average_wait": 15.9,
     "max_wait": 50
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/16/queue_times.json",
-    "fetched_at": "2026-08-23T00:30:52.115Z",
+    "fetched_at": "2026-08-23T00:36:57.697Z",
     "items": []
   }
 }
