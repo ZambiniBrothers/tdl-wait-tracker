@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-23T11:00:30.381Z",
+  "fetched_at": "2026-08-23T11:06:27.858Z",
   "source": "tdr-official",
   "attractions": [
     {
@@ -82,12 +82,12 @@
       "id": "a-country-bear-theater",
       "name_en": "Country Bear Theater",
       "name_ja": "カントリーベア・シアター",
-      "wait_minutes": 15,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "CLOSED",
       "access_mode": "STANDBY",
-      "official_status_cd": "001",
-      "official_status_label": "運営中"
+      "official_status_cd": "002",
+      "official_status_label": "案内終了"
     },
     {
       "id": "a-gadgets-go-coaster",
@@ -120,12 +120,12 @@
       "id": "a-goofys-paint-n-play-house",
       "name_en": "Goofy's Paint 'n' Play House",
       "name_ja": "グーフィーのペイント＆プレイハウス",
-      "wait_minutes": 5,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "CLOSED",
       "access_mode": "STANDBY",
-      "official_status_cd": "001",
-      "official_status_label": "運営中"
+      "official_status_cd": "002",
+      "official_status_label": "案内終了"
     },
     {
       "id": "a-cinderellas-fairy-tale-hall",
@@ -147,7 +147,7 @@
       "id": "a-jungle-cruise-wildlife-expeditions",
       "name_en": "Jungle Cruise: Wildlife Expeditions",
       "name_ja": "ジャングルクルーズ：ワイルドライフ・エクスペディション",
-      "wait_minutes": 40,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -423,12 +423,12 @@
       "id": "a-snow-whites-adventures",
       "name_en": "Snow White's Adventures",
       "name_ja": "白雪姫と七人のこびと",
-      "wait_minutes": 20,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "CLOSED",
       "access_mode": "STANDBY",
-      "official_status_cd": "001",
-      "official_status_label": "運営中",
+      "official_status_cd": "002",
+      "official_status_label": "案内終了",
       "closure_info": {
         "name_ja": "白雪姫と七人のこびと",
         "period": "2026/9/4 〜 2026/9/22",
@@ -466,34 +466,34 @@
       "id": "a-mark-twain-riverboat",
       "name_en": "Mark Twain Riverboat",
       "name_ja": "蒸気船マークトウェイン号",
-      "wait_minutes": 5,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "CLOSED",
       "access_mode": "STANDBY",
-      "official_status_cd": "001",
-      "official_status_label": "運営中"
+      "official_status_cd": "002",
+      "official_status_label": "案内終了"
     },
     {
       "id": "a-the-enchanted-tiki-room-stitch-presents-aloha-e-komo-mai",
       "name_en": "The Enchanted Tiki Room: Stitch Presents 'Aloha E Komo Mai!'",
       "name_ja": "魅惑のチキルーム：スティッチ・プレゼンツ“アロハ・エ・コモ・マイ！”",
-      "wait_minutes": 10,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "CLOSED",
       "access_mode": "STANDBY",
-      "official_status_cd": "001",
-      "official_status_label": "運営中"
+      "official_status_cd": "002",
+      "official_status_label": "案内終了"
     }
   ],
   "summary": {
     "count": 37,
-    "open_count": 25,
-    "average_wait": 20.2,
+    "open_count": 20,
+    "average_wait": 22.2,
     "max_wait": 70
   },
   "closures": {
     "source_url": "https://www.tokyodisneyresort.jp/tdl/monthly/stop.html",
-    "fetched_at": "2026-08-23T11:00:30.014Z",
+    "fetched_at": "2026-08-23T11:06:13.713Z",
     "closures": {
       "a-peter-pans-flight": {
         "name_ja": "ピーターパン空の旅",
@@ -574,7 +574,7 @@
   },
   "shows": {
     "source_url": "https://www.tokyodisneyresort.jp/tdl/show.html",
-    "fetched_at": "2026-08-23T11:00:30.381Z",
+    "fetched_at": "2026-08-23T11:06:27.858Z",
     "items": [
       {
         "time": "17:00",
