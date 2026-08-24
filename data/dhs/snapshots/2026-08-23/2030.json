@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-24T00:30:40.601Z",
+  "fetched_at": "2026-08-24T00:35:32.856Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -40,8 +40,8 @@
       "name_en": "Walt Disney Presents",
       "name_ja": "Walt Disney Presents",
       "wait_minutes": null,
-      "is_open": true,
-      "status": "OPERATING",
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -116,7 +116,7 @@
       "id": "a-dhs-6361",
       "name_en": "Mickey & Minnie's Runaway Railway",
       "name_ja": "ミッキー＆ミニーのランナウェイ・レイルウェイ",
-      "wait_minutes": 25,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -138,7 +138,7 @@
       "id": "a-dhs-117",
       "name_en": "Toy Story Mania!",
       "name_ja": "トイ・ストーリー・マニア！",
-      "wait_minutes": 35,
+      "wait_minutes": 40,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -248,7 +248,7 @@
       "id": "a-dhs-5476",
       "name_en": "Slinky Dog Dash",
       "name_ja": "スリンキー・ドッグ・ダッシュ",
-      "wait_minutes": 50,
+      "wait_minutes": 45,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -258,14 +258,14 @@
   ],
   "summary": {
     "count": 23,
-    "open_count": 16,
-    "average_wait": 25,
-    "max_wait": 50
+    "open_count": 15,
+    "average_wait": 25.6,
+    "max_wait": 45
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/7/queue_times.json",
-    "fetched_at": "2026-08-24T00:30:40.601Z",
+    "fetched_at": "2026-08-24T00:35:32.856Z",
     "items": []
   }
 }
