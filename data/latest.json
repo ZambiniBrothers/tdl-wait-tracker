@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-25T08:00:45.324Z",
+  "fetched_at": "2026-08-25T08:03:32.858Z",
   "source": "tdr-official",
   "attractions": [
     {
@@ -28,7 +28,7 @@
       "id": "a-westernland-shootin-gallery",
       "name_en": "Westernland Shootin' Gallery",
       "name_ja": "ウエスタンランド・シューティングギャラリー",
-      "wait_minutes": 10,
+      "wait_minutes": 5,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -66,12 +66,12 @@
       "id": "a-pirates-of-the-caribbean",
       "name_en": "Pirates of the Caribbean",
       "name_ja": "カリブの海賊",
-      "wait_minutes": 10,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
-      "official_status_cd": "001",
-      "official_status_label": "運営中"
+      "official_status_cd": "004",
+      "official_status_label": "一時運営中止"
     },
     {
       "id": "a-country-bear-theater",
@@ -283,7 +283,7 @@
       "id": "a-pinocchios-daring-journey",
       "name_en": "Pinocchio's Daring Journey",
       "name_ja": "ピノキオの冒険旅行",
-      "wait_minutes": 15,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -369,7 +369,7 @@
       "id": "a-mickeys-philharmagic",
       "name_en": "Mickey’s PhilharMagic",
       "name_ja": "ミッキーのフィルハーマジック",
-      "wait_minutes": 10,
+      "wait_minutes": 5,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -482,13 +482,13 @@
   ],
   "summary": {
     "count": 37,
-    "open_count": 29,
-    "average_wait": 26.1,
+    "open_count": 28,
+    "average_wait": 26.2,
     "max_wait": 100
   },
   "closures": {
     "source_url": "https://www.tokyodisneyresort.jp/tdl/monthly/stop.html",
-    "fetched_at": "2026-08-25T08:00:36.307Z",
+    "fetched_at": "2026-08-25T08:03:28.386Z",
     "closures": {
       "a-peter-pans-flight": {
         "name_ja": "ピーターパン空の旅",
@@ -564,7 +564,7 @@
   },
   "shows": {
     "source_url": "https://www.tokyodisneyresort.jp/tdl/show.html",
-    "fetched_at": "2026-08-25T08:00:45.324Z",
+    "fetched_at": "2026-08-25T08:03:32.858Z",
     "items": [
       {
         "time": "10:00",
