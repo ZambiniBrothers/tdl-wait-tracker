@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-25T22:00:54.150Z",
+  "fetched_at": "2026-08-25T22:09:24.527Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -72,7 +72,7 @@
       "id": "a-dlr-14168",
       "name_en": "Tiana's Bayou Adventure",
       "name_ja": "Tiana's Bayou Adventure",
-      "wait_minutes": 50,
+      "wait_minutes": 35,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -204,7 +204,7 @@
       "id": "a-dlr-281",
       "name_en": "Peter Pan's Flight",
       "name_ja": "ピーターパン空の旅",
-      "wait_minutes": 15,
+      "wait_minutes": 25,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -348,8 +348,8 @@
       "name_en": "Main Street Vehicles",
       "name_ja": "Main Street Vehicles",
       "wait_minutes": null,
-      "is_open": true,
-      "status": "OPERATING",
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -490,7 +490,7 @@
       "id": "a-dlr-325",
       "name_en": "Haunted Mansion Holiday",
       "name_ja": "Haunted Mansion Holiday",
-      "wait_minutes": 40,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -589,7 +589,7 @@
       "id": "a-dlr-276",
       "name_en": "Finding Nemo Submarine Voyage",
       "name_ja": "ファインディング・ニモ・サブマリン・ボヤッジ",
-      "wait_minutes": 20,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -611,7 +611,7 @@
       "id": "a-dlr-284",
       "name_en": "Space Mountain",
       "name_ja": "スペース・マウンテン",
-      "wait_minutes": 20,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -632,14 +632,14 @@
   ],
   "summary": {
     "count": 57,
-    "open_count": 46,
-    "average_wait": 13.1,
-    "max_wait": 50
+    "open_count": 45,
+    "average_wait": 12.9,
+    "max_wait": 35
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/16/queue_times.json",
-    "fetched_at": "2026-08-25T22:00:54.150Z",
+    "fetched_at": "2026-08-25T22:09:24.527Z",
     "items": []
   }
 }
