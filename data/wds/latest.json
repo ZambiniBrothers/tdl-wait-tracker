@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-26T07:01:02.109Z",
+  "fetched_at": "2026-08-26T07:06:37.331Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -28,9 +28,9 @@
       "id": "a-wds-10845",
       "name_en": "Spider-Man W.E.B. Adventure",
       "name_ja": "Spider-Man W.E.B. Adventure",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 10,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -39,9 +39,9 @@
       "id": "a-wds-10846",
       "name_en": "Spider-Man W.E.B. Adventure Single Rider",
       "name_ja": "Spider-Man W.E.B. Adventure Single Rider",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -50,7 +50,7 @@
       "id": "a-wds-40",
       "name_en": "The Twilight Zone Tower of Terror",
       "name_ja": "タワー・オブ・テラー",
-      "wait_minutes": 5,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -61,7 +61,7 @@
       "id": "a-wds-31",
       "name_en": "Cars Quatre Roues Rallye",
       "name_ja": "Cars Quatre Roues Rallye",
-      "wait_minutes": 5,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -83,7 +83,7 @@
       "id": "a-wds-32",
       "name_en": "Crush's Coaster",
       "name_ja": "クラッシュ・コースター",
-      "wait_minutes": 90,
+      "wait_minutes": 80,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -225,14 +225,14 @@
   ],
   "summary": {
     "count": 20,
-    "open_count": 10,
-    "average_wait": 34.4,
-    "max_wait": 90
+    "open_count": 12,
+    "average_wait": 30,
+    "max_wait": 85
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/28/queue_times.json",
-    "fetched_at": "2026-08-26T07:01:02.109Z",
+    "fetched_at": "2026-08-26T07:06:37.331Z",
     "items": []
   }
 }

@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-26T07:01:00.962Z",
+  "fetched_at": "2026-08-26T07:06:36.250Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -7,8 +7,8 @@
       "name_en": "Adventure Isle",
       "name_ja": "Adventure Isle",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -51,8 +51,8 @@
       "name_en": "Le Passage Enchanté d'Aladdin",
       "name_ja": "Le Passage Enchanté d'Aladdin",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -84,8 +84,8 @@
       "name_en": "Pirates' Beach",
       "name_ja": "Pirates' Beach",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -105,7 +105,7 @@
       "id": "a-dlp-5",
       "name_en": "Buzz Lightyear Laser Blast",
       "name_ja": "バズ・ライトイヤー・レーザーブラスト",
-      "wait_minutes": 5,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -171,7 +171,7 @@
       "id": "a-dlp-8",
       "name_en": "Star Wars Hyperspace Mountain",
       "name_ja": "スター・ウォーズ：ハイパースペース・マウンテン",
-      "wait_minutes": 5,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -314,7 +314,7 @@
       "id": "a-dlp-23",
       "name_en": "Les Voyages de Pinocchio",
       "name_ja": "Les Voyages de Pinocchio",
-      "wait_minutes": 5,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -467,14 +467,14 @@
   ],
   "summary": {
     "count": 42,
-    "open_count": 9,
-    "average_wait": 23.3,
+    "open_count": 12,
+    "average_wait": 26.7,
     "max_wait": 70
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/4/queue_times.json",
-    "fetched_at": "2026-08-26T07:01:00.962Z",
+    "fetched_at": "2026-08-26T07:06:36.250Z",
     "items": []
   }
 }
