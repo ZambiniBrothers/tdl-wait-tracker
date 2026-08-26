@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-26T18:46:08.930Z",
+  "fetched_at": "2026-08-26T18:49:48.256Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -50,9 +50,9 @@
       "id": "a-dca-295",
       "name_en": "Radiator Springs Racers",
       "name_ja": "レーシング・イン・ラジエーター・スプリングス",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 70,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -62,8 +62,8 @@
       "name_en": "Radiator Springs Racers Single Rider",
       "name_ja": "レーシング・イン・ラジエーター・スプリングス",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -357,14 +357,14 @@
   ],
   "summary": {
     "count": 32,
-    "open_count": 24,
-    "average_wait": 21.4,
-    "max_wait": 55
+    "open_count": 26,
+    "average_wait": 23.9,
+    "max_wait": 70
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/17/queue_times.json",
-    "fetched_at": "2026-08-26T18:46:08.930Z",
+    "fetched_at": "2026-08-26T18:49:48.256Z",
     "items": []
   }
 }
