@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-26T02:00:34.990Z",
+  "fetched_at": "2026-08-26T02:09:38.028Z",
   "source": "tdr-official",
   "attractions": [
     {
@@ -66,7 +66,7 @@
       "id": "a-pirates-of-the-caribbean",
       "name_en": "Pirates of the Caribbean",
       "name_ja": "カリブの海賊",
-      "wait_minutes": 15,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -196,7 +196,7 @@
       "id": "a-splash-mountain",
       "name_en": "Splash Mountain",
       "name_ja": "スプラッシュ・マウンテン",
-      "wait_minutes": 80,
+      "wait_minutes": 70,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -234,12 +234,12 @@
       "id": "a-tom-sawyer-island-rafts",
       "name_en": "Tom Sawyer Island Rafts",
       "name_ja": "トムソーヤ島いかだ",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "CLOSED",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
-      "official_status_cd": "008",
-      "official_status_label": "準備中"
+      "official_status_cd": "001",
+      "official_status_label": "運営中"
     },
     {
       "id": "a-donalds-boat",
@@ -256,7 +256,7 @@
       "id": "a-big-thunder-mountain",
       "name_en": "Big Thunder Mountain",
       "name_ja": "ビッグサンダー・マウンテン",
-      "wait_minutes": 50,
+      "wait_minutes": 40,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -283,7 +283,7 @@
       "id": "a-pinocchios-daring-journey",
       "name_en": "Pinocchio's Daring Journey",
       "name_ja": "ピノキオの冒険旅行",
-      "wait_minutes": 10,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -482,13 +482,13 @@
   ],
   "summary": {
     "count": 37,
-    "open_count": 29,
-    "average_wait": 24.4,
+    "open_count": 30,
+    "average_wait": 23.4,
     "max_wait": 90
   },
   "closures": {
     "source_url": "https://www.tokyodisneyresort.jp/tdl/monthly/stop.html",
-    "fetched_at": "2026-08-26T02:00:34.084Z",
+    "fetched_at": "2026-08-26T02:09:29.103Z",
     "closures": {
       "a-peter-pans-flight": {
         "name_ja": "ピーターパン空の旅",
@@ -564,7 +564,7 @@
   },
   "shows": {
     "source_url": "https://www.tokyodisneyresort.jp/tdl/show.html",
-    "fetched_at": "2026-08-26T02:00:34.990Z",
+    "fetched_at": "2026-08-26T02:09:38.028Z",
     "items": [
       {
         "time": "10:00",
