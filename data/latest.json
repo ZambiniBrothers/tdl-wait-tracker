@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-31T11:10:39.517Z",
+  "fetched_at": "2026-08-31T11:15:55.197Z",
   "source": "tdr-official",
   "attractions": [
     {
@@ -310,12 +310,12 @@
       "id": "a-poohs-hunny-hunt",
       "name_en": "Pooh's Hunny Hunt",
       "name_ja": "プーさんのハニーハント",
-      "wait_minutes": 30,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
-      "official_status_cd": "001",
-      "official_status_label": "運営中"
+      "official_status_cd": "004",
+      "official_status_label": "一時運営中止"
     },
     {
       "id": "a-the-happy-ride-with-baymax",
@@ -413,12 +413,12 @@
       "id": "a-snow-whites-adventures",
       "name_en": "Snow White's Adventures",
       "name_ja": "白雪姫と七人のこびと",
-      "wait_minutes": 5,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "CLOSED",
       "access_mode": "STANDBY",
-      "official_status_cd": "001",
-      "official_status_label": "運営中",
+      "official_status_cd": "002",
+      "official_status_label": "案内終了",
       "closure_info": {
         "name_ja": "白雪姫と七人のこびと",
         "period": "2026/9/4 〜 2026/9/22",
@@ -445,7 +445,7 @@
       "id": "a-enchanted-tale-of-beauty-and-the-beast",
       "name_en": "Enchanted Tale of Beauty and the Beast",
       "name_ja": "美女と野獣“魔法のものがたり”",
-      "wait_minutes": 50,
+      "wait_minutes": 40,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -477,13 +477,13 @@
   ],
   "summary": {
     "count": 37,
-    "open_count": 21,
-    "average_wait": 20,
+    "open_count": 19,
+    "average_wait": 19.7,
     "max_wait": 60
   },
   "closures": {
     "source_url": "https://www.tokyodisneyresort.jp/tdl/monthly/stop.html",
-    "fetched_at": "2026-08-31T11:10:34.416Z",
+    "fetched_at": "2026-08-31T11:15:43.664Z",
     "closures": {
       "a-peter-pans-flight": {
         "name_ja": "ピーターパン空の旅",
@@ -554,7 +554,7 @@
   },
   "shows": {
     "source_url": "https://www.tokyodisneyresort.jp/tdl/show.html",
-    "fetched_at": "2026-08-31T11:10:39.517Z",
+    "fetched_at": "2026-08-31T11:15:55.197Z",
     "items": [
       {
         "time": "10:00",
