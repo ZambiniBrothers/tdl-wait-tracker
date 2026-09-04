@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-04T17:11:27.790Z",
+  "fetched_at": "2026-09-04T17:16:17.853Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -72,7 +72,7 @@
       "id": "a-epcot-160",
       "name_en": "Test Track",
       "name_ja": "テスト・トラック",
-      "wait_minutes": 70,
+      "wait_minutes": 90,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -116,7 +116,7 @@
       "id": "a-epcot-156",
       "name_en": "Living with the Land",
       "name_ja": "Living with the Land",
-      "wait_minutes": 20,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -149,9 +149,9 @@
       "id": "a-epcot-153",
       "name_en": "The Seas with Nemo & Friends",
       "name_ja": "The Seas with Nemo & Friends",
-      "wait_minutes": 5,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -215,7 +215,7 @@
       "id": "a-epcot-10914",
       "name_en": "Remy's Ratatouille Adventure",
       "name_ja": "レミーのおいしいレストラン",
-      "wait_minutes": 40,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -236,14 +236,14 @@
   ],
   "summary": {
     "count": 21,
-    "open_count": 21,
-    "average_wait": 26,
-    "max_wait": 70
+    "open_count": 20,
+    "average_wait": 27.9,
+    "max_wait": 90
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/5/queue_times.json",
-    "fetched_at": "2026-09-04T17:11:27.790Z",
+    "fetched_at": "2026-09-04T17:16:17.853Z",
     "items": []
   }
 }
