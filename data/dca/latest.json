@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-06T20:12:46.127Z",
+  "fetched_at": "2026-09-06T20:16:08.008Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -72,9 +72,9 @@
       "id": "a-dca-302",
       "name_en": "Grizzly River Run",
       "name_ja": "Grizzly River Run",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -292,9 +292,9 @@
       "id": "a-dca-300",
       "name_en": "Jumpin' Jellyfish",
       "name_ja": "Jumpin' Jellyfish",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 10,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -368,14 +368,14 @@
   ],
   "summary": {
     "count": 33,
-    "open_count": 23,
-    "average_wait": 24.4,
+    "open_count": 25,
+    "average_wait": 22.5,
     "max_wait": 55
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/17/queue_times.json",
-    "fetched_at": "2026-09-06T20:12:46.127Z",
+    "fetched_at": "2026-09-06T20:16:08.008Z",
     "items": []
   }
 }
