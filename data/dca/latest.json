@@ -1,14 +1,14 @@
 {
-  "fetched_at": "2026-09-07T15:02:10.401Z",
+  "fetched_at": "2026-09-07T15:06:35.889Z",
   "source": "queue-times",
   "attractions": [
     {
       "id": "a-dca-329",
       "name_en": "Guardians of the Galaxy - Mission: BREAKOUT!",
       "name_ja": "ガーディアンズ・オブ・ギャラクシー：ミッション・ブレイクアウト！",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 55,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -51,8 +51,8 @@
       "name_en": "Radiator Springs Racers",
       "name_ja": "レーシング・イン・ラジエーター・スプリングス",
       "wait_minutes": null,
-      "is_open": true,
-      "status": "OPERATING",
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -62,8 +62,8 @@
       "name_en": "Radiator Springs Racers Single Rider",
       "name_ja": "レーシング・イン・ラジエーター・スプリングス",
       "wait_minutes": null,
-      "is_open": true,
-      "status": "OPERATING",
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -238,8 +238,8 @@
       "name_en": "Games of Pixar Pier",
       "name_ja": "Games of Pixar Pier",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -248,9 +248,9 @@
       "id": "a-dca-322",
       "name_en": "Incredicoaster",
       "name_ja": "インクレディコースター",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 10,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -260,8 +260,8 @@
       "name_en": "Incredicoaster Single Rider",
       "name_ja": "インクレディコースター",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -282,8 +282,8 @@
       "name_en": "Jessie's Critter Carousel",
       "name_ja": "Jessie's Critter Carousel",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -303,9 +303,9 @@
       "id": "a-dca-311",
       "name_en": "Pixar Pal-A-Round - Swinging",
       "name_ja": "Pixar Pal-A-Round - Swinging",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -314,9 +314,9 @@
       "id": "a-dca-5557",
       "name_en": "Pixar Pal-A-Round – Non-Swinging",
       "name_ja": "Pixar Pal-A-Round – Non-Swinging",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -368,14 +368,14 @@
   ],
   "summary": {
     "count": 33,
-    "open_count": 17,
-    "average_wait": 5,
-    "max_wait": 5
+    "open_count": 22,
+    "average_wait": 9.6,
+    "max_wait": 55
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/17/queue_times.json",
-    "fetched_at": "2026-09-07T15:02:10.401Z",
+    "fetched_at": "2026-09-07T15:06:35.889Z",
     "items": []
   }
 }
