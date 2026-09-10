@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-10T21:01:55.910Z",
+  "fetched_at": "2026-09-10T21:06:35.230Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -7,8 +7,8 @@
       "name_en": "A Pirate's Adventure ~ Treasures of the Seven Seas",
       "name_ja": "A Pirate's Adventure ~ Treasures of the Seven Seas",
       "wait_minutes": null,
-      "is_open": true,
-      "status": "OPERATING",
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -17,7 +17,7 @@
       "id": "a-mk-134",
       "name_en": "Jungle Cruise",
       "name_ja": "ジャングルクルーズ",
-      "wait_minutes": 35,
+      "wait_minutes": 40,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -270,7 +270,7 @@
       "id": "a-mk-1181",
       "name_en": "Walt Disney World Railroad - Fantasyland",
       "name_ja": "Walt Disney World Railroad - Fantasyland",
-      "wait_minutes": null,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -347,7 +347,7 @@
       "id": "a-mk-146",
       "name_en": "Meet Mickey at Town Square Theater",
       "name_ja": "Meet Mickey at Town Square Theater",
-      "wait_minutes": 25,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -380,7 +380,7 @@
       "id": "a-mk-131",
       "name_en": "Buzz Lightyear’s Space Ranger Spin",
       "name_ja": "バズ・ライトイヤーのスペース・レンジャー・スピン",
-      "wait_minutes": 50,
+      "wait_minutes": 45,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -489,14 +489,14 @@
   ],
   "summary": {
     "count": 44,
-    "open_count": 39,
-    "average_wait": 23.2,
+    "open_count": 38,
+    "average_wait": 23,
     "max_wait": 65
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/6/queue_times.json",
-    "fetched_at": "2026-09-10T21:01:55.910Z",
+    "fetched_at": "2026-09-10T21:06:35.230Z",
     "items": []
   }
 }

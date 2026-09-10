@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-10T21:01:53.407Z",
+  "fetched_at": "2026-09-10T21:06:32.440Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -193,9 +193,9 @@
       "id": "a-dlr-280",
       "name_en": "Mr. Toad's Wild Ride",
       "name_ja": "Mr. Toad's Wild Ride",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -204,7 +204,7 @@
       "id": "a-dlr-281",
       "name_en": "Peter Pan's Flight",
       "name_ja": "ピーターパン空の旅",
-      "wait_minutes": 20,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -381,8 +381,8 @@
       "name_en": "Walt Disney - A Magical Life",
       "name_ja": "Walt Disney - A Magical Life",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -621,14 +621,14 @@
   ],
   "summary": {
     "count": 56,
-    "open_count": 43,
-    "average_wait": 10.2,
+    "open_count": 45,
+    "average_wait": 9.7,
     "max_wait": 35
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/16/queue_times.json",
-    "fetched_at": "2026-09-10T21:01:53.407Z",
+    "fetched_at": "2026-09-10T21:06:32.440Z",
     "items": []
   }
 }
