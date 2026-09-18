@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-18T01:31:08.519Z",
+  "fetched_at": "2026-09-18T01:36:52.788Z",
   "source": "tdr-official",
   "attractions": [
     {
@@ -66,12 +66,12 @@
       "id": "a-pirates-of-the-caribbean",
       "name_en": "Pirates of the Caribbean",
       "name_ja": "カリブの海賊",
-      "wait_minutes": 15,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
-      "official_status_cd": "001",
-      "official_status_label": "運営中"
+      "official_status_cd": "004",
+      "official_status_label": "一時運営中止"
     },
     {
       "id": "a-country-bear-theater",
@@ -137,7 +137,7 @@
       "id": "a-jungle-cruise-wildlife-expeditions",
       "name_en": "Jungle Cruise: Wildlife Expeditions",
       "name_ja": "ジャングルクルーズ：ワイルドライフ・エクスペディション",
-      "wait_minutes": 5,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -338,7 +338,7 @@
       "id": "a-unknown",
       "name_en": "ホーンテッドマンション“ホリデーナイトメアー”",
       "name_ja": "ホーンテッドマンション“ホリデーナイトメアー”",
-      "wait_minutes": 40,
+      "wait_minutes": 50,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -467,13 +467,13 @@
   ],
   "summary": {
     "count": 37,
-    "open_count": 30,
-    "average_wait": 17,
+    "open_count": 29,
+    "average_wait": 17.6,
     "max_wait": 100
   },
   "closures": {
     "source_url": "https://www.tokyodisneyresort.jp/tdl/monthly/stop.html",
-    "fetched_at": "2026-09-18T01:31:03.503Z",
+    "fetched_at": "2026-09-18T01:36:45.556Z",
     "closures": {
       "a-peter-pans-flight": {
         "name_ja": "ピーターパン空の旅",
@@ -539,7 +539,7 @@
   },
   "shows": {
     "source_url": "https://www.tokyodisneyresort.jp/tdl/show.html",
-    "fetched_at": "2026-09-18T01:31:08.519Z",
+    "fetched_at": "2026-09-18T01:36:52.788Z",
     "items": [
       {
         "time": "13:00",
