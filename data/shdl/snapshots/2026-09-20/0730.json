@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-19T23:31:13.410Z",
+  "fetched_at": "2026-09-19T23:39:18.459Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -94,9 +94,9 @@
       "id": "a-shdl-2989",
       "name_en": "Peter Pan’s Flight",
       "name_ja": "ピーターパン空の旅",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -204,9 +204,9 @@
       "id": "a-shdl-3000",
       "name_en": "Jet Packs",
       "name_ja": "Jet Packs",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -237,9 +237,9 @@
       "id": "a-shdl-2985",
       "name_en": "TRON Lightcycle Power Run – Presented by Chevrolet",
       "name_ja": "トロン・ライトサイクル・パワーラン",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -281,9 +281,9 @@
       "id": "a-shdl-5635",
       "name_en": "Woody’s Roundup",
       "name_ja": "Woody’s Roundup",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -303,9 +303,9 @@
       "id": "a-shdl-2996",
       "name_en": "Pirates of the Caribbean Battle for the Sunken Treasure",
       "name_ja": "カリブの海賊：沈没船の財宝をめぐるバトル",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -347,7 +347,7 @@
       "id": "a-shdl-12392",
       "name_en": "Zootopia: Hot Pursuit",
       "name_ja": "Zootopia: Hot Pursuit",
-      "wait_minutes": 10,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -357,14 +357,14 @@
   ],
   "summary": {
     "count": 32,
-    "open_count": 7,
-    "average_wait": 12,
+    "open_count": 12,
+    "average_wait": 9.5,
     "max_wait": 30
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/30/queue_times.json",
-    "fetched_at": "2026-09-19T23:31:13.410Z",
+    "fetched_at": "2026-09-19T23:39:18.459Z",
     "items": []
   }
 }
