@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-20T07:00:44.339Z",
+  "fetched_at": "2026-09-20T07:05:58.110Z",
   "source": "tdr-official",
   "attractions": [
     {
@@ -55,12 +55,12 @@
       "id": "a-omnibus",
       "name_en": "Omnibus",
       "name_ja": "オムニバス",
-      "wait_minutes": 5,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "CLOSED",
       "access_mode": "STANDBY",
-      "official_status_cd": "001",
-      "official_status_label": "運営中"
+      "official_status_cd": "002",
+      "official_status_label": "案内終了"
     },
     {
       "id": "a-pirates-of-the-caribbean",
@@ -284,7 +284,7 @@
       "id": "a-peter-pans-flight",
       "name_en": "Peter Pan's Flight",
       "name_ja": "ピーターパン空の旅",
-      "wait_minutes": 40,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -467,13 +467,13 @@
   ],
   "summary": {
     "count": 37,
-    "open_count": 32,
-    "average_wait": 20,
+    "open_count": 31,
+    "average_wait": 20.2,
     "max_wait": 100
   },
   "closures": {
     "source_url": "https://www.tokyodisneyresort.jp/tdl/monthly/stop.html",
-    "fetched_at": "2026-09-20T07:00:41.024Z",
+    "fetched_at": "2026-09-20T07:05:50.550Z",
     "closures": {
       "a-peter-pans-flight": {
         "name_ja": "ピーターパン空の旅",
@@ -539,7 +539,7 @@
   },
   "shows": {
     "source_url": "https://www.tokyodisneyresort.jp/tdl/show.html",
-    "fetched_at": "2026-09-20T07:00:44.339Z",
+    "fetched_at": "2026-09-20T07:05:58.110Z",
     "items": [
       {
         "time": "13:00",
