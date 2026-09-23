@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-23T15:01:17.143Z",
+  "fetched_at": "2026-09-23T15:06:16.443Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -39,9 +39,9 @@
       "id": "a-dca-2608",
       "name_en": "Luigi's Honkin' Haul-O-Ween",
       "name_ja": "Luigi's Honkin' Haul-O-Ween",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -50,9 +50,9 @@
       "id": "a-dca-295",
       "name_en": "Radiator Springs Racers",
       "name_ja": "レーシング・イン・ラジエーター・スプリングス",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 90,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -106,8 +106,8 @@
       "name_en": "Animation Academy",
       "name_ja": "Animation Academy",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -150,8 +150,8 @@
       "name_en": "Turtle Talk with Crush",
       "name_ja": "Turtle Talk with Crush",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -161,8 +161,8 @@
       "name_en": "The Bakery Tour",
       "name_ja": "The Bakery Tour",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -182,9 +182,9 @@
       "id": "a-dca-319",
       "name_en": "Goofy's Sky School",
       "name_ja": "Goofy's Sky School",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -215,9 +215,9 @@
       "id": "a-dca-316",
       "name_en": "The Little Mermaid - Ariel's Undersea Adventure",
       "name_ja": "The Little Mermaid - Ariel's Undersea Adventure",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -248,9 +248,9 @@
       "id": "a-dca-322",
       "name_en": "Incredicoaster",
       "name_ja": "インクレディコースター",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -260,8 +260,8 @@
       "name_en": "Incredicoaster Single Rider",
       "name_ja": "インクレディコースター",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -281,9 +281,9 @@
       "id": "a-dca-310",
       "name_en": "Jessie's Critter Carousel",
       "name_ja": "Jessie's Critter Carousel",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -304,8 +304,8 @@
       "name_en": "Pixar Pal-A-Round - Swinging",
       "name_ja": "Pixar Pal-A-Round - Swinging",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -368,14 +368,14 @@
   ],
   "summary": {
     "count": 33,
-    "open_count": 1,
-    "average_wait": 0,
-    "max_wait": 0
+    "open_count": 12,
+    "average_wait": 19.2,
+    "max_wait": 90
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/17/queue_times.json",
-    "fetched_at": "2026-09-23T15:01:17.143Z",
+    "fetched_at": "2026-09-23T15:06:16.443Z",
     "items": []
   }
 }
