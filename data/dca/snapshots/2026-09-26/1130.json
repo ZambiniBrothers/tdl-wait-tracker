@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-26T18:31:13.473Z",
+  "fetched_at": "2026-09-26T18:39:05.869Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -50,7 +50,7 @@
       "id": "a-dca-295",
       "name_en": "Radiator Springs Racers",
       "name_ja": "レーシング・イン・ラジエーター・スプリングス",
-      "wait_minutes": 70,
+      "wait_minutes": 75,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -171,9 +171,9 @@
       "id": "a-dca-298",
       "name_en": "Golden Zephyr",
       "name_ja": "Golden Zephyr",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -325,7 +325,7 @@
       "id": "a-dca-313",
       "name_en": "Toy Story Midway Mania!",
       "name_ja": "トイ・ストーリー・マニア！",
-      "wait_minutes": 35,
+      "wait_minutes": 55,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -368,14 +368,14 @@
   ],
   "summary": {
     "count": 33,
-    "open_count": 27,
+    "open_count": 28,
     "average_wait": 29.8,
-    "max_wait": 70
+    "max_wait": 75
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/17/queue_times.json",
-    "fetched_at": "2026-09-26T18:31:13.473Z",
+    "fetched_at": "2026-09-26T18:39:05.869Z",
     "items": []
   }
 }
