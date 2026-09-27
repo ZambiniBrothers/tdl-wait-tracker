@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-27T04:31:05.075Z",
+  "fetched_at": "2026-09-27T04:34:33.408Z",
   "source": "tdr-official",
   "attractions": [
     {
@@ -94,7 +94,7 @@
       "id": "a-223",
       "name_en": "センター・オブ・ジ・アース",
       "name_ja": "センター・オブ・ジ・アース",
-      "wait_minutes": 60,
+      "wait_minutes": 70,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -105,7 +105,7 @@
       "id": "a-219",
       "name_en": "ソアリン：ファンタスティック・フライト",
       "name_ja": "ソアリン：ファンタスティック・フライト",
-      "wait_minutes": 100,
+      "wait_minutes": 120,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -160,12 +160,12 @@
       "id": "a-228",
       "name_en": "ディズニーシー・トランジットスチーマーライン（アメリカンウォーターフロント）",
       "name_ja": "ディズニーシー・トランジットスチーマーライン（アメリカンウォーターフロント）",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
-      "official_status_cd": "004",
-      "official_status_label": "一時運営中止"
+      "official_status_cd": "001",
+      "official_status_label": "運営中"
     },
     {
       "id": "a-227",
@@ -336,12 +336,12 @@
       "id": "a-9912",
       "name_en": "ロストリバーデルタ（ミゲル　13:30～）",
       "name_ja": "ロストリバーデルタ（ミゲル　13:30～）",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "CLOSED",
-      "access_mode": "STANDBY",
-      "official_status_cd": "008",
-      "official_status_label": "準備中"
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
+      "access_mode": "STANDBY_PASS_ONLY",
+      "official_status_cd": "026",
+      "official_status_label": "スタンバイパスがある方のみ案内中"
     },
     {
       "id": "a-9911",
@@ -358,7 +358,7 @@
       "id": "a-241",
       "name_en": "ワールプール",
       "name_ja": "ワールプール",
-      "wait_minutes": 15,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -369,12 +369,12 @@
       "id": "a-230",
       "name_en": "ヴェネツィアン・ゴンドラ",
       "name_ja": "ヴェネツィアン・ゴンドラ",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 15,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
-      "official_status_cd": "004",
-      "official_status_label": "一時運営中止"
+      "official_status_cd": "001",
+      "official_status_label": "運営中"
     },
     {
       "id": "a-224",
@@ -390,14 +390,14 @@
   ],
   "summary": {
     "count": 35,
-    "open_count": 26,
-    "average_wait": 35.4,
-    "max_wait": 100
+    "open_count": 29,
+    "average_wait": 33.7,
+    "max_wait": 120
   },
   "closures": null,
   "shows": {
     "source_url": "https://www.tokyodisneyresort.jp/tds/show.html",
-    "fetched_at": "2026-09-27T04:31:05.075Z",
+    "fetched_at": "2026-09-27T04:34:33.407Z",
     "items": [
       {
         "time": "19:50",
