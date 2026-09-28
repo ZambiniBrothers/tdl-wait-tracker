@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-28T11:30:53.791Z",
+  "fetched_at": "2026-09-28T11:45:44.928Z",
   "source": "tdr-official",
   "attractions": [
     {
@@ -159,7 +159,7 @@
       "id": "a-star-tours-the-adventures-continue",
       "name_en": "Star Tours: The Adventures Continue",
       "name_ja": "スター・ツアーズ：ザ・アドベンチャーズ・コンティニュー",
-      "wait_minutes": 10,
+      "wait_minutes": 5,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -186,12 +186,12 @@
       "id": "a-splash-mountain",
       "name_en": "Splash Mountain",
       "name_ja": "スプラッシュ・マウンテン",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
-      "official_status_cd": "004",
-      "official_status_label": "一時運営中止",
+      "official_status_cd": "001",
+      "official_status_label": "運営中",
       "closure_info": {
         "name_ja": "スプラッシュ・マウンテン",
         "period": "2027/1/7 〜 2027/2/4",
@@ -279,12 +279,12 @@
       "id": "a-peter-pans-flight",
       "name_en": "Peter Pan's Flight",
       "name_ja": "ピーターパン空の旅",
-      "wait_minutes": 25,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "CLOSED",
       "access_mode": "STANDBY",
-      "official_status_cd": "001",
-      "official_status_label": "運営中",
+      "official_status_cd": "002",
+      "official_status_label": "案内終了",
       "closure_info": {
         "name_ja": "ピーターパン空の旅",
         "period": "2027/1/6 〜 2027/2/2",
@@ -295,7 +295,7 @@
       "id": "a-poohs-hunny-hunt",
       "name_en": "Pooh's Hunny Hunt",
       "name_ja": "プーさんのハニーハント",
-      "wait_minutes": 25,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -333,7 +333,7 @@
       "id": "a-unknown",
       "name_en": "ホーンテッドマンション“ホリデーナイトメアー”",
       "name_ja": "ホーンテッドマンション“ホリデーナイトメアー”",
-      "wait_minutes": 20,
+      "wait_minutes": 13,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -371,12 +371,12 @@
       "id": "a-monsters-inc-ride-go-seek",
       "name_en": "Monsters, Inc. Ride & Go Seek!",
       "name_ja": "モンスターズ・インク“ライド＆ゴーシーク！”",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 15,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
-      "official_status_cd": "004",
-      "official_status_label": "一時運営中止"
+      "official_status_cd": "001",
+      "official_status_label": "運営中"
     },
     {
       "id": "a-roger-rabbits-car-toon-spin",
@@ -457,13 +457,13 @@
   ],
   "summary": {
     "count": 37,
-    "open_count": 23,
-    "average_wait": 10.3,
+    "open_count": 24,
+    "average_wait": 8.7,
     "max_wait": 25
   },
   "closures": {
     "source_url": "https://www.tokyodisneyresort.jp/tdl/monthly/stop.html",
-    "fetched_at": "2026-09-28T11:30:47.698Z",
+    "fetched_at": "2026-09-28T11:45:44.559Z",
     "closures": {
       "a-peter-pans-flight": {
         "name_ja": "ピーターパン空の旅",
@@ -519,7 +519,7 @@
   },
   "shows": {
     "source_url": "https://www.tokyodisneyresort.jp/tdl/show.html",
-    "fetched_at": "2026-09-28T11:30:53.791Z",
+    "fetched_at": "2026-09-28T11:45:44.928Z",
     "items": [
       {
         "time": "13:00",
