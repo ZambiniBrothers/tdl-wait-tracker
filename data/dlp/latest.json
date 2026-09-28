@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-28T07:01:22.363Z",
+  "fetched_at": "2026-09-28T07:16:22.838Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -95,8 +95,8 @@
       "name_en": "Autopia, presented by Avis",
       "name_ja": "Autopia, presented by Avis",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -105,7 +105,7 @@
       "id": "a-dlp-5",
       "name_en": "Buzz Lightyear Laser Blast",
       "name_ja": "バズ・ライトイヤー・レーザーブラスト",
-      "wait_minutes": 5,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -127,9 +127,9 @@
       "id": "a-dlp-6",
       "name_en": "Les Mystères du Nautilus",
       "name_ja": "Les Mystères du Nautilus",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -270,7 +270,7 @@
       "id": "a-dlp-18",
       "name_en": "Dumbo the Flying Elephant",
       "name_ja": "空飛ぶダンボ",
-      "wait_minutes": 5,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -293,8 +293,8 @@
       "name_en": "Le Carrousel de Lancelot",
       "name_ja": "Le Carrousel de Lancelot",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -347,7 +347,7 @@
       "id": "a-dlp-22",
       "name_en": "Peter Pan's Flight",
       "name_ja": "ピーターパン空の旅",
-      "wait_minutes": 45,
+      "wait_minutes": 50,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -467,14 +467,14 @@
   ],
   "summary": {
     "count": 42,
-    "open_count": 12,
-    "average_wait": 14.3,
-    "max_wait": 45
+    "open_count": 15,
+    "average_wait": 15,
+    "max_wait": 50
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/4/queue_times.json",
-    "fetched_at": "2026-09-28T07:01:22.363Z",
+    "fetched_at": "2026-09-28T07:16:22.838Z",
     "items": []
   }
 }
