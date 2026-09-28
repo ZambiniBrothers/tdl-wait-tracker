@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-28T05:01:12.820Z",
+  "fetched_at": "2026-09-28T05:15:44.769Z",
   "source": "tdr-official",
   "attractions": [
     {
@@ -268,7 +268,7 @@
       "id": "a-pinocchios-daring-journey",
       "name_en": "Pinocchio's Daring Journey",
       "name_ja": "ピノキオの冒険旅行",
-      "wait_minutes": 10,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -279,7 +279,7 @@
       "id": "a-peter-pans-flight",
       "name_en": "Peter Pan's Flight",
       "name_ja": "ピーターパン空の旅",
-      "wait_minutes": 40,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -295,7 +295,7 @@
       "id": "a-poohs-hunny-hunt",
       "name_en": "Pooh's Hunny Hunt",
       "name_ja": "プーさんのハニーハント",
-      "wait_minutes": 60,
+      "wait_minutes": 50,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -382,12 +382,12 @@
       "id": "a-roger-rabbits-car-toon-spin",
       "name_en": "Roger Rabbit's Car Toon Spin",
       "name_ja": "ロジャーラビットのカートゥーンスピン",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 15,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
-      "official_status_cd": "004",
-      "official_status_label": "一時運営中止",
+      "official_status_cd": "001",
+      "official_status_label": "運営中",
       "closure_info": {
         "name_ja": "ロジャーラビットのカートゥーンスピン",
         "period": "2027/2/8 〜 2027/3/2",
@@ -398,7 +398,7 @@
       "id": "a-snow-whites-adventures",
       "name_en": "Snow White's Adventures",
       "name_ja": "白雪姫と七人のこびと",
-      "wait_minutes": 25,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -457,13 +457,13 @@
   ],
   "summary": {
     "count": 37,
-    "open_count": 32,
-    "average_wait": 22.5,
+    "open_count": 33,
+    "average_wait": 21.6,
     "max_wait": 100
   },
   "closures": {
     "source_url": "https://www.tokyodisneyresort.jp/tdl/monthly/stop.html",
-    "fetched_at": "2026-09-28T05:01:03.523Z",
+    "fetched_at": "2026-09-28T05:15:37.929Z",
     "closures": {
       "a-peter-pans-flight": {
         "name_ja": "ピーターパン空の旅",
@@ -519,7 +519,7 @@
   },
   "shows": {
     "source_url": "https://www.tokyodisneyresort.jp/tdl/show.html",
-    "fetched_at": "2026-09-28T05:01:12.820Z",
+    "fetched_at": "2026-09-28T05:15:44.769Z",
     "items": [
       {
         "time": "13:00",
