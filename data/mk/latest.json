@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-29T21:31:21.804Z",
+  "fetched_at": "2026-09-29T21:46:10.144Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -28,9 +28,9 @@
       "id": "a-mk-137",
       "name_en": "Pirates of the Caribbean",
       "name_ja": "カリブの海賊",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -116,9 +116,9 @@
       "id": "a-mk-128",
       "name_en": "Enchanted Tales with Belle",
       "name_ja": "Enchanted Tales with Belle",
-      "wait_minutes": 10,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -138,9 +138,9 @@
       "id": "a-mk-147",
       "name_en": "Meet Ariel at Her Grotto",
       "name_ja": "Meet Ariel at Her Grotto",
-      "wait_minutes": 20,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -226,7 +226,7 @@
       "id": "a-mk-129",
       "name_en": "Seven Dwarfs Mine Train",
       "name_ja": "七人のこびとのマイントレイン",
-      "wait_minutes": 35,
+      "wait_minutes": 40,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -281,7 +281,7 @@
       "id": "a-mk-130",
       "name_en": "Big Thunder Mountain Railroad",
       "name_ja": "ビッグサンダー・マウンテン",
-      "wait_minutes": 20,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -303,7 +303,7 @@
       "id": "a-mk-13630",
       "name_en": "Tiana's Bayou Adventure",
       "name_ja": "Tiana's Bayou Adventure",
-      "wait_minutes": 35,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -347,9 +347,9 @@
       "id": "a-mk-146",
       "name_en": "Meet Mickey at Town Square Theater",
       "name_ja": "Meet Mickey at Town Square Theater",
-      "wait_minutes": 25,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -380,7 +380,7 @@
       "id": "a-mk-131",
       "name_en": "Buzz Lightyear’s Space Ranger Spin",
       "name_ja": "バズ・ライトイヤーのスペース・レンジャー・スピン",
-      "wait_minutes": 40,
+      "wait_minutes": 25,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -435,7 +435,7 @@
       "id": "a-mk-11527",
       "name_en": "TRON Lightcycle / Run",
       "name_ja": "トロン・ライトサイクル・ラン",
-      "wait_minutes": 50,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -500,14 +500,14 @@
   ],
   "summary": {
     "count": 45,
-    "open_count": 32,
-    "average_wait": 17,
-    "max_wait": 50
+    "open_count": 30,
+    "average_wait": 15.4,
+    "max_wait": 40
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/6/queue_times.json",
-    "fetched_at": "2026-09-29T21:31:21.804Z",
+    "fetched_at": "2026-09-29T21:46:10.144Z",
     "items": []
   }
 }
