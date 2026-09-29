@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-29T09:31:17.654Z",
+  "fetched_at": "2026-09-29T09:46:15.211Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -149,7 +149,7 @@
       "id": "a-hkdl-12433",
       "name_en": "Frozen Ever After – Presented by Blue Cross",
       "name_ja": "フローズン・エバーアフター",
-      "wait_minutes": 25,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -248,7 +248,7 @@
       "id": "a-hkdl-2837",
       "name_en": "Jungle River Cruise",
       "name_ja": "ジャングルリバークルーズ",
-      "wait_minutes": 20,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -293,8 +293,8 @@
       "name_en": "Main Street Vehicles",
       "name_ja": "Main Street Vehicles",
       "wait_minutes": null,
-      "is_open": true,
-      "status": "OPERATING",
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -347,9 +347,9 @@
       "id": "a-hkdl-13866",
       "name_en": "Meet LinaBell at Duffy and Friends Play House",
       "name_ja": "Meet LinaBell at Duffy and Friends Play House",
-      "wait_minutes": 120,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -391,7 +391,7 @@
       "id": "a-hkdl-2844",
       "name_en": "Mystic Manor",
       "name_ja": "ミスティック・マナー",
-      "wait_minutes": 15,
+      "wait_minutes": 45,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -446,7 +446,7 @@
       "id": "a-hkdl-2840",
       "name_en": "RC Racer",
       "name_ja": "RC Racer",
-      "wait_minutes": 30,
+      "wait_minutes": 40,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -555,14 +555,14 @@
   ],
   "summary": {
     "count": 50,
-    "open_count": 33,
-    "average_wait": 26.3,
-    "max_wait": 120
+    "open_count": 31,
+    "average_wait": 24.1,
+    "max_wait": 45
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/31/queue_times.json",
-    "fetched_at": "2026-09-29T09:31:17.654Z",
+    "fetched_at": "2026-09-29T09:46:15.211Z",
     "items": []
   }
 }
