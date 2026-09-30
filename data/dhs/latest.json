@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-30T12:46:34.469Z",
+  "fetched_at": "2026-09-30T13:01:14.179Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -138,7 +138,7 @@
       "id": "a-dhs-117",
       "name_en": "Toy Story Mania!",
       "name_ja": "トイ・ストーリー・マニア！",
-      "wait_minutes": 5,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -149,7 +149,7 @@
       "id": "a-dhs-6368",
       "name_en": "Millennium Falcon: Smugglers Run",
       "name_ja": "ミレニアム・ファルコン：スマグラーズ・ラン",
-      "wait_minutes": 15,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -205,8 +205,8 @@
       "name_en": "Rock 'n' Roller Coaster Starring Aerosmith Single Rider",
       "name_ja": "Rock 'n' Roller Coaster Starring Aerosmith Single Rider",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -215,9 +215,9 @@
       "id": "a-dhs-16342",
       "name_en": "Rock ’n’ Roller Coaster Starring The Muppets",
       "name_ja": "Rock ’n’ Roller Coaster Starring The Muppets",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 30,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -258,14 +258,14 @@
   ],
   "summary": {
     "count": 23,
-    "open_count": 13,
-    "average_wait": 15.4,
+    "open_count": 15,
+    "average_wait": 18.5,
     "max_wait": 45
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/7/queue_times.json",
-    "fetched_at": "2026-09-30T12:46:34.469Z",
+    "fetched_at": "2026-09-30T13:01:14.179Z",
     "items": []
   }
 }
