@@ -1,14 +1,14 @@
 {
-  "fetched_at": "2026-09-30T13:16:16.945Z",
+  "fetched_at": "2026-09-30T13:31:22.409Z",
   "source": "queue-times",
   "attractions": [
     {
       "id": "a-shdl-3893",
       "name_en": "Challenge Trails at Camp Discovery",
       "name_ja": "Challenge Trails at Camp Discovery",
-      "wait_minutes": 5,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -51,8 +51,8 @@
       "name_en": "Vista Trail at Camp Discovery",
       "name_ja": "Vista Trail at Camp Discovery",
       "wait_minutes": null,
-      "is_open": true,
-      "status": "OPERATING",
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -61,9 +61,9 @@
       "id": "a-shdl-3080",
       "name_en": "“Once Upon a Time” Adventure",
       "name_ja": "“Once Upon a Time” Adventure",
-      "wait_minutes": 5,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -105,7 +105,7 @@
       "id": "a-shdl-2990",
       "name_en": "Seven Dwarfs Mine Train",
       "name_ja": "七人のこびとのマイントレイン",
-      "wait_minutes": 25,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -138,9 +138,9 @@
       "id": "a-shdl-2992",
       "name_en": "Voyage to the Crystal Grotto",
       "name_ja": "Voyage to the Crystal Grotto",
-      "wait_minutes": 10,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -171,9 +171,9 @@
       "id": "a-shdl-2994",
       "name_en": "Fantasia Carousel",
       "name_ja": "Fantasia Carousel",
-      "wait_minutes": 5,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -204,7 +204,7 @@
       "id": "a-shdl-3000",
       "name_en": "Jet Packs",
       "name_ja": "Jet Packs",
-      "wait_minutes": 20,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -237,7 +237,7 @@
       "id": "a-shdl-2985",
       "name_en": "TRON Lightcycle Power Run – Presented by Chevrolet",
       "name_ja": "トロン・ライトサイクル・パワーラン",
-      "wait_minutes": 30,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -357,14 +357,14 @@
   ],
   "summary": {
     "count": 32,
-    "open_count": 24,
-    "average_wait": 10,
-    "max_wait": 30
+    "open_count": 19,
+    "average_wait": 9.1,
+    "max_wait": 20
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/30/queue_times.json",
-    "fetched_at": "2026-09-30T13:16:16.945Z",
+    "fetched_at": "2026-09-30T13:31:22.409Z",
     "items": []
   }
 }
