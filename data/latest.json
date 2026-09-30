@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-30T11:16:00.310Z",
+  "fetched_at": "2026-09-30T11:30:55.618Z",
   "source": "tdr-official",
   "attractions": [
     {
@@ -187,11 +187,11 @@
       "name_en": "Splash Mountain",
       "name_ja": "スプラッシュ・マウンテン",
       "wait_minutes": null,
-      "is_open": true,
-      "status": "OPERATING",
-      "access_mode": "PP_ONLY",
-      "official_status_cd": "045",
-      "official_status_label": "プライオリティ・アクセス・エントランスをご利用の方のみ案内中",
+      "is_open": false,
+      "status": "DOWN",
+      "access_mode": "STANDBY",
+      "official_status_cd": "004",
+      "official_status_label": "一時運営中止",
       "closure_info": {
         "name_ja": "スプラッシュ・マウンテン",
         "period": "2027/1/7 〜 2027/2/4",
@@ -279,7 +279,7 @@
       "id": "a-peter-pans-flight",
       "name_en": "Peter Pan's Flight",
       "name_ja": "ピーターパン空の旅",
-      "wait_minutes": 20,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -295,7 +295,7 @@
       "id": "a-poohs-hunny-hunt",
       "name_en": "Pooh's Hunny Hunt",
       "name_ja": "プーさんのハニーハント",
-      "wait_minutes": 15,
+      "wait_minutes": 14,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -328,7 +328,7 @@
       "id": "a-unknown",
       "name_en": "ホーンテッドマンション“ホリデーナイトメアー”",
       "name_ja": "ホーンテッドマンション“ホリデーナイトメアー”",
-      "wait_minutes": 15,
+      "wait_minutes": 5,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -452,13 +452,13 @@
   ],
   "summary": {
     "count": 37,
-    "open_count": 26,
-    "average_wait": 11.3,
+    "open_count": 25,
+    "average_wait": 10.6,
     "max_wait": 40
   },
   "closures": {
     "source_url": "https://www.tokyodisneyresort.jp/tdl/monthly/stop.html",
-    "fetched_at": "2026-09-30T11:15:53.419Z",
+    "fetched_at": "2026-09-30T11:30:49.168Z",
     "closures": {
       "a-peter-pans-flight": {
         "name_ja": "ピーターパン空の旅",
@@ -509,7 +509,7 @@
   },
   "shows": {
     "source_url": "https://www.tokyodisneyresort.jp/tdl/show.html",
-    "fetched_at": "2026-09-30T11:16:00.310Z",
+    "fetched_at": "2026-09-30T11:30:55.618Z",
     "items": [
       {
         "time": "13:00",
