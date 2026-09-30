@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-30T07:01:10.730Z",
+  "fetched_at": "2026-09-30T07:16:05.297Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -18,8 +18,8 @@
       "name_en": "Indiana Jones and the Temple of Peril Single Rider",
       "name_ja": "インディ・ジョーンズと危難の魔宮",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -28,9 +28,9 @@
       "id": "a-dlp-2",
       "name_en": "Indiana Jones™ and the Temple of Peril",
       "name_ja": "インディ・ジョーンズと危難の魔宮",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -40,8 +40,8 @@
       "name_en": "La Cabane des Robinson",
       "name_ja": "La Cabane des Robinson",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -51,8 +51,8 @@
       "name_en": "Le Passage Enchanté d'Aladdin",
       "name_ja": "Le Passage Enchanté d'Aladdin",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -84,8 +84,8 @@
       "name_en": "Pirates' Beach",
       "name_ja": "Pirates' Beach",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -128,8 +128,8 @@
       "name_en": "Les Mystères du Nautilus",
       "name_ja": "Les Mystères du Nautilus",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -204,9 +204,9 @@
       "id": "a-dlp-19",
       "name_en": "\"it's a small world\"",
       "name_ja": "イッツ・ア・スモールワールド",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -270,7 +270,7 @@
       "id": "a-dlp-18",
       "name_en": "Dumbo the Flying Elephant",
       "name_ja": "空飛ぶダンボ",
-      "wait_minutes": 5,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -467,14 +467,14 @@
   ],
   "summary": {
     "count": 42,
-    "open_count": 9,
-    "average_wait": 24.2,
+    "open_count": 16,
+    "average_wait": 20,
     "max_wait": 70
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/4/queue_times.json",
-    "fetched_at": "2026-09-30T07:01:10.730Z",
+    "fetched_at": "2026-09-30T07:16:05.297Z",
     "items": []
   }
 }
