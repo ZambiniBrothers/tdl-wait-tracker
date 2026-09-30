@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-30T01:46:22.723Z",
+  "fetched_at": "2026-09-30T02:01:40.443Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -105,7 +105,7 @@
       "id": "a-shdl-2990",
       "name_en": "Seven Dwarfs Mine Train",
       "name_ja": "七人のこびとのマイントレイン",
-      "wait_minutes": 60,
+      "wait_minutes": 70,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -127,7 +127,7 @@
       "id": "a-shdl-2991",
       "name_en": "The Many Adventures of Winnie the Pooh",
       "name_ja": "The Many Adventures of Winnie the Pooh",
-      "wait_minutes": 20,
+      "wait_minutes": 40,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -160,9 +160,9 @@
       "id": "a-shdl-2993",
       "name_en": "Dumbo the Flying Elephant",
       "name_ja": "空飛ぶダンボ",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -270,9 +270,9 @@
       "id": "a-shdl-5634",
       "name_en": "Slinky Dog Spin",
       "name_ja": "Slinky Dog Spin",
-      "wait_minutes": 10,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -303,7 +303,7 @@
       "id": "a-shdl-2996",
       "name_en": "Pirates of the Caribbean Battle for the Sunken Treasure",
       "name_ja": "カリブの海賊：沈没船の財宝をめぐるバトル",
-      "wait_minutes": 10,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -358,13 +358,13 @@
   "summary": {
     "count": 32,
     "open_count": 27,
-    "average_wait": 17.8,
-    "max_wait": 60
+    "average_wait": 19.1,
+    "max_wait": 70
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/30/queue_times.json",
-    "fetched_at": "2026-09-30T01:46:22.723Z",
+    "fetched_at": "2026-09-30T02:01:40.443Z",
     "items": []
   }
 }
