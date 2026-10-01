@@ -1,12 +1,12 @@
 {
-  "fetched_at": "2026-10-01T00:08:15.797Z",
+  "fetched_at": "2026-10-01T00:16:41.867Z",
   "source": "tdr-official",
   "attractions": [
     {
       "id": "a-255",
       "name_en": "アナとエルサのフローズンジャーニー",
       "name_ja": "アナとエルサのフローズンジャーニー",
-      "wait_minutes": 50,
+      "wait_minutes": 100,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -94,7 +94,7 @@
       "id": "a-223",
       "name_en": "センター・オブ・ジ・アース",
       "name_ja": "センター・オブ・ジ・アース",
-      "wait_minutes": 50,
+      "wait_minutes": 60,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -160,12 +160,12 @@
       "id": "a-228",
       "name_en": "ディズニーシー・トランジットスチーマーライン（アメリカンウォーターフロント）",
       "name_ja": "ディズニーシー・トランジットスチーマーライン（アメリカンウォーターフロント）",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
-      "official_status_cd": "004",
-      "official_status_label": "一時運営中止"
+      "official_status_cd": "001",
+      "official_status_label": "運営中"
     },
     {
       "id": "a-227",
@@ -193,7 +193,7 @@
       "id": "a-218",
       "name_en": "トイ・ストーリー・マニア！",
       "name_ja": "トイ・ストーリー・マニア！",
-      "wait_minutes": 60,
+      "wait_minutes": 80,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -226,12 +226,12 @@
       "id": "a-257",
       "name_en": "ピーターパンのネバーランドアドベンチャー",
       "name_ja": "ピーターパンのネバーランドアドベンチャー",
-      "wait_minutes": 10,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
-      "official_status_cd": "001",
-      "official_status_label": "運営中"
+      "official_status_cd": "004",
+      "official_status_label": "一時運営中止"
     },
     {
       "id": "a-258",
@@ -347,7 +347,7 @@
       "id": "a-9911",
       "name_en": "ロストリバーデルタ（ミゲル　～13:00）",
       "name_ja": "ロストリバーデルタ（ミゲル　～13:00）",
-      "wait_minutes": 5,
+      "wait_minutes": 25,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY_PASS_ONLY",
@@ -391,13 +391,13 @@
   "summary": {
     "count": 35,
     "open_count": 24,
-    "average_wait": 17.5,
+    "average_wait": 21.8,
     "max_wait": 100
   },
   "closures": null,
   "shows": {
     "source_url": "https://www.tokyodisneyresort.jp/tds/show.html",
-    "fetched_at": "2026-10-01T00:08:15.797Z",
+    "fetched_at": "2026-10-01T00:16:41.867Z",
     "items": [
       {
         "time": "11:30",
