@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-01T01:46:01.869Z",
+  "fetched_at": "2026-10-01T02:01:08.368Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -105,7 +105,7 @@
       "id": "a-dlr-285",
       "name_en": "Alice in Wonderland",
       "name_ja": "ふしぎの国のアリス",
-      "wait_minutes": 20,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -138,7 +138,7 @@
       "id": "a-dlr-275",
       "name_en": "Dumbo the Flying Elephant",
       "name_ja": "空飛ぶダンボ",
-      "wait_minutes": 20,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -193,7 +193,7 @@
       "id": "a-dlr-280",
       "name_en": "Mr. Toad's Wild Ride",
       "name_ja": "Mr. Toad's Wild Ride",
-      "wait_minutes": 15,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -259,7 +259,7 @@
       "id": "a-dlr-323",
       "name_en": "Big Thunder Mountain Railroad",
       "name_ja": "ビッグサンダー・マウンテン",
-      "wait_minutes": 15,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -391,9 +391,9 @@
       "id": "a-dlr-324",
       "name_en": "Chip 'n' Dale's GADGETcoaster",
       "name_ja": "Chip 'n' Dale's GADGETcoaster",
-      "wait_minutes": 15,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -435,7 +435,7 @@
       "id": "a-dlr-709",
       "name_en": "Mickey's House and Meet Mickey Mouse",
       "name_ja": "Mickey's House and Meet Mickey Mouse",
-      "wait_minutes": 15,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -447,8 +447,8 @@
       "name_en": "Minnie's House",
       "name_ja": "Minnie's House",
       "wait_minutes": null,
-      "is_open": true,
-      "status": "OPERATING",
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -556,7 +556,7 @@
       "id": "a-dlr-274",
       "name_en": "Disneyland Monorail",
       "name_ja": "Disneyland Monorail",
-      "wait_minutes": 5,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -600,7 +600,7 @@
       "id": "a-dlr-286",
       "name_en": "Star Tours - The Adventures Continue",
       "name_ja": "スター・ツアーズ",
-      "wait_minutes": 10,
+      "wait_minutes": 5,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -610,14 +610,14 @@
   ],
   "summary": {
     "count": 55,
-    "open_count": 45,
-    "average_wait": 14.1,
+    "open_count": 43,
+    "average_wait": 13.5,
     "max_wait": 35
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/16/queue_times.json",
-    "fetched_at": "2026-10-01T01:46:01.869Z",
+    "fetched_at": "2026-10-01T02:01:08.368Z",
     "items": []
   }
 }
