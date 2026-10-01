@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-01T08:51:50.864Z",
+  "fetched_at": "2026-10-01T09:01:21.182Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -28,7 +28,7 @@
       "id": "a-dlp-2",
       "name_en": "Indiana Jones™ and the Temple of Peril",
       "name_ja": "インディ・ジョーンズと危難の魔宮",
-      "wait_minutes": 10,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -72,7 +72,7 @@
       "id": "a-dlp-3",
       "name_en": "Pirates of the Caribbean",
       "name_ja": "カリブの海賊",
-      "wait_minutes": 5,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -94,7 +94,7 @@
       "id": "a-dlp-4",
       "name_en": "Autopia, presented by Avis",
       "name_ja": "Autopia, presented by Avis",
-      "wait_minutes": 15,
+      "wait_minutes": 25,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -182,7 +182,7 @@
       "id": "a-dlp-7278",
       "name_en": "Star Wars Hyperspace Mountain Single Rider",
       "name_ja": "スター・ウォーズ：ハイパースペース・マウンテン",
-      "wait_minutes": 10,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -292,7 +292,7 @@
       "id": "a-dlp-16",
       "name_en": "Le Carrousel de Lancelot",
       "name_ja": "Le Carrousel de Lancelot",
-      "wait_minutes": 5,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -369,9 +369,9 @@
       "id": "a-dlp-25",
       "name_en": "Big Thunder Mountain",
       "name_ja": "ビッグサンダー・マウンテン",
-      "wait_minutes": 30,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -446,7 +446,7 @@
       "id": "a-dlp-2708",
       "name_en": "Disneyland Railroad Main Street Station",
       "name_ja": "Disneyland Railroad Main Street Station",
-      "wait_minutes": 20,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -467,14 +467,14 @@
   ],
   "summary": {
     "count": 42,
-    "open_count": 33,
-    "average_wait": 17,
+    "open_count": 32,
+    "average_wait": 18.3,
     "max_wait": 50
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/4/queue_times.json",
-    "fetched_at": "2026-10-01T08:51:50.864Z",
+    "fetched_at": "2026-10-01T09:01:21.182Z",
     "items": []
   }
 }
