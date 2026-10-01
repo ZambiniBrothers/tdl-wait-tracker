@@ -1,12 +1,12 @@
 {
-  "fetched_at": "2026-10-01T19:01:24.782Z",
+  "fetched_at": "2026-10-01T19:16:11.808Z",
   "source": "queue-times",
   "attractions": [
     {
       "id": "a-dca-329",
       "name_en": "Guardians of the Galaxy - Mission: BREAKOUT!",
       "name_ja": "ガーディアンズ・オブ・ギャラクシー：ミッション・ブレイクアウト！",
-      "wait_minutes": 35,
+      "wait_minutes": 60,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -39,9 +39,9 @@
       "id": "a-dca-2608",
       "name_en": "Luigi's Honkin' Haul-O-Ween",
       "name_ja": "Luigi's Honkin' Haul-O-Ween",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 10,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -281,9 +281,9 @@
       "id": "a-dca-310",
       "name_en": "Jessie's Critter Carousel",
       "name_ja": "Jessie's Critter Carousel",
-      "wait_minutes": 5,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -369,13 +369,13 @@
   "summary": {
     "count": 33,
     "open_count": 26,
-    "average_wait": 18.9,
+    "average_wait": 20.6,
     "max_wait": 70
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/17/queue_times.json",
-    "fetched_at": "2026-10-01T19:01:24.782Z",
+    "fetched_at": "2026-10-01T19:16:11.808Z",
     "items": []
   }
 }
