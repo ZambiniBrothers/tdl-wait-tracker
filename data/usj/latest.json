@@ -1,12 +1,12 @@
 {
-  "fetched_at": "2026-10-01T04:00:47.867Z",
+  "fetched_at": "2026-10-01T04:16:05.163Z",
   "source": "queue-times",
   "attractions": [
     {
       "id": "a-usj-12066",
       "name_en": "Despicable Me Minion Mayhem",
       "name_ja": "ミニオン・ハチャメチャ・ライド",
-      "wait_minutes": 30,
+      "wait_minutes": 25,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -39,7 +39,7 @@
       "id": "a-usj-12072",
       "name_en": "Freeze Ray Sliders",
       "name_ja": "フリーズ・レイ・スライダー",
-      "wait_minutes": 35,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -50,9 +50,9 @@
       "id": "a-usj-12065",
       "name_en": "Harry Potter and the Forbidden Journey™",
       "name_ja": "ハリー・ポッター・アンド・ザ・フォービドゥン・ジャーニー",
-      "wait_minutes": 40,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -138,7 +138,7 @@
       "id": "a-usj-12067",
       "name_en": "Jurassic Park – The Ride™",
       "name_ja": "ジュラシック・パーク・ザ・ライド",
-      "wait_minutes": 70,
+      "wait_minutes": 60,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -149,7 +149,7 @@
       "id": "a-usj-12061",
       "name_en": "Mario Kart: Koopa's Challenge™",
       "name_ja": "マリオカート 〜クッパの挑戦状〜",
-      "wait_minutes": 95,
+      "wait_minutes": 100,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -160,9 +160,9 @@
       "id": "a-usj-14402",
       "name_en": "Mine Cart Madness™",
       "name_ja": "ドンキーコングのクレイジー・トロッコ",
-      "wait_minutes": 230,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -281,7 +281,7 @@
       "id": "a-usj-12071",
       "name_en": "Yoshi's Adventure™",
       "name_ja": "ヨッシー・アドベンチャー",
-      "wait_minutes": 85,
+      "wait_minutes": 80,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -302,14 +302,14 @@
   ],
   "summary": {
     "count": 27,
-    "open_count": 23,
-    "average_wait": 55.2,
-    "max_wait": 230
+    "open_count": 21,
+    "average_wait": 46.7,
+    "max_wait": 100
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/284/queue_times.json",
-    "fetched_at": "2026-10-01T04:00:47.867Z",
+    "fetched_at": "2026-10-01T04:16:05.163Z",
     "items": []
   }
 }
