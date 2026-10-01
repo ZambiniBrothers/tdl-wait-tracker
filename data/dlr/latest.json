@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-01T02:31:00.654Z",
+  "fetched_at": "2026-10-01T02:46:03.927Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -105,9 +105,9 @@
       "id": "a-dlr-285",
       "name_en": "Alice in Wonderland",
       "name_ja": "ふしぎの国のアリス",
-      "wait_minutes": 20,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -127,7 +127,7 @@
       "id": "a-dlr-303",
       "name_en": "Casey Jr. Circus Train",
       "name_ja": "キャシー・ジュニア・サーカストレイン",
-      "wait_minutes": 15,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -204,7 +204,7 @@
       "id": "a-dlr-281",
       "name_en": "Peter Pan's Flight",
       "name_ja": "ピーターパン空の旅",
-      "wait_minutes": 25,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -215,7 +215,7 @@
       "id": "a-dlr-282",
       "name_en": "Pinocchio's Daring Journey",
       "name_ja": "Pinocchio's Daring Journey",
-      "wait_minutes": 5,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -424,7 +424,7 @@
       "id": "a-dlr-11526",
       "name_en": "Mickey & Minnie's Runaway Railway",
       "name_ja": "ミッキー＆ミニーのランナウェイ・レイルウェイ",
-      "wait_minutes": 20,
+      "wait_minutes": 25,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -512,7 +512,7 @@
       "id": "a-dlr-6340",
       "name_en": "Star Wars: Rise of the Resistance",
       "name_ja": "スター・ウォーズ：ライズ・オブ・ザ・レジスタンス",
-      "wait_minutes": 30,
+      "wait_minutes": 45,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -545,7 +545,7 @@
       "id": "a-dlr-273",
       "name_en": "Buzz Lightyear Astro Blasters",
       "name_ja": "バズ・ライトイヤーのアストロブラスター",
-      "wait_minutes": 5,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -567,7 +567,7 @@
       "id": "a-dlr-276",
       "name_en": "Finding Nemo Submarine Voyage",
       "name_ja": "ファインディング・ニモ・サブマリン・ボヤッジ",
-      "wait_minutes": 15,
+      "wait_minutes": 5,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -610,14 +610,14 @@
   ],
   "summary": {
     "count": 55,
-    "open_count": 44,
-    "average_wait": 15.5,
-    "max_wait": 40
+    "open_count": 43,
+    "average_wait": 16,
+    "max_wait": 45
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/16/queue_times.json",
-    "fetched_at": "2026-10-01T02:31:00.654Z",
+    "fetched_at": "2026-10-01T02:46:03.927Z",
     "items": []
   }
 }
