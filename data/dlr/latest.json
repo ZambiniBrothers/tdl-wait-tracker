@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-02T15:16:09.138Z",
+  "fetched_at": "2026-10-02T15:31:17.529Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -128,8 +128,8 @@
       "name_en": "Casey Jr. Circus Train",
       "name_ja": "キャシー・ジュニア・サーカストレイン",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -138,7 +138,7 @@
       "id": "a-dlr-275",
       "name_en": "Dumbo the Flying Elephant",
       "name_ja": "空飛ぶダンボ",
-      "wait_minutes": 20,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -204,7 +204,7 @@
       "id": "a-dlr-281",
       "name_en": "Peter Pan's Flight",
       "name_ja": "ピーターパン空の旅",
-      "wait_minutes": 50,
+      "wait_minutes": 45,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -215,7 +215,7 @@
       "id": "a-dlr-282",
       "name_en": "Pinocchio's Daring Journey",
       "name_ja": "Pinocchio's Daring Journey",
-      "wait_minutes": null,
+      "wait_minutes": 5,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -248,7 +248,7 @@
       "id": "a-dlr-305",
       "name_en": "Storybook Land Canal Boats",
       "name_ja": "Storybook Land Canal Boats",
-      "wait_minutes": 10,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -435,7 +435,7 @@
       "id": "a-dlr-709",
       "name_en": "Mickey's House and Meet Mickey Mouse",
       "name_ja": "Mickey's House and Meet Mickey Mouse",
-      "wait_minutes": null,
+      "wait_minutes": 5,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -457,9 +457,9 @@
       "id": "a-dlr-332",
       "name_en": "Roger Rabbit's Car Toon Spin",
       "name_ja": "Roger Rabbit's Car Toon Spin",
-      "wait_minutes": 5,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -468,7 +468,7 @@
       "id": "a-dlr-325",
       "name_en": "Haunted Mansion Holiday",
       "name_ja": "Haunted Mansion Holiday",
-      "wait_minutes": 25,
+      "wait_minutes": 13,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -490,7 +490,7 @@
       "id": "a-dlr-6339",
       "name_en": "Millennium Falcon: Smugglers Run",
       "name_ja": "ミレニアム・ファルコン：スマグラーズ・ラン",
-      "wait_minutes": 5,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -589,7 +589,7 @@
       "id": "a-dlr-284",
       "name_en": "Space Mountain",
       "name_ja": "スペース・マウンテン",
-      "wait_minutes": 35,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -611,13 +611,13 @@
   "summary": {
     "count": 55,
     "open_count": 41,
-    "average_wait": 11.3,
-    "max_wait": 50
+    "average_wait": 10.5,
+    "max_wait": 45
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/16/queue_times.json",
-    "fetched_at": "2026-10-02T15:16:09.138Z",
+    "fetched_at": "2026-10-02T15:31:17.529Z",
     "items": []
   }
 }
