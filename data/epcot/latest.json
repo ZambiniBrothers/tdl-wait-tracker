@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-02T19:46:11.385Z",
+  "fetched_at": "2026-10-02T20:01:23.913Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -28,7 +28,7 @@
       "id": "a-epcot-13627",
       "name_en": "Meet Beloved Disney Pals at Mickey & Friends",
       "name_ja": "Meet Beloved Disney Pals at Mickey & Friends",
-      "wait_minutes": 15,
+      "wait_minutes": 25,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -39,7 +39,7 @@
       "id": "a-epcot-159",
       "name_en": "Spaceship Earth",
       "name_ja": "スペースシップ・アース",
-      "wait_minutes": 10,
+      "wait_minutes": 5,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -72,7 +72,7 @@
       "id": "a-epcot-160",
       "name_en": "Test Track",
       "name_ja": "テスト・トラック",
-      "wait_minutes": 35,
+      "wait_minutes": 75,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -116,7 +116,7 @@
       "id": "a-epcot-156",
       "name_en": "Living with the Land",
       "name_ja": "Living with the Land",
-      "wait_minutes": 20,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -138,7 +138,7 @@
       "id": "a-epcot-16467",
       "name_en": "Soarin' Across America",
       "name_ja": "ソアリン・アクロス・アメリカ",
-      "wait_minutes": 30,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -149,9 +149,9 @@
       "id": "a-epcot-153",
       "name_en": "The Seas with Nemo & Friends",
       "name_ja": "The Seas with Nemo & Friends",
-      "wait_minutes": 15,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -182,7 +182,7 @@
       "id": "a-epcot-2679",
       "name_en": "Frozen Ever After",
       "name_ja": "フローズン・エバーアフター",
-      "wait_minutes": 65,
+      "wait_minutes": 55,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -204,7 +204,7 @@
       "id": "a-epcot-6701",
       "name_en": "Meet Anna and Elsa at Royal Sommerhus",
       "name_ja": "Meet Anna and Elsa at Royal Sommerhus",
-      "wait_minutes": 25,
+      "wait_minutes": 40,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -236,14 +236,14 @@
   ],
   "summary": {
     "count": 21,
-    "open_count": 21,
-    "average_wait": 27,
+    "open_count": 20,
+    "average_wait": 30.4,
     "max_wait": 75
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/5/queue_times.json",
-    "fetched_at": "2026-10-02T19:46:11.385Z",
+    "fetched_at": "2026-10-02T20:01:23.913Z",
     "items": []
   }
 }
