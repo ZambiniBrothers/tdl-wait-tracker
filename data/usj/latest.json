@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-02T07:15:47.625Z",
+  "fetched_at": "2026-10-02T07:31:05.469Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -50,7 +50,7 @@
       "id": "a-usj-12065",
       "name_en": "Harry Potter and the Forbidden Journey™",
       "name_ja": "ハリー・ポッター・アンド・ザ・フォービドゥン・ジャーニー",
-      "wait_minutes": 50,
+      "wait_minutes": 60,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -83,7 +83,7 @@
       "id": "a-usj-7077",
       "name_en": "Hollywood Dream - The Ride",
       "name_ja": "ハリウッド・ドリーム・ザ・ライド",
-      "wait_minutes": 80,
+      "wait_minutes": 85,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -127,7 +127,7 @@
       "id": "a-usj-12067",
       "name_en": "Jurassic Park – The Ride™",
       "name_ja": "ジュラシック・パーク・ザ・ライド",
-      "wait_minutes": 45,
+      "wait_minutes": 40,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -149,9 +149,9 @@
       "id": "a-usj-14402",
       "name_en": "Mine Cart Madness™",
       "name_ja": "ドンキーコングのクレイジー・トロッコ",
-      "wait_minutes": 210,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -160,7 +160,7 @@
       "id": "a-usj-12197",
       "name_en": "Ollivanders™",
       "name_ja": "オリバンダーの店",
-      "wait_minutes": 15,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -281,7 +281,7 @@
       "id": "a-usj-13925",
       "name_en": "チェンソーマン・ザ・カオス 4-D",
       "name_ja": "チェンソーマン・ザ・カオス 4-D",
-      "wait_minutes": 30,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -302,14 +302,14 @@
   ],
   "summary": {
     "count": 27,
-    "open_count": 23,
-    "average_wait": 57.4,
-    "max_wait": 210
+    "open_count": 22,
+    "average_wait": 50.7,
+    "max_wait": 100
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/284/queue_times.json",
-    "fetched_at": "2026-10-02T07:15:47.625Z",
+    "fetched_at": "2026-10-02T07:31:05.469Z",
     "items": []
   }
 }
