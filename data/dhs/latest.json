@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-02T00:01:17.827Z",
+  "fetched_at": "2026-10-02T00:16:10.068Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -40,8 +40,8 @@
       "name_en": "Walt Disney Presents",
       "name_ja": "Walt Disney Presents",
       "wait_minutes": null,
-      "is_open": true,
-      "status": "OPERATING",
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -50,9 +50,9 @@
       "id": "a-dhs-6704",
       "name_en": "Meet Disney Stars at Red Carpet Dreams",
       "name_ja": "Meet Disney Stars at Red Carpet Dreams",
-      "wait_minutes": 25,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -105,9 +105,9 @@
       "id": "a-dhs-7333",
       "name_en": "Vacation Fun - An Original Animated Short with Mickey & Minnie",
       "name_ja": "Vacation Fun - An Original Animated Short with Mickey & Minnie",
-      "wait_minutes": 10,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -215,7 +215,7 @@
       "id": "a-dhs-16342",
       "name_en": "Rock ’n’ Roller Coaster Starring The Muppets",
       "name_ja": "Rock ’n’ Roller Coaster Starring The Muppets",
-      "wait_minutes": 35,
+      "wait_minutes": 40,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -248,7 +248,7 @@
       "id": "a-dhs-5476",
       "name_en": "Slinky Dog Dash",
       "name_ja": "スリンキー・ドッグ・ダッシュ",
-      "wait_minutes": 40,
+      "wait_minutes": 35,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -258,14 +258,14 @@
   ],
   "summary": {
     "count": 23,
-    "open_count": 20,
-    "average_wait": 22.7,
+    "open_count": 17,
+    "average_wait": 23.9,
     "max_wait": 40
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/7/queue_times.json",
-    "fetched_at": "2026-10-02T00:01:17.827Z",
+    "fetched_at": "2026-10-02T00:16:10.068Z",
     "items": []
   }
 }
