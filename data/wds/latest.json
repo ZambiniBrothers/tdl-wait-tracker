@@ -1,14 +1,14 @@
 {
-  "fetched_at": "2026-10-02T20:16:22.727Z",
+  "fetched_at": "2026-10-02T20:31:14.234Z",
   "source": "queue-times",
   "attractions": [
     {
       "id": "a-wds-10848",
       "name_en": "Avengers Assemble: Flight Force",
       "name_ja": "Avengers Assemble: Flight Force",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -17,9 +17,9 @@
       "id": "a-wds-10849",
       "name_en": "Avengers Assemble: Flight Force Single Rider",
       "name_ja": "Avengers Assemble: Flight Force Single Rider",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -171,7 +171,7 @@
       "id": "a-wds-7280",
       "name_en": "RC Racer Single Rider",
       "name_ja": "RC Racer Single Rider",
-      "wait_minutes": 20,
+      "wait_minutes": 25,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -247,14 +247,14 @@
   ],
   "summary": {
     "count": 22,
-    "open_count": 15,
-    "average_wait": 17,
+    "open_count": 17,
+    "average_wait": 15.9,
     "max_wait": 40
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/28/queue_times.json",
-    "fetched_at": "2026-10-02T20:16:22.727Z",
+    "fetched_at": "2026-10-02T20:31:14.234Z",
     "items": []
   }
 }
