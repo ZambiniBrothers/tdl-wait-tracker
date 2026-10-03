@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-03T02:46:00.374Z",
+  "fetched_at": "2026-10-03T03:00:59.192Z",
   "source": "tdr-official",
   "attractions": [
     {
@@ -28,7 +28,7 @@
       "id": "a-westernland-shootin-gallery",
       "name_en": "Westernland Shootin' Gallery",
       "name_ja": "ウエスタンランド・シューティングギャラリー",
-      "wait_minutes": 40,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -39,7 +39,7 @@
       "id": "a-western-river-railroad",
       "name_en": "Western River Railroad",
       "name_ja": "ウエスタンリバー鉄道",
-      "wait_minutes": 25,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -61,12 +61,12 @@
       "id": "a-pirates-of-the-caribbean",
       "name_en": "Pirates of the Caribbean",
       "name_ja": "カリブの海賊",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
-      "official_status_cd": "004",
-      "official_status_label": "一時運営中止"
+      "official_status_cd": "001",
+      "official_status_label": "運営中"
     },
     {
       "id": "a-country-bear-theater",
@@ -132,7 +132,7 @@
       "id": "a-jungle-cruise-wildlife-expeditions",
       "name_en": "Jungle Cruise: Wildlife Expeditions",
       "name_ja": "ジャングルクルーズ：ワイルドライフ・エクスペディション",
-      "wait_minutes": 30,
+      "wait_minutes": 40,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -159,7 +159,7 @@
       "id": "a-star-tours-the-adventures-continue",
       "name_en": "Star Tours: The Adventures Continue",
       "name_ja": "スター・ツアーズ：ザ・アドベンチャーズ・コンティニュー",
-      "wait_minutes": 15,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -279,7 +279,7 @@
       "id": "a-peter-pans-flight",
       "name_en": "Peter Pan's Flight",
       "name_ja": "ピーターパン空の旅",
-      "wait_minutes": 40,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -306,7 +306,7 @@
       "id": "a-the-happy-ride-with-baymax",
       "name_en": "The Happy Ride with Baymax",
       "name_ja": "ベイマックスのハッピーライド",
-      "wait_minutes": 90,
+      "wait_minutes": 120,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -420,7 +420,7 @@
       "id": "a-enchanted-tale-of-beauty-and-the-beast",
       "name_en": "Enchanted Tale of Beauty and the Beast",
       "name_ja": "美女と野獣“魔法のものがたり”",
-      "wait_minutes": 90,
+      "wait_minutes": 100,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -452,13 +452,13 @@
   ],
   "summary": {
     "count": 37,
-    "open_count": 30,
+    "open_count": 31,
     "average_wait": 33.6,
     "max_wait": 120
   },
   "closures": {
     "source_url": "https://www.tokyodisneyresort.jp/tdl/monthly/stop.html",
-    "fetched_at": "2026-10-03T02:45:51.817Z",
+    "fetched_at": "2026-10-03T03:00:51.194Z",
     "closures": {
       "a-peter-pans-flight": {
         "name_ja": "ピーターパン空の旅",
@@ -509,7 +509,7 @@
   },
   "shows": {
     "source_url": "https://www.tokyodisneyresort.jp/tdl/show.html",
-    "fetched_at": "2026-10-03T02:46:00.374Z",
+    "fetched_at": "2026-10-03T03:00:59.192Z",
     "items": [
       {
         "time": "13:00",
