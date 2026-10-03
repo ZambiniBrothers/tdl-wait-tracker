@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-03T06:00:59.930Z",
+  "fetched_at": "2026-10-03T06:15:47.165Z",
   "source": "tdr-official",
   "attractions": [
     {
@@ -28,7 +28,7 @@
       "id": "a-westernland-shootin-gallery",
       "name_en": "Westernland Shootin' Gallery",
       "name_ja": "ウエスタンランド・シューティングギャラリー",
-      "wait_minutes": 20,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -50,18 +50,18 @@
       "id": "a-omnibus",
       "name_en": "Omnibus",
       "name_ja": "オムニバス",
-      "wait_minutes": 10,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "CLOSED",
       "access_mode": "STANDBY",
-      "official_status_cd": "001",
-      "official_status_label": "運営中"
+      "official_status_cd": "002",
+      "official_status_label": "案内終了"
     },
     {
       "id": "a-pirates-of-the-caribbean",
       "name_en": "Pirates of the Caribbean",
       "name_ja": "カリブの海賊",
-      "wait_minutes": 30,
+      "wait_minutes": 25,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -94,7 +94,7 @@
       "id": "a-castle-carrousel",
       "name_en": "Castle Carrousel",
       "name_ja": "キャッスルカルーセル",
-      "wait_minutes": 25,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -186,7 +186,7 @@
       "id": "a-splash-mountain",
       "name_en": "Splash Mountain",
       "name_ja": "スプラッシュ・マウンテン",
-      "wait_minutes": 90,
+      "wait_minutes": 80,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -257,7 +257,7 @@
       "id": "a-beaver-brothers-explorer-canoes",
       "name_en": "Beaver Brothers Explorer Canoes",
       "name_ja": "ビーバーブラザーズのカヌー探険",
-      "wait_minutes": 45,
+      "wait_minutes": 35,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -279,7 +279,7 @@
       "id": "a-peter-pans-flight",
       "name_en": "Peter Pan's Flight",
       "name_ja": "ピーターパン空の旅",
-      "wait_minutes": 30,
+      "wait_minutes": 40,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -295,7 +295,7 @@
       "id": "a-poohs-hunny-hunt",
       "name_en": "Pooh's Hunny Hunt",
       "name_ja": "プーさんのハニーハント",
-      "wait_minutes": 90,
+      "wait_minutes": 82,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -306,7 +306,7 @@
       "id": "a-the-happy-ride-with-baymax",
       "name_en": "The Happy Ride with Baymax",
       "name_ja": "ベイマックスのハッピーライド",
-      "wait_minutes": 90,
+      "wait_minutes": 100,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -339,7 +339,7 @@
       "id": "a-mickeys-philharmagic",
       "name_en": "Mickey’s PhilharMagic",
       "name_ja": "ミッキーのフィルハーマジック",
-      "wait_minutes": 15,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -377,7 +377,7 @@
       "id": "a-roger-rabbits-car-toon-spin",
       "name_en": "Roger Rabbit's Car Toon Spin",
       "name_ja": "ロジャーラビットのカートゥーンスピン",
-      "wait_minutes": 25,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -420,7 +420,7 @@
       "id": "a-enchanted-tale-of-beauty-and-the-beast",
       "name_en": "Enchanted Tale of Beauty and the Beast",
       "name_ja": "美女と野獣“魔法のものがたり”",
-      "wait_minutes": 120,
+      "wait_minutes": 100,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -452,13 +452,13 @@
   ],
   "summary": {
     "count": 37,
-    "open_count": 33,
-    "average_wait": 35.6,
-    "max_wait": 120
+    "open_count": 32,
+    "average_wait": 35.9,
+    "max_wait": 100
   },
   "closures": {
     "source_url": "https://www.tokyodisneyresort.jp/tdl/monthly/stop.html",
-    "fetched_at": "2026-10-03T06:00:49.263Z",
+    "fetched_at": "2026-10-03T06:15:39.732Z",
     "closures": {
       "a-peter-pans-flight": {
         "name_ja": "ピーターパン空の旅",
@@ -509,7 +509,7 @@
   },
   "shows": {
     "source_url": "https://www.tokyodisneyresort.jp/tdl/show.html",
-    "fetched_at": "2026-10-03T06:00:59.930Z",
+    "fetched_at": "2026-10-03T06:15:47.165Z",
     "items": [
       {
         "time": "13:00",
