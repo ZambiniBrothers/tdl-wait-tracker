@@ -1,14 +1,14 @@
 {
-  "fetched_at": "2026-10-04T06:30:53.773Z",
+  "fetched_at": "2026-10-04T06:45:58.097Z",
   "source": "queue-times",
   "attractions": [
     {
       "id": "a-wds-10848",
       "name_en": "Avengers Assemble: Flight Force",
       "name_ja": "Avengers Assemble: Flight Force",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -17,9 +17,9 @@
       "id": "a-wds-10849",
       "name_en": "Avengers Assemble: Flight Force Single Rider",
       "name_ja": "Avengers Assemble: Flight Force Single Rider",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -28,9 +28,9 @@
       "id": "a-wds-10845",
       "name_en": "Spider-Man W.E.B. Adventure",
       "name_ja": "Spider-Man W.E.B. Adventure",
-      "wait_minutes": 5,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -39,9 +39,9 @@
       "id": "a-wds-10846",
       "name_en": "Spider-Man W.E.B. Adventure Single Rider",
       "name_ja": "Spider-Man W.E.B. Adventure Single Rider",
-      "wait_minutes": 5,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -226,7 +226,7 @@
       "id": "a-wds-15413",
       "name_en": "Frozen Ever After",
       "name_ja": "フローズン・エバーアフター",
-      "wait_minutes": 25,
+      "wait_minutes": 50,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -237,7 +237,7 @@
       "id": "a-wds-15422",
       "name_en": "Frozen Ever After Single Rider",
       "name_ja": "フローズン・エバーアフター",
-      "wait_minutes": 5,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -259,13 +259,13 @@
   "summary": {
     "count": 23,
     "open_count": 10,
-    "average_wait": 7,
-    "max_wait": 25
+    "average_wait": 10,
+    "max_wait": 50
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/28/queue_times.json",
-    "fetched_at": "2026-10-04T06:30:53.773Z",
+    "fetched_at": "2026-10-04T06:45:58.097Z",
     "items": []
   }
 }
