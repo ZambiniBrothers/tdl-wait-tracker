@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-04T16:16:15.465Z",
+  "fetched_at": "2026-10-04T16:30:58.721Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -17,7 +17,7 @@
       "id": "a-epcot-155",
       "name_en": "Journey Into Imagination With Figment",
       "name_ja": "Journey Into Imagination With Figment",
-      "wait_minutes": 15,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -72,9 +72,9 @@
       "id": "a-epcot-160",
       "name_en": "Test Track",
       "name_ja": "テスト・トラック",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 50,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -84,8 +84,8 @@
       "name_en": "Test Track Presented by Chevrolet Single Rider",
       "name_ja": "テスト・トラック",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -149,7 +149,7 @@
       "id": "a-epcot-153",
       "name_en": "The Seas with Nemo & Friends",
       "name_ja": "The Seas with Nemo & Friends",
-      "wait_minutes": 20,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -182,7 +182,7 @@
       "id": "a-epcot-2679",
       "name_en": "Frozen Ever After",
       "name_ja": "フローズン・エバーアフター",
-      "wait_minutes": 40,
+      "wait_minutes": 45,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -215,7 +215,7 @@
       "id": "a-epcot-8956",
       "name_en": "Remy's Ratatouille Adventure",
       "name_ja": "レミーのおいしいレストラン",
-      "wait_minutes": 50,
+      "wait_minutes": 45,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -236,14 +236,14 @@
   ],
   "summary": {
     "count": 21,
-    "open_count": 19,
-    "average_wait": 24.3,
+    "open_count": 21,
+    "average_wait": 25,
     "max_wait": 60
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/5/queue_times.json",
-    "fetched_at": "2026-10-04T16:16:15.465Z",
+    "fetched_at": "2026-10-04T16:30:58.721Z",
     "items": []
   }
 }
