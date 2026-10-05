@@ -1,12 +1,12 @@
 {
-  "fetched_at": "2026-10-05T10:02:23.191Z",
+  "fetched_at": "2026-10-05T10:16:47.605Z",
   "source": "queue-times",
   "attractions": [
     {
       "id": "a-hkdl-2829",
       "name_en": "\"it's a small world\"",
       "name_ja": "イッツ・ア・スモールワールド",
-      "wait_minutes": 15,
+      "wait_minutes": 5,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -18,8 +18,8 @@
       "name_en": "Animation Academy",
       "name_ja": "Animation Academy",
       "wait_minutes": null,
-      "is_open": true,
-      "status": "OPERATING",
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -391,7 +391,7 @@
       "id": "a-hkdl-2844",
       "name_en": "Mystic Manor",
       "name_ja": "ミスティック・マナー",
-      "wait_minutes": 120,
+      "wait_minutes": 90,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -490,7 +490,7 @@
       "id": "a-hkdl-2824",
       "name_en": "The Many Adventures of Winnie the Pooh",
       "name_ja": "The Many Adventures of Winnie the Pooh",
-      "wait_minutes": 35,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -555,14 +555,14 @@
   ],
   "summary": {
     "count": 50,
-    "open_count": 28,
-    "average_wait": 41.1,
-    "max_wait": 120
+    "open_count": 27,
+    "average_wait": 38.2,
+    "max_wait": 90
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/31/queue_times.json",
-    "fetched_at": "2026-10-05T10:02:23.191Z",
+    "fetched_at": "2026-10-05T10:16:47.605Z",
     "items": []
   }
 }
