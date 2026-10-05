@@ -1,12 +1,12 @@
 {
-  "fetched_at": "2026-10-05T19:53:00.725Z",
+  "fetched_at": "2026-10-05T20:12:47.121Z",
   "source": "queue-times",
   "attractions": [
     {
       "id": "a-dca-329",
       "name_en": "Guardians of the Galaxy - Mission: BREAKOUT!",
       "name_ja": "ガーディアンズ・オブ・ギャラクシー：ミッション・ブレイクアウト！",
-      "wait_minutes": 55,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -17,7 +17,7 @@
       "id": "a-dca-8843",
       "name_en": "WEB SLINGERS: A Spider-Man Adventure",
       "name_ja": "WEB SLINGERS: A Spider-Man Adventure",
-      "wait_minutes": 40,
+      "wait_minutes": 45,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -39,9 +39,9 @@
       "id": "a-dca-2608",
       "name_en": "Luigi's Honkin' Haul-O-Ween",
       "name_ja": "Luigi's Honkin' Haul-O-Ween",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -50,7 +50,7 @@
       "id": "a-dca-295",
       "name_en": "Radiator Springs Racers",
       "name_ja": "レーシング・イン・ラジエーター・スプリングス",
-      "wait_minutes": 95,
+      "wait_minutes": 65,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -94,7 +94,7 @@
       "id": "a-dca-17129",
       "name_en": "Soarin’ Across America",
       "name_ja": "ソアリン・アクロス・アメリカ",
-      "wait_minutes": 40,
+      "wait_minutes": 45,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -248,9 +248,9 @@
       "id": "a-dca-322",
       "name_en": "Incredicoaster",
       "name_ja": "インクレディコースター",
-      "wait_minutes": 20,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -260,8 +260,8 @@
       "name_en": "Incredicoaster Single Rider",
       "name_ja": "インクレディコースター",
       "wait_minutes": null,
-      "is_open": true,
-      "status": "OPERATING",
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -292,9 +292,9 @@
       "id": "a-dca-300",
       "name_en": "Jumpin' Jellyfish",
       "name_ja": "Jumpin' Jellyfish",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 15,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -303,7 +303,7 @@
       "id": "a-dca-311",
       "name_en": "Pixar Pal-A-Round - Swinging",
       "name_ja": "Pixar Pal-A-Round - Swinging",
-      "wait_minutes": 15,
+      "wait_minutes": 25,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -325,7 +325,7 @@
       "id": "a-dca-313",
       "name_en": "Toy Story Midway Mania!",
       "name_ja": "トイ・ストーリー・マニア！",
-      "wait_minutes": 60,
+      "wait_minutes": 45,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -369,13 +369,13 @@
   "summary": {
     "count": 33,
     "open_count": 26,
-    "average_wait": 28.5,
-    "max_wait": 95
+    "average_wait": 24.2,
+    "max_wait": 65
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/17/queue_times.json",
-    "fetched_at": "2026-10-05T19:53:00.725Z",
+    "fetched_at": "2026-10-05T20:12:47.121Z",
     "items": []
   }
 }
