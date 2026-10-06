@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-06T02:01:46.898Z",
+  "fetched_at": "2026-10-06T02:17:04.114Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -17,7 +17,7 @@
       "id": "a-mk-134",
       "name_en": "Jungle Cruise",
       "name_ja": "ジャングルクルーズ",
-      "wait_minutes": 20,
+      "wait_minutes": 5,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -193,7 +193,7 @@
       "id": "a-mk-171",
       "name_en": "Mickey's PhilharMagic",
       "name_ja": "ミッキーのフィルハーマジック",
-      "wait_minutes": 15,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -347,7 +347,7 @@
       "id": "a-mk-146",
       "name_en": "Meet Mickey at Town Square Theater",
       "name_ja": "Meet Mickey at Town Square Theater",
-      "wait_minutes": 35,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -380,7 +380,7 @@
       "id": "a-mk-131",
       "name_en": "Buzz Lightyear’s Space Ranger Spin",
       "name_ja": "バズ・ライトイヤーのスペース・レンジャー・スピン",
-      "wait_minutes": 30,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -391,9 +391,9 @@
       "id": "a-mk-125",
       "name_en": "Monsters, Inc. Laugh Floor",
       "name_ja": "Monsters, Inc. Laugh Floor",
-      "wait_minutes": 10,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -500,14 +500,14 @@
   ],
   "summary": {
     "count": 45,
-    "open_count": 28,
-    "average_wait": 18.5,
+    "open_count": 27,
+    "average_wait": 16.8,
     "max_wait": 85
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/6/queue_times.json",
-    "fetched_at": "2026-10-06T02:01:46.898Z",
+    "fetched_at": "2026-10-06T02:17:04.114Z",
     "items": []
   }
 }
