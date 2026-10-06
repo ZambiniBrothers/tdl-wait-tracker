@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-06T06:31:48.995Z",
+  "fetched_at": "2026-10-06T06:47:05.535Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -160,9 +160,9 @@
       "id": "a-dlp-9",
       "name_en": "Star Tours: The Adventures Continue*",
       "name_ja": "スター・ツアーズ",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -270,9 +270,9 @@
       "id": "a-dlp-18",
       "name_en": "Dumbo the Flying Elephant",
       "name_ja": "空飛ぶダンボ",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -282,8 +282,8 @@
       "name_en": "La Tanière du Dragon",
       "name_ja": "La Tanière du Dragon",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -347,7 +347,7 @@
       "id": "a-dlp-22",
       "name_en": "Peter Pan's Flight",
       "name_ja": "ピーターパン空の旅",
-      "wait_minutes": 5,
+      "wait_minutes": 35,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -425,8 +425,8 @@
       "name_en": "Rustler Roundup Shootin' Gallery",
       "name_ja": "Rustler Roundup Shootin' Gallery",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -457,9 +457,9 @@
       "id": "a-dlp-12",
       "name_en": "Main Street Vehicles",
       "name_ja": "Main Street Vehicles",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -467,14 +467,14 @@
   ],
   "summary": {
     "count": 42,
-    "open_count": 4,
-    "average_wait": 8.3,
-    "max_wait": 15
+    "open_count": 9,
+    "average_wait": 11.7,
+    "max_wait": 35
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/4/queue_times.json",
-    "fetched_at": "2026-10-06T06:31:48.995Z",
+    "fetched_at": "2026-10-06T06:47:05.535Z",
     "items": []
   }
 }
