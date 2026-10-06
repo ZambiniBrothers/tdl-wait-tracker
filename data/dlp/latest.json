@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-06T07:02:09.017Z",
+  "fetched_at": "2026-10-06T07:17:10.938Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -39,9 +39,9 @@
       "id": "a-dlp-1",
       "name_en": "La Cabane des Robinson",
       "name_ja": "La Cabane des Robinson",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -84,8 +84,8 @@
       "name_en": "Pirates' Beach",
       "name_ja": "Pirates' Beach",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -237,9 +237,9 @@
       "id": "a-dlp-17",
       "name_en": "Casey Jr. – le Petit Train du Cirque",
       "name_ja": "キャシー・ジュニア・サーカストレイン",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -314,9 +314,9 @@
       "id": "a-dlp-23",
       "name_en": "Les Voyages de Pinocchio",
       "name_ja": "Les Voyages de Pinocchio",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -369,7 +369,7 @@
       "id": "a-dlp-25",
       "name_en": "Big Thunder Mountain",
       "name_ja": "ビッグサンダー・マウンテン",
-      "wait_minutes": 55,
+      "wait_minutes": 45,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -392,8 +392,8 @@
       "name_en": "Frontierland Playground",
       "name_ja": "Frontierland Playground",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -467,14 +467,14 @@
   ],
   "summary": {
     "count": 42,
-    "open_count": 9,
-    "average_wait": 21.7,
-    "max_wait": 55
+    "open_count": 14,
+    "average_wait": 15,
+    "max_wait": 50
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/4/queue_times.json",
-    "fetched_at": "2026-10-06T07:02:09.017Z",
+    "fetched_at": "2026-10-06T07:17:10.938Z",
     "items": []
   }
 }
