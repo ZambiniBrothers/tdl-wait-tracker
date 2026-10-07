@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-07T23:02:30.459Z",
+  "fetched_at": "2026-10-07T23:16:57.508Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -17,7 +17,7 @@
       "id": "a-mk-134",
       "name_en": "Jungle Cruise",
       "name_ja": "ジャングルクルーズ",
-      "wait_minutes": 25,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -116,7 +116,7 @@
       "id": "a-mk-128",
       "name_en": "Enchanted Tales with Belle",
       "name_ja": "Enchanted Tales with Belle",
-      "wait_minutes": 20,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -138,9 +138,9 @@
       "id": "a-mk-147",
       "name_en": "Meet Ariel at Her Grotto",
       "name_ja": "Meet Ariel at Her Grotto",
-      "wait_minutes": 30,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -160,9 +160,9 @@
       "id": "a-mk-144",
       "name_en": "Meet Daring Disney Pals as Circus Stars at Pete's Silly Sideshow",
       "name_ja": "Meet Daring Disney Pals as Circus Stars at Pete's Silly Sideshow",
-      "wait_minutes": 20,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -171,9 +171,9 @@
       "id": "a-mk-145",
       "name_en": "Meet Dashing Disney Pals as Circus Stars at Pete's Silly Sideshow",
       "name_ja": "Meet Dashing Disney Pals as Circus Stars at Pete's Silly Sideshow",
-      "wait_minutes": 20,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -248,7 +248,7 @@
       "id": "a-mk-142",
       "name_en": "The Many Adventures of Winnie the Pooh",
       "name_ja": "The Many Adventures of Winnie the Pooh",
-      "wait_minutes": 35,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -303,7 +303,7 @@
       "id": "a-mk-13630",
       "name_en": "Tiana's Bayou Adventure",
       "name_ja": "Tiana's Bayou Adventure",
-      "wait_minutes": 15,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -314,7 +314,7 @@
       "id": "a-mk-140",
       "name_en": "Haunted Mansion",
       "name_ja": "ホーンテッドマンション",
-      "wait_minutes": 40,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -413,7 +413,7 @@
       "id": "a-mk-143",
       "name_en": "Tomorrowland Speedway",
       "name_ja": "Tomorrowland Speedway",
-      "wait_minutes": 5,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -500,14 +500,14 @@
   ],
   "summary": {
     "count": 45,
-    "open_count": 35,
-    "average_wait": 19.5,
+    "open_count": 32,
+    "average_wait": 18.2,
     "max_wait": 80
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/6/queue_times.json",
-    "fetched_at": "2026-10-07T23:02:30.459Z",
+    "fetched_at": "2026-10-07T23:16:57.508Z",
     "items": []
   }
 }
