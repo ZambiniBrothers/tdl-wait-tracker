@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-07T01:32:27.118Z",
+  "fetched_at": "2026-10-07T01:47:01.807Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -149,9 +149,9 @@
       "id": "a-shdl-3896",
       "name_en": "Become Iron Man at the Marvel Universe",
       "name_ja": "Become Iron Man at the Marvel Universe",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -160,7 +160,7 @@
       "id": "a-shdl-2993",
       "name_en": "Dumbo the Flying Elephant",
       "name_ja": "空飛ぶダンボ",
-      "wait_minutes": 20,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -183,8 +183,8 @@
       "name_en": "Marvel Universe",
       "name_ja": "Marvel Universe",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -204,7 +204,7 @@
       "id": "a-shdl-3000",
       "name_en": "Jet Packs",
       "name_ja": "Jet Packs",
-      "wait_minutes": 20,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -357,14 +357,14 @@
   ],
   "summary": {
     "count": 32,
-    "open_count": 26,
-    "average_wait": 17,
+    "open_count": 28,
+    "average_wait": 17.3,
     "max_wait": 60
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/30/queue_times.json",
-    "fetched_at": "2026-10-07T01:32:27.118Z",
+    "fetched_at": "2026-10-07T01:47:01.807Z",
     "items": []
   }
 }
