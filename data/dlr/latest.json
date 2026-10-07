@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-07T05:02:12.648Z",
+  "fetched_at": "2026-10-07T05:16:44.090Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -61,9 +61,9 @@
       "id": "a-dlr-306",
       "name_en": "The Many Adventures of Winnie the Pooh",
       "name_ja": "The Many Adventures of Winnie the Pooh",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -171,7 +171,7 @@
       "id": "a-dlr-279",
       "name_en": "Matterhorn Bobsleds",
       "name_ja": "マッターホルン・ボブスレー",
-      "wait_minutes": 20,
+      "wait_minutes": 25,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -512,9 +512,9 @@
       "id": "a-dlr-6340",
       "name_en": "Star Wars: Rise of the Resistance",
       "name_ja": "スター・ウォーズ：ライズ・オブ・ザ・レジスタンス",
-      "wait_minutes": 25,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -534,7 +534,7 @@
       "id": "a-dlr-317",
       "name_en": "Autopia",
       "name_ja": "オートピア",
-      "wait_minutes": 15,
+      "wait_minutes": 5,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -611,13 +611,13 @@
   "summary": {
     "count": 55,
     "open_count": 38,
-    "average_wait": 11.9,
+    "average_wait": 11,
     "max_wait": 40
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/16/queue_times.json",
-    "fetched_at": "2026-10-07T05:02:12.648Z",
+    "fetched_at": "2026-10-07T05:16:44.090Z",
     "items": []
   }
 }
