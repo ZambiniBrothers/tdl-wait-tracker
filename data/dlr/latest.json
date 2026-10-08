@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-08T04:16:53.930Z",
+  "fetched_at": "2026-10-08T04:31:39.310Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -72,7 +72,7 @@
       "id": "a-dlr-14168",
       "name_en": "Tiana's Bayou Adventure",
       "name_ja": "Tiana's Bayou Adventure",
-      "wait_minutes": 20,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -105,7 +105,7 @@
       "id": "a-dlr-285",
       "name_en": "Alice in Wonderland",
       "name_ja": "ふしぎの国のアリス",
-      "wait_minutes": 25,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -171,7 +171,7 @@
       "id": "a-dlr-279",
       "name_en": "Matterhorn Bobsleds",
       "name_ja": "マッターホルン・ボブスレー",
-      "wait_minutes": 20,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -215,9 +215,9 @@
       "id": "a-dlr-282",
       "name_en": "Pinocchio's Daring Journey",
       "name_ja": "Pinocchio's Daring Journey",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -589,9 +589,9 @@
       "id": "a-dlr-284",
       "name_en": "Space Mountain",
       "name_ja": "スペース・マウンテン",
-      "wait_minutes": 20,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -611,13 +611,13 @@
   "summary": {
     "count": 55,
     "open_count": 39,
-    "average_wait": 12.7,
+    "average_wait": 11.2,
     "max_wait": 35
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/16/queue_times.json",
-    "fetched_at": "2026-10-08T04:16:53.930Z",
+    "fetched_at": "2026-10-08T04:31:39.310Z",
     "items": []
   }
 }
