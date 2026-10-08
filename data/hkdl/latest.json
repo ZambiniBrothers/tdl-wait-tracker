@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-08T09:31:43.568Z",
+  "fetched_at": "2026-10-08T09:47:08.310Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -270,7 +270,7 @@
       "id": "a-hkdl-2830",
       "name_en": "Mad Hatter Tea Cups",
       "name_ja": "Mad Hatter Tea Cups",
-      "wait_minutes": 10,
+      "wait_minutes": 5,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -293,8 +293,8 @@
       "name_en": "Main Street Vehicles",
       "name_ja": "Main Street Vehicles",
       "wait_minutes": null,
-      "is_open": true,
-      "status": "OPERATING",
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -468,7 +468,7 @@
       "id": "a-hkdl-2841",
       "name_en": "Slinky Dog Spin",
       "name_ja": "Slinky Dog Spin",
-      "wait_minutes": 10,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -555,14 +555,14 @@
   ],
   "summary": {
     "count": 50,
-    "open_count": 40,
-    "average_wait": 17.4,
+    "open_count": 39,
+    "average_wait": 17.6,
     "max_wait": 50
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/31/queue_times.json",
-    "fetched_at": "2026-10-08T09:31:43.568Z",
+    "fetched_at": "2026-10-08T09:47:08.310Z",
     "items": []
   }
 }
