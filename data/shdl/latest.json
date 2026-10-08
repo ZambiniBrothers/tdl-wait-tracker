@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-08T00:32:23.539Z",
+  "fetched_at": "2026-10-08T00:47:04.175Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -17,9 +17,9 @@
       "id": "a-shdl-16370",
       "name_en": "Junior Explorers Camp",
       "name_ja": "Junior Explorers Camp",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -28,7 +28,7 @@
       "id": "a-shdl-2986",
       "name_en": "Roaring Rapids",
       "name_ja": "Roaring Rapids",
-      "wait_minutes": 5,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -72,9 +72,9 @@
       "id": "a-shdl-2987",
       "name_en": "Alice in Wonderland Maze",
       "name_ja": "Alice in Wonderland Maze",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -105,7 +105,7 @@
       "id": "a-shdl-2990",
       "name_en": "Seven Dwarfs Mine Train",
       "name_ja": "七人のこびとのマイントレイン",
-      "wait_minutes": 25,
+      "wait_minutes": 35,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -237,7 +237,7 @@
       "id": "a-shdl-2985",
       "name_en": "TRON Lightcycle Power Run – Presented by Chevrolet",
       "name_ja": "トロン・ライトサイクル・パワーラン",
-      "wait_minutes": 10,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -314,9 +314,9 @@
       "id": "a-shdl-2997",
       "name_en": "Shipwreck Shore",
       "name_ja": "Shipwreck Shore",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -325,9 +325,9 @@
       "id": "a-shdl-2998",
       "name_en": "Siren's Revenge",
       "name_ja": "Siren's Revenge",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -347,7 +347,7 @@
       "id": "a-shdl-12392",
       "name_en": "Zootopia: Hot Pursuit",
       "name_ja": "Zootopia: Hot Pursuit",
-      "wait_minutes": 15,
+      "wait_minutes": 60,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -357,14 +357,14 @@
   ],
   "summary": {
     "count": 32,
-    "open_count": 19,
-    "average_wait": 7.4,
-    "max_wait": 25
+    "open_count": 23,
+    "average_wait": 10.7,
+    "max_wait": 60
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/30/queue_times.json",
-    "fetched_at": "2026-10-08T00:32:23.539Z",
+    "fetched_at": "2026-10-08T00:47:04.175Z",
     "items": []
   }
 }
