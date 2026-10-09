@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-09T22:18:59.037Z",
+  "fetched_at": "2026-10-09T22:34:01.529Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -50,9 +50,9 @@
       "id": "a-ak-110",
       "name_en": "Expedition Everest - Legend of the Forbidden Mountain",
       "name_ja": "エクスペディション・エベレスト",
-      "wait_minutes": 15,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -62,8 +62,8 @@
       "name_en": "Expedition Everest - Legend of the Forbidden Mountain Single Rider",
       "name_ja": "エクスペディション・エベレスト",
       "wait_minutes": null,
-      "is_open": true,
-      "status": "OPERATING",
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -193,7 +193,7 @@
       "id": "a-ak-4439",
       "name_en": "Avatar Flight of Passage",
       "name_ja": "アバター：フライト・オブ・パッセージ",
-      "wait_minutes": 115,
+      "wait_minutes": 105,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -236,14 +236,14 @@
   ],
   "summary": {
     "count": 21,
-    "open_count": 12,
-    "average_wait": 37,
-    "max_wait": 115
+    "open_count": 10,
+    "average_wait": 40,
+    "max_wait": 105
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/8/queue_times.json",
-    "fetched_at": "2026-10-09T22:18:59.037Z",
+    "fetched_at": "2026-10-09T22:34:01.529Z",
     "items": []
   }
 }
