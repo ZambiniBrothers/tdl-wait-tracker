@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-09T04:31:53.111Z",
+  "fetched_at": "2026-10-09T04:46:46.969Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -61,7 +61,7 @@
       "id": "a-dlr-306",
       "name_en": "The Many Adventures of Winnie the Pooh",
       "name_ja": "The Many Adventures of Winnie the Pooh",
-      "wait_minutes": 10,
+      "wait_minutes": 5,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -105,9 +105,9 @@
       "id": "a-dlr-285",
       "name_en": "Alice in Wonderland",
       "name_ja": "ふしぎの国のアリス",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 15,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -259,7 +259,7 @@
       "id": "a-dlr-323",
       "name_en": "Big Thunder Mountain Railroad",
       "name_ja": "ビッグサンダー・マウンテン",
-      "wait_minutes": 20,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -424,7 +424,7 @@
       "id": "a-dlr-11526",
       "name_en": "Mickey & Minnie's Runaway Railway",
       "name_ja": "ミッキー＆ミニーのランナウェイ・レイルウェイ",
-      "wait_minutes": 15,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -457,9 +457,9 @@
       "id": "a-dlr-332",
       "name_en": "Roger Rabbit's Car Toon Spin",
       "name_ja": "Roger Rabbit's Car Toon Spin",
-      "wait_minutes": 35,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -468,9 +468,9 @@
       "id": "a-dlr-325",
       "name_en": "Haunted Mansion Holiday",
       "name_ja": "Haunted Mansion Holiday",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 35,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -512,7 +512,7 @@
       "id": "a-dlr-6340",
       "name_en": "Star Wars: Rise of the Resistance",
       "name_ja": "スター・ウォーズ：ライズ・オブ・ザ・レジスタンス",
-      "wait_minutes": 15,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -534,7 +534,7 @@
       "id": "a-dlr-317",
       "name_en": "Autopia",
       "name_ja": "オートピア",
-      "wait_minutes": 15,
+      "wait_minutes": 5,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -610,14 +610,14 @@
   ],
   "summary": {
     "count": 55,
-    "open_count": 38,
-    "average_wait": 14.1,
+    "open_count": 39,
+    "average_wait": 13.8,
     "max_wait": 50
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/16/queue_times.json",
-    "fetched_at": "2026-10-09T04:31:53.111Z",
+    "fetched_at": "2026-10-09T04:46:46.969Z",
     "items": []
   }
 }
