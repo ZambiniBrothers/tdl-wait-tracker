@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-09T00:02:11.167Z",
+  "fetched_at": "2026-10-09T00:16:33.730Z",
   "source": "tdr-official",
   "attractions": [
     {
@@ -186,7 +186,7 @@
       "id": "a-splash-mountain",
       "name_en": "Splash Mountain",
       "name_ja": "スプラッシュ・マウンテン",
-      "wait_minutes": 5,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -246,7 +246,7 @@
       "id": "a-big-thunder-mountain",
       "name_en": "Big Thunder Mountain",
       "name_ja": "ビッグサンダー・マウンテン",
-      "wait_minutes": 5,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -295,7 +295,7 @@
       "id": "a-poohs-hunny-hunt",
       "name_en": "Pooh's Hunny Hunt",
       "name_ja": "プーさんのハニーハント",
-      "wait_minutes": 14,
+      "wait_minutes": 40,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -306,7 +306,7 @@
       "id": "a-the-happy-ride-with-baymax",
       "name_en": "The Happy Ride with Baymax",
       "name_ja": "ベイマックスのハッピーライド",
-      "wait_minutes": 20,
+      "wait_minutes": 50,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -366,12 +366,12 @@
       "id": "a-monsters-inc-ride-go-seek",
       "name_en": "Monsters, Inc. Ride & Go Seek!",
       "name_ja": "モンスターズ・インク“ライド＆ゴーシーク！”",
-      "wait_minutes": 5,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
-      "official_status_cd": "001",
-      "official_status_label": "運営中"
+      "official_status_cd": "004",
+      "official_status_label": "一時運営中止"
     },
     {
       "id": "a-roger-rabbits-car-toon-spin",
@@ -420,7 +420,7 @@
       "id": "a-enchanted-tale-of-beauty-and-the-beast",
       "name_en": "Enchanted Tale of Beauty and the Beast",
       "name_ja": "美女と野獣“魔法のものがたり”",
-      "wait_minutes": 30,
+      "wait_minutes": 120,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -452,13 +452,13 @@
   ],
   "summary": {
     "count": 37,
-    "open_count": 25,
-    "average_wait": 7.1,
-    "max_wait": 30
+    "open_count": 24,
+    "average_wait": 14.8,
+    "max_wait": 120
   },
   "closures": {
     "source_url": "https://www.tokyodisneyresort.jp/tdl/monthly/stop.html",
-    "fetched_at": "2026-10-09T00:02:05.175Z",
+    "fetched_at": "2026-10-09T00:16:27.213Z",
     "closures": {
       "a-peter-pans-flight": {
         "name_ja": "ピーターパン空の旅",
@@ -509,7 +509,7 @@
   },
   "shows": {
     "source_url": "https://www.tokyodisneyresort.jp/tdl/show.html",
-    "fetched_at": "2026-10-09T00:02:11.167Z",
+    "fetched_at": "2026-10-09T00:16:33.730Z",
     "items": [
       {
         "time": "12:55",

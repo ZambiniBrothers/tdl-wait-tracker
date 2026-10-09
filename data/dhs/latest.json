@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-09T00:02:28.620Z",
+  "fetched_at": "2026-10-09T00:16:55.800Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -40,8 +40,8 @@
       "name_en": "Walt Disney Presents",
       "name_ja": "Walt Disney Presents",
       "wait_minutes": null,
-      "is_open": true,
-      "status": "OPERATING",
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -50,9 +50,9 @@
       "id": "a-dhs-6704",
       "name_en": "Meet Disney Stars at Red Carpet Dreams",
       "name_ja": "Meet Disney Stars at Red Carpet Dreams",
-      "wait_minutes": 25,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -105,9 +105,9 @@
       "id": "a-dhs-7333",
       "name_en": "Vacation Fun - An Original Animated Short with Mickey & Minnie",
       "name_ja": "Vacation Fun - An Original Animated Short with Mickey & Minnie",
-      "wait_minutes": 10,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -138,7 +138,7 @@
       "id": "a-dhs-117",
       "name_en": "Toy Story Mania!",
       "name_ja": "トイ・ストーリー・マニア！",
-      "wait_minutes": 45,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -149,7 +149,7 @@
       "id": "a-dhs-6368",
       "name_en": "Millennium Falcon: Smugglers Run",
       "name_ja": "ミレニアム・ファルコン：スマグラーズ・ラン",
-      "wait_minutes": 20,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -171,7 +171,7 @@
       "id": "a-dhs-6369",
       "name_en": "Star Wars: Rise of the Resistance",
       "name_ja": "スター・ウォーズ：ライズ・オブ・ザ・レジスタンス",
-      "wait_minutes": 25,
+      "wait_minutes": 45,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -205,8 +205,8 @@
       "name_en": "Rock 'n' Roller Coaster Starring Aerosmith Single Rider",
       "name_ja": "Rock 'n' Roller Coaster Starring Aerosmith Single Rider",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -215,9 +215,9 @@
       "id": "a-dhs-16342",
       "name_en": "Rock ’n’ Roller Coaster Starring The Muppets",
       "name_ja": "Rock ’n’ Roller Coaster Starring The Muppets",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 35,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -226,9 +226,9 @@
       "id": "a-dhs-123",
       "name_en": "The Twilight Zone™ Tower of Terror",
       "name_ja": "タワー・オブ・テラー",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 40,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -259,13 +259,13 @@
   "summary": {
     "count": 23,
     "open_count": 17,
-    "average_wait": 26.7,
+    "average_wait": 30,
     "max_wait": 45
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/7/queue_times.json",
-    "fetched_at": "2026-10-09T00:02:28.620Z",
+    "fetched_at": "2026-10-09T00:16:55.800Z",
     "items": []
   }
 }
