@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-09T04:16:57.993Z",
+  "fetched_at": "2026-10-09T04:31:55.073Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -17,7 +17,7 @@
       "id": "a-dca-8843",
       "name_en": "WEB SLINGERS: A Spider-Man Adventure",
       "name_ja": "WEB SLINGERS: A Spider-Man Adventure",
-      "wait_minutes": 20,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -50,7 +50,7 @@
       "id": "a-dca-295",
       "name_en": "Radiator Springs Racers",
       "name_ja": "レーシング・イン・ラジエーター・スプリングス",
-      "wait_minutes": 50,
+      "wait_minutes": 25,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -94,7 +94,7 @@
       "id": "a-dca-17129",
       "name_en": "Soarin’ Across America",
       "name_ja": "ソアリン・アクロス・アメリカ",
-      "wait_minutes": 15,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -193,9 +193,9 @@
       "id": "a-dca-301",
       "name_en": "Silly Symphony Swings",
       "name_ja": "Silly Symphony Swings",
-      "wait_minutes": 5,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -205,8 +205,8 @@
       "name_en": "Silly Symphony Swings Single Rider",
       "name_ja": "Silly Symphony Swings Single Rider",
       "wait_minutes": null,
-      "is_open": true,
-      "status": "OPERATING",
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -215,9 +215,9 @@
       "id": "a-dca-316",
       "name_en": "The Little Mermaid - Ariel's Undersea Adventure",
       "name_ja": "The Little Mermaid - Ariel's Undersea Adventure",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -248,7 +248,7 @@
       "id": "a-dca-322",
       "name_en": "Incredicoaster",
       "name_ja": "インクレディコースター",
-      "wait_minutes": 15,
+      "wait_minutes": 5,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -292,7 +292,7 @@
       "id": "a-dca-300",
       "name_en": "Jumpin' Jellyfish",
       "name_ja": "Jumpin' Jellyfish",
-      "wait_minutes": 10,
+      "wait_minutes": 5,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -358,7 +358,7 @@
       "id": "a-dca-7292",
       "name_en": "Villains Grove at Oogie Boogie Bash",
       "name_ja": "Villains Grove at Oogie Boogie Bash",
-      "wait_minutes": 10,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -368,14 +368,14 @@
   ],
   "summary": {
     "count": 33,
-    "open_count": 22,
-    "average_wait": 12.7,
-    "max_wait": 50
+    "open_count": 21,
+    "average_wait": 11,
+    "max_wait": 30
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/17/queue_times.json",
-    "fetched_at": "2026-10-09T04:16:57.993Z",
+    "fetched_at": "2026-10-09T04:31:55.073Z",
     "items": []
   }
 }

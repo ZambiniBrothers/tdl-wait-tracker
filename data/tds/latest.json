@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-09T04:16:53.429Z",
+  "fetched_at": "2026-10-09T04:31:48.677Z",
   "source": "tdr-official",
   "attractions": [
     {
@@ -39,12 +39,12 @@
       "id": "a-236",
       "name_en": "キャラバンカルーセル",
       "name_ja": "キャラバンカルーセル",
-      "wait_minutes": 5,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
-      "official_status_cd": "001",
-      "official_status_label": "運営中"
+      "official_status_cd": "004",
+      "official_status_label": "一時運営中止"
     },
     {
       "id": "a-235",
@@ -83,7 +83,7 @@
       "id": "a-238",
       "name_en": "スカットルのスクーター",
       "name_ja": "スカットルのスクーター",
-      "wait_minutes": 15,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -105,7 +105,7 @@
       "id": "a-219",
       "name_en": "ソアリン：ファンタスティック・フライト",
       "name_ja": "ソアリン：ファンタスティック・フライト",
-      "wait_minutes": 120,
+      "wait_minutes": 140,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -127,7 +127,7 @@
       "id": "a-246",
       "name_en": "タートル・トーク",
       "name_ja": "タートル・トーク",
-      "wait_minutes": 25,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -138,7 +138,7 @@
       "id": "a-232",
       "name_en": "ディズニーシー・エレクトリックレールウェイ（アメリカンウォーターフロント）",
       "name_ja": "ディズニーシー・エレクトリックレールウェイ（アメリカンウォーターフロント）",
-      "wait_minutes": 25,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -193,7 +193,7 @@
       "id": "a-218",
       "name_en": "トイ・ストーリー・マニア！",
       "name_ja": "トイ・ストーリー・マニア！",
-      "wait_minutes": 90,
+      "wait_minutes": 100,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -314,7 +314,7 @@
       "id": "a-256",
       "name_en": "ラプンツェルのランタンフェスティバル",
       "name_ja": "ラプンツェルのランタンフェスティバル",
-      "wait_minutes": 60,
+      "wait_minutes": 50,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -336,12 +336,12 @@
       "id": "a-9912",
       "name_en": "ロストリバーデルタ（ミゲル　13:30～）",
       "name_ja": "ロストリバーデルタ（ミゲル　13:30～）",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "CLOSED",
-      "access_mode": "STANDBY",
-      "official_status_cd": "008",
-      "official_status_label": "準備中"
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
+      "access_mode": "STANDBY_PASS_ONLY",
+      "official_status_cd": "026",
+      "official_status_label": "スタンバイパスがある方のみ案内中"
     },
     {
       "id": "a-9911",
@@ -391,13 +391,13 @@
   "summary": {
     "count": 35,
     "open_count": 25,
-    "average_wait": 35.9,
-    "max_wait": 120
+    "average_wait": 36.3,
+    "max_wait": 140
   },
   "closures": null,
   "shows": {
     "source_url": "https://www.tokyodisneyresort.jp/tds/show.html",
-    "fetched_at": "2026-10-09T04:16:53.429Z",
+    "fetched_at": "2026-10-09T04:31:48.676Z",
     "items": [
       {
         "time": "11:30",
