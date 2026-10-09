@@ -1,14 +1,14 @@
 {
-  "fetched_at": "2026-10-09T10:17:23.914Z",
+  "fetched_at": "2026-10-09T10:32:22.534Z",
   "source": "themeparks",
   "attractions": [
     {
       "id": "a-mark-twain-riverboat",
       "name_en": "Mark Twain Riverboat",
       "name_ja": "蒸気船マークトウェイン号",
-      "wait_minutes": 5,
-      "is_open": true,
-      "status": "OPERATING"
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "CLOSED"
     },
     {
       "id": "a-beaver-brothers-explorer-canoes",
@@ -46,7 +46,7 @@
       "id": "a-castle-carrousel",
       "name_en": "Castle Carrousel",
       "name_ja": "キャッスルカルーセル",
-      "wait_minutes": 10,
+      "wait_minutes": 5,
       "is_open": true,
       "status": "OPERATING"
     },
@@ -78,7 +78,7 @@
       "id": "a-monsters-inc-ride-go-seek",
       "name_en": "Monsters, Inc. Ride & Go Seek!",
       "name_ja": "モンスターズ・インク \"ライド&ゴーシーク!\"",
-      "wait_minutes": 30,
+      "wait_minutes": 25,
       "is_open": true,
       "status": "OPERATING"
     },
@@ -152,7 +152,7 @@
       "name_ja": "ウエスタンリバー鉄道",
       "wait_minutes": null,
       "is_open": false,
-      "status": "DOWN"
+      "status": "CLOSED"
     },
     {
       "id": "a-roger-rabbits-car-toon-spin",
@@ -190,7 +190,7 @@
       "id": "a-haunted-mansion-holiday-nightmare",
       "name_en": "Haunted Mansion “Holiday Nightmare”",
       "name_ja": null,
-      "wait_minutes": 40,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING"
     },
@@ -246,7 +246,7 @@
       "id": "a-splash-mountain",
       "name_en": "Splash Mountain",
       "name_ja": "スプラッシュ・マウンテン",
-      "wait_minutes": 40,
+      "wait_minutes": null,
       "is_open": true,
       "status": "OPERATING"
     },
@@ -301,8 +301,8 @@
   ],
   "summary": {
     "count": 37,
-    "open_count": 28,
-    "average_wait": 18.1,
+    "open_count": 27,
+    "average_wait": 16.9,
     "max_wait": 80
   },
   "closures": null,
