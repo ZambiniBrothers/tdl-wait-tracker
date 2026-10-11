@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-11T19:46:56.001Z",
+  "fetched_at": "2026-10-11T20:02:10.584Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -18,8 +18,8 @@
       "name_en": "Meet Ariel at Walt Disney Presents",
       "name_ja": "Meet Ariel at Walt Disney Presents",
       "wait_minutes": null,
-      "is_open": true,
-      "status": "OPERATING",
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -50,7 +50,7 @@
       "id": "a-dhs-6704",
       "name_en": "Meet Disney Stars at Red Carpet Dreams",
       "name_ja": "Meet Disney Stars at Red Carpet Dreams",
-      "wait_minutes": 45,
+      "wait_minutes": 25,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -83,7 +83,7 @@
       "id": "a-dhs-6703",
       "name_en": "Meet Olaf at Celebrity Spotlight",
       "name_ja": "Meet Olaf at Celebrity Spotlight",
-      "wait_minutes": 25,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -138,7 +138,7 @@
       "id": "a-dhs-117",
       "name_en": "Toy Story Mania!",
       "name_ja": "トイ・ストーリー・マニア！",
-      "wait_minutes": 45,
+      "wait_minutes": 50,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -258,14 +258,14 @@
   ],
   "summary": {
     "count": 23,
-    "open_count": 23,
-    "average_wait": 47.3,
+    "open_count": 22,
+    "average_wait": 45,
     "max_wait": 115
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/7/queue_times.json",
-    "fetched_at": "2026-10-11T19:46:56.001Z",
+    "fetched_at": "2026-10-11T20:02:10.584Z",
     "items": []
   }
 }
