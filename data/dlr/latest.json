@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-12T04:47:01.423Z",
+  "fetched_at": "2026-10-12T05:02:04.769Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -138,9 +138,9 @@
       "id": "a-dlr-275",
       "name_en": "Dumbo the Flying Elephant",
       "name_ja": "空飛ぶダンボ",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -171,7 +171,7 @@
       "id": "a-dlr-279",
       "name_en": "Matterhorn Bobsleds",
       "name_ja": "マッターホルン・ボブスレー",
-      "wait_minutes": 25,
+      "wait_minutes": 45,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -259,7 +259,7 @@
       "id": "a-dlr-323",
       "name_en": "Big Thunder Mountain Railroad",
       "name_ja": "ビッグサンダー・マウンテン",
-      "wait_minutes": 20,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -545,7 +545,7 @@
       "id": "a-dlr-273",
       "name_en": "Buzz Lightyear Astro Blasters",
       "name_ja": "バズ・ライトイヤーのアストロブラスター",
-      "wait_minutes": 5,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -556,9 +556,9 @@
       "id": "a-dlr-274",
       "name_en": "Disneyland Monorail",
       "name_ja": "Disneyland Monorail",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 15,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -600,7 +600,7 @@
       "id": "a-dlr-286",
       "name_en": "Star Tours - The Adventures Continue",
       "name_ja": "スター・ツアーズ",
-      "wait_minutes": 5,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -610,14 +610,14 @@
   ],
   "summary": {
     "count": 55,
-    "open_count": 24,
-    "average_wait": 10.8,
-    "max_wait": 30
+    "open_count": 26,
+    "average_wait": 12.8,
+    "max_wait": 45
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/16/queue_times.json",
-    "fetched_at": "2026-10-12T04:47:01.423Z",
+    "fetched_at": "2026-10-12T05:02:04.769Z",
     "items": []
   }
 }
