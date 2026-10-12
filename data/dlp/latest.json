@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-12T06:16:58.993Z",
+  "fetched_at": "2026-10-12T06:31:50.059Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -161,8 +161,8 @@
       "name_en": "Star Tours: The Adventures Continue*",
       "name_ja": "スター・ツアーズ",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -171,9 +171,9 @@
       "id": "a-dlp-8",
       "name_en": "Star Wars Hyperspace Mountain",
       "name_ja": "スター・ウォーズ：ハイパースペース・マウンテン",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -183,8 +183,8 @@
       "name_en": "Star Wars Hyperspace Mountain Single Rider",
       "name_ja": "スター・ウォーズ：ハイパースペース・マウンテン",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -270,9 +270,9 @@
       "id": "a-dlp-18",
       "name_en": "Dumbo the Flying Elephant",
       "name_ja": "空飛ぶダンボ",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -467,14 +467,14 @@
   ],
   "summary": {
     "count": 42,
-    "open_count": 1,
-    "average_wait": 0,
-    "max_wait": 0
+    "open_count": 5,
+    "average_wait": 5,
+    "max_wait": 5
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/4/queue_times.json",
-    "fetched_at": "2026-10-12T06:16:58.993Z",
+    "fetched_at": "2026-10-12T06:31:50.059Z",
     "items": []
   }
 }
