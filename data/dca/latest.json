@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-12T02:31:46.366Z",
+  "fetched_at": "2026-10-12T02:47:03.433Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -17,7 +17,7 @@
       "id": "a-dca-8843",
       "name_en": "WEB SLINGERS: A Spider-Man Adventure",
       "name_ja": "WEB SLINGERS: A Spider-Man Adventure",
-      "wait_minutes": 25,
+      "wait_minutes": 35,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -50,7 +50,7 @@
       "id": "a-dca-295",
       "name_en": "Radiator Springs Racers",
       "name_ja": "レーシング・イン・ラジエーター・スプリングス",
-      "wait_minutes": 45,
+      "wait_minutes": 40,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -193,9 +193,9 @@
       "id": "a-dca-301",
       "name_en": "Silly Symphony Swings",
       "name_ja": "Silly Symphony Swings",
-      "wait_minutes": 15,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -205,8 +205,8 @@
       "name_en": "Silly Symphony Swings Single Rider",
       "name_ja": "Silly Symphony Swings Single Rider",
       "wait_minutes": null,
-      "is_open": true,
-      "status": "OPERATING",
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -358,7 +358,7 @@
       "id": "a-dca-7292",
       "name_en": "Villains Grove at Oogie Boogie Bash",
       "name_ja": "Villains Grove at Oogie Boogie Bash",
-      "wait_minutes": 15,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -368,14 +368,14 @@
   ],
   "summary": {
     "count": 33,
-    "open_count": 23,
+    "open_count": 21,
     "average_wait": 15,
-    "max_wait": 45
+    "max_wait": 40
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/17/queue_times.json",
-    "fetched_at": "2026-10-12T02:31:46.366Z",
+    "fetched_at": "2026-10-12T02:47:03.433Z",
     "items": []
   }
 }
