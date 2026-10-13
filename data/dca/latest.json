@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-13T15:46:39.790Z",
+  "fetched_at": "2026-10-13T16:01:57.677Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -39,7 +39,7 @@
       "id": "a-dca-2608",
       "name_en": "Luigi's Honkin' Haul-O-Ween",
       "name_ja": "Luigi's Honkin' Haul-O-Ween",
-      "wait_minutes": 5,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -50,7 +50,7 @@
       "id": "a-dca-295",
       "name_en": "Radiator Springs Racers",
       "name_ja": "レーシング・イン・ラジエーター・スプリングス",
-      "wait_minutes": 65,
+      "wait_minutes": 60,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -72,9 +72,9 @@
       "id": "a-dca-302",
       "name_en": "Grizzly River Run",
       "name_ja": "Grizzly River Run",
-      "wait_minutes": 5,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -127,7 +127,7 @@
       "id": "a-dca-291",
       "name_en": "Monsters, Inc. Mike & Sulley to the Rescue!",
       "name_ja": "Monsters, Inc. Mike & Sulley to the Rescue!",
-      "wait_minutes": 5,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -325,7 +325,7 @@
       "id": "a-dca-313",
       "name_en": "Toy Story Midway Mania!",
       "name_ja": "トイ・ストーリー・マニア！",
-      "wait_minutes": 5,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -368,14 +368,14 @@
   ],
   "summary": {
     "count": 33,
-    "open_count": 26,
-    "average_wait": 14.2,
-    "max_wait": 65
+    "open_count": 25,
+    "average_wait": 16.5,
+    "max_wait": 60
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/17/queue_times.json",
-    "fetched_at": "2026-10-13T15:46:39.790Z",
+    "fetched_at": "2026-10-13T16:01:57.677Z",
     "items": []
   }
 }
