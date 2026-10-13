@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-13T07:02:06.032Z",
+  "fetched_at": "2026-10-13T07:17:06.503Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -28,7 +28,7 @@
       "id": "a-wds-10845",
       "name_en": "Spider-Man W.E.B. Adventure",
       "name_ja": "Spider-Man W.E.B. Adventure",
-      "wait_minutes": 15,
+      "wait_minutes": 35,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -61,7 +61,7 @@
       "id": "a-wds-40",
       "name_en": "The Twilight Zone Tower of Terror",
       "name_ja": "タワー・オブ・テラー",
-      "wait_minutes": 20,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -138,9 +138,9 @@
       "id": "a-wds-37",
       "name_en": "Ratatouille : L’Aventure Totalement Toquée de Rémy​",
       "name_ja": "レミーのおいしいレストラン",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 25,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -149,9 +149,9 @@
       "id": "a-wds-7279",
       "name_en": "Ratatouille: The Adventure Single Rider",
       "name_ja": "レミーのおいしいレストラン",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -247,14 +247,14 @@
   ],
   "summary": {
     "count": 22,
-    "open_count": 8,
-    "average_wait": 8.1,
-    "max_wait": 20
+    "open_count": 10,
+    "average_wait": 10.5,
+    "max_wait": 35
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/28/queue_times.json",
-    "fetched_at": "2026-10-13T07:02:06.032Z",
+    "fetched_at": "2026-10-13T07:17:06.503Z",
     "items": []
   }
 }
