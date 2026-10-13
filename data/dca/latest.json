@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-13T23:31:24.170Z",
+  "fetched_at": "2026-10-13T23:46:24.993Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -17,7 +17,7 @@
       "id": "a-dca-8843",
       "name_en": "WEB SLINGERS: A Spider-Man Adventure",
       "name_ja": "WEB SLINGERS: A Spider-Man Adventure",
-      "wait_minutes": 60,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -39,7 +39,7 @@
       "id": "a-dca-2608",
       "name_en": "Luigi's Honkin' Haul-O-Ween",
       "name_ja": "Luigi's Honkin' Haul-O-Ween",
-      "wait_minutes": 40,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -50,7 +50,7 @@
       "id": "a-dca-295",
       "name_en": "Radiator Springs Racers",
       "name_ja": "レーシング・イン・ラジエーター・スプリングス",
-      "wait_minutes": 90,
+      "wait_minutes": 60,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -150,8 +150,8 @@
       "name_en": "Turtle Talk with Crush",
       "name_ja": "Turtle Talk with Crush",
       "wait_minutes": null,
-      "is_open": true,
-      "status": "OPERATING",
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -171,7 +171,7 @@
       "id": "a-dca-298",
       "name_en": "Golden Zephyr",
       "name_ja": "Golden Zephyr",
-      "wait_minutes": 5,
+      "wait_minutes": 25,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -270,7 +270,7 @@
       "id": "a-dca-6643",
       "name_en": "Inside Out Emotional Whirlwind",
       "name_ja": "Inside Out Emotional Whirlwind",
-      "wait_minutes": 20,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -336,7 +336,7 @@
       "id": "a-dca-5146",
       "name_en": "Guardians of the Galaxy - Monsters After Dark",
       "name_ja": "Guardians of the Galaxy - Monsters After Dark",
-      "wait_minutes": 100,
+      "wait_minutes": 80,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -368,14 +368,14 @@
   ],
   "summary": {
     "count": 33,
-    "open_count": 23,
-    "average_wait": 39.2,
-    "max_wait": 100
+    "open_count": 22,
+    "average_wait": 35.8,
+    "max_wait": 80
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/17/queue_times.json",
-    "fetched_at": "2026-10-13T23:31:24.170Z",
+    "fetched_at": "2026-10-13T23:46:24.993Z",
     "items": []
   }
 }
