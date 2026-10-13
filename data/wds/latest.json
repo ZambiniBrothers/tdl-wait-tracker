@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-13T06:32:16.028Z",
+  "fetched_at": "2026-10-13T06:46:45.704Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -61,7 +61,7 @@
       "id": "a-wds-40",
       "name_en": "The Twilight Zone Tower of Terror",
       "name_ja": "タワー・オブ・テラー",
-      "wait_minutes": null,
+      "wait_minutes": 25,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -139,8 +139,8 @@
       "name_en": "Ratatouille : L’Aventure Totalement Toquée de Rémy​",
       "name_ja": "レミーのおいしいレストラン",
       "wait_minutes": null,
-      "is_open": true,
-      "status": "OPERATING",
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -150,8 +150,8 @@
       "name_en": "Ratatouille: The Adventure Single Rider",
       "name_ja": "レミーのおいしいレストラン",
       "wait_minutes": null,
-      "is_open": true,
-      "status": "OPERATING",
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -182,7 +182,7 @@
       "id": "a-wds-36",
       "name_en": "Slinky® Dog Zigzag Spin",
       "name_ja": "Slinky® Dog Zigzag Spin",
-      "wait_minutes": null,
+      "wait_minutes": 5,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -216,8 +216,8 @@
       "name_en": "Frozen Ever After",
       "name_ja": "フローズン・エバーアフター",
       "wait_minutes": null,
-      "is_open": true,
-      "status": "OPERATING",
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -227,8 +227,8 @@
       "name_en": "Frozen Ever After Single Rider",
       "name_ja": "フローズン・エバーアフター",
       "wait_minutes": null,
-      "is_open": true,
-      "status": "OPERATING",
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -247,14 +247,14 @@
   ],
   "summary": {
     "count": 22,
-    "open_count": 10,
-    "average_wait": 5,
-    "max_wait": 5
+    "open_count": 6,
+    "average_wait": 9,
+    "max_wait": 25
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/28/queue_times.json",
-    "fetched_at": "2026-10-13T06:32:16.028Z",
+    "fetched_at": "2026-10-13T06:46:45.704Z",
     "items": []
   }
 }
