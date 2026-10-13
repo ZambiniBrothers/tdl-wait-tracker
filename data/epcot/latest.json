@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-13T14:47:09.275Z",
+  "fetched_at": "2026-10-13T15:02:37.883Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -28,7 +28,7 @@
       "id": "a-epcot-13627",
       "name_en": "Meet Beloved Disney Pals at Mickey & Friends",
       "name_ja": "Meet Beloved Disney Pals at Mickey & Friends",
-      "wait_minutes": 25,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -50,7 +50,7 @@
       "id": "a-epcot-10093",
       "name_en": "Guardians of the Galaxy: Cosmic Rewind",
       "name_ja": "ガーディアンズ・オブ・ギャラクシー：コズミック・リワインド",
-      "wait_minutes": 95,
+      "wait_minutes": 90,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -61,7 +61,7 @@
       "id": "a-epcot-158",
       "name_en": "Mission: SPACE",
       "name_ja": "ミッション：スペース",
-      "wait_minutes": 40,
+      "wait_minutes": 50,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -72,7 +72,7 @@
       "id": "a-epcot-160",
       "name_en": "Test Track",
       "name_ja": "テスト・トラック",
-      "wait_minutes": 95,
+      "wait_minutes": 110,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -138,9 +138,9 @@
       "id": "a-epcot-16467",
       "name_en": "Soarin' Across America",
       "name_ja": "ソアリン・アクロス・アメリカ",
-      "wait_minutes": 80,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -182,9 +182,9 @@
       "id": "a-epcot-2679",
       "name_en": "Frozen Ever After",
       "name_ja": "フローズン・エバーアフター",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 25,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -193,7 +193,7 @@
       "id": "a-epcot-466",
       "name_en": "Gran Fiesta Tour Starring The Three Caballeros",
       "name_ja": "Gran Fiesta Tour Starring The Three Caballeros",
-      "wait_minutes": 5,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -248,13 +248,13 @@
   "summary": {
     "count": 22,
     "open_count": 17,
-    "average_wait": 46.3,
-    "max_wait": 95
+    "average_wait": 43.3,
+    "max_wait": 110
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/5/queue_times.json",
-    "fetched_at": "2026-10-13T14:47:09.275Z",
+    "fetched_at": "2026-10-13T15:02:37.883Z",
     "items": []
   }
 }
