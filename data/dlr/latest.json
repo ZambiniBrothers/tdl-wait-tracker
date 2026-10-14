@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-14T05:46:34.690Z",
+  "fetched_at": "2026-10-14T06:01:39.860Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -138,7 +138,7 @@
       "id": "a-dlr-275",
       "name_en": "Dumbo the Flying Elephant",
       "name_ja": "空飛ぶダンボ",
-      "wait_minutes": 15,
+      "wait_minutes": 5,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -259,7 +259,7 @@
       "id": "a-dlr-323",
       "name_en": "Big Thunder Mountain Railroad",
       "name_ja": "ビッグサンダー・マウンテン",
-      "wait_minutes": 15,
+      "wait_minutes": 5,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -545,9 +545,9 @@
       "id": "a-dlr-273",
       "name_en": "Buzz Lightyear Astro Blasters",
       "name_ja": "バズ・ライトイヤーのアストロブラスター",
-      "wait_minutes": 5,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -610,14 +610,14 @@
   ],
   "summary": {
     "count": 55,
-    "open_count": 36,
-    "average_wait": 11.9,
+    "open_count": 35,
+    "average_wait": 11.3,
     "max_wait": 45
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/16/queue_times.json",
-    "fetched_at": "2026-10-14T05:46:34.690Z",
+    "fetched_at": "2026-10-14T06:01:39.860Z",
     "items": []
   }
 }
