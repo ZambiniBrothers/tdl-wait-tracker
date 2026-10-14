@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-14T01:31:27.489Z",
+  "fetched_at": "2026-10-14T01:46:23.720Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -72,7 +72,7 @@
       "id": "a-mk-133",
       "name_en": "\"it's a small world\"",
       "name_ja": "イッツ・ア・スモールワールド",
-      "wait_minutes": 10,
+      "wait_minutes": 5,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -105,7 +105,7 @@
       "id": "a-mk-132",
       "name_en": "Dumbo the Flying Elephant",
       "name_ja": "空飛ぶダンボ",
-      "wait_minutes": 10,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -204,7 +204,7 @@
       "id": "a-mk-136",
       "name_en": "Peter Pan's Flight",
       "name_ja": "ピーターパン空の旅",
-      "wait_minutes": 25,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -281,7 +281,7 @@
       "id": "a-mk-130",
       "name_en": "Big Thunder Mountain Railroad",
       "name_ja": "ビッグサンダー・マウンテン",
-      "wait_minutes": 10,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -303,9 +303,9 @@
       "id": "a-mk-13630",
       "name_en": "Tiana's Bayou Adventure",
       "name_ja": "Tiana's Bayou Adventure",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -314,7 +314,7 @@
       "id": "a-mk-140",
       "name_en": "Haunted Mansion",
       "name_ja": "ホーンテッドマンション",
-      "wait_minutes": 15,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -402,7 +402,7 @@
       "id": "a-mk-138",
       "name_en": "Space Mountain",
       "name_ja": "スペース・マウンテン",
-      "wait_minutes": 30,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -413,7 +413,7 @@
       "id": "a-mk-143",
       "name_en": "Tomorrowland Speedway",
       "name_ja": "Tomorrowland Speedway",
-      "wait_minutes": 5,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -435,9 +435,9 @@
       "id": "a-mk-11527",
       "name_en": "TRON Lightcycle / Run",
       "name_ja": "トロン・ライトサイクル・ラン",
-      "wait_minutes": 60,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -479,7 +479,7 @@
       "id": "a-mk-14927",
       "name_en": "Meet Mickey Mouse and Minnie Mouse at Mickey's Not-So-Scary Halloween Party",
       "name_ja": "Meet Mickey Mouse and Minnie Mouse at Mickey's Not-So-Scary Halloween Party",
-      "wait_minutes": 20,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -501,13 +501,13 @@
   "summary": {
     "count": 45,
     "open_count": 25,
-    "average_wait": 17.1,
-    "max_wait": 60
+    "average_wait": 15.4,
+    "max_wait": 40
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/6/queue_times.json",
-    "fetched_at": "2026-10-14T01:31:27.489Z",
+    "fetched_at": "2026-10-14T01:46:23.720Z",
     "items": []
   }
 }
