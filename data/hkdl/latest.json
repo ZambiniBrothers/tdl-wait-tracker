@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-14T10:31:27.295Z",
+  "fetched_at": "2026-10-14T10:46:38.250Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -83,9 +83,9 @@
       "id": "a-hkdl-2825",
       "name_en": "Cinderella Carousel",
       "name_ja": "Cinderella Carousel",
-      "wait_minutes": 5,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -237,9 +237,9 @@
       "id": "a-hkdl-4436",
       "name_en": "Iron Man Tech Showcase - Presented by Stark Industries",
       "name_ja": "Iron Man Tech Showcase - Presented by Stark Industries",
-      "wait_minutes": 20,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -468,7 +468,7 @@
       "id": "a-hkdl-2841",
       "name_en": "Slinky Dog Spin",
       "name_ja": "Slinky Dog Spin",
-      "wait_minutes": 20,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -490,7 +490,7 @@
       "id": "a-hkdl-2824",
       "name_en": "The Many Adventures of Winnie the Pooh",
       "name_ja": "The Many Adventures of Winnie the Pooh",
-      "wait_minutes": 10,
+      "wait_minutes": 5,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -512,9 +512,9 @@
       "id": "a-hkdl-2842",
       "name_en": "Toy Soldier Parachute Drop",
       "name_ja": "Toy Soldier Parachute Drop",
-      "wait_minutes": 40,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -524,8 +524,8 @@
       "name_en": "Toy Soldier Parachute Drop Single Rider",
       "name_ja": "Toy Soldier Parachute Drop Single Rider",
       "wait_minutes": null,
-      "is_open": true,
-      "status": "OPERATING",
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -534,7 +534,7 @@
       "id": "a-hkdl-12432",
       "name_en": "Wandering Oaken’s Sliding Sleighs",
       "name_ja": "Wandering Oaken’s Sliding Sleighs",
-      "wait_minutes": 10,
+      "wait_minutes": 5,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -555,14 +555,14 @@
   ],
   "summary": {
     "count": 50,
-    "open_count": 33,
-    "average_wait": 13.5,
-    "max_wait": 40
+    "open_count": 29,
+    "average_wait": 10.4,
+    "max_wait": 20
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/31/queue_times.json",
-    "fetched_at": "2026-10-14T10:31:27.295Z",
+    "fetched_at": "2026-10-14T10:46:38.250Z",
     "items": []
   }
 }
