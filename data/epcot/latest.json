@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-14T00:01:33.033Z",
+  "fetched_at": "2026-10-14T00:16:33.012Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -17,9 +17,9 @@
       "id": "a-epcot-155",
       "name_en": "Journey Into Imagination With Figment",
       "name_ja": "Journey Into Imagination With Figment",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -39,7 +39,7 @@
       "id": "a-epcot-159",
       "name_en": "Spaceship Earth",
       "name_ja": "スペースシップ・アース",
-      "wait_minutes": 20,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -72,7 +72,7 @@
       "id": "a-epcot-160",
       "name_en": "Test Track",
       "name_ja": "テスト・トラック",
-      "wait_minutes": 75,
+      "wait_minutes": 55,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -247,14 +247,14 @@
   ],
   "summary": {
     "count": 22,
-    "open_count": 17,
-    "average_wait": 39.2,
+    "open_count": 18,
+    "average_wait": 34.6,
     "max_wait": 110
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/5/queue_times.json",
-    "fetched_at": "2026-10-14T00:01:33.033Z",
+    "fetched_at": "2026-10-14T00:16:33.012Z",
     "items": []
   }
 }
