@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-14T12:01:32.265Z",
+  "fetched_at": "2026-10-14T12:16:33.841Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -139,8 +139,8 @@
       "name_en": "Discovery Island Trails",
       "name_ja": "Discovery Island Trails",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -149,9 +149,9 @@
       "id": "a-ak-116",
       "name_en": "Meet Favorite Disney Pals at Adventurers Outpost",
       "name_ja": "Meet Favorite Disney Pals at Adventurers Outpost",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -216,8 +216,8 @@
       "name_en": "The Oasis Exhibits",
       "name_ja": "The Oasis Exhibits",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -236,14 +236,14 @@
   ],
   "summary": {
     "count": 21,
-    "open_count": 9,
-    "average_wait": 17.5,
+    "open_count": 12,
+    "average_wait": 15,
     "max_wait": 45
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/8/queue_times.json",
-    "fetched_at": "2026-10-14T12:01:32.265Z",
+    "fetched_at": "2026-10-14T12:16:33.841Z",
     "items": []
   }
 }
