@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-15T13:31:51.952Z",
+  "fetched_at": "2026-10-15T13:46:31.371Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -39,7 +39,7 @@
       "id": "a-epcot-159",
       "name_en": "Spaceship Earth",
       "name_ja": "スペースシップ・アース",
-      "wait_minutes": 15,
+      "wait_minutes": 25,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -50,7 +50,7 @@
       "id": "a-epcot-10093",
       "name_en": "Guardians of the Galaxy: Cosmic Rewind",
       "name_ja": "ガーディアンズ・オブ・ギャラクシー：コズミック・リワインド",
-      "wait_minutes": 110,
+      "wait_minutes": 85,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -61,7 +61,7 @@
       "id": "a-epcot-158",
       "name_en": "Mission: SPACE",
       "name_ja": "ミッション：スペース",
-      "wait_minutes": 30,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -138,7 +138,7 @@
       "id": "a-epcot-16467",
       "name_en": "Soarin' Across America",
       "name_ja": "ソアリン・アクロス・アメリカ",
-      "wait_minutes": 30,
+      "wait_minutes": 55,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -160,9 +160,9 @@
       "id": "a-epcot-152",
       "name_en": "Turtle Talk With Crush",
       "name_ja": "Turtle Talk With Crush",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 15,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -204,7 +204,7 @@
       "id": "a-epcot-6701",
       "name_en": "Meet Anna and Elsa at Royal Sommerhus",
       "name_ja": "Meet Anna and Elsa at Royal Sommerhus",
-      "wait_minutes": null,
+      "wait_minutes": 75,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -215,9 +215,9 @@
       "id": "a-epcot-8956",
       "name_en": "Remy's Ratatouille Adventure",
       "name_ja": "レミーのおいしいレストラン",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 15,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -227,8 +227,8 @@
       "name_en": "Remy's Ratatouille Adventure Single Rider",
       "name_ja": "レミーのおいしいレストラン",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -247,14 +247,14 @@
   ],
   "summary": {
     "count": 22,
-    "open_count": 18,
-    "average_wait": 33.8,
-    "max_wait": 110
+    "open_count": 21,
+    "average_wait": 33.3,
+    "max_wait": 85
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/5/queue_times.json",
-    "fetched_at": "2026-10-15T13:31:51.952Z",
+    "fetched_at": "2026-10-15T13:46:31.371Z",
     "items": []
   }
 }
