@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-15T10:16:36.747Z",
+  "fetched_at": "2026-10-15T10:23:01.775Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -336,9 +336,9 @@
       "id": "a-hkdl-13867",
       "name_en": "Meet Gelatoni at Duffy and Friends Play House",
       "name_ja": "Meet Gelatoni at Duffy and Friends Play House",
-      "wait_minutes": 30,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -347,9 +347,9 @@
       "id": "a-hkdl-13866",
       "name_en": "Meet LinaBell at Duffy and Friends Play House",
       "name_ja": "Meet LinaBell at Duffy and Friends Play House",
-      "wait_minutes": 60,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -358,9 +358,9 @@
       "id": "a-hkdl-13868",
       "name_en": "Meet ShellieMay at Duffy and Friends Play House",
       "name_ja": "Meet ShellieMay at Duffy and Friends Play House",
-      "wait_minutes": 30,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -424,7 +424,7 @@
       "id": "a-hkdl-15410",
       "name_en": "Playhouse in the Woods",
       "name_ja": "Playhouse in the Woods",
-      "wait_minutes": 30,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -446,7 +446,7 @@
       "id": "a-hkdl-2840",
       "name_en": "RC Racer",
       "name_ja": "RC Racer",
-      "wait_minutes": 30,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -458,8 +458,8 @@
       "name_en": "River View Cafe",
       "name_ja": "River View Cafe",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -468,7 +468,7 @@
       "id": "a-hkdl-2841",
       "name_en": "Slinky Dog Spin",
       "name_ja": "Slinky Dog Spin",
-      "wait_minutes": 20,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -490,7 +490,7 @@
       "id": "a-hkdl-2824",
       "name_en": "The Many Adventures of Winnie the Pooh",
       "name_ja": "The Many Adventures of Winnie the Pooh",
-      "wait_minutes": 15,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -555,14 +555,14 @@
   ],
   "summary": {
     "count": 50,
-    "open_count": 37,
-    "average_wait": 18.2,
-    "max_wait": 60
+    "open_count": 35,
+    "average_wait": 12.9,
+    "max_wait": 30
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/31/queue_times.json",
-    "fetched_at": "2026-10-15T10:16:36.747Z",
+    "fetched_at": "2026-10-15T10:23:01.775Z",
     "items": []
   }
 }
