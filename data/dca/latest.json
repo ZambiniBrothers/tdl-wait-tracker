@@ -1,12 +1,12 @@
 {
-  "fetched_at": "2026-10-15T16:46:56.337Z",
+  "fetched_at": "2026-10-15T17:02:01.685Z",
   "source": "queue-times",
   "attractions": [
     {
       "id": "a-dca-329",
       "name_en": "Guardians of the Galaxy - Mission: BREAKOUT!",
       "name_ja": "ガーディアンズ・オブ・ギャラクシー：ミッション・ブレイクアウト！",
-      "wait_minutes": 45,
+      "wait_minutes": 65,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -17,9 +17,9 @@
       "id": "a-dca-8843",
       "name_en": "WEB SLINGERS: A Spider-Man Adventure",
       "name_ja": "WEB SLINGERS: A Spider-Man Adventure",
-      "wait_minutes": 30,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -29,8 +29,8 @@
       "name_en": "WEB SLINGERS: A Spider-Man Adventure Single Rider",
       "name_ja": "WEB SLINGERS: A Spider-Man Adventure Single Rider",
       "wait_minutes": null,
-      "is_open": true,
-      "status": "OPERATING",
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -39,7 +39,7 @@
       "id": "a-dca-2608",
       "name_en": "Luigi's Honkin' Haul-O-Ween",
       "name_ja": "Luigi's Honkin' Haul-O-Ween",
-      "wait_minutes": 15,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -171,9 +171,9 @@
       "id": "a-dca-298",
       "name_en": "Golden Zephyr",
       "name_ja": "Golden Zephyr",
-      "wait_minutes": 5,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -182,9 +182,9 @@
       "id": "a-dca-319",
       "name_en": "Goofy's Sky School",
       "name_ja": "Goofy's Sky School",
-      "wait_minutes": 20,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -248,7 +248,7 @@
       "id": "a-dca-322",
       "name_en": "Incredicoaster",
       "name_ja": "インクレディコースター",
-      "wait_minutes": 15,
+      "wait_minutes": 25,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -270,7 +270,7 @@
       "id": "a-dca-6643",
       "name_en": "Inside Out Emotional Whirlwind",
       "name_ja": "Inside Out Emotional Whirlwind",
-      "wait_minutes": 5,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -347,7 +347,7 @@
       "id": "a-dca-4723",
       "name_en": "Mater's Graveyard JamBOOree",
       "name_ja": "Mater's Graveyard JamBOOree",
-      "wait_minutes": 20,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -368,14 +368,14 @@
   ],
   "summary": {
     "count": 33,
-    "open_count": 28,
-    "average_wait": 16.8,
-    "max_wait": 60
+    "open_count": 24,
+    "average_wait": 18.5,
+    "max_wait": 65
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/17/queue_times.json",
-    "fetched_at": "2026-10-15T16:46:56.337Z",
+    "fetched_at": "2026-10-15T17:02:01.685Z",
     "items": []
   }
 }
