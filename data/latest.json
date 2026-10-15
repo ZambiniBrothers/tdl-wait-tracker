@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-15T03:01:16.192Z",
+  "fetched_at": "2026-10-15T03:16:02.833Z",
   "source": "tdr-official",
   "attractions": [
     {
@@ -17,7 +17,7 @@
       "id": "a-its-a-small-world",
       "name_en": "it's a small world",
       "name_ja": "イッツ・ア・スモールワールド",
-      "wait_minutes": 15,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -39,7 +39,7 @@
       "id": "a-western-river-railroad",
       "name_en": "Western River Railroad",
       "name_ja": "ウエスタンリバー鉄道",
-      "wait_minutes": 15,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -83,7 +83,7 @@
       "id": "a-gadgets-go-coaster",
       "name_en": "Gadget’s Go Coaster",
       "name_ja": "ガジェットのゴーコースター",
-      "wait_minutes": 20,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -94,7 +94,7 @@
       "id": "a-castle-carrousel",
       "name_en": "Castle Carrousel",
       "name_ja": "キャッスルカルーセル",
-      "wait_minutes": 10,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -132,12 +132,12 @@
       "id": "a-jungle-cruise-wildlife-expeditions",
       "name_en": "Jungle Cruise: Wildlife Expeditions",
       "name_ja": "ジャングルクルーズ：ワイルドライフ・エクスペディション",
-      "wait_minutes": 20,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
-      "official_status_cd": "001",
-      "official_status_label": "運営中"
+      "official_status_cd": "004",
+      "official_status_label": "一時運営中止"
     },
     {
       "id": "a-swiss-family-treehouse",
@@ -186,7 +186,7 @@
       "id": "a-splash-mountain",
       "name_en": "Splash Mountain",
       "name_ja": "スプラッシュ・マウンテン",
-      "wait_minutes": 50,
+      "wait_minutes": 40,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -246,7 +246,7 @@
       "id": "a-big-thunder-mountain",
       "name_en": "Big Thunder Mountain",
       "name_ja": "ビッグサンダー・マウンテン",
-      "wait_minutes": 50,
+      "wait_minutes": 40,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -268,7 +268,7 @@
       "id": "a-pinocchios-daring-journey",
       "name_en": "Pinocchio's Daring Journey",
       "name_ja": "ピノキオの冒険旅行",
-      "wait_minutes": 5,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -355,7 +355,7 @@
       "id": "a-minnies-house",
       "name_en": "Minnie's House",
       "name_ja": "ミニーの家",
-      "wait_minutes": 5,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -377,7 +377,7 @@
       "id": "a-roger-rabbits-car-toon-spin",
       "name_en": "Roger Rabbit's Car Toon Spin",
       "name_ja": "ロジャーラビットのカートゥーンスピン",
-      "wait_minutes": 20,
+      "wait_minutes": 25,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -420,7 +420,7 @@
       "id": "a-enchanted-tale-of-beauty-and-the-beast",
       "name_en": "Enchanted Tale of Beauty and the Beast",
       "name_ja": "美女と野獣“魔法のものがたり”",
-      "wait_minutes": 80,
+      "wait_minutes": 70,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -452,13 +452,13 @@
   ],
   "summary": {
     "count": 37,
-    "open_count": 33,
-    "average_wait": 20.6,
-    "max_wait": 80
+    "open_count": 32,
+    "average_wait": 19.8,
+    "max_wait": 70
   },
   "closures": {
     "source_url": "https://www.tokyodisneyresort.jp/tdl/monthly/stop.html",
-    "fetched_at": "2026-10-15T03:01:10.090Z",
+    "fetched_at": "2026-10-15T03:15:52.724Z",
     "closures": {
       "a-peter-pans-flight": {
         "name_ja": "ピーターパン空の旅",
@@ -509,7 +509,7 @@
   },
   "shows": {
     "source_url": "https://www.tokyodisneyresort.jp/tdl/show.html",
-    "fetched_at": "2026-10-15T03:01:16.192Z",
+    "fetched_at": "2026-10-15T03:16:02.833Z",
     "items": [
       {
         "time": "12:55",
