@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-15T14:16:56.621Z",
+  "fetched_at": "2026-10-15T14:31:56.374Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -39,7 +39,7 @@
       "id": "a-ak-655",
       "name_en": "Wildlife Express Train",
       "name_ja": "Wildlife Express Train",
-      "wait_minutes": 5,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -50,9 +50,9 @@
       "id": "a-ak-110",
       "name_en": "Expedition Everest - Legend of the Forbidden Mountain",
       "name_ja": "エクスペディション・エベレスト",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 15,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -62,8 +62,8 @@
       "name_en": "Expedition Everest - Legend of the Forbidden Mountain Single Rider",
       "name_ja": "エクスペディション・エベレスト",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -149,7 +149,7 @@
       "id": "a-ak-116",
       "name_en": "Meet Favorite Disney Pals at Adventurers Outpost",
       "name_ja": "Meet Favorite Disney Pals at Adventurers Outpost",
-      "wait_minutes": 25,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -182,7 +182,7 @@
       "id": "a-ak-14943",
       "name_en": "Zootopia: Better Zoogether!",
       "name_ja": "Zootopia: Better Zoogether!",
-      "wait_minutes": 10,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -236,14 +236,14 @@
   ],
   "summary": {
     "count": 21,
-    "open_count": 19,
-    "average_wait": 30,
+    "open_count": 21,
+    "average_wait": 30.5,
     "max_wait": 105
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/8/queue_times.json",
-    "fetched_at": "2026-10-15T14:16:56.621Z",
+    "fetched_at": "2026-10-15T14:31:56.374Z",
     "items": []
   }
 }
