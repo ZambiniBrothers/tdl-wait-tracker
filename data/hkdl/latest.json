@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-15T10:23:01.775Z",
+  "fetched_at": "2026-10-15T10:32:03.794Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -50,7 +50,7 @@
       "id": "a-hkdl-2843",
       "name_en": "Big Grizzly Mountain Runaway Mine Cars",
       "name_ja": "ビッググリズリー・マウンテン",
-      "wait_minutes": 30,
+      "wait_minutes": 5,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -237,9 +237,9 @@
       "id": "a-hkdl-4436",
       "name_en": "Iron Man Tech Showcase - Presented by Stark Industries",
       "name_ja": "Iron Man Tech Showcase - Presented by Stark Industries",
-      "wait_minutes": 10,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -248,7 +248,7 @@
       "id": "a-hkdl-2837",
       "name_en": "Jungle River Cruise",
       "name_ja": "ジャングルリバークルーズ",
-      "wait_minutes": 15,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -490,7 +490,7 @@
       "id": "a-hkdl-2824",
       "name_en": "The Many Adventures of Winnie the Pooh",
       "name_ja": "The Many Adventures of Winnie the Pooh",
-      "wait_minutes": 10,
+      "wait_minutes": 5,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -512,9 +512,9 @@
       "id": "a-hkdl-2842",
       "name_en": "Toy Soldier Parachute Drop",
       "name_ja": "Toy Soldier Parachute Drop",
-      "wait_minutes": 20,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -524,8 +524,8 @@
       "name_en": "Toy Soldier Parachute Drop Single Rider",
       "name_ja": "Toy Soldier Parachute Drop Single Rider",
       "wait_minutes": null,
-      "is_open": true,
-      "status": "OPERATING",
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -555,14 +555,14 @@
   ],
   "summary": {
     "count": 50,
-    "open_count": 35,
-    "average_wait": 12.9,
-    "max_wait": 30
+    "open_count": 32,
+    "average_wait": 10.6,
+    "max_wait": 20
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/31/queue_times.json",
-    "fetched_at": "2026-10-15T10:23:01.775Z",
+    "fetched_at": "2026-10-15T10:32:03.794Z",
     "items": []
   }
 }
