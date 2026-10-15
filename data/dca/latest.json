@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-15T02:46:32.189Z",
+  "fetched_at": "2026-10-15T03:01:27.951Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -17,9 +17,9 @@
       "id": "a-dca-8843",
       "name_en": "WEB SLINGERS: A Spider-Man Adventure",
       "name_ja": "WEB SLINGERS: A Spider-Man Adventure",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 40,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -29,8 +29,8 @@
       "name_en": "WEB SLINGERS: A Spider-Man Adventure Single Rider",
       "name_ja": "WEB SLINGERS: A Spider-Man Adventure Single Rider",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -50,7 +50,7 @@
       "id": "a-dca-295",
       "name_en": "Radiator Springs Racers",
       "name_ja": "レーシング・イン・ラジエーター・スプリングス",
-      "wait_minutes": 150,
+      "wait_minutes": 90,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -83,9 +83,9 @@
       "id": "a-dca-293",
       "name_en": "Redwood Creek Challenge Trail",
       "name_ja": "Redwood Creek Challenge Trail",
-      "wait_minutes": 5,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -193,7 +193,7 @@
       "id": "a-dca-301",
       "name_en": "Silly Symphony Swings",
       "name_ja": "Silly Symphony Swings",
-      "wait_minutes": 10,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -248,7 +248,7 @@
       "id": "a-dca-322",
       "name_en": "Incredicoaster",
       "name_ja": "インクレディコースター",
-      "wait_minutes": 40,
+      "wait_minutes": 55,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -270,7 +270,7 @@
       "id": "a-dca-6643",
       "name_en": "Inside Out Emotional Whirlwind",
       "name_ja": "Inside Out Emotional Whirlwind",
-      "wait_minutes": 10,
+      "wait_minutes": 35,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -336,7 +336,7 @@
       "id": "a-dca-5146",
       "name_en": "Guardians of the Galaxy - Monsters After Dark",
       "name_ja": "Guardians of the Galaxy - Monsters After Dark",
-      "wait_minutes": 100,
+      "wait_minutes": 115,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -368,14 +368,14 @@
   ],
   "summary": {
     "count": 33,
-    "open_count": 24,
-    "average_wait": 38.4,
-    "max_wait": 150
+    "open_count": 25,
+    "average_wait": 41.6,
+    "max_wait": 115
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/17/queue_times.json",
-    "fetched_at": "2026-10-15T02:46:32.189Z",
+    "fetched_at": "2026-10-15T03:01:27.951Z",
     "items": []
   }
 }
