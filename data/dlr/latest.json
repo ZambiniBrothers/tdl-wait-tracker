@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-15T15:16:09.350Z",
+  "fetched_at": "2026-10-15T15:31:49.766Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -28,9 +28,9 @@
       "id": "a-dlr-296",
       "name_en": "Jungle Cruise",
       "name_ja": "ジャングルクルーズ",
-      "wait_minutes": 5,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -138,7 +138,7 @@
       "id": "a-dlr-275",
       "name_en": "Dumbo the Flying Elephant",
       "name_ja": "空飛ぶダンボ",
-      "wait_minutes": 15,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -171,7 +171,7 @@
       "id": "a-dlr-279",
       "name_en": "Matterhorn Bobsleds",
       "name_ja": "マッターホルン・ボブスレー",
-      "wait_minutes": 5,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -193,7 +193,7 @@
       "id": "a-dlr-280",
       "name_en": "Mr. Toad's Wild Ride",
       "name_ja": "Mr. Toad's Wild Ride",
-      "wait_minutes": 10,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -248,7 +248,7 @@
       "id": "a-dlr-305",
       "name_en": "Storybook Land Canal Boats",
       "name_ja": "Storybook Land Canal Boats",
-      "wait_minutes": 5,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -424,9 +424,9 @@
       "id": "a-dlr-11526",
       "name_en": "Mickey & Minnie's Runaway Railway",
       "name_ja": "ミッキー＆ミニーのランナウェイ・レイルウェイ",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -468,7 +468,7 @@
       "id": "a-dlr-325",
       "name_en": "Haunted Mansion Holiday",
       "name_ja": "Haunted Mansion Holiday",
-      "wait_minutes": 13,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -479,7 +479,7 @@
       "id": "a-dlr-289",
       "name_en": "Pirates of the Caribbean",
       "name_ja": "カリブの海賊",
-      "wait_minutes": null,
+      "wait_minutes": 5,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -512,9 +512,9 @@
       "id": "a-dlr-6340",
       "name_en": "Star Wars: Rise of the Resistance",
       "name_ja": "スター・ウォーズ：ライズ・オブ・ザ・レジスタンス",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 65,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -589,9 +589,9 @@
       "id": "a-dlr-284",
       "name_en": "Space Mountain",
       "name_ja": "スペース・マウンテン",
-      "wait_minutes": 10,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -611,13 +611,13 @@
   "summary": {
     "count": 55,
     "open_count": 37,
-    "average_wait": 9.3,
-    "max_wait": 50
+    "average_wait": 12.6,
+    "max_wait": 65
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/16/queue_times.json",
-    "fetched_at": "2026-10-15T15:16:09.350Z",
+    "fetched_at": "2026-10-15T15:31:49.766Z",
     "items": []
   }
 }
