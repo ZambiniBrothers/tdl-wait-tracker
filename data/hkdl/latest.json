@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-16T10:17:10.679Z",
+  "fetched_at": "2026-10-16T10:32:10.787Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -50,7 +50,7 @@
       "id": "a-hkdl-2843",
       "name_en": "Big Grizzly Mountain Runaway Mine Cars",
       "name_ja": "ビッググリズリー・マウンテン",
-      "wait_minutes": 15,
+      "wait_minutes": 5,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -105,7 +105,7 @@
       "id": "a-hkdl-2826",
       "name_en": "Dumbo the Flying Elephant",
       "name_ja": "空飛ぶダンボ",
-      "wait_minutes": 20,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -237,9 +237,9 @@
       "id": "a-hkdl-4436",
       "name_en": "Iron Man Tech Showcase - Presented by Stark Industries",
       "name_ja": "Iron Man Tech Showcase - Presented by Stark Industries",
-      "wait_minutes": 20,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -534,7 +534,7 @@
       "id": "a-hkdl-12432",
       "name_en": "Wandering Oaken’s Sliding Sleighs",
       "name_ja": "Wandering Oaken’s Sliding Sleighs",
-      "wait_minutes": 15,
+      "wait_minutes": 5,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -555,14 +555,14 @@
   ],
   "summary": {
     "count": 50,
-    "open_count": 35,
-    "average_wait": 15.8,
+    "open_count": 34,
+    "average_wait": 15,
     "max_wait": 40
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/31/queue_times.json",
-    "fetched_at": "2026-10-16T10:17:10.679Z",
+    "fetched_at": "2026-10-16T10:32:10.787Z",
     "items": []
   }
 }
