@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-16T11:47:05.990Z",
+  "fetched_at": "2026-10-16T12:02:15.687Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -84,8 +84,8 @@
       "name_en": "Casey Jr. Splash 'N' Soak Station",
       "name_ja": "Casey Jr. Splash 'N' Soak Station",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -95,8 +95,8 @@
       "name_en": "Cinderella Castle",
       "name_ja": "Cinderella Castle",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -215,7 +215,7 @@
       "id": "a-mk-161",
       "name_en": "Prince Charming Regal Carrousel",
       "name_ja": "Prince Charming Regal Carrousel",
-      "wait_minutes": null,
+      "wait_minutes": 5,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -226,7 +226,7 @@
       "id": "a-mk-129",
       "name_en": "Seven Dwarfs Mine Train",
       "name_ja": "七人のこびとのマイントレイン",
-      "wait_minutes": 35,
+      "wait_minutes": 40,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -248,7 +248,7 @@
       "id": "a-mk-142",
       "name_en": "The Many Adventures of Winnie the Pooh",
       "name_ja": "The Many Adventures of Winnie the Pooh",
-      "wait_minutes": null,
+      "wait_minutes": 5,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -402,7 +402,7 @@
       "id": "a-mk-138",
       "name_en": "Space Mountain",
       "name_ja": "スペース・マウンテン",
-      "wait_minutes": 5,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -424,7 +424,7 @@
       "id": "a-mk-1190",
       "name_en": "Tomorrowland Transit Authority PeopleMover",
       "name_ja": "Tomorrowland Transit Authority PeopleMover",
-      "wait_minutes": null,
+      "wait_minutes": 5,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -500,14 +500,14 @@
   ],
   "summary": {
     "count": 45,
-    "open_count": 15,
-    "average_wait": 7.7,
-    "max_wait": 35
+    "open_count": 17,
+    "average_wait": 7.9,
+    "max_wait": 40
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/6/queue_times.json",
-    "fetched_at": "2026-10-16T11:47:05.990Z",
+    "fetched_at": "2026-10-16T12:02:15.687Z",
     "items": []
   }
 }
