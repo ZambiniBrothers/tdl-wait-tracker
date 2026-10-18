@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-18T22:17:12.273Z",
+  "fetched_at": "2026-10-18T22:32:03.679Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -50,9 +50,9 @@
       "id": "a-ak-110",
       "name_en": "Expedition Everest - Legend of the Forbidden Mountain",
       "name_ja": "エクスペディション・エベレスト",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -62,8 +62,8 @@
       "name_en": "Expedition Everest - Legend of the Forbidden Mountain Single Rider",
       "name_ja": "エクスペディション・エベレスト",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -236,14 +236,14 @@
   ],
   "summary": {
     "count": 21,
-    "open_count": 9,
-    "average_wait": 28.3,
+    "open_count": 11,
+    "average_wait": 22.5,
     "max_wait": 45
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/8/queue_times.json",
-    "fetched_at": "2026-10-18T22:17:12.273Z",
+    "fetched_at": "2026-10-18T22:32:03.679Z",
     "items": []
   }
 }
