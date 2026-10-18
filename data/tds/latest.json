@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-18T08:31:18.280Z",
+  "fetched_at": "2026-10-18T08:46:11.104Z",
   "source": "tdr-official",
   "attractions": [
     {
@@ -61,7 +61,7 @@
       "id": "a-220",
       "name_en": "ジャスミンのフライングカーペット",
       "name_ja": "ジャスミンのフライングカーペット",
-      "wait_minutes": 20,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -138,7 +138,7 @@
       "id": "a-232",
       "name_en": "ディズニーシー・エレクトリックレールウェイ（アメリカンウォーターフロント）",
       "name_ja": "ディズニーシー・エレクトリックレールウェイ（アメリカンウォーターフロント）",
-      "wait_minutes": 25,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -149,7 +149,7 @@
       "id": "a-231",
       "name_en": "ディズニーシー・エレクトリックレールウェイ（ポートディスカバリー）",
       "name_ja": "ディズニーシー・エレクトリックレールウェイ（ポートディスカバリー）",
-      "wait_minutes": 15,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -160,12 +160,12 @@
       "id": "a-228",
       "name_en": "ディズニーシー・トランジットスチーマーライン（アメリカンウォーターフロント）",
       "name_ja": "ディズニーシー・トランジットスチーマーライン（アメリカンウォーターフロント）",
-      "wait_minutes": 10,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
-      "official_status_cd": "001",
-      "official_status_label": "運営中"
+      "official_status_cd": "004",
+      "official_status_label": "一時運営中止"
     },
     {
       "id": "a-227",
@@ -390,14 +390,14 @@
   ],
   "summary": {
     "count": 35,
-    "open_count": 27,
-    "average_wait": 41.2,
+    "open_count": 26,
+    "average_wait": 42.9,
     "max_wait": 180
   },
   "closures": null,
   "shows": {
     "source_url": "https://www.tokyodisneyresort.jp/tds/show.html",
-    "fetched_at": "2026-10-18T08:31:18.280Z",
+    "fetched_at": "2026-10-18T08:46:11.103Z",
     "items": [
       {
         "time": "19:30",
