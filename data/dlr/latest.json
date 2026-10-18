@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-18T04:31:12.293Z",
+  "fetched_at": "2026-10-18T04:45:55.451Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -72,9 +72,9 @@
       "id": "a-dlr-14168",
       "name_en": "Tiana's Bayou Adventure",
       "name_ja": "Tiana's Bayou Adventure",
-      "wait_minutes": 25,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -84,8 +84,8 @@
       "name_en": "Tiana's Bayou Adventure Single Rider",
       "name_ja": "Tiana's Bayou Adventure Single Rider",
       "wait_minutes": null,
-      "is_open": true,
-      "status": "OPERATING",
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -138,9 +138,9 @@
       "id": "a-dlr-275",
       "name_en": "Dumbo the Flying Elephant",
       "name_ja": "空飛ぶダンボ",
-      "wait_minutes": 10,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -248,9 +248,9 @@
       "id": "a-dlr-305",
       "name_en": "Storybook Land Canal Boats",
       "name_ja": "Storybook Land Canal Boats",
-      "wait_minutes": 10,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -259,9 +259,9 @@
       "id": "a-dlr-323",
       "name_en": "Big Thunder Mountain Railroad",
       "name_ja": "ビッグサンダー・マウンテン",
-      "wait_minutes": 20,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -479,7 +479,7 @@
       "id": "a-dlr-289",
       "name_en": "Pirates of the Caribbean",
       "name_ja": "カリブの海賊",
-      "wait_minutes": 20,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -610,14 +610,14 @@
   ],
   "summary": {
     "count": 55,
-    "open_count": 23,
-    "average_wait": 16.7,
+    "open_count": 18,
+    "average_wait": 16.4,
     "max_wait": 40
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/16/queue_times.json",
-    "fetched_at": "2026-10-18T04:31:12.293Z",
+    "fetched_at": "2026-10-18T04:45:55.451Z",
     "items": []
   }
 }
