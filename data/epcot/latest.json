@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-18T16:02:02.191Z",
+  "fetched_at": "2026-10-18T16:17:04.179Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -17,7 +17,7 @@
       "id": "a-epcot-155",
       "name_en": "Journey Into Imagination With Figment",
       "name_ja": "Journey Into Imagination With Figment",
-      "wait_minutes": 5,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -72,9 +72,9 @@
       "id": "a-epcot-160",
       "name_en": "Test Track",
       "name_ja": "テスト・トラック",
-      "wait_minutes": 70,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -84,8 +84,8 @@
       "name_en": "Test Track Presented by Chevrolet Single Rider",
       "name_ja": "テスト・トラック",
       "wait_minutes": null,
-      "is_open": true,
-      "status": "OPERATING",
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -247,14 +247,14 @@
   ],
   "summary": {
     "count": 22,
-    "open_count": 21,
-    "average_wait": 27,
-    "max_wait": 70
+    "open_count": 19,
+    "average_wait": 24.3,
+    "max_wait": 65
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/5/queue_times.json",
-    "fetched_at": "2026-10-18T16:02:02.191Z",
+    "fetched_at": "2026-10-18T16:17:04.179Z",
     "items": []
   }
 }
