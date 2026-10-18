@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-18T03:31:26.671Z",
+  "fetched_at": "2026-10-18T03:46:25.345Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -127,7 +127,7 @@
       "id": "a-dca-291",
       "name_en": "Monsters, Inc. Mike & Sulley to the Rescue!",
       "name_ja": "Monsters, Inc. Mike & Sulley to the Rescue!",
-      "wait_minutes": 15,
+      "wait_minutes": 40,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -171,9 +171,9 @@
       "id": "a-dca-298",
       "name_en": "Golden Zephyr",
       "name_ja": "Golden Zephyr",
-      "wait_minutes": 15,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -193,9 +193,9 @@
       "id": "a-dca-301",
       "name_en": "Silly Symphony Swings",
       "name_ja": "Silly Symphony Swings",
-      "wait_minutes": 15,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -205,8 +205,8 @@
       "name_en": "Silly Symphony Swings Single Rider",
       "name_ja": "Silly Symphony Swings Single Rider",
       "wait_minutes": null,
-      "is_open": true,
-      "status": "OPERATING",
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -215,7 +215,7 @@
       "id": "a-dca-316",
       "name_en": "The Little Mermaid - Ariel's Undersea Adventure",
       "name_ja": "The Little Mermaid - Ariel's Undersea Adventure",
-      "wait_minutes": 10,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -270,7 +270,7 @@
       "id": "a-dca-6643",
       "name_en": "Inside Out Emotional Whirlwind",
       "name_ja": "Inside Out Emotional Whirlwind",
-      "wait_minutes": 25,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -281,9 +281,9 @@
       "id": "a-dca-310",
       "name_en": "Jessie's Critter Carousel",
       "name_ja": "Jessie's Critter Carousel",
-      "wait_minutes": 5,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -325,7 +325,7 @@
       "id": "a-dca-313",
       "name_en": "Toy Story Midway Mania!",
       "name_ja": "トイ・ストーリー・マニア！",
-      "wait_minutes": 55,
+      "wait_minutes": 40,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -336,7 +336,7 @@
       "id": "a-dca-5146",
       "name_en": "Guardians of the Galaxy - Monsters After Dark",
       "name_ja": "Guardians of the Galaxy - Monsters After Dark",
-      "wait_minutes": 120,
+      "wait_minutes": 75,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -368,14 +368,14 @@
   ],
   "summary": {
     "count": 33,
-    "open_count": 26,
-    "average_wait": 36.8,
-    "max_wait": 120
+    "open_count": 22,
+    "average_wait": 39.3,
+    "max_wait": 110
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/17/queue_times.json",
-    "fetched_at": "2026-10-18T03:31:26.671Z",
+    "fetched_at": "2026-10-18T03:46:25.345Z",
     "items": []
   }
 }
