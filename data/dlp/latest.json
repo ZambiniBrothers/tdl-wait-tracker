@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-18T06:01:25.989Z",
+  "fetched_at": "2026-10-18T06:16:15.262Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -105,7 +105,7 @@
       "id": "a-dlp-5",
       "name_en": "Buzz Lightyear Laser Blast",
       "name_ja": "バズ・ライトイヤー・レーザーブラスト",
-      "wait_minutes": null,
+      "wait_minutes": 5,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -270,7 +270,7 @@
       "id": "a-dlp-18",
       "name_en": "Dumbo the Flying Elephant",
       "name_ja": "空飛ぶダンボ",
-      "wait_minutes": null,
+      "wait_minutes": 5,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -347,7 +347,7 @@
       "id": "a-dlp-22",
       "name_en": "Peter Pan's Flight",
       "name_ja": "ピーターパン空の旅",
-      "wait_minutes": null,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -457,7 +457,7 @@
       "id": "a-dlp-12",
       "name_en": "Main Street Vehicles",
       "name_ja": "Main Street Vehicles",
-      "wait_minutes": null,
+      "wait_minutes": 5,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -468,13 +468,13 @@
   "summary": {
     "count": 42,
     "open_count": 8,
-    "average_wait": 5,
-    "max_wait": 5
+    "average_wait": 5.8,
+    "max_wait": 10
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/4/queue_times.json",
-    "fetched_at": "2026-10-18T06:01:25.989Z",
+    "fetched_at": "2026-10-18T06:16:15.262Z",
     "items": []
   }
 }
