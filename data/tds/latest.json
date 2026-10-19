@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-19T08:31:16.223Z",
+  "fetched_at": "2026-10-19T08:46:18.238Z",
   "source": "tdr-official",
   "attractions": [
     {
@@ -50,12 +50,12 @@
       "id": "a-235",
       "name_en": "シンドバッド・ストーリーブック・ヴォヤッジ",
       "name_ja": "シンドバッド・ストーリーブック・ヴォヤッジ",
-      "wait_minutes": 5,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
-      "official_status_cd": "001",
-      "official_status_label": "運営中"
+      "official_status_cd": "004",
+      "official_status_label": "一時運営中止"
     },
     {
       "id": "a-220",
@@ -138,7 +138,7 @@
       "id": "a-232",
       "name_en": "ディズニーシー・エレクトリックレールウェイ（アメリカンウォーターフロント）",
       "name_ja": "ディズニーシー・エレクトリックレールウェイ（アメリカンウォーターフロント）",
-      "wait_minutes": 25,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -204,7 +204,7 @@
       "id": "a-247",
       "name_en": "ニモ＆フレンズ・シーライダー",
       "name_ja": "ニモ＆フレンズ・シーライダー",
-      "wait_minutes": 15,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -270,7 +270,7 @@
       "id": "a-237",
       "name_en": "フランダーのフライングフィッシュコースター",
       "name_ja": "フランダーのフライングフィッシュコースター",
-      "wait_minutes": 40,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -314,7 +314,7 @@
       "id": "a-256",
       "name_en": "ラプンツェルのランタンフェスティバル",
       "name_ja": "ラプンツェルのランタンフェスティバル",
-      "wait_minutes": 60,
+      "wait_minutes": 50,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -325,7 +325,7 @@
       "id": "a-242",
       "name_en": "レイジングスピリッツ",
       "name_ja": "レイジングスピリッツ",
-      "wait_minutes": 90,
+      "wait_minutes": 70,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -336,12 +336,12 @@
       "id": "a-9912",
       "name_en": "ロストリバーデルタ（ミゲル　13:30～）",
       "name_ja": "ロストリバーデルタ（ミゲル　13:30～）",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "CLOSED",
-      "access_mode": "STANDBY",
-      "official_status_cd": "",
-      "official_status_label": ""
+      "wait_minutes": 20,
+      "is_open": true,
+      "status": "OPERATING",
+      "access_mode": "STANDBY_PASS_ONLY",
+      "official_status_cd": "026",
+      "official_status_label": "スタンバイパスがある方のみ案内中"
     },
     {
       "id": "a-9911",
@@ -358,7 +358,7 @@
       "id": "a-241",
       "name_en": "ワールプール",
       "name_ja": "ワールプール",
-      "wait_minutes": 20,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -391,13 +391,13 @@
   "summary": {
     "count": 35,
     "open_count": 25,
-    "average_wait": 46.1,
+    "average_wait": 44.6,
     "max_wait": 140
   },
   "closures": null,
   "shows": {
     "source_url": "https://www.tokyodisneyresort.jp/tds/show.html",
-    "fetched_at": "2026-10-19T08:31:16.223Z",
+    "fetched_at": "2026-10-19T08:46:18.238Z",
     "items": [
       {
         "time": "11:30",
