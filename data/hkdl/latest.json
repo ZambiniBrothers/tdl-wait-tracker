@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-19T04:34:23.074Z",
+  "fetched_at": "2026-10-19T04:47:03.902Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -281,7 +281,7 @@
       "id": "a-hkdl-2837",
       "name_en": "Jungle River Cruise",
       "name_ja": "ジャングルリバークルーズ",
-      "wait_minutes": null,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -479,9 +479,9 @@
       "id": "a-hkdl-2840",
       "name_en": "RC Racer",
       "name_ja": "RC Racer",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 30,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -512,9 +512,9 @@
       "id": "a-hkdl-2841",
       "name_en": "Slinky Dog Spin",
       "name_ja": "Slinky Dog Spin",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 10,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -567,7 +567,7 @@
       "id": "a-hkdl-2842",
       "name_en": "Toy Soldier Parachute Drop",
       "name_ja": "Toy Soldier Parachute Drop",
-      "wait_minutes": 30,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -589,7 +589,7 @@
       "id": "a-hkdl-12432",
       "name_en": "Wandering Oaken’s Sliding Sleighs",
       "name_ja": "Wandering Oaken’s Sliding Sleighs",
-      "wait_minutes": 20,
+      "wait_minutes": 25,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -601,8 +601,8 @@
       "name_en": "Wayfinders' Table",
       "name_ja": "Wayfinders' Table",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -621,14 +621,14 @@
   ],
   "summary": {
     "count": 56,
-    "open_count": 41,
-    "average_wait": 19.3,
+    "open_count": 44,
+    "average_wait": 18.7,
     "max_wait": 45
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/31/queue_times.json",
-    "fetched_at": "2026-10-19T04:34:23.074Z",
+    "fetched_at": "2026-10-19T04:47:03.902Z",
     "items": []
   }
 }
