@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-19T08:16:12.275Z",
+  "fetched_at": "2026-10-19T08:31:16.223Z",
   "source": "tdr-official",
   "attractions": [
     {
@@ -61,7 +61,7 @@
       "id": "a-220",
       "name_en": "ジャスミンのフライングカーペット",
       "name_ja": "ジャスミンのフライングカーペット",
-      "wait_minutes": 30,
+      "wait_minutes": 25,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -83,7 +83,7 @@
       "id": "a-238",
       "name_en": "スカットルのスクーター",
       "name_ja": "スカットルのスクーター",
-      "wait_minutes": 25,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -105,7 +105,7 @@
       "id": "a-219",
       "name_en": "ソアリン：ファンタスティック・フライト",
       "name_ja": "ソアリン：ファンタスティック・フライト",
-      "wait_minutes": 160,
+      "wait_minutes": 140,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -127,7 +127,7 @@
       "id": "a-246",
       "name_en": "タートル・トーク",
       "name_ja": "タートル・トーク",
-      "wait_minutes": 15,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -138,7 +138,7 @@
       "id": "a-232",
       "name_en": "ディズニーシー・エレクトリックレールウェイ（アメリカンウォーターフロント）",
       "name_ja": "ディズニーシー・エレクトリックレールウェイ（アメリカンウォーターフロント）",
-      "wait_minutes": 15,
+      "wait_minutes": 25,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -160,12 +160,12 @@
       "id": "a-228",
       "name_en": "ディズニーシー・トランジットスチーマーライン（アメリカンウォーターフロント）",
       "name_ja": "ディズニーシー・トランジットスチーマーライン（アメリカンウォーターフロント）",
-      "wait_minutes": 5,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
-      "official_status_cd": "001",
-      "official_status_label": "運営中"
+      "official_status_cd": "004",
+      "official_status_label": "一時運営中止"
     },
     {
       "id": "a-227",
@@ -182,12 +182,12 @@
       "id": "a-229",
       "name_en": "ディズニーシー・トランジットスチーマーライン（ロストリバーデルタ）",
       "name_ja": "ディズニーシー・トランジットスチーマーライン（ロストリバーデルタ）",
-      "wait_minutes": 25,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
-      "official_status_cd": "001",
-      "official_status_label": "運営中"
+      "official_status_cd": "004",
+      "official_status_label": "一時運営中止"
     },
     {
       "id": "a-218",
@@ -270,7 +270,7 @@
       "id": "a-237",
       "name_en": "フランダーのフライングフィッシュコースター",
       "name_ja": "フランダーのフライングフィッシュコースター",
-      "wait_minutes": 30,
+      "wait_minutes": 40,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -358,7 +358,7 @@
       "id": "a-241",
       "name_en": "ワールプール",
       "name_ja": "ワールプール",
-      "wait_minutes": 25,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -369,12 +369,12 @@
       "id": "a-230",
       "name_en": "ヴェネツィアン・ゴンドラ",
       "name_ja": "ヴェネツィアン・ゴンドラ",
-      "wait_minutes": 45,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
-      "official_status_cd": "001",
-      "official_status_label": "運営中"
+      "official_status_cd": "004",
+      "official_status_label": "一時運営中止"
     },
     {
       "id": "a-224",
@@ -390,14 +390,14 @@
   ],
   "summary": {
     "count": 35,
-    "open_count": 28,
-    "average_wait": 43.7,
-    "max_wait": 160
+    "open_count": 25,
+    "average_wait": 46.1,
+    "max_wait": 140
   },
   "closures": null,
   "shows": {
     "source_url": "https://www.tokyodisneyresort.jp/tds/show.html",
-    "fetched_at": "2026-10-19T08:16:12.275Z",
+    "fetched_at": "2026-10-19T08:31:16.223Z",
     "items": [
       {
         "time": "11:30",
