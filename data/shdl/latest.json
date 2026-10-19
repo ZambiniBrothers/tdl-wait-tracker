@@ -1,14 +1,14 @@
 {
-  "fetched_at": "2026-10-19T01:17:17.315Z",
+  "fetched_at": "2026-10-19T01:32:04.060Z",
   "source": "queue-times",
   "attractions": [
     {
       "id": "a-shdl-3893",
       "name_en": "Challenge Trails at Camp Discovery",
       "name_ja": "Challenge Trails at Camp Discovery",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -51,8 +51,8 @@
       "name_en": "Vista Trail at Camp Discovery",
       "name_ja": "Vista Trail at Camp Discovery",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -127,7 +127,7 @@
       "id": "a-shdl-2991",
       "name_en": "The Many Adventures of Winnie the Pooh",
       "name_ja": "The Many Adventures of Winnie the Pooh",
-      "wait_minutes": 5,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -171,7 +171,7 @@
       "id": "a-shdl-2994",
       "name_en": "Fantasia Carousel",
       "name_ja": "Fantasia Carousel",
-      "wait_minutes": 5,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -259,7 +259,7 @@
       "id": "a-shdl-5633",
       "name_en": "Rex’s Racer",
       "name_ja": "Rex’s Racer",
-      "wait_minutes": 20,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -357,14 +357,14 @@
   ],
   "summary": {
     "count": 32,
-    "open_count": 21,
-    "average_wait": 17.4,
+    "open_count": 23,
+    "average_wait": 18.3,
     "max_wait": 60
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/30/queue_times.json",
-    "fetched_at": "2026-10-19T01:17:17.315Z",
+    "fetched_at": "2026-10-19T01:32:04.060Z",
     "items": []
   }
 }
