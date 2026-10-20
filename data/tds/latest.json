@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-20T03:31:16.187Z",
+  "fetched_at": "2026-10-20T03:46:11.203Z",
   "source": "tdr-official",
   "attractions": [
     {
@@ -72,7 +72,7 @@
       "id": "a-239",
       "name_en": "ジャンピン・ジェリーフィッシュ",
       "name_ja": "ジャンピン・ジェリーフィッシュ",
-      "wait_minutes": 20,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -182,12 +182,12 @@
       "id": "a-229",
       "name_en": "ディズニーシー・トランジットスチーマーライン（ロストリバーデルタ）",
       "name_ja": "ディズニーシー・トランジットスチーマーライン（ロストリバーデルタ）",
-      "wait_minutes": 5,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
-      "official_status_cd": "001",
-      "official_status_label": "運営中"
+      "official_status_cd": "004",
+      "official_status_label": "一時運営中止"
     },
     {
       "id": "a-218",
@@ -215,18 +215,18 @@
       "id": "a-233",
       "name_en": "ビッグシティ・ヴィークル",
       "name_ja": "ビッグシティ・ヴィークル",
-      "wait_minutes": 5,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
-      "official_status_cd": "001",
-      "official_status_label": "運営中"
+      "official_status_cd": "004",
+      "official_status_label": "一時運営中止"
     },
     {
       "id": "a-257",
       "name_en": "ピーターパンのネバーランドアドベンチャー",
       "name_ja": "ピーターパンのネバーランドアドベンチャー",
-      "wait_minutes": 60,
+      "wait_minutes": 70,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -237,7 +237,7 @@
       "id": "a-258",
       "name_en": "フェアリー・ティンカーベルのビジーバギー",
       "name_ja": "フェアリー・ティンカーベルのビジーバギー",
-      "wait_minutes": 40,
+      "wait_minutes": 50,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -270,7 +270,7 @@
       "id": "a-237",
       "name_en": "フランダーのフライングフィッシュコースター",
       "name_ja": "フランダーのフライングフィッシュコースター",
-      "wait_minutes": 30,
+      "wait_minutes": 25,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -314,7 +314,7 @@
       "id": "a-256",
       "name_en": "ラプンツェルのランタンフェスティバル",
       "name_ja": "ラプンツェルのランタンフェスティバル",
-      "wait_minutes": 80,
+      "wait_minutes": 70,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -325,7 +325,7 @@
       "id": "a-242",
       "name_en": "レイジングスピリッツ",
       "name_ja": "レイジングスピリッツ",
-      "wait_minutes": 70,
+      "wait_minutes": 80,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -380,7 +380,7 @@
       "id": "a-224",
       "name_en": "海底２万マイル",
       "name_ja": "海底２万マイル",
-      "wait_minutes": 25,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -390,14 +390,14 @@
   ],
   "summary": {
     "count": 35,
-    "open_count": 28,
-    "average_wait": 33.3,
+    "open_count": 26,
+    "average_wait": 35.6,
     "max_wait": 140
   },
   "closures": null,
   "shows": {
     "source_url": "https://www.tokyodisneyresort.jp/tds/show.html",
-    "fetched_at": "2026-10-20T03:31:16.187Z",
+    "fetched_at": "2026-10-20T03:46:11.203Z",
     "items": [
       {
         "time": "11:30",
