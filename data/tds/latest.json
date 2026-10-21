@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-21T10:17:12.234Z",
+  "fetched_at": "2026-10-21T10:32:01.765Z",
   "source": "tdr-official",
   "attractions": [
     {
@@ -83,7 +83,7 @@
       "id": "a-238",
       "name_en": "スカットルのスクーター",
       "name_ja": "スカットルのスクーター",
-      "wait_minutes": 15,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -94,7 +94,7 @@
       "id": "a-223",
       "name_en": "センター・オブ・ジ・アース",
       "name_ja": "センター・オブ・ジ・アース",
-      "wait_minutes": 90,
+      "wait_minutes": 80,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -105,7 +105,7 @@
       "id": "a-219",
       "name_en": "ソアリン：ファンタスティック・フライト",
       "name_ja": "ソアリン：ファンタスティック・フライト",
-      "wait_minutes": 100,
+      "wait_minutes": 90,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -182,7 +182,7 @@
       "id": "a-229",
       "name_en": "ディズニーシー・トランジットスチーマーライン（ロストリバーデルタ）",
       "name_ja": "ディズニーシー・トランジットスチーマーライン（ロストリバーデルタ）",
-      "wait_minutes": 5,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -249,11 +249,11 @@
       "name_en": "フォートレス・エクスプロレーション",
       "name_ja": "フォートレス・エクスプロレーション",
       "wait_minutes": null,
-      "is_open": true,
-      "status": "OPERATING",
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
-      "official_status_cd": "001",
-      "official_status_label": "運営中"
+      "official_status_cd": "004",
+      "official_status_label": "一時運営中止"
     },
     {
       "id": "a-245",
@@ -270,7 +270,7 @@
       "id": "a-237",
       "name_en": "フランダーのフライングフィッシュコースター",
       "name_ja": "フランダーのフライングフィッシュコースター",
-      "wait_minutes": 15,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -380,7 +380,7 @@
       "id": "a-224",
       "name_en": "海底２万マイル",
       "name_ja": "海底２万マイル",
-      "wait_minutes": 10,
+      "wait_minutes": 5,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -390,45 +390,14 @@
   ],
   "summary": {
     "count": 35,
-    "open_count": 26,
-    "average_wait": 27.3,
-    "max_wait": 100
+    "open_count": 25,
+    "average_wait": 26.3,
+    "max_wait": 90
   },
   "closures": null,
   "shows": {
     "source_url": "https://www.tokyodisneyresort.jp/tds/show.html",
-    "fetched_at": "2026-10-21T10:17:12.234Z",
-    "items": [
-      {
-        "time": "13:15",
-        "label": "ディズニー・ハロウィーン・グリーティング",
-        "name_ja": "ディズニー・ハロウィーン・グリーティング"
-      },
-      {
-        "time": "16:15",
-        "label": "ディズニー・ハロウィーン・グリーティング",
-        "name_ja": "ディズニー・ハロウィーン・グリーティング"
-      },
-      {
-        "time": "19:30",
-        "label": "ビリーヴ！～シー・オブ・ドリームス～",
-        "name_ja": "ビリーヴ！～シー・オブ・ドリームス～"
-      },
-      {
-        "time": "20:15",
-        "label": "【環境演出】スパークリング・ジュビリー・ナイト",
-        "name_ja": "【環境演出】スパークリング・ジュビリー・ナイト"
-      },
-      {
-        "time": "20:30",
-        "label": "ナイトハイ・ハロウィーン",
-        "name_ja": "ナイトハイ・ハロウィーン"
-      },
-      {
-        "time": "20:55",
-        "label": "【環境演出】スパークリング・ジュビリー・ナイト",
-        "name_ja": "【環境演出】スパークリング・ジュビリー・ナイト"
-      }
-    ]
+    "fetched_at": "2026-10-21T10:32:01.765Z",
+    "items": []
   }
 }
