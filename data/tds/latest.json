@@ -1,12 +1,12 @@
 {
-  "fetched_at": "2026-10-21T08:02:44.142Z",
+  "fetched_at": "2026-10-21T08:18:09.393Z",
   "source": "tdr-official",
   "attractions": [
     {
       "id": "a-255",
       "name_en": "アナとエルサのフローズンジャーニー",
       "name_ja": "アナとエルサのフローズンジャーニー",
-      "wait_minutes": 100,
+      "wait_minutes": 120,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -61,7 +61,7 @@
       "id": "a-220",
       "name_en": "ジャスミンのフライングカーペット",
       "name_ja": "ジャスミンのフライングカーペット",
-      "wait_minutes": 20,
+      "wait_minutes": 25,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -94,7 +94,7 @@
       "id": "a-223",
       "name_en": "センター・オブ・ジ・アース",
       "name_ja": "センター・オブ・ジ・アース",
-      "wait_minutes": 100,
+      "wait_minutes": 120,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -138,7 +138,7 @@
       "id": "a-232",
       "name_en": "ディズニーシー・エレクトリックレールウェイ（アメリカンウォーターフロント）",
       "name_ja": "ディズニーシー・エレクトリックレールウェイ（アメリカンウォーターフロント）",
-      "wait_minutes": 15,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -226,7 +226,7 @@
       "id": "a-257",
       "name_en": "ピーターパンのネバーランドアドベンチャー",
       "name_ja": "ピーターパンのネバーランドアドベンチャー",
-      "wait_minutes": 40,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -239,10 +239,10 @@
       "name_ja": "フェアリー・ティンカーベルのビジーバギー",
       "wait_minutes": null,
       "is_open": false,
-      "status": "DOWN",
+      "status": "CLOSED",
       "access_mode": "STANDBY",
-      "official_status_cd": "004",
-      "official_status_label": "一時運営中止"
+      "official_status_cd": "002",
+      "official_status_label": "案内終了"
     },
     {
       "id": "a-244",
@@ -281,7 +281,7 @@
       "id": "a-240",
       "name_en": "ブローフィッシュ・バルーンレース",
       "name_ja": "ブローフィッシュ・バルーンレース",
-      "wait_minutes": 30,
+      "wait_minutes": 25,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -380,7 +380,7 @@
       "id": "a-224",
       "name_en": "海底２万マイル",
       "name_ja": "海底２万マイル",
-      "wait_minutes": 25,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -391,13 +391,34 @@
   "summary": {
     "count": 35,
     "open_count": 26,
-    "average_wait": 37.5,
+    "average_wait": 38.3,
     "max_wait": 120
   },
   "closures": null,
   "shows": {
     "source_url": "https://www.tokyodisneyresort.jp/tds/show.html",
-    "fetched_at": "2026-10-21T08:02:44.142Z",
-    "items": []
+    "fetched_at": "2026-10-21T08:18:09.393Z",
+    "items": [
+      {
+        "time": "11:30",
+        "label": "スパークリング・ジュビリー・セレブレーション",
+        "name_ja": "スパークリング・ジュビリー・セレブレーション"
+      },
+      {
+        "time": "15:00",
+        "label": "スパークリング・ジュビリー・セレブレーション",
+        "name_ja": "スパークリング・ジュビリー・セレブレーション"
+      },
+      {
+        "time": "19:30",
+        "label": "ビリーヴ！～シー・オブ・ドリームス～",
+        "name_ja": "ビリーヴ！～シー・オブ・ドリームス～"
+      },
+      {
+        "time": "20:30",
+        "label": "ナイトハイ・ハロウィーン",
+        "name_ja": "ナイトハイ・ハロウィーン"
+      }
+    ]
   }
 }
