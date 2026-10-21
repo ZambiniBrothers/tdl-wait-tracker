@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-21T02:48:43.597Z",
+  "fetched_at": "2026-10-21T03:04:26.927Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -7,8 +7,8 @@
       "name_en": "\"it's a small world\"",
       "name_ja": "イッツ・ア・スモールワールド",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -83,7 +83,7 @@
       "id": "a-hkdl-2825",
       "name_en": "Cinderella Carousel",
       "name_ja": "Cinderella Carousel",
-      "wait_minutes": null,
+      "wait_minutes": 5,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -127,7 +127,7 @@
       "id": "a-hkdl-2826",
       "name_en": "Dumbo the Flying Elephant",
       "name_ja": "空飛ぶダンボ",
-      "wait_minutes": null,
+      "wait_minutes": 5,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -271,8 +271,8 @@
       "name_en": "Iron Man Tech Showcase - Presented by Stark Industries",
       "name_ja": "Iron Man Tech Showcase - Presented by Stark Industries",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -282,8 +282,8 @@
       "name_en": "Jungle River Cruise",
       "name_ja": "ジャングルリバークルーズ",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -315,8 +315,8 @@
       "name_en": "Main Street Corner Cafe Hosted by Coca-Cola®",
       "name_ja": "Main Street Corner Cafe Hosted by Coca-Cola®",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -369,9 +369,9 @@
       "id": "a-hkdl-13867",
       "name_en": "Meet Gelatoni at Duffy and Friends Play House",
       "name_ja": "Meet Gelatoni at Duffy and Friends Play House",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 30,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -380,9 +380,9 @@
       "id": "a-hkdl-13866",
       "name_en": "Meet LinaBell at Duffy and Friends Play House",
       "name_ja": "Meet LinaBell at Duffy and Friends Play House",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 75,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -391,9 +391,9 @@
       "id": "a-hkdl-13868",
       "name_en": "Meet ShellieMay at Duffy and Friends Play House",
       "name_ja": "Meet ShellieMay at Duffy and Friends Play House",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 15,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -414,8 +414,8 @@
       "name_en": "Mickey's PhilharMagic",
       "name_ja": "ミッキーのフィルハーマジック",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -425,8 +425,8 @@
       "name_en": "Mystic Manor",
       "name_ja": "ミスティック・マナー",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -545,7 +545,7 @@
       "id": "a-hkdl-2824",
       "name_en": "The Many Adventures of Winnie the Pooh",
       "name_ja": "The Many Adventures of Winnie the Pooh",
-      "wait_minutes": null,
+      "wait_minutes": 5,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -556,7 +556,7 @@
       "id": "a-hkdl-8293",
       "name_en": "The Royal Reception Hall",
       "name_ja": "The Royal Reception Hall",
-      "wait_minutes": null,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -621,14 +621,14 @@
   ],
   "summary": {
     "count": 56,
-    "open_count": 27,
-    "average_wait": 5,
-    "max_wait": 5
+    "open_count": 36,
+    "average_wait": 15.9,
+    "max_wait": 75
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/31/queue_times.json",
-    "fetched_at": "2026-10-21T02:48:43.597Z",
+    "fetched_at": "2026-10-21T03:04:26.927Z",
     "items": []
   }
 }
