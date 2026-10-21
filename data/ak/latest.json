@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-21T17:31:55.166Z",
+  "fetched_at": "2026-10-21T17:46:36.225Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -105,9 +105,9 @@
       "id": "a-ak-17661",
       "name_en": "Bluey's Wild World at Conservation Station",
       "name_ja": "Bluey's Wild World at Conservation Station",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 25,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -149,7 +149,7 @@
       "id": "a-ak-116",
       "name_en": "Meet Favorite Disney Pals at Adventurers Outpost",
       "name_ja": "Meet Favorite Disney Pals at Adventurers Outpost",
-      "wait_minutes": 25,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -193,7 +193,7 @@
       "id": "a-ak-4439",
       "name_en": "Avatar Flight of Passage",
       "name_ja": "アバター：フライト・オブ・パッセージ",
-      "wait_minutes": 15,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -236,14 +236,14 @@
   ],
   "summary": {
     "count": 21,
-    "open_count": 19,
-    "average_wait": 13.3,
+    "open_count": 20,
+    "average_wait": 13.5,
     "max_wait": 30
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/8/queue_times.json",
-    "fetched_at": "2026-10-21T17:31:55.166Z",
+    "fetched_at": "2026-10-21T17:46:36.225Z",
     "items": []
   }
 }
