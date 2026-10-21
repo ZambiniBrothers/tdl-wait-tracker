@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-21T11:32:04.658Z",
+  "fetched_at": "2026-10-21T11:49:17.450Z",
   "source": "tdr-official",
   "attractions": [
     {
@@ -193,12 +193,12 @@
       "id": "a-218",
       "name_en": "トイ・ストーリー・マニア！",
       "name_ja": "トイ・ストーリー・マニア！",
-      "wait_minutes": 50,
+      "wait_minutes": null,
       "is_open": true,
       "status": "OPERATING",
-      "access_mode": "STANDBY",
-      "official_status_cd": "001",
-      "official_status_label": "運営中"
+      "access_mode": "PP_ONLY",
+      "official_status_cd": "045",
+      "official_status_label": "プライオリティ・アクセス・エントランスをご利用の方のみ案内中"
     },
     {
       "id": "a-247",
@@ -270,7 +270,7 @@
       "id": "a-237",
       "name_en": "フランダーのフライングフィッシュコースター",
       "name_ja": "フランダーのフライングフィッシュコースター",
-      "wait_minutes": 10,
+      "wait_minutes": 5,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -292,12 +292,12 @@
       "id": "a-226",
       "name_en": "マジックランプシアター",
       "name_ja": "マジックランプシアター",
-      "wait_minutes": 15,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "CLOSED",
       "access_mode": "STANDBY",
-      "official_status_cd": "001",
-      "official_status_label": "運営中"
+      "official_status_cd": "002",
+      "official_status_label": "案内終了"
     },
     {
       "id": "a-221",
@@ -314,7 +314,7 @@
       "id": "a-256",
       "name_en": "ラプンツェルのランタンフェスティバル",
       "name_ja": "ラプンツェルのランタンフェスティバル",
-      "wait_minutes": 15,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -390,54 +390,24 @@
   ],
   "summary": {
     "count": 35,
-    "open_count": 26,
-    "average_wait": 11.2,
-    "max_wait": 50
+    "open_count": 25,
+    "average_wait": 8.4,
+    "max_wait": 20
   },
   "closures": null,
   "shows": {
     "source_url": "https://www.tokyodisneyresort.jp/tds/show.html",
-    "fetched_at": "2026-10-21T11:32:04.658Z",
+    "fetched_at": "2026-10-21T11:49:17.450Z",
     "items": [
-      {
-        "time": "11:30",
-        "label": "スパークリング・ジュビリー・セレブレーション",
-        "name_ja": "スパークリング・ジュビリー・セレブレーション"
-      },
-      {
-        "time": "13:15",
-        "label": "ディズニー・ハロウィーン・グリーティング",
-        "name_ja": "ディズニー・ハロウィーン・グリーティング"
-      },
-      {
-        "time": "15:00",
-        "label": "スパークリング・ジュビリー・セレブレーション",
-        "name_ja": "スパークリング・ジュビリー・セレブレーション"
-      },
-      {
-        "time": "16:15",
-        "label": "ディズニー・ハロウィーン・グリーティング",
-        "name_ja": "ディズニー・ハロウィーン・グリーティング"
-      },
       {
         "time": "19:30",
         "label": "ビリーヴ！～シー・オブ・ドリームス～",
         "name_ja": "ビリーヴ！～シー・オブ・ドリームス～"
       },
       {
-        "time": "20:15",
-        "label": "【環境演出】スパークリング・ジュビリー・ナイト",
-        "name_ja": "【環境演出】スパークリング・ジュビリー・ナイト"
-      },
-      {
         "time": "20:30",
         "label": "ナイトハイ・ハロウィーン",
         "name_ja": "ナイトハイ・ハロウィーン"
-      },
-      {
-        "time": "20:55",
-        "label": "【環境演出】スパークリング・ジュビリー・ナイト",
-        "name_ja": "【環境演出】スパークリング・ジュビリー・ナイト"
       }
     ]
   }
