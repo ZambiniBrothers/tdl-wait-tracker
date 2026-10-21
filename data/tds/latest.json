@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-21T04:48:26.055Z",
+  "fetched_at": "2026-10-21T05:02:29.400Z",
   "source": "tdr-official",
   "attractions": [
     {
@@ -72,7 +72,7 @@
       "id": "a-239",
       "name_en": "ジャンピン・ジェリーフィッシュ",
       "name_ja": "ジャンピン・ジェリーフィッシュ",
-      "wait_minutes": 20,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -83,7 +83,7 @@
       "id": "a-238",
       "name_en": "スカットルのスクーター",
       "name_ja": "スカットルのスクーター",
-      "wait_minutes": 10,
+      "wait_minutes": 25,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -94,7 +94,7 @@
       "id": "a-223",
       "name_en": "センター・オブ・ジ・アース",
       "name_ja": "センター・オブ・ジ・アース",
-      "wait_minutes": 120,
+      "wait_minutes": 100,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -138,7 +138,7 @@
       "id": "a-232",
       "name_en": "ディズニーシー・エレクトリックレールウェイ（アメリカンウォーターフロント）",
       "name_ja": "ディズニーシー・エレクトリックレールウェイ（アメリカンウォーターフロント）",
-      "wait_minutes": 15,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -226,7 +226,7 @@
       "id": "a-257",
       "name_en": "ピーターパンのネバーランドアドベンチャー",
       "name_ja": "ピーターパンのネバーランドアドベンチャー",
-      "wait_minutes": 40,
+      "wait_minutes": 50,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -237,12 +237,12 @@
       "id": "a-258",
       "name_en": "フェアリー・ティンカーベルのビジーバギー",
       "name_ja": "フェアリー・ティンカーベルのビジーバギー",
-      "wait_minutes": 5,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "CLOSED",
       "access_mode": "STANDBY",
-      "official_status_cd": "001",
-      "official_status_label": "運営中"
+      "official_status_cd": "002",
+      "official_status_label": "案内終了"
     },
     {
       "id": "a-244",
@@ -270,7 +270,7 @@
       "id": "a-237",
       "name_en": "フランダーのフライングフィッシュコースター",
       "name_ja": "フランダーのフライングフィッシュコースター",
-      "wait_minutes": 20,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -281,7 +281,7 @@
       "id": "a-240",
       "name_en": "ブローフィッシュ・バルーンレース",
       "name_ja": "ブローフィッシュ・バルーンレース",
-      "wait_minutes": 30,
+      "wait_minutes": 40,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -358,7 +358,7 @@
       "id": "a-241",
       "name_en": "ワールプール",
       "name_ja": "ワールプール",
-      "wait_minutes": 30,
+      "wait_minutes": 25,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -390,14 +390,35 @@
   ],
   "summary": {
     "count": 35,
-    "open_count": 27,
-    "average_wait": 37,
+    "open_count": 26,
+    "average_wait": 39.2,
     "max_wait": 120
   },
   "closures": null,
   "shows": {
     "source_url": "https://www.tokyodisneyresort.jp/tds/show.html",
-    "fetched_at": "2026-10-21T04:48:26.055Z",
-    "items": []
+    "fetched_at": "2026-10-21T05:02:29.400Z",
+    "items": [
+      {
+        "time": "11:30",
+        "label": "スパークリング・ジュビリー・セレブレーション",
+        "name_ja": "スパークリング・ジュビリー・セレブレーション"
+      },
+      {
+        "time": "15:00",
+        "label": "スパークリング・ジュビリー・セレブレーション",
+        "name_ja": "スパークリング・ジュビリー・セレブレーション"
+      },
+      {
+        "time": "19:30",
+        "label": "ビリーヴ！～シー・オブ・ドリームス～",
+        "name_ja": "ビリーヴ！～シー・オブ・ドリームス～"
+      },
+      {
+        "time": "20:30",
+        "label": "ナイトハイ・ハロウィーン",
+        "name_ja": "ナイトハイ・ハロウィーン"
+      }
+    ]
   }
 }
