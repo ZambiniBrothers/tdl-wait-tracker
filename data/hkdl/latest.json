@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-22T11:16:22.956Z",
+  "fetched_at": "2026-10-22T11:31:39.612Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -127,9 +127,9 @@
       "id": "a-hkdl-2826",
       "name_en": "Dumbo the Flying Elephant",
       "name_ja": "空飛ぶダンボ",
-      "wait_minutes": 20,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -139,8 +139,8 @@
       "name_en": "Explorer's Club Restaurant",
       "name_ja": "Explorer's Club Restaurant",
       "wait_minutes": null,
-      "is_open": true,
-      "status": "OPERATING",
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -171,7 +171,7 @@
       "id": "a-hkdl-12433",
       "name_en": "Frozen Ever After – Presented by Blue Cross",
       "name_ja": "フローズン・エバーアフター",
-      "wait_minutes": 10,
+      "wait_minutes": 5,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -205,8 +205,8 @@
       "name_en": "Golden Crocus Inn",
       "name_ja": "Golden Crocus Inn",
       "wait_minutes": null,
-      "is_open": true,
-      "status": "OPERATING",
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -281,7 +281,7 @@
       "id": "a-hkdl-2837",
       "name_en": "Jungle River Cruise",
       "name_ja": "ジャングルリバークルーズ",
-      "wait_minutes": 20,
+      "wait_minutes": 25,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -424,7 +424,7 @@
       "id": "a-hkdl-2844",
       "name_en": "Mystic Manor",
       "name_ja": "ミスティック・マナー",
-      "wait_minutes": 15,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -479,7 +479,7 @@
       "id": "a-hkdl-2840",
       "name_en": "RC Racer",
       "name_ja": "RC Racer",
-      "wait_minutes": 30,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -621,14 +621,14 @@
   ],
   "summary": {
     "count": 56,
-    "open_count": 32,
-    "average_wait": 13.9,
+    "open_count": 29,
+    "average_wait": 13.8,
     "max_wait": 30
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/31/queue_times.json",
-    "fetched_at": "2026-10-22T11:16:22.956Z",
+    "fetched_at": "2026-10-22T11:31:39.612Z",
     "items": []
   }
 }
