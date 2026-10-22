@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-22T00:16:26.309Z",
+  "fetched_at": "2026-10-22T00:31:18.725Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -17,7 +17,7 @@
       "id": "a-dca-8843",
       "name_en": "WEB SLINGERS: A Spider-Man Adventure",
       "name_ja": "WEB SLINGERS: A Spider-Man Adventure",
-      "wait_minutes": 35,
+      "wait_minutes": 60,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -50,7 +50,7 @@
       "id": "a-dca-295",
       "name_en": "Radiator Springs Racers",
       "name_ja": "レーシング・イン・ラジエーター・スプリングス",
-      "wait_minutes": 45,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -193,7 +193,7 @@
       "id": "a-dca-301",
       "name_en": "Silly Symphony Swings",
       "name_ja": "Silly Symphony Swings",
-      "wait_minutes": 15,
+      "wait_minutes": 5,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -248,9 +248,9 @@
       "id": "a-dca-322",
       "name_en": "Incredicoaster",
       "name_ja": "インクレディコースター",
-      "wait_minutes": 30,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -260,8 +260,8 @@
       "name_en": "Incredicoaster Single Rider",
       "name_ja": "インクレディコースター",
       "wait_minutes": null,
-      "is_open": true,
-      "status": "OPERATING",
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -336,7 +336,7 @@
       "id": "a-dca-5146",
       "name_en": "Guardians of the Galaxy - Monsters After Dark",
       "name_ja": "Guardians of the Galaxy - Monsters After Dark",
-      "wait_minutes": 45,
+      "wait_minutes": 65,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -347,7 +347,7 @@
       "id": "a-dca-4723",
       "name_en": "Mater's Graveyard JamBOOree",
       "name_ja": "Mater's Graveyard JamBOOree",
-      "wait_minutes": 15,
+      "wait_minutes": 5,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -368,14 +368,14 @@
   ],
   "summary": {
     "count": 33,
-    "open_count": 29,
-    "average_wait": 21.8,
-    "max_wait": 45
+    "open_count": 27,
+    "average_wait": 21.9,
+    "max_wait": 65
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/17/queue_times.json",
-    "fetched_at": "2026-10-22T00:16:26.309Z",
+    "fetched_at": "2026-10-22T00:31:18.725Z",
     "items": []
   }
 }
