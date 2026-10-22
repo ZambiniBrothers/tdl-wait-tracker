@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-22T05:46:30.675Z",
+  "fetched_at": "2026-10-22T06:01:08.217Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -171,9 +171,9 @@
       "id": "a-dlp-8",
       "name_en": "Star Wars Hyperspace Mountain",
       "name_ja": "スター・ウォーズ：ハイパースペース・マウンテン",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -183,8 +183,8 @@
       "name_en": "Star Wars Hyperspace Mountain Single Rider",
       "name_ja": "スター・ウォーズ：ハイパースペース・マウンテン",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -458,8 +458,8 @@
       "name_en": "Main Street Vehicles",
       "name_ja": "Main Street Vehicles",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -467,14 +467,14 @@
   ],
   "summary": {
     "count": 42,
-    "open_count": 0,
-    "average_wait": 0,
-    "max_wait": 0
+    "open_count": 3,
+    "average_wait": 5,
+    "max_wait": 5
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/4/queue_times.json",
-    "fetched_at": "2026-10-22T05:46:30.675Z",
+    "fetched_at": "2026-10-22T06:01:08.217Z",
     "items": []
   }
 }
