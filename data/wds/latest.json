@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-23T19:16:38.219Z",
+  "fetched_at": "2026-10-23T19:31:45.016Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -28,7 +28,7 @@
       "id": "a-wds-10845",
       "name_en": "Spider-Man W.E.B. Adventure",
       "name_ja": "Spider-Man W.E.B. Adventure",
-      "wait_minutes": 40,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -61,7 +61,7 @@
       "id": "a-wds-40",
       "name_en": "The Twilight Zone Tower of Terror",
       "name_ja": "タワー・オブ・テラー",
-      "wait_minutes": 25,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -127,9 +127,9 @@
       "id": "a-wds-33",
       "name_en": "Les Tapis Volants - Flying Carpets Over Agrabah®",
       "name_ja": "Les Tapis Volants - Flying Carpets Over Agrabah®",
-      "wait_minutes": 5,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -160,7 +160,7 @@
       "id": "a-wds-34",
       "name_en": "RC Racer",
       "name_ja": "RC Racer",
-      "wait_minutes": 15,
+      "wait_minutes": 5,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -247,14 +247,14 @@
   ],
   "summary": {
     "count": 22,
-    "open_count": 15,
-    "average_wait": 11.8,
-    "max_wait": 40
+    "open_count": 14,
+    "average_wait": 10,
+    "max_wait": 30
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/28/queue_times.json",
-    "fetched_at": "2026-10-23T19:16:38.219Z",
+    "fetched_at": "2026-10-23T19:31:45.016Z",
     "items": []
   }
 }
