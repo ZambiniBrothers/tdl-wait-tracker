@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-23T18:31:38.130Z",
+  "fetched_at": "2026-10-23T18:46:37.521Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -28,7 +28,7 @@
       "id": "a-wds-10845",
       "name_en": "Spider-Man W.E.B. Adventure",
       "name_ja": "Spider-Man W.E.B. Adventure",
-      "wait_minutes": 45,
+      "wait_minutes": 25,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -39,7 +39,7 @@
       "id": "a-wds-10846",
       "name_en": "Spider-Man W.E.B. Adventure Single Rider",
       "name_ja": "Spider-Man W.E.B. Adventure Single Rider",
-      "wait_minutes": 25,
+      "wait_minutes": 5,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -94,9 +94,9 @@
       "id": "a-wds-29",
       "name_en": "Cars ROAD TRIP",
       "name_ja": "Cars ROAD TRIP",
-      "wait_minutes": 15,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -160,7 +160,7 @@
       "id": "a-wds-34",
       "name_en": "RC Racer",
       "name_ja": "RC Racer",
-      "wait_minutes": 20,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -215,7 +215,7 @@
       "id": "a-wds-15413",
       "name_en": "Frozen Ever After",
       "name_ja": "フローズン・エバーアフター",
-      "wait_minutes": 25,
+      "wait_minutes": 40,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -226,7 +226,7 @@
       "id": "a-wds-15422",
       "name_en": "Frozen Ever After Single Rider",
       "name_ja": "フローズン・エバーアフター",
-      "wait_minutes": 5,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -247,14 +247,14 @@
   ],
   "summary": {
     "count": 22,
-    "open_count": 16,
-    "average_wait": 14.3,
-    "max_wait": 45
+    "open_count": 15,
+    "average_wait": 12.5,
+    "max_wait": 40
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/28/queue_times.json",
-    "fetched_at": "2026-10-23T18:31:38.130Z",
+    "fetched_at": "2026-10-23T18:46:37.521Z",
     "items": []
   }
 }
