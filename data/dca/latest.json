@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-23T05:46:28.806Z",
+  "fetched_at": "2026-10-23T06:01:19.243Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -94,9 +94,9 @@
       "id": "a-dca-17129",
       "name_en": "Soarin’ Across America",
       "name_ja": "ソアリン・アクロス・アメリカ",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 15,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -358,7 +358,7 @@
       "id": "a-dca-7292",
       "name_en": "Villains Grove at Oogie Boogie Bash",
       "name_ja": "Villains Grove at Oogie Boogie Bash",
-      "wait_minutes": 10,
+      "wait_minutes": 5,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -368,14 +368,14 @@
   ],
   "summary": {
     "count": 33,
-    "open_count": 22,
-    "average_wait": 8.3,
+    "open_count": 23,
+    "average_wait": 8.4,
     "max_wait": 30
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/17/queue_times.json",
-    "fetched_at": "2026-10-23T05:46:28.806Z",
+    "fetched_at": "2026-10-23T06:01:19.243Z",
     "items": []
   }
 }
