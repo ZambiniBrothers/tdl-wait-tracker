@@ -1,17 +1,17 @@
 {
-  "fetched_at": "2026-10-23T00:01:19.666Z",
+  "fetched_at": "2026-10-23T00:16:20.967Z",
   "source": "tdr-official",
   "attractions": [
     {
       "id": "a-255",
       "name_en": "アナとエルサのフローズンジャーニー",
       "name_ja": "アナとエルサのフローズンジャーニー",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 20,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
-      "official_status_cd": "004",
-      "official_status_label": "一時運営中止"
+      "official_status_cd": "001",
+      "official_status_label": "運営中"
     },
     {
       "id": "a-202",
@@ -94,7 +94,7 @@
       "id": "a-223",
       "name_en": "センター・オブ・ジ・アース",
       "name_ja": "センター・オブ・ジ・アース",
-      "wait_minutes": 30,
+      "wait_minutes": 80,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -105,7 +105,7 @@
       "id": "a-219",
       "name_en": "ソアリン：ファンタスティック・フライト",
       "name_ja": "ソアリン：ファンタスティック・フライト",
-      "wait_minutes": 70,
+      "wait_minutes": 160,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -127,7 +127,7 @@
       "id": "a-246",
       "name_en": "タートル・トーク",
       "name_ja": "タートル・トーク",
-      "wait_minutes": 5,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -138,23 +138,23 @@
       "id": "a-232",
       "name_en": "ディズニーシー・エレクトリックレールウェイ（アメリカンウォーターフロント）",
       "name_ja": "ディズニーシー・エレクトリックレールウェイ（アメリカンウォーターフロント）",
-      "wait_minutes": 5,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
-      "official_status_cd": "001",
-      "official_status_label": "運営中"
+      "official_status_cd": "004",
+      "official_status_label": "一時運営中止"
     },
     {
       "id": "a-231",
       "name_en": "ディズニーシー・エレクトリックレールウェイ（ポートディスカバリー）",
       "name_ja": "ディズニーシー・エレクトリックレールウェイ（ポートディスカバリー）",
-      "wait_minutes": 5,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
-      "official_status_cd": "001",
-      "official_status_label": "運営中"
+      "official_status_cd": "004",
+      "official_status_label": "一時運営中止"
     },
     {
       "id": "a-228",
@@ -193,7 +193,7 @@
       "id": "a-218",
       "name_en": "トイ・ストーリー・マニア！",
       "name_ja": "トイ・ストーリー・マニア！",
-      "wait_minutes": 60,
+      "wait_minutes": 120,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -314,7 +314,7 @@
       "id": "a-256",
       "name_en": "ラプンツェルのランタンフェスティバル",
       "name_ja": "ラプンツェルのランタンフェスティバル",
-      "wait_minutes": 30,
+      "wait_minutes": 50,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -347,7 +347,7 @@
       "id": "a-9911",
       "name_en": "ロストリバーデルタ（ミゲル　～13:00）",
       "name_ja": "ロストリバーデルタ（ミゲル　～13:00）",
-      "wait_minutes": 5,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY_PASS_ONLY",
@@ -390,14 +390,14 @@
   ],
   "summary": {
     "count": 35,
-    "open_count": 23,
-    "average_wait": 13.6,
-    "max_wait": 70
+    "open_count": 22,
+    "average_wait": 26.8,
+    "max_wait": 160
   },
   "closures": null,
   "shows": {
     "source_url": "https://www.tokyodisneyresort.jp/tds/show.html",
-    "fetched_at": "2026-10-23T00:01:19.666Z",
+    "fetched_at": "2026-10-23T00:16:20.967Z",
     "items": [
       {
         "time": "11:30",

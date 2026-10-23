@@ -1,14 +1,14 @@
 {
-  "fetched_at": "2026-10-23T00:01:46.619Z",
+  "fetched_at": "2026-10-23T00:16:37.789Z",
   "source": "queue-times",
   "attractions": [
     {
       "id": "a-shdl-3893",
       "name_en": "Challenge Trails at Camp Discovery",
       "name_ja": "Challenge Trails at Camp Discovery",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -51,8 +51,8 @@
       "name_en": "Vista Trail at Camp Discovery",
       "name_ja": "Vista Trail at Camp Discovery",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -94,9 +94,9 @@
       "id": "a-shdl-2989",
       "name_en": "Peter Pan’s Flight",
       "name_ja": "ピーターパン空の旅",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -105,7 +105,7 @@
       "id": "a-shdl-2990",
       "name_en": "Seven Dwarfs Mine Train",
       "name_ja": "七人のこびとのマイントレイン",
-      "wait_minutes": 15,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -259,9 +259,9 @@
       "id": "a-shdl-5633",
       "name_en": "Rex’s Racer",
       "name_ja": "Rex’s Racer",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -357,14 +357,14 @@
   ],
   "summary": {
     "count": 32,
-    "open_count": 11,
-    "average_wait": 12.2,
+    "open_count": 15,
+    "average_wait": 10.8,
     "max_wait": 40
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/30/queue_times.json",
-    "fetched_at": "2026-10-23T00:01:46.619Z",
+    "fetched_at": "2026-10-23T00:16:37.789Z",
     "items": []
   }
 }
