@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-24T20:31:19.993Z",
+  "fetched_at": "2026-10-24T20:46:25.071Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -17,9 +17,9 @@
       "id": "a-epcot-155",
       "name_en": "Journey Into Imagination With Figment",
       "name_ja": "Journey Into Imagination With Figment",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -72,7 +72,7 @@
       "id": "a-epcot-160",
       "name_en": "Test Track",
       "name_ja": "テスト・トラック",
-      "wait_minutes": 115,
+      "wait_minutes": 95,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -116,7 +116,7 @@
       "id": "a-epcot-156",
       "name_en": "Living with the Land",
       "name_ja": "Living with the Land",
-      "wait_minutes": 10,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -182,7 +182,7 @@
       "id": "a-epcot-2679",
       "name_en": "Frozen Ever After",
       "name_ja": "フローズン・エバーアフター",
-      "wait_minutes": 70,
+      "wait_minutes": 75,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -193,7 +193,7 @@
       "id": "a-epcot-466",
       "name_en": "Gran Fiesta Tour Starring The Three Caballeros",
       "name_ja": "Gran Fiesta Tour Starring The Three Caballeros",
-      "wait_minutes": 25,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -215,7 +215,7 @@
       "id": "a-epcot-8956",
       "name_en": "Remy's Ratatouille Adventure",
       "name_ja": "レミーのおいしいレストラン",
-      "wait_minutes": 75,
+      "wait_minutes": 55,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -247,14 +247,14 @@
   ],
   "summary": {
     "count": 22,
-    "open_count": 20,
-    "average_wait": 37.1,
-    "max_wait": 115
+    "open_count": 21,
+    "average_wait": 33,
+    "max_wait": 95
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/5/queue_times.json",
-    "fetched_at": "2026-10-24T20:31:19.993Z",
+    "fetched_at": "2026-10-24T20:46:25.071Z",
     "items": []
   }
 }
