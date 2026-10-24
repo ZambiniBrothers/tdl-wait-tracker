@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-24T11:46:02.444Z",
+  "fetched_at": "2026-10-24T11:59:10.835Z",
   "source": "tdr-official",
   "attractions": [
     {
@@ -127,7 +127,7 @@
       "id": "a-246",
       "name_en": "タートル・トーク",
       "name_ja": "タートル・トーク",
-      "wait_minutes": 20,
+      "wait_minutes": 5,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -162,10 +162,10 @@
       "name_ja": "ディズニーシー・トランジットスチーマーライン（アメリカンウォーターフロント）",
       "wait_minutes": null,
       "is_open": false,
-      "status": "DOWN",
+      "status": "CLOSED",
       "access_mode": "STANDBY",
-      "official_status_cd": "004",
-      "official_status_label": "一時運営中止"
+      "official_status_cd": "002",
+      "official_status_label": "案内終了"
     },
     {
       "id": "a-227",
@@ -182,12 +182,12 @@
       "id": "a-229",
       "name_en": "ディズニーシー・トランジットスチーマーライン（ロストリバーデルタ）",
       "name_ja": "ディズニーシー・トランジットスチーマーライン（ロストリバーデルタ）",
-      "wait_minutes": 5,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "CLOSED",
       "access_mode": "STANDBY",
-      "official_status_cd": "001",
-      "official_status_label": "運営中"
+      "official_status_cd": "002",
+      "official_status_label": "案内終了"
     },
     {
       "id": "a-218",
@@ -226,7 +226,7 @@
       "id": "a-257",
       "name_en": "ピーターパンのネバーランドアドベンチャー",
       "name_ja": "ピーターパンのネバーランドアドベンチャー",
-      "wait_minutes": 10,
+      "wait_minutes": 5,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -237,12 +237,12 @@
       "id": "a-258",
       "name_en": "フェアリー・ティンカーベルのビジーバギー",
       "name_ja": "フェアリー・ティンカーベルのビジーバギー",
-      "wait_minutes": 15,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "CLOSED",
       "access_mode": "STANDBY",
-      "official_status_cd": "001",
-      "official_status_label": "運営中"
+      "official_status_cd": "002",
+      "official_status_label": "案内終了"
     },
     {
       "id": "a-244",
@@ -325,12 +325,12 @@
       "id": "a-242",
       "name_en": "レイジングスピリッツ",
       "name_ja": "レイジングスピリッツ",
-      "wait_minutes": 10,
+      "wait_minutes": null,
       "is_open": true,
       "status": "OPERATING",
-      "access_mode": "STANDBY",
-      "official_status_cd": "001",
-      "official_status_label": "運営中"
+      "access_mode": "PP_ONLY",
+      "official_status_cd": "045",
+      "official_status_label": "プライオリティ・アクセス・エントランスをご利用の方のみ案内中"
     },
     {
       "id": "a-9912",
@@ -369,12 +369,12 @@
       "id": "a-230",
       "name_en": "ヴェネツィアン・ゴンドラ",
       "name_ja": "ヴェネツィアン・ゴンドラ",
-      "wait_minutes": 15,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "CLOSED",
       "access_mode": "STANDBY",
-      "official_status_cd": "001",
-      "official_status_label": "運営中"
+      "official_status_cd": "002",
+      "official_status_label": "案内終了"
     },
     {
       "id": "a-224",
@@ -390,14 +390,14 @@
   ],
   "summary": {
     "count": 35,
-    "open_count": 26,
-    "average_wait": 8.3,
-    "max_wait": 20
+    "open_count": 23,
+    "average_wait": 6.3,
+    "max_wait": 15
   },
   "closures": null,
   "shows": {
     "source_url": "https://www.tokyodisneyresort.jp/tds/show.html",
-    "fetched_at": "2026-10-24T11:46:02.444Z",
+    "fetched_at": "2026-10-24T11:59:10.835Z",
     "items": [
       {
         "time": "11:30",
