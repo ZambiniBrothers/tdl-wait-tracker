@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-24T05:01:19.307Z",
+  "fetched_at": "2026-10-24T05:16:27.494Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -17,7 +17,7 @@
       "id": "a-dlr-326",
       "name_en": "Indiana Jones™ Adventure",
       "name_ja": "インディ・ジョーンズ・アドベンチャー",
-      "wait_minutes": 65,
+      "wait_minutes": 55,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -94,9 +94,9 @@
       "id": "a-dlr-307",
       "name_en": "\"it's a small world\"",
       "name_ja": "イッツ・ア・スモールワールド",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 20,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -160,7 +160,7 @@
       "id": "a-dlr-279",
       "name_en": "Matterhorn Bobsleds",
       "name_ja": "マッターホルン・ボブスレー",
-      "wait_minutes": 15,
+      "wait_minutes": 25,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -248,7 +248,7 @@
       "id": "a-dlr-323",
       "name_en": "Big Thunder Mountain Railroad",
       "name_ja": "ビッグサンダー・マウンテン",
-      "wait_minutes": 50,
+      "wait_minutes": 35,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -303,9 +303,9 @@
       "id": "a-dlr-674",
       "name_en": "Disneyland Railroad",
       "name_ja": "Disneyland Railroad",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 10,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -457,9 +457,9 @@
       "id": "a-dlr-325",
       "name_en": "Haunted Mansion Holiday",
       "name_ja": "Haunted Mansion Holiday",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 60,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -501,9 +501,9 @@
       "id": "a-dlr-6340",
       "name_en": "Star Wars: Rise of the Resistance",
       "name_ja": "スター・ウォーズ：ライズ・オブ・ザ・レジスタンス",
-      "wait_minutes": 35,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -534,7 +534,7 @@
       "id": "a-dlr-273",
       "name_en": "Buzz Lightyear Astro Blasters",
       "name_ja": "バズ・ライトイヤーのアストロブラスター",
-      "wait_minutes": 10,
+      "wait_minutes": 5,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -599,14 +599,14 @@
   ],
   "summary": {
     "count": 54,
-    "open_count": 24,
-    "average_wait": 16.8,
-    "max_wait": 65
+    "open_count": 26,
+    "average_wait": 16.9,
+    "max_wait": 60
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/16/queue_times.json",
-    "fetched_at": "2026-10-24T05:01:19.307Z",
+    "fetched_at": "2026-10-24T05:16:27.494Z",
     "items": []
   }
 }
