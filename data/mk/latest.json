@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-24T03:16:32.299Z",
+  "fetched_at": "2026-10-24T03:31:27.271Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -28,9 +28,9 @@
       "id": "a-mk-137",
       "name_en": "Pirates of the Caribbean",
       "name_ja": "カリブの海賊",
-      "wait_minutes": 5,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -204,7 +204,7 @@
       "id": "a-mk-136",
       "name_en": "Peter Pan's Flight",
       "name_ja": "ピーターパン空の旅",
-      "wait_minutes": 20,
+      "wait_minutes": 5,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -226,9 +226,9 @@
       "id": "a-mk-129",
       "name_en": "Seven Dwarfs Mine Train",
       "name_ja": "七人のこびとのマイントレイン",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 20,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -468,7 +468,7 @@
       "id": "a-mk-14928",
       "name_en": "Meet Jack Skellington and Sally at Mickey's Not-So-Scary Halloween Party",
       "name_ja": "Meet Jack Skellington and Sally at Mickey's Not-So-Scary Halloween Party",
-      "wait_minutes": 25,
+      "wait_minutes": 40,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -479,7 +479,7 @@
       "id": "a-mk-14927",
       "name_en": "Meet Mickey Mouse and Minnie Mouse at Mickey's Not-So-Scary Halloween Party",
       "name_ja": "Meet Mickey Mouse and Minnie Mouse at Mickey's Not-So-Scary Halloween Party",
-      "wait_minutes": 15,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -501,13 +501,13 @@
   "summary": {
     "count": 45,
     "open_count": 25,
-    "average_wait": 9.5,
-    "max_wait": 30
+    "average_wait": 9.9,
+    "max_wait": 40
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/6/queue_times.json",
-    "fetched_at": "2026-10-24T03:16:32.299Z",
+    "fetched_at": "2026-10-24T03:31:27.271Z",
     "items": []
   }
 }
