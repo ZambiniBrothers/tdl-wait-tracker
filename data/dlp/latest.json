@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-24T06:46:09.466Z",
+  "fetched_at": "2026-10-24T07:01:01.348Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -39,9 +39,9 @@
       "id": "a-dlp-1",
       "name_en": "La Cabane des Robinson",
       "name_ja": "La Cabane des Robinson",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -51,8 +51,8 @@
       "name_en": "Le Passage Enchanté d'Aladdin",
       "name_ja": "Le Passage Enchanté d'Aladdin",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -72,9 +72,9 @@
       "id": "a-dlp-3",
       "name_en": "Pirates of the Caribbean",
       "name_ja": "カリブの海賊",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -84,8 +84,8 @@
       "name_en": "Pirates' Beach",
       "name_ja": "Pirates' Beach",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -105,7 +105,7 @@
       "id": "a-dlp-5",
       "name_en": "Buzz Lightyear Laser Blast",
       "name_ja": "バズ・ライトイヤー・レーザーブラスト",
-      "wait_minutes": 10,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -149,9 +149,9 @@
       "id": "a-dlp-7",
       "name_en": "Orbitron®",
       "name_ja": "Orbitron®",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -216,8 +216,8 @@
       "name_en": "Alice's Curious Labyrinth",
       "name_ja": "ふしぎの国のアリスの迷路",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -226,9 +226,9 @@
       "id": "a-dlp-15",
       "name_en": "Blanche-Neige et les Sept Nains®",
       "name_ja": "Blanche-Neige et les Sept Nains®",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -237,9 +237,9 @@
       "id": "a-dlp-17",
       "name_en": "Casey Jr. – le Petit Train du Cirque",
       "name_ja": "キャシー・ジュニア・サーカストレイン",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -292,9 +292,9 @@
       "id": "a-dlp-16",
       "name_en": "Le Carrousel de Lancelot",
       "name_ja": "Le Carrousel de Lancelot",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -315,8 +315,8 @@
       "name_en": "Les Voyages de Pinocchio",
       "name_ja": "Les Voyages de Pinocchio",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -369,7 +369,7 @@
       "id": "a-dlp-25",
       "name_en": "Big Thunder Mountain",
       "name_ja": "ビッグサンダー・マウンテン",
-      "wait_minutes": 20,
+      "wait_minutes": 40,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -435,9 +435,9 @@
       "id": "a-dlp-28",
       "name_en": "Thunder Mesa Riverboat Landing",
       "name_ja": "Thunder Mesa Riverboat Landing",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -467,14 +467,14 @@
   ],
   "summary": {
     "count": 42,
-    "open_count": 11,
-    "average_wait": 11.9,
+    "open_count": 22,
+    "average_wait": 10.3,
     "max_wait": 40
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/4/queue_times.json",
-    "fetched_at": "2026-10-24T06:46:09.466Z",
+    "fetched_at": "2026-10-24T07:01:01.348Z",
     "items": []
   }
 }
