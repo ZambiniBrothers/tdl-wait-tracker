@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-25T22:01:08.871Z",
+  "fetched_at": "2026-10-25T22:16:17.373Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -28,7 +28,7 @@
       "id": "a-dlr-296",
       "name_en": "Jungle Cruise",
       "name_ja": "ジャングルクルーズ",
-      "wait_minutes": 10,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -105,9 +105,9 @@
       "id": "a-dlr-285",
       "name_en": "Alice in Wonderland",
       "name_ja": "ふしぎの国のアリス",
-      "wait_minutes": 20,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -226,9 +226,9 @@
       "id": "a-dlr-283",
       "name_en": "Snow White's Enchanted Wish",
       "name_ja": "Snow White's Enchanted Wish",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 20,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -337,8 +337,8 @@
       "name_en": "Main Street Vehicles",
       "name_ja": "Main Street Vehicles",
       "wait_minutes": null,
-      "is_open": true,
-      "status": "OPERATING",
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -380,7 +380,7 @@
       "id": "a-dlr-324",
       "name_en": "Chip 'n' Dale's GADGETcoaster",
       "name_ja": "Chip 'n' Dale's GADGETcoaster",
-      "wait_minutes": 30,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -599,14 +599,14 @@
   ],
   "summary": {
     "count": 54,
-    "open_count": 49,
-    "average_wait": 19.2,
+    "open_count": 48,
+    "average_wait": 18.9,
     "max_wait": 55
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/16/queue_times.json",
-    "fetched_at": "2026-10-25T22:01:08.871Z",
+    "fetched_at": "2026-10-25T22:16:17.373Z",
     "items": []
   }
 }
