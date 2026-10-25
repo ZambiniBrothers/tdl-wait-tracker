@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-25T18:16:24.191Z",
+  "fetched_at": "2026-10-25T18:24:04.128Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -50,7 +50,7 @@
       "id": "a-dhs-6704",
       "name_en": "Meet Disney Stars at Red Carpet Dreams",
       "name_ja": "Meet Disney Stars at Red Carpet Dreams",
-      "wait_minutes": 25,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -83,7 +83,7 @@
       "id": "a-dhs-6703",
       "name_en": "Meet Olaf at Celebrity Spotlight",
       "name_ja": "Meet Olaf at Celebrity Spotlight",
-      "wait_minutes": 10,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -138,9 +138,9 @@
       "id": "a-dhs-117",
       "name_en": "Toy Story Mania!",
       "name_ja": "トイ・ストーリー・マニア！",
-      "wait_minutes": 60,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -149,7 +149,7 @@
       "id": "a-dhs-6368",
       "name_en": "Millennium Falcon: Smugglers Run",
       "name_ja": "ミレニアム・ファルコン：スマグラーズ・ラン",
-      "wait_minutes": 30,
+      "wait_minutes": 40,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -280,14 +280,14 @@
   ],
   "summary": {
     "count": 25,
-    "open_count": 25,
-    "average_wait": 32.5,
-    "max_wait": 60
+    "open_count": 24,
+    "average_wait": 30.9,
+    "max_wait": 55
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/7/queue_times.json",
-    "fetched_at": "2026-10-25T18:16:24.191Z",
+    "fetched_at": "2026-10-25T18:24:04.128Z",
     "items": []
   }
 }
