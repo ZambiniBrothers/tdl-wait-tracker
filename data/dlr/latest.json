@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-25T20:31:11.006Z",
+  "fetched_at": "2026-10-25T20:46:04.135Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -105,9 +105,9 @@
       "id": "a-dlr-285",
       "name_en": "Alice in Wonderland",
       "name_ja": "ふしぎの国のアリス",
-      "wait_minutes": 20,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -182,7 +182,7 @@
       "id": "a-dlr-280",
       "name_en": "Mr. Toad's Wild Ride",
       "name_ja": "Mr. Toad's Wild Ride",
-      "wait_minutes": 15,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -315,8 +315,8 @@
       "name_en": "Great Moments with Mr. Lincoln",
       "name_ja": "Great Moments with Mr. Lincoln",
       "wait_minutes": null,
-      "is_open": true,
-      "status": "OPERATING",
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -348,8 +348,8 @@
       "name_en": "Opera House - Walt Disney - A Magical Life",
       "name_ja": "Opera House - Walt Disney - A Magical Life",
       "wait_minutes": null,
-      "is_open": true,
-      "status": "OPERATING",
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -446,7 +446,7 @@
       "id": "a-dlr-332",
       "name_en": "Roger Rabbit's Car Toon Spin",
       "name_ja": "Roger Rabbit's Car Toon Spin",
-      "wait_minutes": 45,
+      "wait_minutes": 35,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -468,7 +468,7 @@
       "id": "a-dlr-289",
       "name_en": "Pirates of the Caribbean",
       "name_ja": "カリブの海賊",
-      "wait_minutes": 15,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -501,7 +501,7 @@
       "id": "a-dlr-6340",
       "name_en": "Star Wars: Rise of the Resistance",
       "name_ja": "スター・ウォーズ：ライズ・オブ・ザ・レジスタンス",
-      "wait_minutes": 35,
+      "wait_minutes": 45,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -578,7 +578,7 @@
       "id": "a-dlr-284",
       "name_en": "Space Mountain",
       "name_ja": "スペース・マウンテン",
-      "wait_minutes": 30,
+      "wait_minutes": 55,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -599,14 +599,14 @@
   ],
   "summary": {
     "count": 54,
-    "open_count": 50,
-    "average_wait": 15.7,
-    "max_wait": 45
+    "open_count": 47,
+    "average_wait": 16.5,
+    "max_wait": 55
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/16/queue_times.json",
-    "fetched_at": "2026-10-25T20:31:11.006Z",
+    "fetched_at": "2026-10-25T20:46:04.135Z",
     "items": []
   }
 }
