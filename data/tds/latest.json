@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-25T04:31:04.233Z",
+  "fetched_at": "2026-10-25T04:46:05.061Z",
   "source": "tdr-official",
   "attractions": [
     {
@@ -83,7 +83,7 @@
       "id": "a-238",
       "name_en": "スカットルのスクーター",
       "name_ja": "スカットルのスクーター",
-      "wait_minutes": 15,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -138,7 +138,7 @@
       "id": "a-232",
       "name_en": "ディズニーシー・エレクトリックレールウェイ（アメリカンウォーターフロント）",
       "name_ja": "ディズニーシー・エレクトリックレールウェイ（アメリカンウォーターフロント）",
-      "wait_minutes": 20,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -149,7 +149,7 @@
       "id": "a-231",
       "name_en": "ディズニーシー・エレクトリックレールウェイ（ポートディスカバリー）",
       "name_ja": "ディズニーシー・エレクトリックレールウェイ（ポートディスカバリー）",
-      "wait_minutes": 5,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -237,7 +237,7 @@
       "id": "a-258",
       "name_en": "フェアリー・ティンカーベルのビジーバギー",
       "name_ja": "フェアリー・ティンカーベルのビジーバギー",
-      "wait_minutes": 50,
+      "wait_minutes": 40,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -314,7 +314,7 @@
       "id": "a-256",
       "name_en": "ラプンツェルのランタンフェスティバル",
       "name_ja": "ラプンツェルのランタンフェスティバル",
-      "wait_minutes": 40,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -336,12 +336,12 @@
       "id": "a-9912",
       "name_en": "ロストリバーデルタ（ミゲル　13:30～）",
       "name_ja": "ロストリバーデルタ（ミゲル　13:30～）",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "CLOSED",
-      "access_mode": "STANDBY",
-      "official_status_cd": "008",
-      "official_status_label": "準備中"
+      "wait_minutes": 30,
+      "is_open": true,
+      "status": "OPERATING",
+      "access_mode": "STANDBY_PASS_ONLY",
+      "official_status_cd": "026",
+      "official_status_label": "スタンバイパスがある方のみ案内中"
     },
     {
       "id": "a-9911",
@@ -358,7 +358,7 @@
       "id": "a-241",
       "name_en": "ワールプール",
       "name_ja": "ワールプール",
-      "wait_minutes": 25,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -369,18 +369,18 @@
       "id": "a-230",
       "name_en": "ヴェネツィアン・ゴンドラ",
       "name_ja": "ヴェネツィアン・ゴンドラ",
-      "wait_minutes": 5,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
-      "official_status_cd": "001",
-      "official_status_label": "運営中"
+      "official_status_cd": "004",
+      "official_status_label": "一時運営中止"
     },
     {
       "id": "a-224",
       "name_en": "海底２万マイル",
       "name_ja": "海底２万マイル",
-      "wait_minutes": 15,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -391,13 +391,13 @@
   "summary": {
     "count": 35,
     "open_count": 29,
-    "average_wait": 31.9,
+    "average_wait": 32.3,
     "max_wait": 140
   },
   "closures": null,
   "shows": {
     "source_url": "https://www.tokyodisneyresort.jp/tds/show.html",
-    "fetched_at": "2026-10-25T04:31:04.233Z",
+    "fetched_at": "2026-10-25T04:46:05.061Z",
     "items": [
       {
         "time": "19:30",
