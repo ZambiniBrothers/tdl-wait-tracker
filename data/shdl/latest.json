@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-25T12:46:23.828Z",
+  "fetched_at": "2026-10-25T13:01:30.250Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -105,7 +105,7 @@
       "id": "a-shdl-2990",
       "name_en": "Seven Dwarfs Mine Train",
       "name_ja": "七人のこびとのマイントレイン",
-      "wait_minutes": 45,
+      "wait_minutes": 40,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -127,7 +127,7 @@
       "id": "a-shdl-2991",
       "name_en": "The Many Adventures of Winnie the Pooh",
       "name_ja": "The Many Adventures of Winnie the Pooh",
-      "wait_minutes": 15,
+      "wait_minutes": 5,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -149,9 +149,9 @@
       "id": "a-shdl-3896",
       "name_en": "Become Iron Man at the Marvel Universe",
       "name_ja": "Become Iron Man at the Marvel Universe",
-      "wait_minutes": 5,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -183,8 +183,8 @@
       "name_en": "Marvel Universe",
       "name_ja": "Marvel Universe",
       "wait_minutes": null,
-      "is_open": true,
-      "status": "OPERATING",
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -237,7 +237,7 @@
       "id": "a-shdl-2985",
       "name_en": "TRON Lightcycle Power Run – Presented by Chevrolet",
       "name_ja": "トロン・ライトサイクル・パワーラン",
-      "wait_minutes": 40,
+      "wait_minutes": 25,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -270,9 +270,9 @@
       "id": "a-shdl-5634",
       "name_en": "Slinky Dog Spin",
       "name_ja": "Slinky Dog Spin",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 10,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -303,9 +303,9 @@
       "id": "a-shdl-2996",
       "name_en": "Pirates of the Caribbean Battle for the Sunken Treasure",
       "name_ja": "カリブの海賊：沈没船の財宝をめぐるバトル",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -358,13 +358,13 @@
   "summary": {
     "count": 32,
     "open_count": 20,
-    "average_wait": 19.4,
-    "max_wait": 45
+    "average_wait": 17.1,
+    "max_wait": 40
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/30/queue_times.json",
-    "fetched_at": "2026-10-25T12:46:23.828Z",
+    "fetched_at": "2026-10-25T13:01:30.250Z",
     "items": []
   }
 }
