@@ -1,17 +1,17 @@
 {
-  "fetched_at": "2026-10-26T01:20:31.165Z",
+  "fetched_at": "2026-10-26T01:30:47.585Z",
   "source": "tdr-official",
   "attractions": [
     {
       "id": "a-alices-tea-party",
       "name_en": "Alice's Tea Party",
       "name_ja": "アリスのティーパーティー",
-      "wait_minutes": 5,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
-      "official_status_cd": "001",
-      "official_status_label": "運営中"
+      "official_status_cd": "004",
+      "official_status_label": "一時運営中止"
     },
     {
       "id": "a-its-a-small-world",
@@ -241,7 +241,7 @@
       "id": "a-big-thunder-mountain",
       "name_en": "Big Thunder Mountain",
       "name_ja": "ビッグサンダー・マウンテン",
-      "wait_minutes": 25,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -361,7 +361,7 @@
       "id": "a-monsters-inc-ride-go-seek",
       "name_en": "Monsters, Inc. Ride & Go Seek!",
       "name_ja": "モンスターズ・インク“ライド＆ゴーシーク！”",
-      "wait_minutes": 30,
+      "wait_minutes": 40,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -442,13 +442,13 @@
   ],
   "summary": {
     "count": 37,
-    "open_count": 34,
-    "average_wait": 18,
+    "open_count": 33,
+    "average_wait": 18.5,
     "max_wait": 120
   },
   "closures": {
     "source_url": "https://www.tokyodisneyresort.jp/tdl/monthly/stop.html",
-    "fetched_at": "2026-10-26T01:20:24.140Z",
+    "fetched_at": "2026-10-26T01:30:43.874Z",
     "closures": {
       "a-peter-pans-flight": {
         "name_ja": "ピーターパン空の旅",
@@ -489,7 +489,7 @@
   },
   "shows": {
     "source_url": "https://www.tokyodisneyresort.jp/tdl/show.html",
-    "fetched_at": "2026-10-26T01:20:31.165Z",
+    "fetched_at": "2026-10-26T01:30:47.585Z",
     "items": [
       {
         "time": "13:00",
