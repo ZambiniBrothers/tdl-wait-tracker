@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-26T20:46:28.430Z",
+  "fetched_at": "2026-10-26T21:01:06.949Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -94,9 +94,9 @@
       "id": "a-dhs-120",
       "name_en": "Star Tours – The Adventures Continue",
       "name_ja": "スター・ツアーズ",
-      "wait_minutes": 5,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -149,7 +149,7 @@
       "id": "a-dhs-6368",
       "name_en": "Millennium Falcon: Smugglers Run",
       "name_ja": "ミレニアム・ファルコン：スマグラーズ・ラン",
-      "wait_minutes": 20,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -171,7 +171,7 @@
       "id": "a-dhs-6369",
       "name_en": "Star Wars: Rise of the Resistance",
       "name_ja": "スター・ウォーズ：ライズ・オブ・ザ・レジスタンス",
-      "wait_minutes": 25,
+      "wait_minutes": 35,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -280,14 +280,14 @@
   ],
   "summary": {
     "count": 25,
-    "open_count": 23,
-    "average_wait": 22.8,
+    "open_count": 22,
+    "average_wait": 24.8,
     "max_wait": 60
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/7/queue_times.json",
-    "fetched_at": "2026-10-26T20:46:28.430Z",
+    "fetched_at": "2026-10-26T21:01:06.949Z",
     "items": []
   }
 }
