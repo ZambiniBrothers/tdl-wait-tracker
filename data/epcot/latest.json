@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-26T23:46:25.785Z",
+  "fetched_at": "2026-10-27T00:01:19.635Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -39,9 +39,9 @@
       "id": "a-epcot-159",
       "name_en": "Spaceship Earth",
       "name_ja": "スペースシップ・アース",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -50,7 +50,7 @@
       "id": "a-epcot-10093",
       "name_en": "Guardians of the Galaxy: Cosmic Rewind",
       "name_ja": "ガーディアンズ・オブ・ギャラクシー：コズミック・リワインド",
-      "wait_minutes": 60,
+      "wait_minutes": 75,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -182,7 +182,7 @@
       "id": "a-epcot-2679",
       "name_en": "Frozen Ever After",
       "name_ja": "フローズン・エバーアフター",
-      "wait_minutes": 45,
+      "wait_minutes": 40,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -247,14 +247,14 @@
   ],
   "summary": {
     "count": 22,
-    "open_count": 16,
-    "average_wait": 26.5,
+    "open_count": 17,
+    "average_wait": 25.5,
     "max_wait": 75
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/5/queue_times.json",
-    "fetched_at": "2026-10-26T23:46:25.785Z",
+    "fetched_at": "2026-10-27T00:01:19.635Z",
     "items": []
   }
 }
