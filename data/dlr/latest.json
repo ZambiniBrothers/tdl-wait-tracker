@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-27T20:31:46.926Z",
+  "fetched_at": "2026-10-27T20:46:23.239Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -72,9 +72,9 @@
       "id": "a-dlr-14168",
       "name_en": "Tiana's Bayou Adventure",
       "name_ja": "Tiana's Bayou Adventure",
-      "wait_minutes": 35,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -84,8 +84,8 @@
       "name_en": "Tiana's Bayou Adventure Single Rider",
       "name_ja": "Tiana's Bayou Adventure Single Rider",
       "wait_minutes": null,
-      "is_open": true,
-      "status": "OPERATING",
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -127,7 +127,7 @@
       "id": "a-dlr-275",
       "name_en": "Dumbo the Flying Elephant",
       "name_ja": "空飛ぶダンボ",
-      "wait_minutes": 10,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -237,7 +237,7 @@
       "id": "a-dlr-305",
       "name_en": "Storybook Land Canal Boats",
       "name_ja": "Storybook Land Canal Boats",
-      "wait_minutes": 10,
+      "wait_minutes": 5,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -248,9 +248,9 @@
       "id": "a-dlr-323",
       "name_en": "Big Thunder Mountain Railroad",
       "name_ja": "ビッグサンダー・マウンテン",
-      "wait_minutes": 35,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -501,7 +501,7 @@
       "id": "a-dlr-6340",
       "name_en": "Star Wars: Rise of the Resistance",
       "name_ja": "スター・ウォーズ：ライズ・オブ・ザ・レジスタンス",
-      "wait_minutes": 20,
+      "wait_minutes": 25,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -512,7 +512,7 @@
       "id": "a-dlr-287",
       "name_en": "Astro Orbitor",
       "name_ja": "Astro Orbitor",
-      "wait_minutes": 15,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -556,7 +556,7 @@
       "id": "a-dlr-276",
       "name_en": "Finding Nemo Submarine Voyage",
       "name_ja": "ファインディング・ニモ・サブマリン・ボヤッジ",
-      "wait_minutes": 15,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -578,7 +578,7 @@
       "id": "a-dlr-284",
       "name_en": "Space Mountain",
       "name_ja": "スペース・マウンテン",
-      "wait_minutes": 40,
+      "wait_minutes": 50,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -599,14 +599,14 @@
   ],
   "summary": {
     "count": 54,
-    "open_count": 47,
-    "average_wait": 15.9,
-    "max_wait": 40
+    "open_count": 44,
+    "average_wait": 14.8,
+    "max_wait": 50
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/16/queue_times.json",
-    "fetched_at": "2026-10-27T20:31:46.926Z",
+    "fetched_at": "2026-10-27T20:46:23.239Z",
     "items": []
   }
 }
