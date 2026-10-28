@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-28T02:30:53.781Z",
+  "fetched_at": "2026-10-28T02:45:54.338Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -72,9 +72,9 @@
       "id": "a-mk-133",
       "name_en": "\"it's a small world\"",
       "name_ja": "イッツ・ア・スモールワールド",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -127,7 +127,7 @@
       "id": "a-mk-135",
       "name_en": "Mad Tea Party",
       "name_ja": "マッドティーパーティー",
-      "wait_minutes": 5,
+      "wait_minutes": null,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -204,9 +204,9 @@
       "id": "a-mk-136",
       "name_en": "Peter Pan's Flight",
       "name_ja": "ピーターパン空の旅",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 30,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -226,7 +226,7 @@
       "id": "a-mk-129",
       "name_en": "Seven Dwarfs Mine Train",
       "name_ja": "七人のこびとのマイントレイン",
-      "wait_minutes": 15,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -248,7 +248,7 @@
       "id": "a-mk-142",
       "name_en": "The Many Adventures of Winnie the Pooh",
       "name_ja": "The Many Adventures of Winnie the Pooh",
-      "wait_minutes": 5,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -435,7 +435,7 @@
       "id": "a-mk-11527",
       "name_en": "TRON Lightcycle / Run",
       "name_ja": "トロン・ライトサイクル・ラン",
-      "wait_minutes": 45,
+      "wait_minutes": 40,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -457,7 +457,7 @@
       "id": "a-mk-17526",
       "name_en": "Meet Festive Disney Pals at Mickey’s Not-So-Scary Halloween Party",
       "name_ja": "Meet Festive Disney Pals at Mickey’s Not-So-Scary Halloween Party",
-      "wait_minutes": 10,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -468,7 +468,7 @@
       "id": "a-mk-14928",
       "name_en": "Meet Jack Skellington and Sally at Mickey's Not-So-Scary Halloween Party",
       "name_ja": "Meet Jack Skellington and Sally at Mickey's Not-So-Scary Halloween Party",
-      "wait_minutes": 75,
+      "wait_minutes": 70,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -500,14 +500,14 @@
   ],
   "summary": {
     "count": 45,
-    "open_count": 24,
-    "average_wait": 12.6,
-    "max_wait": 75
+    "open_count": 26,
+    "average_wait": 13.8,
+    "max_wait": 70
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/6/queue_times.json",
-    "fetched_at": "2026-10-28T02:30:53.781Z",
+    "fetched_at": "2026-10-28T02:45:54.338Z",
     "items": []
   }
 }
