@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-29T04:47:04.221Z",
+  "fetched_at": "2026-10-29T05:02:04.542Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -105,7 +105,7 @@
       "id": "a-dlr-285",
       "name_en": "Alice in Wonderland",
       "name_ja": "ふしぎの国のアリス",
-      "wait_minutes": 25,
+      "wait_minutes": 35,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -138,9 +138,9 @@
       "id": "a-dlr-277",
       "name_en": "King Arthur Carrousel",
       "name_ja": "King Arthur Carrousel",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 10,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -193,7 +193,7 @@
       "id": "a-dlr-281",
       "name_en": "Peter Pan's Flight",
       "name_ja": "ピーターパン空の旅",
-      "wait_minutes": 15,
+      "wait_minutes": 40,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -457,7 +457,7 @@
       "id": "a-dlr-325",
       "name_en": "Haunted Mansion Holiday",
       "name_ja": "Haunted Mansion Holiday",
-      "wait_minutes": 35,
+      "wait_minutes": 45,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -523,7 +523,7 @@
       "id": "a-dlr-317",
       "name_en": "Autopia",
       "name_ja": "オートピア",
-      "wait_minutes": 15,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -545,9 +545,9 @@
       "id": "a-dlr-274",
       "name_en": "Disneyland Monorail",
       "name_ja": "Disneyland Monorail",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -599,14 +599,14 @@
   ],
   "summary": {
     "count": 54,
-    "open_count": 37,
-    "average_wait": 12.9,
+    "open_count": 39,
+    "average_wait": 13.9,
     "max_wait": 45
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/16/queue_times.json",
-    "fetched_at": "2026-10-29T04:47:04.221Z",
+    "fetched_at": "2026-10-29T05:02:04.542Z",
     "items": []
   }
 }
