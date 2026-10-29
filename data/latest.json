@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-29T08:01:38.216Z",
+  "fetched_at": "2026-10-29T08:16:34.417Z",
   "source": "tdr-official",
   "attractions": [
     {
@@ -94,7 +94,7 @@
       "id": "a-castle-carrousel",
       "name_en": "Castle Carrousel",
       "name_ja": "キャッスルカルーセル",
-      "wait_minutes": 15,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -132,7 +132,7 @@
       "id": "a-jungle-cruise-wildlife-expeditions",
       "name_en": "Jungle Cruise: Wildlife Expeditions",
       "name_ja": "ジャングルクルーズ：ワイルドライフ・エクスペディション",
-      "wait_minutes": 15,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -181,7 +181,7 @@
       "id": "a-splash-mountain",
       "name_en": "Splash Mountain",
       "name_ja": "スプラッシュ・マウンテン",
-      "wait_minutes": 50,
+      "wait_minutes": 40,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -242,11 +242,11 @@
       "name_en": "Big Thunder Mountain",
       "name_ja": "ビッグサンダー・マウンテン",
       "wait_minutes": null,
-      "is_open": true,
-      "status": "OPERATING",
-      "access_mode": "PP_ONLY",
-      "official_status_cd": "045",
-      "official_status_label": "プライオリティ・アクセス・エントランスをご利用の方のみ案内中"
+      "is_open": false,
+      "status": "DOWN",
+      "access_mode": "STANDBY",
+      "official_status_cd": "004",
+      "official_status_label": "一時運営中止"
     },
     {
       "id": "a-beaver-brothers-explorer-canoes",
@@ -323,7 +323,7 @@
       "id": "a-unknown",
       "name_en": "ホーンテッドマンション“ホリデーナイトメアー”",
       "name_ja": "ホーンテッドマンション“ホリデーナイトメアー”",
-      "wait_minutes": 40,
+      "wait_minutes": 50,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -350,7 +350,7 @@
       "id": "a-minnies-house",
       "name_en": "Minnie's House",
       "name_ja": "ミニーの家",
-      "wait_minutes": 20,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -442,13 +442,13 @@
   ],
   "summary": {
     "count": 37,
-    "open_count": 31,
+    "open_count": 30,
     "average_wait": 21.4,
     "max_wait": 60
   },
   "closures": {
     "source_url": "https://www.tokyodisneyresort.jp/tdl/monthly/stop.html",
-    "fetched_at": "2026-10-29T08:01:30.277Z",
+    "fetched_at": "2026-10-29T08:16:26.373Z",
     "closures": {
       "a-peter-pans-flight": {
         "name_ja": "ピーターパン空の旅",
@@ -489,7 +489,7 @@
   },
   "shows": {
     "source_url": "https://www.tokyodisneyresort.jp/tdl/show.html",
-    "fetched_at": "2026-10-29T08:01:38.216Z",
+    "fetched_at": "2026-10-29T08:16:34.417Z",
     "items": [
       {
         "time": "13:00",
