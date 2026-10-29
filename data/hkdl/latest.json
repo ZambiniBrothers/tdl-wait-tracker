@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-29T02:46:27.871Z",
+  "fetched_at": "2026-10-29T03:01:26.483Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -127,7 +127,7 @@
       "id": "a-hkdl-2826",
       "name_en": "Dumbo the Flying Elephant",
       "name_ja": "空飛ぶダンボ",
-      "wait_minutes": null,
+      "wait_minutes": 5,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -171,7 +171,7 @@
       "id": "a-hkdl-12433",
       "name_en": "Frozen Ever After – Presented by Blue Cross",
       "name_ja": "フローズン・エバーアフター",
-      "wait_minutes": 10,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -336,9 +336,9 @@
       "id": "a-hkdl-13864",
       "name_en": "Meet ‘Olu Mel at Duffy and Friends Play House",
       "name_ja": "Meet ‘Olu Mel at Duffy and Friends Play House",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 45,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -347,9 +347,9 @@
       "id": "a-hkdl-13865",
       "name_en": "Meet CookieAnn at Duffy and Friends Play House",
       "name_ja": "Meet CookieAnn at Duffy and Friends Play House",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 45,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -380,9 +380,9 @@
       "id": "a-hkdl-13866",
       "name_en": "Meet LinaBell at Duffy and Friends Play House",
       "name_ja": "Meet LinaBell at Duffy and Friends Play House",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 60,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -621,14 +621,14 @@
   ],
   "summary": {
     "count": 56,
-    "open_count": 28,
-    "average_wait": 7.9,
-    "max_wait": 15
+    "open_count": 31,
+    "average_wait": 20,
+    "max_wait": 60
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/31/queue_times.json",
-    "fetched_at": "2026-10-29T02:46:27.871Z",
+    "fetched_at": "2026-10-29T03:01:26.483Z",
     "items": []
   }
 }
