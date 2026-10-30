@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-30T06:31:37.155Z",
+  "fetched_at": "2026-10-30T06:46:35.394Z",
   "source": "tdr-official",
   "attractions": [
     {
@@ -61,7 +61,7 @@
       "id": "a-pirates-of-the-caribbean",
       "name_en": "Pirates of the Caribbean",
       "name_ja": "カリブの海賊",
-      "wait_minutes": 10,
+      "wait_minutes": 5,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -242,22 +242,22 @@
       "name_en": "Big Thunder Mountain",
       "name_ja": "ビッグサンダー・マウンテン",
       "wait_minutes": null,
-      "is_open": true,
-      "status": "OPERATING",
-      "access_mode": "PP_ONLY",
-      "official_status_cd": "045",
-      "official_status_label": "プライオリティ・アクセス・エントランスをご利用の方のみ案内中"
+      "is_open": false,
+      "status": "DOWN",
+      "access_mode": "STANDBY",
+      "official_status_cd": "004",
+      "official_status_label": "一時運営中止"
     },
     {
       "id": "a-beaver-brothers-explorer-canoes",
       "name_en": "Beaver Brothers Explorer Canoes",
       "name_ja": "ビーバーブラザーズのカヌー探険",
-      "wait_minutes": 20,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "CLOSED",
       "access_mode": "STANDBY",
-      "official_status_cd": "001",
-      "official_status_label": "運営中"
+      "official_status_cd": "002",
+      "official_status_label": "案内終了"
     },
     {
       "id": "a-pinocchios-daring-journey",
@@ -274,7 +274,7 @@
       "id": "a-peter-pans-flight",
       "name_en": "Peter Pan's Flight",
       "name_ja": "ピーターパン空の旅",
-      "wait_minutes": 25,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -399,7 +399,7 @@
       "id": "a-dumbo-the-flying-elephant",
       "name_en": "Dumbo The Flying Elephant",
       "name_ja": "空飛ぶダンボ",
-      "wait_minutes": 30,
+      "wait_minutes": 25,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -442,13 +442,13 @@
   ],
   "summary": {
     "count": 37,
-    "open_count": 33,
-    "average_wait": 14.2,
+    "open_count": 31,
+    "average_wait": 13.1,
     "max_wait": 40
   },
   "closures": {
     "source_url": "https://www.tokyodisneyresort.jp/tdl/monthly/stop.html",
-    "fetched_at": "2026-10-30T06:31:27.153Z",
+    "fetched_at": "2026-10-30T06:46:25.895Z",
     "closures": {
       "a-peter-pans-flight": {
         "name_ja": "ピーターパン空の旅",
@@ -489,7 +489,7 @@
   },
   "shows": {
     "source_url": "https://www.tokyodisneyresort.jp/tdl/show.html",
-    "fetched_at": "2026-10-30T06:31:37.155Z",
+    "fetched_at": "2026-10-30T06:46:35.394Z",
     "items": [
       {
         "time": "13:00",
