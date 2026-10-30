@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-30T13:47:28.674Z",
+  "fetched_at": "2026-10-30T14:02:07.694Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -50,7 +50,7 @@
       "id": "a-hkdl-2843",
       "name_en": "Big Grizzly Mountain Runaway Mine Cars",
       "name_ja": "ビッググリズリー・マウンテン",
-      "wait_minutes": 45,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -127,9 +127,9 @@
       "id": "a-hkdl-2826",
       "name_en": "Dumbo the Flying Elephant",
       "name_ja": "空飛ぶダンボ",
-      "wait_minutes": 25,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -545,7 +545,7 @@
       "id": "a-hkdl-2824",
       "name_en": "The Many Adventures of Winnie the Pooh",
       "name_ja": "The Many Adventures of Winnie the Pooh",
-      "wait_minutes": 15,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -621,14 +621,14 @@
   ],
   "summary": {
     "count": 56,
-    "open_count": 29,
-    "average_wait": 16.7,
-    "max_wait": 45
+    "open_count": 28,
+    "average_wait": 14.6,
+    "max_wait": 30
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/31/queue_times.json",
-    "fetched_at": "2026-10-30T13:47:28.674Z",
+    "fetched_at": "2026-10-30T14:02:07.694Z",
     "items": []
   }
 }
