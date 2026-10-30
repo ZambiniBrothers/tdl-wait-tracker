@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-30T13:02:16.419Z",
+  "fetched_at": "2026-10-30T13:16:59.485Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -106,8 +106,8 @@
       "name_en": "Comet Cafe",
       "name_ja": "Comet Cafe",
       "wait_minutes": null,
-      "is_open": true,
-      "status": "OPERATING",
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -479,7 +479,7 @@
       "id": "a-hkdl-2840",
       "name_en": "RC Racer",
       "name_ja": "RC Racer",
-      "wait_minutes": 30,
+      "wait_minutes": 40,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -545,7 +545,7 @@
       "id": "a-hkdl-2824",
       "name_en": "The Many Adventures of Winnie the Pooh",
       "name_ja": "The Many Adventures of Winnie the Pooh",
-      "wait_minutes": 20,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -567,7 +567,7 @@
       "id": "a-hkdl-2842",
       "name_en": "Toy Soldier Parachute Drop",
       "name_ja": "Toy Soldier Parachute Drop",
-      "wait_minutes": 30,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -589,7 +589,7 @@
       "id": "a-hkdl-12432",
       "name_en": "Wandering Oaken’s Sliding Sleighs",
       "name_ja": "Wandering Oaken’s Sliding Sleighs",
-      "wait_minutes": 25,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -601,8 +601,8 @@
       "name_en": "Wayfinders' Table",
       "name_ja": "Wayfinders' Table",
       "wait_minutes": null,
-      "is_open": true,
-      "status": "OPERATING",
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -621,14 +621,14 @@
   ],
   "summary": {
     "count": 56,
-    "open_count": 38,
-    "average_wait": 17.9,
-    "max_wait": 30
+    "open_count": 36,
+    "average_wait": 16.8,
+    "max_wait": 40
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/31/queue_times.json",
-    "fetched_at": "2026-10-30T13:02:16.419Z",
+    "fetched_at": "2026-10-30T13:16:59.485Z",
     "items": []
   }
 }
