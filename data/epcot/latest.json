@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-30T21:47:05.630Z",
+  "fetched_at": "2026-10-30T22:02:03.981Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -28,7 +28,7 @@
       "id": "a-epcot-13627",
       "name_en": "Meet Beloved Disney Pals at Mickey & Friends",
       "name_ja": "Meet Beloved Disney Pals at Mickey & Friends",
-      "wait_minutes": 10,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -50,7 +50,7 @@
       "id": "a-epcot-10093",
       "name_en": "Guardians of the Galaxy: Cosmic Rewind",
       "name_ja": "ガーディアンズ・オブ・ギャラクシー：コズミック・リワインド",
-      "wait_minutes": 60,
+      "wait_minutes": 55,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -72,9 +72,9 @@
       "id": "a-epcot-160",
       "name_en": "Test Track",
       "name_ja": "テスト・トラック",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 70,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -84,8 +84,8 @@
       "name_en": "Test Track Presented by Chevrolet Single Rider",
       "name_ja": "テスト・トラック",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -182,7 +182,7 @@
       "id": "a-epcot-2679",
       "name_en": "Frozen Ever After",
       "name_ja": "フローズン・エバーアフター",
-      "wait_minutes": 55,
+      "wait_minutes": 60,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -215,7 +215,7 @@
       "id": "a-epcot-8956",
       "name_en": "Remy's Ratatouille Adventure",
       "name_ja": "レミーのおいしいレストラン",
-      "wait_minutes": 55,
+      "wait_minutes": 40,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -247,14 +247,14 @@
   ],
   "summary": {
     "count": 22,
-    "open_count": 19,
-    "average_wait": 21.9,
-    "max_wait": 60
+    "open_count": 21,
+    "average_wait": 25,
+    "max_wait": 70
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/5/queue_times.json",
-    "fetched_at": "2026-10-30T21:47:05.630Z",
+    "fetched_at": "2026-10-30T22:02:03.981Z",
     "items": []
   }
 }
