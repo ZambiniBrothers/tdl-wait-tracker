@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-30T04:31:34.928Z",
+  "fetched_at": "2026-10-30T04:46:26.216Z",
   "source": "tdr-official",
   "attractions": [
     {
@@ -28,7 +28,7 @@
       "id": "a-westernland-shootin-gallery",
       "name_en": "Westernland Shootin' Gallery",
       "name_ja": "ウエスタンランド・シューティングギャラリー",
-      "wait_minutes": 5,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -39,7 +39,7 @@
       "id": "a-western-river-railroad",
       "name_en": "Western River Railroad",
       "name_ja": "ウエスタンリバー鉄道",
-      "wait_minutes": 5,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -50,18 +50,18 @@
       "id": "a-omnibus",
       "name_en": "Omnibus",
       "name_ja": "オムニバス",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
-      "official_status_cd": "004",
-      "official_status_label": "一時運営中止"
+      "official_status_cd": "001",
+      "official_status_label": "運営中"
     },
     {
       "id": "a-pirates-of-the-caribbean",
       "name_en": "Pirates of the Caribbean",
       "name_ja": "カリブの海賊",
-      "wait_minutes": 5,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -181,7 +181,7 @@
       "id": "a-splash-mountain",
       "name_en": "Splash Mountain",
       "name_ja": "スプラッシュ・マウンテン",
-      "wait_minutes": 40,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -241,7 +241,7 @@
       "id": "a-big-thunder-mountain",
       "name_en": "Big Thunder Mountain",
       "name_ja": "ビッグサンダー・マウンテン",
-      "wait_minutes": 30,
+      "wait_minutes": 40,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -252,7 +252,7 @@
       "id": "a-beaver-brothers-explorer-canoes",
       "name_en": "Beaver Brothers Explorer Canoes",
       "name_ja": "ビーバーブラザーズのカヌー探険",
-      "wait_minutes": 5,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -274,7 +274,7 @@
       "id": "a-peter-pans-flight",
       "name_en": "Peter Pan's Flight",
       "name_ja": "ピーターパン空の旅",
-      "wait_minutes": 20,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -290,7 +290,7 @@
       "id": "a-poohs-hunny-hunt",
       "name_en": "Pooh's Hunny Hunt",
       "name_ja": "プーさんのハニーハント",
-      "wait_minutes": 30,
+      "wait_minutes": 25,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -301,7 +301,7 @@
       "id": "a-the-happy-ride-with-baymax",
       "name_en": "The Happy Ride with Baymax",
       "name_ja": "ベイマックスのハッピーライド",
-      "wait_minutes": 25,
+      "wait_minutes": 40,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -361,7 +361,7 @@
       "id": "a-monsters-inc-ride-go-seek",
       "name_en": "Monsters, Inc. Ride & Go Seek!",
       "name_ja": "モンスターズ・インク“ライド＆ゴーシーク！”",
-      "wait_minutes": 10,
+      "wait_minutes": 25,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -442,13 +442,13 @@
   ],
   "summary": {
     "count": 37,
-    "open_count": 33,
-    "average_wait": 12.4,
+    "open_count": 34,
+    "average_wait": 13.4,
     "max_wait": 40
   },
   "closures": {
     "source_url": "https://www.tokyodisneyresort.jp/tdl/monthly/stop.html",
-    "fetched_at": "2026-10-30T04:31:26.520Z",
+    "fetched_at": "2026-10-30T04:46:25.632Z",
     "closures": {
       "a-peter-pans-flight": {
         "name_ja": "ピーターパン空の旅",
@@ -489,7 +489,7 @@
   },
   "shows": {
     "source_url": "https://www.tokyodisneyresort.jp/tdl/show.html",
-    "fetched_at": "2026-10-30T04:31:34.928Z",
+    "fetched_at": "2026-10-30T04:46:26.216Z",
     "items": [
       {
         "time": "13:00",
