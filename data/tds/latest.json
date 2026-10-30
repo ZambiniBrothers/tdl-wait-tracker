@@ -1,17 +1,17 @@
 {
-  "fetched_at": "2026-10-30T06:46:51.408Z",
+  "fetched_at": "2026-10-30T07:01:53.193Z",
   "source": "tdr-official",
   "attractions": [
     {
       "id": "a-255",
       "name_en": "アナとエルサのフローズンジャーニー",
       "name_ja": "アナとエルサのフローズンジャーニー",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 120,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
-      "official_status_cd": "004",
-      "official_status_label": "一時運営中止"
+      "official_status_cd": "001",
+      "official_status_label": "運営中"
     },
     {
       "id": "a-202",
@@ -105,7 +105,7 @@
       "id": "a-219",
       "name_en": "ソアリン：ファンタスティック・フライト",
       "name_ja": "ソアリン：ファンタスティック・フライト",
-      "wait_minutes": 100,
+      "wait_minutes": 120,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -127,7 +127,7 @@
       "id": "a-246",
       "name_en": "タートル・トーク",
       "name_ja": "タートル・トーク",
-      "wait_minutes": 15,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -138,7 +138,7 @@
       "id": "a-232",
       "name_en": "ディズニーシー・エレクトリックレールウェイ（アメリカンウォーターフロント）",
       "name_ja": "ディズニーシー・エレクトリックレールウェイ（アメリカンウォーターフロント）",
-      "wait_minutes": 15,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -193,7 +193,7 @@
       "id": "a-218",
       "name_en": "トイ・ストーリー・マニア！",
       "name_ja": "トイ・ストーリー・マニア！",
-      "wait_minutes": 100,
+      "wait_minutes": 90,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -270,7 +270,7 @@
       "id": "a-237",
       "name_en": "フランダーのフライングフィッシュコースター",
       "name_ja": "フランダーのフライングフィッシュコースター",
-      "wait_minutes": 25,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -380,7 +380,7 @@
       "id": "a-224",
       "name_en": "海底２万マイル",
       "name_ja": "海底２万マイル",
-      "wait_minutes": 15,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -390,14 +390,14 @@
   ],
   "summary": {
     "count": 35,
-    "open_count": 25,
-    "average_wait": 27.4,
-    "max_wait": 100
+    "open_count": 26,
+    "average_wait": 31.3,
+    "max_wait": 120
   },
   "closures": null,
   "shows": {
     "source_url": "https://www.tokyodisneyresort.jp/tds/show.html",
-    "fetched_at": "2026-10-30T06:46:51.408Z",
+    "fetched_at": "2026-10-30T07:01:53.193Z",
     "items": [
       {
         "time": "11:30",
