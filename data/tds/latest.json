@@ -1,17 +1,17 @@
 {
-  "fetched_at": "2026-10-31T04:16:46.476Z",
+  "fetched_at": "2026-10-31T04:31:49.733Z",
   "source": "tdr-official",
   "attractions": [
     {
       "id": "a-255",
       "name_en": "アナとエルサのフローズンジャーニー",
       "name_ja": "アナとエルサのフローズンジャーニー",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 60,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
-      "official_status_cd": "004",
-      "official_status_label": "一時運営中止"
+      "official_status_cd": "001",
+      "official_status_label": "運営中"
     },
     {
       "id": "a-202",
@@ -83,7 +83,7 @@
       "id": "a-238",
       "name_en": "スカットルのスクーター",
       "name_ja": "スカットルのスクーター",
-      "wait_minutes": 5,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -94,7 +94,7 @@
       "id": "a-223",
       "name_en": "センター・オブ・ジ・アース",
       "name_ja": "センター・オブ・ジ・アース",
-      "wait_minutes": 50,
+      "wait_minutes": 60,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -138,7 +138,7 @@
       "id": "a-232",
       "name_en": "ディズニーシー・エレクトリックレールウェイ（アメリカンウォーターフロント）",
       "name_ja": "ディズニーシー・エレクトリックレールウェイ（アメリカンウォーターフロント）",
-      "wait_minutes": 15,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -193,7 +193,7 @@
       "id": "a-218",
       "name_en": "トイ・ストーリー・マニア！",
       "name_ja": "トイ・ストーリー・マニア！",
-      "wait_minutes": 60,
+      "wait_minutes": 80,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -215,18 +215,18 @@
       "id": "a-233",
       "name_en": "ビッグシティ・ヴィークル",
       "name_ja": "ビッグシティ・ヴィークル",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
-      "official_status_cd": "004",
-      "official_status_label": "一時運営中止"
+      "official_status_cd": "001",
+      "official_status_label": "運営中"
     },
     {
       "id": "a-257",
       "name_en": "ピーターパンのネバーランドアドベンチャー",
       "name_ja": "ピーターパンのネバーランドアドベンチャー",
-      "wait_minutes": 25,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -336,12 +336,12 @@
       "id": "a-9912",
       "name_en": "ロストリバーデルタ（ミゲル　13:30～）",
       "name_ja": "ロストリバーデルタ（ミゲル　13:30～）",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "CLOSED",
-      "access_mode": "STANDBY",
-      "official_status_cd": "008",
-      "official_status_label": "準備中"
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
+      "access_mode": "STANDBY_PASS_ONLY",
+      "official_status_cd": "026",
+      "official_status_label": "スタンバイパスがある方のみ案内中"
     },
     {
       "id": "a-9911",
@@ -358,7 +358,7 @@
       "id": "a-241",
       "name_en": "ワールプール",
       "name_ja": "ワールプール",
-      "wait_minutes": 5,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -390,14 +390,14 @@
   ],
   "summary": {
     "count": 35,
-    "open_count": 24,
-    "average_wait": 22.3,
+    "open_count": 27,
+    "average_wait": 24.4,
     "max_wait": 90
   },
   "closures": null,
   "shows": {
     "source_url": "https://www.tokyodisneyresort.jp/tds/show.html",
-    "fetched_at": "2026-10-31T04:16:46.476Z",
+    "fetched_at": "2026-10-31T04:31:49.733Z",
     "items": [
       {
         "time": "11:30",
