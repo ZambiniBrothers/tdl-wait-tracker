@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-31T11:46:38.926Z",
+  "fetched_at": "2026-10-31T12:01:59.703Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -72,9 +72,9 @@
       "id": "a-mk-133",
       "name_en": "\"it's a small world\"",
       "name_ja": "イッツ・ア・スモールワールド",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -204,9 +204,9 @@
       "id": "a-mk-136",
       "name_en": "Peter Pan's Flight",
       "name_ja": "ピーターパン空の旅",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 35,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -215,7 +215,7 @@
       "id": "a-mk-161",
       "name_en": "Prince Charming Regal Carrousel",
       "name_ja": "Prince Charming Regal Carrousel",
-      "wait_minutes": null,
+      "wait_minutes": 5,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -226,7 +226,7 @@
       "id": "a-mk-129",
       "name_en": "Seven Dwarfs Mine Train",
       "name_ja": "七人のこびとのマイントレイン",
-      "wait_minutes": 25,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -248,7 +248,7 @@
       "id": "a-mk-142",
       "name_en": "The Many Adventures of Winnie the Pooh",
       "name_ja": "The Many Adventures of Winnie the Pooh",
-      "wait_minutes": 5,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -369,9 +369,9 @@
       "id": "a-mk-248",
       "name_en": "Astro Orbiter",
       "name_ja": "Astro Orbiter",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -402,7 +402,7 @@
       "id": "a-mk-138",
       "name_en": "Space Mountain",
       "name_ja": "スペース・マウンテン",
-      "wait_minutes": 10,
+      "wait_minutes": 25,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -413,7 +413,7 @@
       "id": "a-mk-143",
       "name_en": "Tomorrowland Speedway",
       "name_ja": "Tomorrowland Speedway",
-      "wait_minutes": 5,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -500,14 +500,14 @@
   ],
   "summary": {
     "count": 45,
-    "open_count": 11,
-    "average_wait": 7.8,
-    "max_wait": 25
+    "open_count": 14,
+    "average_wait": 10.8,
+    "max_wait": 35
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/6/queue_times.json",
-    "fetched_at": "2026-10-31T11:46:38.926Z",
+    "fetched_at": "2026-10-31T12:01:59.703Z",
     "items": []
   }
 }
