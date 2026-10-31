@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-31T19:31:31.138Z",
+  "fetched_at": "2026-10-31T19:46:35.535Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -94,7 +94,7 @@
       "id": "a-dlp-4",
       "name_en": "Autopia, presented by Avis",
       "name_ja": "Autopia, presented by Avis",
-      "wait_minutes": 65,
+      "wait_minutes": 70,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -182,7 +182,7 @@
       "id": "a-dlp-7278",
       "name_en": "Star Wars Hyperspace Mountain Single Rider",
       "name_ja": "スター・ウォーズ：ハイパースペース・マウンテン",
-      "wait_minutes": 15,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -204,9 +204,9 @@
       "id": "a-dlp-19",
       "name_en": "\"it's a small world\"",
       "name_ja": "イッツ・ア・スモールワールド",
-      "wait_minutes": 5,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -227,8 +227,8 @@
       "name_en": "Blanche-Neige et les Sept Nains®",
       "name_ja": "Blanche-Neige et les Sept Nains®",
       "wait_minutes": null,
-      "is_open": true,
-      "status": "OPERATING",
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -270,9 +270,9 @@
       "id": "a-dlp-18",
       "name_en": "Dumbo the Flying Elephant",
       "name_ja": "空飛ぶダンボ",
-      "wait_minutes": 35,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -282,8 +282,8 @@
       "name_en": "La Tanière du Dragon",
       "name_ja": "La Tanière du Dragon",
       "wait_minutes": null,
-      "is_open": true,
-      "status": "OPERATING",
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -292,9 +292,9 @@
       "id": "a-dlp-16",
       "name_en": "Le Carrousel de Lancelot",
       "name_ja": "Le Carrousel de Lancelot",
-      "wait_minutes": 5,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -314,9 +314,9 @@
       "id": "a-dlp-23",
       "name_en": "Les Voyages de Pinocchio",
       "name_ja": "Les Voyages de Pinocchio",
-      "wait_minutes": 20,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -325,9 +325,9 @@
       "id": "a-dlp-20",
       "name_en": "Mad Hatter's Tea Cups",
       "name_ja": "Mad Hatter's Tea Cups",
-      "wait_minutes": 5,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -347,9 +347,9 @@
       "id": "a-dlp-22",
       "name_en": "Peter Pan's Flight",
       "name_ja": "ピーターパン空の旅",
-      "wait_minutes": 50,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -467,14 +467,14 @@
   ],
   "summary": {
     "count": 42,
-    "open_count": 24,
-    "average_wait": 25.3,
+    "open_count": 16,
+    "average_wait": 28.8,
     "max_wait": 70
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/4/queue_times.json",
-    "fetched_at": "2026-10-31T19:31:31.138Z",
+    "fetched_at": "2026-10-31T19:46:35.535Z",
     "items": []
   }
 }
