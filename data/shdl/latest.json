@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-31T01:02:10.508Z",
+  "fetched_at": "2026-10-31T01:17:10.532Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -72,9 +72,9 @@
       "id": "a-shdl-2987",
       "name_en": "Alice in Wonderland Maze",
       "name_ja": "Alice in Wonderland Maze",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -83,7 +83,7 @@
       "id": "a-shdl-2988",
       "name_en": "Hunny Pot Spin",
       "name_ja": "Hunny Pot Spin",
-      "wait_minutes": 5,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -105,7 +105,7 @@
       "id": "a-shdl-2990",
       "name_en": "Seven Dwarfs Mine Train",
       "name_ja": "七人のこびとのマイントレイン",
-      "wait_minutes": 75,
+      "wait_minutes": 80,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -127,7 +127,7 @@
       "id": "a-shdl-2991",
       "name_en": "The Many Adventures of Winnie the Pooh",
       "name_ja": "The Many Adventures of Winnie the Pooh",
-      "wait_minutes": 10,
+      "wait_minutes": 25,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -160,7 +160,7 @@
       "id": "a-shdl-2993",
       "name_en": "Dumbo the Flying Elephant",
       "name_ja": "空飛ぶダンボ",
-      "wait_minutes": 10,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -204,7 +204,7 @@
       "id": "a-shdl-3000",
       "name_en": "Jet Packs",
       "name_ja": "Jet Packs",
-      "wait_minutes": 10,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -270,7 +270,7 @@
       "id": "a-shdl-5634",
       "name_en": "Slinky Dog Spin",
       "name_ja": "Slinky Dog Spin",
-      "wait_minutes": 5,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -303,7 +303,7 @@
       "id": "a-shdl-2996",
       "name_en": "Pirates of the Caribbean Battle for the Sunken Treasure",
       "name_ja": "カリブの海賊：沈没船の財宝をめぐるバトル",
-      "wait_minutes": 15,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -357,14 +357,14 @@
   ],
   "summary": {
     "count": 32,
-    "open_count": 21,
-    "average_wait": 24.7,
-    "max_wait": 75
+    "open_count": 22,
+    "average_wait": 27.4,
+    "max_wait": 80
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/30/queue_times.json",
-    "fetched_at": "2026-10-31T01:02:10.508Z",
+    "fetched_at": "2026-10-31T01:17:10.532Z",
     "items": []
   }
 }
