@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-31T05:46:39.448Z",
+  "fetched_at": "2026-10-31T06:01:50.241Z",
   "source": "tdr-official",
   "attractions": [
     {
@@ -50,12 +50,12 @@
       "id": "a-omnibus",
       "name_en": "Omnibus",
       "name_ja": "オムニバス",
-      "wait_minutes": 10,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "CLOSED",
       "access_mode": "STANDBY",
-      "official_status_cd": "001",
-      "official_status_label": "運営中"
+      "official_status_cd": "002",
+      "official_status_label": "案内終了"
     },
     {
       "id": "a-pirates-of-the-caribbean",
@@ -83,7 +83,7 @@
       "id": "a-gadgets-go-coaster",
       "name_en": "Gadget’s Go Coaster",
       "name_ja": "ガジェットのゴーコースター",
-      "wait_minutes": 20,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -154,7 +154,7 @@
       "id": "a-star-tours-the-adventures-continue",
       "name_en": "Star Tours: The Adventures Continue",
       "name_ja": "スター・ツアーズ：ザ・アドベンチャーズ・コンティニュー",
-      "wait_minutes": 15,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -181,7 +181,7 @@
       "id": "a-splash-mountain",
       "name_en": "Splash Mountain",
       "name_ja": "スプラッシュ・マウンテン",
-      "wait_minutes": 50,
+      "wait_minutes": 40,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -388,7 +388,7 @@
       "id": "a-snow-whites-adventures",
       "name_en": "Snow White's Adventures",
       "name_ja": "白雪姫と七人のこびと",
-      "wait_minutes": 20,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -442,13 +442,13 @@
   ],
   "summary": {
     "count": 37,
-    "open_count": 35,
-    "average_wait": 23.2,
+    "open_count": 34,
+    "average_wait": 22.8,
     "max_wait": 80
   },
   "closures": {
     "source_url": "https://www.tokyodisneyresort.jp/tdl/monthly/stop.html",
-    "fetched_at": "2026-10-31T05:46:28.258Z",
+    "fetched_at": "2026-10-31T06:01:36.673Z",
     "closures": {
       "a-peter-pans-flight": {
         "name_ja": "ピーターパン空の旅",
@@ -489,7 +489,7 @@
   },
   "shows": {
     "source_url": "https://www.tokyodisneyresort.jp/tdl/show.html",
-    "fetched_at": "2026-10-31T05:46:39.448Z",
+    "fetched_at": "2026-10-31T06:01:50.241Z",
     "items": [
       {
         "time": "13:00",
