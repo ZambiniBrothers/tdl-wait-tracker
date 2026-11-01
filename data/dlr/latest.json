@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-01T17:01:22.581Z",
+  "fetched_at": "2026-11-01T17:16:00.241Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -17,9 +17,9 @@
       "id": "a-dlr-326",
       "name_en": "Indiana Jones™ Adventure",
       "name_ja": "インディ・ジョーンズ・アドベンチャー",
-      "wait_minutes": 15,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -271,8 +271,8 @@
       "name_en": "Mark Twain Riverboat",
       "name_ja": "Mark Twain Riverboat",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -501,7 +501,7 @@
       "id": "a-dlr-6340",
       "name_en": "Star Wars: Rise of the Resistance",
       "name_ja": "スター・ウォーズ：ライズ・オブ・ザ・レジスタンス",
-      "wait_minutes": 15,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -600,13 +600,13 @@
   "summary": {
     "count": 54,
     "open_count": 42,
-    "average_wait": 6.4,
-    "max_wait": 15
+    "average_wait": 6.2,
+    "max_wait": 20
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/16/queue_times.json",
-    "fetched_at": "2026-11-01T17:01:22.581Z",
+    "fetched_at": "2026-11-01T17:16:00.241Z",
     "items": []
   }
 }
