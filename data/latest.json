@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-31T23:46:02.654Z",
+  "fetched_at": "2026-11-01T00:01:05.463Z",
   "source": "tdr-official",
   "attractions": [
     {
@@ -191,12 +191,12 @@
       "id": "a-splash-mountain",
       "name_en": "Splash Mountain",
       "name_ja": "スプラッシュ・マウンテン",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "CLOSED",
+      "wait_minutes": 20,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
-      "official_status_cd": "008",
-      "official_status_label": "準備中",
+      "official_status_cd": "001",
+      "official_status_label": "運営中",
       "closure_info": {
         "name_ja": "スプラッシュ・マウンテン",
         "period": "2027/1/7 〜 2027/2/4",
@@ -251,12 +251,12 @@
       "id": "a-big-thunder-mountain",
       "name_en": "Big Thunder Mountain",
       "name_ja": "ビッグサンダー・マウンテン",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "CLOSED",
+      "wait_minutes": 20,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
-      "official_status_cd": "008",
-      "official_status_label": "準備中"
+      "official_status_cd": "001",
+      "official_status_label": "運営中"
     },
     {
       "id": "a-beaver-brothers-explorer-canoes",
@@ -311,12 +311,12 @@
       "id": "a-the-happy-ride-with-baymax",
       "name_en": "The Happy Ride with Baymax",
       "name_ja": "ベイマックスのハッピーライド",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "CLOSED",
+      "wait_minutes": 80,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
-      "official_status_cd": "008",
-      "official_status_label": "準備中"
+      "official_status_cd": "001",
+      "official_status_label": "運営中"
     },
     {
       "id": "a-penny-arcade",
@@ -420,12 +420,12 @@
       "id": "a-enchanted-tale-of-beauty-and-the-beast",
       "name_en": "Enchanted Tale of Beauty and the Beast",
       "name_ja": "美女と野獣“魔法のものがたり”",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "CLOSED",
+      "wait_minutes": 100,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
-      "official_status_cd": "008",
-      "official_status_label": "準備中"
+      "official_status_cd": "001",
+      "official_status_label": "運営中"
     },
     {
       "id": "a-mark-twain-riverboat",
@@ -457,13 +457,13 @@
   ],
   "summary": {
     "count": 37,
-    "open_count": 0,
-    "average_wait": 0,
-    "max_wait": 0
+    "open_count": 4,
+    "average_wait": 55,
+    "max_wait": 100
   },
   "closures": {
     "source_url": "https://www.tokyodisneyresort.jp/tdl/monthly/stop.html",
-    "fetched_at": "2026-10-31T23:45:52.731Z",
+    "fetched_at": "2026-11-01T00:00:56.744Z",
     "closures": {
       "a-peter-pans-flight": {
         "name_ja": "ピーターパン空の旅",
@@ -519,7 +519,7 @@
   },
   "shows": {
     "source_url": "https://www.tokyodisneyresort.jp/tdl/show.html",
-    "fetched_at": "2026-10-31T23:46:02.654Z",
+    "fetched_at": "2026-11-01T00:01:05.463Z",
     "items": [
       {
         "time": "14:15",

@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-31T23:46:20.814Z",
+  "fetched_at": "2026-11-01T00:01:16.792Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -17,7 +17,7 @@
       "id": "a-dlr-326",
       "name_en": "Indiana Jones™ Adventure",
       "name_ja": "インディ・ジョーンズ・アドベンチャー",
-      "wait_minutes": 45,
+      "wait_minutes": 40,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -105,7 +105,7 @@
       "id": "a-dlr-285",
       "name_en": "Alice in Wonderland",
       "name_ja": "ふしぎの国のアリス",
-      "wait_minutes": 25,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -226,7 +226,7 @@
       "id": "a-dlr-283",
       "name_en": "Snow White's Enchanted Wish",
       "name_ja": "Snow White's Enchanted Wish",
-      "wait_minutes": 15,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -281,9 +281,9 @@
       "id": "a-dlr-331",
       "name_en": "Pirate's Lair on Tom Sawyer Island",
       "name_ja": "Pirate's Lair on Tom Sawyer Island",
-      "wait_minutes": 5,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -380,7 +380,7 @@
       "id": "a-dlr-324",
       "name_en": "Chip 'n' Dale's GADGETcoaster",
       "name_ja": "Chip 'n' Dale's GADGETcoaster",
-      "wait_minutes": 30,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -413,9 +413,9 @@
       "id": "a-dlr-11526",
       "name_en": "Mickey & Minnie's Runaway Railway",
       "name_ja": "ミッキー＆ミニーのランナウェイ・レイルウェイ",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 35,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -468,7 +468,7 @@
       "id": "a-dlr-289",
       "name_en": "Pirates of the Caribbean",
       "name_ja": "カリブの海賊",
-      "wait_minutes": 15,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -479,7 +479,7 @@
       "id": "a-dlr-6339",
       "name_en": "Millennium Falcon: Smugglers Run",
       "name_ja": "ミレニアム・ファルコン：スマグラーズ・ラン",
-      "wait_minutes": 50,
+      "wait_minutes": 40,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -578,7 +578,7 @@
       "id": "a-dlr-284",
       "name_en": "Space Mountain",
       "name_ja": "スペース・マウンテン",
-      "wait_minutes": 60,
+      "wait_minutes": 40,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -600,13 +600,13 @@
   "summary": {
     "count": 54,
     "open_count": 48,
-    "average_wait": 20.7,
-    "max_wait": 60
+    "average_wait": 19.7,
+    "max_wait": 55
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/16/queue_times.json",
-    "fetched_at": "2026-10-31T23:46:20.814Z",
+    "fetched_at": "2026-11-01T00:01:16.792Z",
     "items": []
   }
 }
