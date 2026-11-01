@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-01T16:16:26.901Z",
+  "fetched_at": "2026-11-01T16:22:45.705Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -17,7 +17,7 @@
       "id": "a-dlr-326",
       "name_en": "Indiana Jones™ Adventure",
       "name_ja": "インディ・ジョーンズ・アドベンチャー",
-      "wait_minutes": 5,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -303,9 +303,9 @@
       "id": "a-dlr-674",
       "name_en": "Disneyland Railroad",
       "name_ja": "Disneyland Railroad",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -599,14 +599,14 @@
   ],
   "summary": {
     "count": 54,
-    "open_count": 39,
-    "average_wait": 6.7,
+    "open_count": 40,
+    "average_wait": 7,
     "max_wait": 30
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/16/queue_times.json",
-    "fetched_at": "2026-11-01T16:16:26.901Z",
+    "fetched_at": "2026-11-01T16:22:45.705Z",
     "items": []
   }
 }
