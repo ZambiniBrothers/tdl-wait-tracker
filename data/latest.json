@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-02T11:46:13.570Z",
+  "fetched_at": "2026-11-02T12:01:09.329Z",
   "source": "tdr-official",
   "attractions": [
     {
@@ -104,12 +104,12 @@
       "id": "a-castle-carrousel",
       "name_en": "Castle Carrousel",
       "name_ja": "キャッスルカルーセル",
-      "wait_minutes": 20,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "CLOSED",
       "access_mode": "STANDBY",
-      "official_status_cd": "001",
-      "official_status_label": "運営中"
+      "official_status_cd": "002",
+      "official_status_label": "案内終了"
     },
     {
       "id": "a-goofys-paint-n-play-house",
@@ -142,12 +142,12 @@
       "id": "a-jungle-cruise-wildlife-expeditions",
       "name_en": "Jungle Cruise: Wildlife Expeditions",
       "name_ja": "ジャングルクルーズ：ワイルドライフ・エクスペディション",
-      "wait_minutes": 25,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "CLOSED",
       "access_mode": "STANDBY",
-      "official_status_cd": "001",
-      "official_status_label": "運営中"
+      "official_status_cd": "002",
+      "official_status_label": "案内終了"
     },
     {
       "id": "a-swiss-family-treehouse",
@@ -273,23 +273,23 @@
       "id": "a-pinocchios-daring-journey",
       "name_en": "Pinocchio's Daring Journey",
       "name_ja": "ピノキオの冒険旅行",
-      "wait_minutes": 15,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "CLOSED",
       "access_mode": "STANDBY",
-      "official_status_cd": "001",
-      "official_status_label": "運営中"
+      "official_status_cd": "002",
+      "official_status_label": "案内終了"
     },
     {
       "id": "a-peter-pans-flight",
       "name_en": "Peter Pan's Flight",
       "name_ja": "ピーターパン空の旅",
-      "wait_minutes": 40,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "CLOSED",
       "access_mode": "STANDBY",
-      "official_status_cd": "001",
-      "official_status_label": "運営中",
+      "official_status_cd": "002",
+      "official_status_label": "案内終了",
       "closure_info": {
         "name_ja": "ピーターパン空の旅",
         "period": "2027/1/6 〜 2027/2/2",
@@ -301,11 +301,11 @@
       "name_en": "Pooh's Hunny Hunt",
       "name_ja": "プーさんのハニーハント",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
-      "access_mode": "STANDBY",
-      "official_status_cd": "004",
-      "official_status_label": "一時運営中止"
+      "is_open": true,
+      "status": "OPERATING",
+      "access_mode": "PP_ONLY",
+      "official_status_cd": "045",
+      "official_status_label": "プライオリティ・アクセス・エントランスをご利用の方のみ案内中"
     },
     {
       "id": "a-the-happy-ride-with-baymax",
@@ -344,12 +344,12 @@
       "id": "a-mickeys-philharmagic",
       "name_en": "Mickey’s PhilharMagic",
       "name_ja": "ミッキーのフィルハーマジック",
-      "wait_minutes": 10,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "CLOSED",
       "access_mode": "STANDBY",
-      "official_status_cd": "001",
-      "official_status_label": "運営中",
+      "official_status_cd": "002",
+      "official_status_label": "案内終了",
       "closure_info": {
         "name_ja": "ミッキーのフィルハーマジック",
         "period": "2027/3/4 〜 2027/4/2",
@@ -398,23 +398,23 @@
       "id": "a-snow-whites-adventures",
       "name_en": "Snow White's Adventures",
       "name_ja": "白雪姫と七人のこびと",
-      "wait_minutes": 15,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "CLOSED",
       "access_mode": "STANDBY",
-      "official_status_cd": "001",
-      "official_status_label": "運営中"
+      "official_status_cd": "002",
+      "official_status_label": "案内終了"
     },
     {
       "id": "a-dumbo-the-flying-elephant",
       "name_en": "Dumbo The Flying Elephant",
       "name_ja": "空飛ぶダンボ",
-      "wait_minutes": 30,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "CLOSED",
       "access_mode": "STANDBY",
-      "official_status_cd": "001",
-      "official_status_label": "運営中"
+      "official_status_cd": "002",
+      "official_status_label": "案内終了"
     },
     {
       "id": "a-enchanted-tale-of-beauty-and-the-beast",
@@ -457,13 +457,13 @@
   ],
   "summary": {
     "count": 37,
-    "open_count": 19,
-    "average_wait": 16.4,
-    "max_wait": 40
+    "open_count": 13,
+    "average_wait": 6.3,
+    "max_wait": 10
   },
   "closures": {
     "source_url": "https://www.tokyodisneyresort.jp/tdl/monthly/stop.html",
-    "fetched_at": "2026-11-02T11:46:08.449Z",
+    "fetched_at": "2026-11-02T12:01:03.141Z",
     "closures": {
       "a-peter-pans-flight": {
         "name_ja": "ピーターパン空の旅",
@@ -519,7 +519,7 @@
   },
   "shows": {
     "source_url": "https://www.tokyodisneyresort.jp/tdl/show.html",
-    "fetched_at": "2026-11-02T11:46:13.570Z",
+    "fetched_at": "2026-11-02T12:01:09.329Z",
     "items": [
       {
         "time": "14:15",
