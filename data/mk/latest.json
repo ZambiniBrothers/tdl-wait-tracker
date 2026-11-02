@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-02T02:31:20.006Z",
+  "fetched_at": "2026-11-02T02:46:36.694Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -248,9 +248,9 @@
       "id": "a-mk-142",
       "name_en": "The Many Adventures of Winnie the Pooh",
       "name_ja": "The Many Adventures of Winnie the Pooh",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 10,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -358,9 +358,9 @@
       "id": "a-mk-146",
       "name_en": "Meet Mickey at Town Square Theater",
       "name_ja": "Meet Mickey at Town Square Theater",
-      "wait_minutes": 5,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -424,9 +424,9 @@
       "id": "a-mk-143",
       "name_en": "Tomorrowland Speedway",
       "name_ja": "Tomorrowland Speedway",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -446,7 +446,7 @@
       "id": "a-mk-11527",
       "name_en": "TRON Lightcycle / Run",
       "name_ja": "トロン・ライトサイクル・ラン",
-      "wait_minutes": 40,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -511,14 +511,14 @@
   ],
   "summary": {
     "count": 46,
-    "open_count": 26,
-    "average_wait": 8.1,
-    "max_wait": 40
+    "open_count": 27,
+    "average_wait": 7.8,
+    "max_wait": 30
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/6/queue_times.json",
-    "fetched_at": "2026-11-02T02:31:20.006Z",
+    "fetched_at": "2026-11-02T02:46:36.694Z",
     "items": []
   }
 }
