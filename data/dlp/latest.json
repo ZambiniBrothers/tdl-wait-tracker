@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-04T18:01:41.686Z",
+  "fetched_at": "2026-11-04T18:16:36.583Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -105,9 +105,9 @@
       "id": "a-dlp-5",
       "name_en": "Buzz Lightyear Laser Blast",
       "name_ja": "バズ・ライトイヤー・レーザーブラスト",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 45,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -160,7 +160,7 @@
       "id": "a-dlp-9",
       "name_en": "Star Tours: The Adventures Continue*",
       "name_ja": "スター・ツアーズ",
-      "wait_minutes": 5,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -369,7 +369,7 @@
       "id": "a-dlp-25",
       "name_en": "Big Thunder Mountain",
       "name_ja": "ビッグサンダー・マウンテン",
-      "wait_minutes": 50,
+      "wait_minutes": 45,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -467,14 +467,14 @@
   ],
   "summary": {
     "count": 42,
-    "open_count": 23,
-    "average_wait": 16.4,
+    "open_count": 24,
+    "average_wait": 18.2,
     "max_wait": 55
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/4/queue_times.json",
-    "fetched_at": "2026-11-04T18:01:41.686Z",
+    "fetched_at": "2026-11-04T18:16:36.583Z",
     "items": []
   }
 }
