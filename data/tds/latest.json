@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-05T11:31:35.786Z",
+  "fetched_at": "2026-11-05T11:46:47.040Z",
   "source": "tdr-official",
   "attractions": [
     {
@@ -61,7 +61,7 @@
       "id": "a-220",
       "name_en": "ジャスミンのフライングカーペット",
       "name_ja": "ジャスミンのフライングカーペット",
-      "wait_minutes": 10,
+      "wait_minutes": 5,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -94,12 +94,12 @@
       "id": "a-223",
       "name_en": "センター・オブ・ジ・アース",
       "name_ja": "センター・オブ・ジ・アース",
-      "wait_minutes": 40,
+      "wait_minutes": null,
       "is_open": true,
       "status": "OPERATING",
-      "access_mode": "STANDBY",
-      "official_status_cd": "001",
-      "official_status_label": "運営中"
+      "access_mode": "PP_ONLY",
+      "official_status_cd": "045",
+      "official_status_label": "プライオリティ・アクセス・エントランスをご利用の方のみ案内中"
     },
     {
       "id": "a-219",
@@ -226,23 +226,23 @@
       "id": "a-257",
       "name_en": "ピーターパンのネバーランドアドベンチャー",
       "name_ja": "ピーターパンのネバーランドアドベンチャー",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
-      "access_mode": "STANDBY",
-      "official_status_cd": "004",
-      "official_status_label": "一時運営中止"
-    },
-    {
-      "id": "a-258",
-      "name_en": "フェアリー・ティンカーベルのビジーバギー",
-      "name_ja": "フェアリー・ティンカーベルのビジーバギー",
-      "wait_minutes": 25,
+      "wait_minutes": 5,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "001",
       "official_status_label": "運営中"
+    },
+    {
+      "id": "a-258",
+      "name_en": "フェアリー・ティンカーベルのビジーバギー",
+      "name_ja": "フェアリー・ティンカーベルのビジーバギー",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "CLOSED",
+      "access_mode": "STANDBY",
+      "official_status_cd": "002",
+      "official_status_label": "案内終了"
     },
     {
       "id": "a-244",
@@ -270,7 +270,7 @@
       "id": "a-237",
       "name_en": "フランダーのフライングフィッシュコースター",
       "name_ja": "フランダーのフライングフィッシュコースター",
-      "wait_minutes": 10,
+      "wait_minutes": 5,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -292,12 +292,12 @@
       "id": "a-226",
       "name_en": "マジックランプシアター",
       "name_ja": "マジックランプシアター",
-      "wait_minutes": 15,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "CLOSED",
       "access_mode": "STANDBY",
-      "official_status_cd": "001",
-      "official_status_label": "運営中"
+      "official_status_cd": "002",
+      "official_status_label": "案内終了"
     },
     {
       "id": "a-221",
@@ -314,7 +314,7 @@
       "id": "a-256",
       "name_en": "ラプンツェルのランタンフェスティバル",
       "name_ja": "ラプンツェルのランタンフェスティバル",
-      "wait_minutes": 20,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -325,12 +325,12 @@
       "id": "a-242",
       "name_en": "レイジングスピリッツ",
       "name_ja": "レイジングスピリッツ",
-      "wait_minutes": 20,
+      "wait_minutes": null,
       "is_open": true,
       "status": "OPERATING",
-      "access_mode": "STANDBY",
-      "official_status_cd": "001",
-      "official_status_label": "運営中"
+      "access_mode": "PP_ONLY",
+      "official_status_cd": "045",
+      "official_status_label": "プライオリティ・アクセス・エントランスをご利用の方のみ案内中"
     },
     {
       "id": "a-241",
@@ -368,14 +368,14 @@
   ],
   "summary": {
     "count": 33,
-    "open_count": 26,
-    "average_wait": 11.7,
-    "max_wait": 40
+    "open_count": 25,
+    "average_wait": 7.5,
+    "max_wait": 20
   },
   "closures": null,
   "shows": {
     "source_url": "https://www.tokyodisneyresort.jp/tds/show.html",
-    "fetched_at": "2026-11-05T11:31:35.785Z",
+    "fetched_at": "2026-11-05T11:46:47.040Z",
     "items": [
       {
         "time": "11:30",
