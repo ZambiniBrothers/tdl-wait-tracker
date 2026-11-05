@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-05T01:16:48.612Z",
+  "fetched_at": "2026-11-05T01:31:32.668Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -204,9 +204,9 @@
       "id": "a-mk-136",
       "name_en": "Peter Pan's Flight",
       "name_ja": "ピーターパン空の旅",
-      "wait_minutes": 30,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -215,9 +215,9 @@
       "id": "a-mk-161",
       "name_en": "Prince Charming Regal Carrousel",
       "name_ja": "Prince Charming Regal Carrousel",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -237,7 +237,7 @@
       "id": "a-mk-126",
       "name_en": "The Barnstormer",
       "name_ja": "The Barnstormer",
-      "wait_minutes": 10,
+      "wait_minutes": 5,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -358,7 +358,7 @@
       "id": "a-mk-146",
       "name_en": "Meet Mickey at Town Square Theater",
       "name_ja": "Meet Mickey at Town Square Theater",
-      "wait_minutes": 5,
+      "wait_minutes": 45,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -391,7 +391,7 @@
       "id": "a-mk-131",
       "name_en": "Buzz Lightyear’s Space Ranger Spin",
       "name_ja": "バズ・ライトイヤーのスペース・レンジャー・スピン",
-      "wait_minutes": 30,
+      "wait_minutes": 35,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -424,7 +424,7 @@
       "id": "a-mk-143",
       "name_en": "Tomorrowland Speedway",
       "name_ja": "Tomorrowland Speedway",
-      "wait_minutes": 5,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -446,7 +446,7 @@
       "id": "a-mk-11527",
       "name_en": "TRON Lightcycle / Run",
       "name_ja": "トロン・ライトサイクル・ラン",
-      "wait_minutes": 35,
+      "wait_minutes": 75,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -512,7 +512,7 @@
       "id": "a-mk-17950",
       "name_en": "Jingle Cruise",
       "name_ja": "Jingle Cruise",
-      "wait_minutes": 10,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -523,13 +523,13 @@
   "summary": {
     "count": 47,
     "open_count": 28,
-    "average_wait": 11.6,
-    "max_wait": 35
+    "average_wait": 14.2,
+    "max_wait": 75
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/6/queue_times.json",
-    "fetched_at": "2026-11-05T01:16:48.612Z",
+    "fetched_at": "2026-11-05T01:31:32.668Z",
     "items": []
   }
 }
