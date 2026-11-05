@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-05T09:31:50.029Z",
+  "fetched_at": "2026-11-05T09:46:39.477Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -50,7 +50,7 @@
       "id": "a-hkdl-2843",
       "name_en": "Big Grizzly Mountain Runaway Mine Cars",
       "name_ja": "ビッググリズリー・マウンテン",
-      "wait_minutes": 30,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -171,7 +171,7 @@
       "id": "a-hkdl-12433",
       "name_en": "Frozen Ever After – Presented by Blue Cross",
       "name_ja": "フローズン・エバーアフター",
-      "wait_minutes": 15,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -326,8 +326,8 @@
       "name_en": "Main Street Vehicles",
       "name_ja": "Main Street Vehicles",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -380,7 +380,7 @@
       "id": "a-hkdl-13866",
       "name_en": "Meet LinaBell at Duffy and Friends Play House",
       "name_ja": "Meet LinaBell at Duffy and Friends Play House",
-      "wait_minutes": 45,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -424,7 +424,7 @@
       "id": "a-hkdl-2844",
       "name_en": "Mystic Manor",
       "name_ja": "ミスティック・マナー",
-      "wait_minutes": 15,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -621,14 +621,14 @@
   ],
   "summary": {
     "count": 56,
-    "open_count": 43,
-    "average_wait": 19.1,
+    "open_count": 44,
+    "average_wait": 18.5,
     "max_wait": 45
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/31/queue_times.json",
-    "fetched_at": "2026-11-05T09:31:50.029Z",
+    "fetched_at": "2026-11-05T09:46:39.477Z",
     "items": []
   }
 }
