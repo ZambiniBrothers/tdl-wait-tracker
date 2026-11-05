@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-05T07:31:45.602Z",
+  "fetched_at": "2026-11-05T07:46:55.171Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -61,9 +61,9 @@
       "id": "a-wds-40",
       "name_en": "The Twilight Zone Tower of Terror",
       "name_ja": "タワー・オブ・テラー",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 60,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -138,9 +138,9 @@
       "id": "a-wds-37",
       "name_en": "Ratatouille : L’Aventure Totalement Toquée de Rémy",
       "name_ja": "レミーのおいしいレストラン",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 35,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -149,9 +149,9 @@
       "id": "a-wds-7279",
       "name_en": "Ratatouille: The Adventure Single Rider",
       "name_ja": "レミーのおいしいレストラン",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 15,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -182,9 +182,9 @@
       "id": "a-wds-36",
       "name_en": "Slinky® Dog Zigzag Spin",
       "name_ja": "Slinky® Dog Zigzag Spin",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -247,14 +247,14 @@
   ],
   "summary": {
     "count": 22,
-    "open_count": 4,
-    "average_wait": 5,
-    "max_wait": 5
+    "open_count": 8,
+    "average_wait": 16.9,
+    "max_wait": 60
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/28/queue_times.json",
-    "fetched_at": "2026-11-05T07:31:45.602Z",
+    "fetched_at": "2026-11-05T07:46:55.171Z",
     "items": []
   }
 }
