@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-05T21:01:54.014Z",
+  "fetched_at": "2026-11-05T21:16:40.850Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -50,9 +50,9 @@
       "id": "a-dca-13961",
       "name_en": "Luigi's Rollickin' Roadsters",
       "name_ja": "Luigi's Rollickin' Roadsters",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 15,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -72,7 +72,7 @@
       "id": "a-dca-295",
       "name_en": "Radiator Springs Racers",
       "name_ja": "レーシング・イン・ラジエーター・スプリングス",
-      "wait_minutes": 60,
+      "wait_minutes": 70,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -94,7 +94,7 @@
       "id": "a-dca-302",
       "name_en": "Grizzly River Run",
       "name_ja": "Grizzly River Run",
-      "wait_minutes": 20,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -149,7 +149,7 @@
       "id": "a-dca-291",
       "name_en": "Monsters, Inc. Mike & Sulley to the Rescue!",
       "name_ja": "Monsters, Inc. Mike & Sulley to the Rescue!",
-      "wait_minutes": 30,
+      "wait_minutes": 40,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -314,7 +314,7 @@
       "id": "a-dca-300",
       "name_en": "Jumpin' Jellyfish",
       "name_ja": "Jumpin' Jellyfish",
-      "wait_minutes": 5,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -390,14 +390,14 @@
   ],
   "summary": {
     "count": 35,
-    "open_count": 27,
-    "average_wait": 23.1,
-    "max_wait": 60
+    "open_count": 28,
+    "average_wait": 23.9,
+    "max_wait": 70
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/17/queue_times.json",
-    "fetched_at": "2026-11-05T21:01:54.014Z",
+    "fetched_at": "2026-11-05T21:16:40.850Z",
     "items": []
   }
 }
