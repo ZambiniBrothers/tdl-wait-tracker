@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-06T06:01:47.917Z",
+  "fetched_at": "2026-11-06T06:17:05.263Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -28,9 +28,9 @@
       "id": "a-shdl-2986",
       "name_en": "Roaring Rapids",
       "name_ja": "Roaring Rapids",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 75,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -127,7 +127,7 @@
       "id": "a-shdl-2991",
       "name_en": "The Many Adventures of Winnie the Pooh",
       "name_ja": "The Many Adventures of Winnie the Pooh",
-      "wait_minutes": 70,
+      "wait_minutes": 60,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -138,7 +138,7 @@
       "id": "a-shdl-2992",
       "name_en": "Voyage to the Crystal Grotto",
       "name_ja": "Voyage to the Crystal Grotto",
-      "wait_minutes": 35,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -171,7 +171,7 @@
       "id": "a-shdl-2994",
       "name_en": "Fantasia Carousel",
       "name_ja": "Fantasia Carousel",
-      "wait_minutes": 10,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -193,7 +193,7 @@
       "id": "a-shdl-2999",
       "name_en": "Buzz Lightyear Planet Rescue",
       "name_ja": "バズ・ライトイヤー・プラネット・レスキュー",
-      "wait_minutes": 10,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -237,7 +237,7 @@
       "id": "a-shdl-2985",
       "name_en": "TRON Lightcycle Power Run – Presented by Chevrolet",
       "name_ja": "トロン・ライトサイクル・パワーラン",
-      "wait_minutes": 90,
+      "wait_minutes": 105,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -303,7 +303,7 @@
       "id": "a-shdl-2996",
       "name_en": "Pirates of the Caribbean Battle for the Sunken Treasure",
       "name_ja": "カリブの海賊：沈没船の財宝をめぐるバトル",
-      "wait_minutes": 75,
+      "wait_minutes": 60,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -357,14 +357,14 @@
   ],
   "summary": {
     "count": 32,
-    "open_count": 30,
-    "average_wait": 44.8,
+    "open_count": 31,
+    "average_wait": 46,
     "max_wait": 130
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/30/queue_times.json",
-    "fetched_at": "2026-11-06T06:01:47.917Z",
+    "fetched_at": "2026-11-06T06:17:05.263Z",
     "items": []
   }
 }
