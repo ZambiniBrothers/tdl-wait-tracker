@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-07T05:31:34.644Z",
+  "fetched_at": "2026-11-07T05:46:44.238Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -105,9 +105,9 @@
       "id": "a-dlr-285",
       "name_en": "Alice in Wonderland",
       "name_ja": "ふしぎの国のアリス",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 10,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -138,9 +138,9 @@
       "id": "a-dlr-277",
       "name_en": "King Arthur Carrousel",
       "name_ja": "King Arthur Carrousel",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -182,9 +182,9 @@
       "id": "a-dlr-280",
       "name_en": "Mr. Toad's Wild Ride",
       "name_ja": "Mr. Toad's Wild Ride",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -193,9 +193,9 @@
       "id": "a-dlr-281",
       "name_en": "Peter Pan's Flight",
       "name_ja": "ピーターパン空の旅",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 15,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -204,9 +204,9 @@
       "id": "a-dlr-282",
       "name_en": "Pinocchio's Daring Journey",
       "name_ja": "Pinocchio's Daring Journey",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -237,9 +237,9 @@
       "id": "a-dlr-305",
       "name_en": "Storybook Land Canal Boats",
       "name_ja": "Storybook Land Canal Boats",
-      "wait_minutes": 5,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -512,7 +512,7 @@
       "id": "a-dlr-287",
       "name_en": "Astro Orbitor",
       "name_ja": "Astro Orbitor",
-      "wait_minutes": 10,
+      "wait_minutes": 5,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -578,7 +578,7 @@
       "id": "a-dlr-284",
       "name_en": "Space Mountain",
       "name_ja": "スペース・マウンテン",
-      "wait_minutes": 35,
+      "wait_minutes": 45,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -599,14 +599,14 @@
   ],
   "summary": {
     "count": 54,
-    "open_count": 28,
-    "average_wait": 13.4,
-    "max_wait": 35
+    "open_count": 32,
+    "average_wait": 12.9,
+    "max_wait": 45
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/16/queue_times.json",
-    "fetched_at": "2026-11-07T05:31:34.644Z",
+    "fetched_at": "2026-11-07T05:46:44.238Z",
     "items": []
   }
 }
