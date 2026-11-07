@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-07T00:01:52.267Z",
+  "fetched_at": "2026-11-07T00:16:25.858Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -94,7 +94,7 @@
       "id": "a-dhs-120",
       "name_en": "Star Tours – The Adventures Continue",
       "name_ja": "スター・ツアーズ",
-      "wait_minutes": 30,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -116,7 +116,7 @@
       "id": "a-dhs-6361",
       "name_en": "Mickey & Minnie's Runaway Railway",
       "name_ja": "ミッキー＆ミニーのランナウェイ・レイルウェイ",
-      "wait_minutes": 45,
+      "wait_minutes": 70,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -138,9 +138,9 @@
       "id": "a-dhs-117",
       "name_en": "Toy Story Mania!",
       "name_ja": "トイ・ストーリー・マニア！",
-      "wait_minutes": 120,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -215,7 +215,7 @@
       "id": "a-dhs-16342",
       "name_en": "Rock ’n’ Roller Coaster Starring The Muppets",
       "name_ja": "Rock ’n’ Roller Coaster Starring The Muppets",
-      "wait_minutes": 70,
+      "wait_minutes": 50,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -226,7 +226,7 @@
       "id": "a-dhs-123",
       "name_en": "The Twilight Zone™ Tower of Terror",
       "name_ja": "タワー・オブ・テラー",
-      "wait_minutes": 55,
+      "wait_minutes": 60,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -248,7 +248,7 @@
       "id": "a-dhs-5476",
       "name_en": "Slinky Dog Dash",
       "name_ja": "スリンキー・ドッグ・ダッシュ",
-      "wait_minutes": 60,
+      "wait_minutes": 70,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -293,8 +293,8 @@
       "name_en": "Once Upon a Studio Theater",
       "name_ja": "Once Upon a Studio Theater",
       "wait_minutes": null,
-      "is_open": true,
-      "status": "OPERATING",
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -302,14 +302,14 @@
   ],
   "summary": {
     "count": 27,
-    "open_count": 19,
-    "average_wait": 51.5,
-    "max_wait": 120
+    "open_count": 17,
+    "average_wait": 45,
+    "max_wait": 70
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/7/queue_times.json",
-    "fetched_at": "2026-11-07T00:01:52.267Z",
+    "fetched_at": "2026-11-07T00:16:25.858Z",
     "items": []
   }
 }
