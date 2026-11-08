@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-08T19:41:18.192Z",
+  "fetched_at": "2026-11-08T19:46:54.442Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -116,7 +116,7 @@
       "id": "a-dhs-6361",
       "name_en": "Mickey & Minnie's Runaway Railway",
       "name_ja": "ミッキー＆ミニーのランナウェイ・レイルウェイ",
-      "wait_minutes": 50,
+      "wait_minutes": 40,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -248,9 +248,9 @@
       "id": "a-dhs-5476",
       "name_en": "Slinky Dog Dash",
       "name_ja": "スリンキー・ドッグ・ダッシュ",
-      "wait_minutes": 90,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -302,14 +302,14 @@
   ],
   "summary": {
     "count": 27,
-    "open_count": 24,
-    "average_wait": 45,
+    "open_count": 23,
+    "average_wait": 40.4,
     "max_wait": 145
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/7/queue_times.json",
-    "fetched_at": "2026-11-08T19:41:18.192Z",
+    "fetched_at": "2026-11-08T19:46:54.442Z",
     "items": []
   }
 }
