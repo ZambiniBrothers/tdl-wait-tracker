@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-08T08:02:18.386Z",
+  "fetched_at": "2026-11-08T08:06:23.974Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -7,8 +7,8 @@
       "name_en": "Adventure Isle",
       "name_ja": "Adventure Isle",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -39,9 +39,9 @@
       "id": "a-dlp-1",
       "name_en": "La Cabane des Robinson",
       "name_ja": "La Cabane des Robinson",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -94,9 +94,9 @@
       "id": "a-dlp-4",
       "name_en": "Autopia, presented by Avis",
       "name_ja": "Autopia, presented by Avis",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -149,9 +149,9 @@
       "id": "a-dlp-7",
       "name_en": "Orbitron®",
       "name_ja": "Orbitron®",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -160,9 +160,9 @@
       "id": "a-dlp-9",
       "name_en": "Star Tours: The Adventures Continue*",
       "name_ja": "スター・ツアーズ",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -215,9 +215,9 @@
       "id": "a-dlp-14",
       "name_en": "Alice's Curious Labyrinth",
       "name_ja": "ふしぎの国のアリスの迷路",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -226,7 +226,7 @@
       "id": "a-dlp-15",
       "name_en": "Blanche-Neige et les Sept Nains®",
       "name_ja": "Blanche-Neige et les Sept Nains®",
-      "wait_minutes": 5,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -303,9 +303,9 @@
       "id": "a-dlp-21",
       "name_en": "Le Pays des Contes de Fées, presented by Vittel",
       "name_ja": "Le Pays des Contes de Fées, presented by Vittel",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -392,8 +392,8 @@
       "name_en": "Frontierland Playground",
       "name_ja": "Frontierland Playground",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -467,14 +467,14 @@
   ],
   "summary": {
     "count": 42,
-    "open_count": 18,
-    "average_wait": 12.1,
+    "open_count": 26,
+    "average_wait": 10,
     "max_wait": 50
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/4/queue_times.json",
-    "fetched_at": "2026-11-08T08:02:18.386Z",
+    "fetched_at": "2026-11-08T08:06:23.974Z",
     "items": []
   }
 }
