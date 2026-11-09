@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-09T11:01:39.886Z",
+  "fetched_at": "2026-11-09T11:16:25.771Z",
   "source": "tdr-official",
   "attractions": [
     {
@@ -93,12 +93,12 @@
       "id": "a-gadgets-go-coaster",
       "name_en": "Gadget’s Go Coaster",
       "name_ja": "ガジェットのゴーコースター",
-      "wait_minutes": 5,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
-      "official_status_cd": "001",
-      "official_status_label": "運営中"
+      "official_status_cd": "004",
+      "official_status_label": "一時運営中止"
     },
     {
       "id": "a-castle-carrousel",
@@ -191,7 +191,7 @@
       "id": "a-splash-mountain",
       "name_en": "Splash Mountain",
       "name_ja": "スプラッシュ・マウンテン",
-      "wait_minutes": 5,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -284,7 +284,7 @@
       "id": "a-peter-pans-flight",
       "name_en": "Peter Pan's Flight",
       "name_ja": "ピーターパン空の旅",
-      "wait_minutes": 25,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -311,7 +311,7 @@
       "id": "a-the-happy-ride-with-baymax",
       "name_en": "The Happy Ride with Baymax",
       "name_ja": "ベイマックスのハッピーライド",
-      "wait_minutes": 40,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -409,7 +409,7 @@
       "id": "a-dumbo-the-flying-elephant",
       "name_en": "Dumbo The Flying Elephant",
       "name_ja": "空飛ぶダンボ",
-      "wait_minutes": 25,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -457,13 +457,13 @@
   ],
   "summary": {
     "count": 37,
-    "open_count": 25,
-    "average_wait": 12.4,
+    "open_count": 24,
+    "average_wait": 12,
     "max_wait": 40
   },
   "closures": {
     "source_url": "https://www.tokyodisneyresort.jp/tdl/monthly/stop.html",
-    "fetched_at": "2026-11-09T11:01:30.123Z",
+    "fetched_at": "2026-11-09T11:16:17.736Z",
     "closures": {
       "a-peter-pans-flight": {
         "name_ja": "ピーターパン空の旅",
@@ -519,7 +519,7 @@
   },
   "shows": {
     "source_url": "https://www.tokyodisneyresort.jp/tdl/show.html",
-    "fetched_at": "2026-11-09T11:01:39.886Z",
+    "fetched_at": "2026-11-09T11:16:25.771Z",
     "items": [
       {
         "time": "14:15",
