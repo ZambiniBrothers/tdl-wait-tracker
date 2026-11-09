@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-09T04:16:39.746Z",
+  "fetched_at": "2026-11-09T04:31:35.071Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -105,7 +105,7 @@
       "id": "a-dlr-285",
       "name_en": "Alice in Wonderland",
       "name_ja": "ふしぎの国のアリス",
-      "wait_minutes": 20,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -204,9 +204,9 @@
       "id": "a-dlr-282",
       "name_en": "Pinocchio's Daring Journey",
       "name_ja": "Pinocchio's Daring Journey",
-      "wait_minutes": 5,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -248,7 +248,7 @@
       "id": "a-dlr-323",
       "name_en": "Big Thunder Mountain Railroad",
       "name_ja": "ビッグサンダー・マウンテン",
-      "wait_minutes": 5,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -578,7 +578,7 @@
       "id": "a-dlr-284",
       "name_en": "Space Mountain",
       "name_ja": "スペース・マウンテン",
-      "wait_minutes": 15,
+      "wait_minutes": 45,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -599,14 +599,14 @@
   ],
   "summary": {
     "count": 54,
-    "open_count": 35,
-    "average_wait": 9.6,
-    "max_wait": 35
+    "open_count": 34,
+    "average_wait": 10.9,
+    "max_wait": 45
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/16/queue_times.json",
-    "fetched_at": "2026-11-09T04:16:39.746Z",
+    "fetched_at": "2026-11-09T04:31:35.071Z",
     "items": []
   }
 }
