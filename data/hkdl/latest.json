@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-09T02:46:35.491Z",
+  "fetched_at": "2026-11-09T03:02:06.196Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -83,7 +83,7 @@
       "id": "a-hkdl-2825",
       "name_en": "Cinderella Carousel",
       "name_ja": "Cinderella Carousel",
-      "wait_minutes": null,
+      "wait_minutes": 5,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -127,7 +127,7 @@
       "id": "a-hkdl-2826",
       "name_en": "Dumbo the Flying Elephant",
       "name_ja": "空飛ぶダンボ",
-      "wait_minutes": null,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -171,7 +171,7 @@
       "id": "a-hkdl-12433",
       "name_en": "Frozen Ever After – Presented by Blue Cross",
       "name_ja": "フローズン・エバーアフター",
-      "wait_minutes": 10,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -303,7 +303,7 @@
       "id": "a-hkdl-2830",
       "name_en": "Mad Hatter Tea Cups",
       "name_ja": "Mad Hatter Tea Cups",
-      "wait_minutes": null,
+      "wait_minutes": 5,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -359,8 +359,8 @@
       "name_en": "Meet Duffy at Duffy and Friends Play House",
       "name_ja": "Meet Duffy at Duffy and Friends Play House",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -381,8 +381,8 @@
       "name_en": "Meet LinaBell at Duffy and Friends Play House",
       "name_ja": "Meet LinaBell at Duffy and Friends Play House",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -403,8 +403,8 @@
       "name_en": "Meet StellaLou at Duffy and Friends Play House",
       "name_ja": "Meet StellaLou at Duffy and Friends Play House",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -545,7 +545,7 @@
       "id": "a-hkdl-2824",
       "name_en": "The Many Adventures of Winnie the Pooh",
       "name_ja": "The Many Adventures of Winnie the Pooh",
-      "wait_minutes": null,
+      "wait_minutes": 5,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -556,7 +556,7 @@
       "id": "a-hkdl-8293",
       "name_en": "The Royal Reception Hall",
       "name_ja": "The Royal Reception Hall",
-      "wait_minutes": null,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -567,7 +567,7 @@
       "id": "a-hkdl-2842",
       "name_en": "Toy Soldier Parachute Drop",
       "name_ja": "Toy Soldier Parachute Drop",
-      "wait_minutes": null,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -621,14 +621,14 @@
   ],
   "summary": {
     "count": 56,
-    "open_count": 28,
-    "average_wait": 6.7,
-    "max_wait": 10
+    "open_count": 31,
+    "average_wait": 9.2,
+    "max_wait": 30
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/31/queue_times.json",
-    "fetched_at": "2026-11-09T02:46:35.491Z",
+    "fetched_at": "2026-11-09T03:02:06.196Z",
     "items": []
   }
 }
