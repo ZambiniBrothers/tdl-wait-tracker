@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-10T03:16:22.766Z",
+  "fetched_at": "2026-11-10T03:26:05.357Z",
   "source": "tdr-official",
   "attractions": [
     {
@@ -61,7 +61,7 @@
       "id": "a-220",
       "name_en": "ジャスミンのフライングカーペット",
       "name_ja": "ジャスミンのフライングカーペット",
-      "wait_minutes": 10,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -83,7 +83,7 @@
       "id": "a-238",
       "name_en": "スカットルのスクーター",
       "name_ja": "スカットルのスクーター",
-      "wait_minutes": 10,
+      "wait_minutes": 5,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -116,7 +116,7 @@
       "id": "a-243",
       "name_en": "タワー・オブ・テラー",
       "name_ja": "タワー・オブ・テラー",
-      "wait_minutes": 180,
+      "wait_minutes": 160,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -138,7 +138,7 @@
       "id": "a-232",
       "name_en": "ディズニーシー・エレクトリックレールウェイ（アメリカンウォーターフロント）",
       "name_ja": "ディズニーシー・エレクトリックレールウェイ（アメリカンウォーターフロント）",
-      "wait_minutes": 25,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -149,7 +149,7 @@
       "id": "a-231",
       "name_en": "ディズニーシー・エレクトリックレールウェイ（ポートディスカバリー）",
       "name_ja": "ディズニーシー・エレクトリックレールウェイ（ポートディスカバリー）",
-      "wait_minutes": 25,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -182,12 +182,12 @@
       "id": "a-229",
       "name_en": "ディズニーシー・トランジットスチーマーライン（ロストリバーデルタ）",
       "name_ja": "ディズニーシー・トランジットスチーマーライン（ロストリバーデルタ）",
-      "wait_minutes": 5,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
-      "official_status_cd": "001",
-      "official_status_label": "運営中"
+      "official_status_cd": "004",
+      "official_status_label": "一時運営中止"
     },
     {
       "id": "a-218",
@@ -281,7 +281,7 @@
       "id": "a-240",
       "name_en": "ブローフィッシュ・バルーンレース",
       "name_ja": "ブローフィッシュ・バルーンレース",
-      "wait_minutes": 30,
+      "wait_minutes": 40,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -358,7 +358,7 @@
       "id": "a-224",
       "name_en": "海底２万マイル",
       "name_ja": "海底２万マイル",
-      "wait_minutes": 25,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -368,14 +368,14 @@
   ],
   "summary": {
     "count": 33,
-    "open_count": 29,
-    "average_wait": 45.2,
-    "max_wait": 180
+    "open_count": 28,
+    "average_wait": 46.5,
+    "max_wait": 160
   },
   "closures": null,
   "shows": {
     "source_url": "https://www.tokyodisneyresort.jp/tds/show.html",
-    "fetched_at": "2026-11-10T03:16:22.765Z",
+    "fetched_at": "2026-11-10T03:26:05.357Z",
     "items": [
       {
         "time": "11:15",
