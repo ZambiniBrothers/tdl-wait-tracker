@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-10T19:16:35.003Z",
+  "fetched_at": "2026-11-10T19:32:00.784Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -17,9 +17,9 @@
       "id": "a-dca-8843",
       "name_en": "WEB SLINGERS: A Spider-Man Adventure",
       "name_ja": "WEB SLINGERS: A Spider-Man Adventure",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 60,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -29,8 +29,8 @@
       "name_en": "WEB SLINGERS: A Spider-Man Adventure Single Rider",
       "name_ja": "WEB SLINGERS: A Spider-Man Adventure Single Rider",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -61,7 +61,7 @@
       "id": "a-dca-295",
       "name_en": "Radiator Springs Racers",
       "name_ja": "レーシング・イン・ラジエーター・スプリングス",
-      "wait_minutes": 55,
+      "wait_minutes": 60,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -83,7 +83,7 @@
       "id": "a-dca-302",
       "name_en": "Grizzly River Run",
       "name_ja": "Grizzly River Run",
-      "wait_minutes": 35,
+      "wait_minutes": 40,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -182,7 +182,7 @@
       "id": "a-dca-298",
       "name_en": "Golden Zephyr",
       "name_ja": "Golden Zephyr",
-      "wait_minutes": 5,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -259,9 +259,9 @@
       "id": "a-dca-322",
       "name_en": "Incredicoaster",
       "name_ja": "インクレディコースター",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -271,8 +271,8 @@
       "name_en": "Incredicoaster Single Rider",
       "name_ja": "インクレディコースター",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -336,7 +336,7 @@
       "id": "a-dca-313",
       "name_en": "Toy Story Midway Mania!",
       "name_ja": "トイ・ストーリー・マニア！",
-      "wait_minutes": 40,
+      "wait_minutes": 25,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -346,14 +346,14 @@
   ],
   "summary": {
     "count": 31,
-    "open_count": 25,
-    "average_wait": 26.8,
+    "open_count": 29,
+    "average_wait": 27.6,
     "max_wait": 60
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/17/queue_times.json",
-    "fetched_at": "2026-11-10T19:16:35.003Z",
+    "fetched_at": "2026-11-10T19:32:00.784Z",
     "items": []
   }
 }
