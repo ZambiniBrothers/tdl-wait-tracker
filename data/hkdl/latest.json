@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-11T07:32:05.382Z",
+  "fetched_at": "2026-11-11T07:47:05.335Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -28,7 +28,7 @@
       "id": "a-hkdl-6415",
       "name_en": "Ant-Man and The Wasp: Nano Battle!",
       "name_ja": "Ant-Man and The Wasp: Nano Battle!",
-      "wait_minutes": 10,
+      "wait_minutes": 5,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -127,7 +127,7 @@
       "id": "a-hkdl-2826",
       "name_en": "Dumbo the Flying Elephant",
       "name_ja": "空飛ぶダンボ",
-      "wait_minutes": 30,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -270,9 +270,9 @@
       "id": "a-hkdl-4436",
       "name_en": "Iron Man Tech Showcase - Presented by Stark Industries",
       "name_ja": "Iron Man Tech Showcase - Presented by Stark Industries",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 25,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -281,7 +281,7 @@
       "id": "a-hkdl-2837",
       "name_en": "Jungle River Cruise",
       "name_ja": "ジャングルリバークルーズ",
-      "wait_minutes": 30,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -303,7 +303,7 @@
       "id": "a-hkdl-2830",
       "name_en": "Mad Hatter Tea Cups",
       "name_ja": "Mad Hatter Tea Cups",
-      "wait_minutes": 20,
+      "wait_minutes": 5,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -424,7 +424,7 @@
       "id": "a-hkdl-2844",
       "name_en": "Mystic Manor",
       "name_ja": "ミスティック・マナー",
-      "wait_minutes": 45,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -512,7 +512,7 @@
       "id": "a-hkdl-2841",
       "name_en": "Slinky Dog Spin",
       "name_ja": "Slinky Dog Spin",
-      "wait_minutes": 20,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -567,7 +567,7 @@
       "id": "a-hkdl-2842",
       "name_en": "Toy Soldier Parachute Drop",
       "name_ja": "Toy Soldier Parachute Drop",
-      "wait_minutes": 50,
+      "wait_minutes": 40,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -621,14 +621,14 @@
   ],
   "summary": {
     "count": 56,
-    "open_count": 42,
-    "average_wait": 25.7,
+    "open_count": 43,
+    "average_wait": 23.3,
     "max_wait": 50
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/31/queue_times.json",
-    "fetched_at": "2026-11-11T07:32:05.382Z",
+    "fetched_at": "2026-11-11T07:47:05.335Z",
     "items": []
   }
 }
