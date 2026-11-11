@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-11T23:32:07.316Z",
+  "fetched_at": "2026-11-11T23:47:05.017Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -39,7 +39,7 @@
       "id": "a-shdl-3002",
       "name_en": "Soaring Over the Horizon",
       "name_ja": "ソアリン：ファンタスティック・フライト",
-      "wait_minutes": 30,
+      "wait_minutes": 45,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -204,9 +204,9 @@
       "id": "a-shdl-3000",
       "name_en": "Jet Packs",
       "name_ja": "Jet Packs",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -281,9 +281,9 @@
       "id": "a-shdl-5635",
       "name_en": "Woody’s Roundup",
       "name_ja": "Woody’s Roundup",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -357,14 +357,14 @@
   ],
   "summary": {
     "count": 32,
-    "open_count": 10,
-    "average_wait": 31.9,
+    "open_count": 12,
+    "average_wait": 28,
     "max_wait": 90
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/30/queue_times.json",
-    "fetched_at": "2026-11-11T23:32:07.316Z",
+    "fetched_at": "2026-11-11T23:47:05.017Z",
     "items": []
   }
 }
