@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-12T22:47:02.605Z",
+  "fetched_at": "2026-11-12T23:01:39.275Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -17,9 +17,9 @@
       "id": "a-dca-8843",
       "name_en": "WEB SLINGERS: A Spider-Man Adventure",
       "name_ja": "WEB SLINGERS: A Spider-Man Adventure",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 60,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -29,8 +29,8 @@
       "name_en": "WEB SLINGERS: A Spider-Man Adventure Single Rider",
       "name_ja": "WEB SLINGERS: A Spider-Man Adventure Single Rider",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -50,7 +50,7 @@
       "id": "a-dca-315",
       "name_en": "Mater's Junkyard Jamboree",
       "name_ja": "Mater's Junkyard Jamboree",
-      "wait_minutes": 20,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -61,7 +61,7 @@
       "id": "a-dca-295",
       "name_en": "Radiator Springs Racers",
       "name_ja": "レーシング・イン・ラジエーター・スプリングス",
-      "wait_minutes": 75,
+      "wait_minutes": 80,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -83,7 +83,7 @@
       "id": "a-dca-302",
       "name_en": "Grizzly River Run",
       "name_ja": "Grizzly River Run",
-      "wait_minutes": 40,
+      "wait_minutes": 35,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -193,7 +193,7 @@
       "id": "a-dca-319",
       "name_en": "Goofy's Sky School",
       "name_ja": "Goofy's Sky School",
-      "wait_minutes": 75,
+      "wait_minutes": 45,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -226,7 +226,7 @@
       "id": "a-dca-316",
       "name_en": "The Little Mermaid - Ariel's Undersea Adventure",
       "name_ja": "The Little Mermaid - Ariel's Undersea Adventure",
-      "wait_minutes": 25,
+      "wait_minutes": 45,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -281,9 +281,9 @@
       "id": "a-dca-6643",
       "name_en": "Inside Out Emotional Whirlwind",
       "name_ja": "Inside Out Emotional Whirlwind",
-      "wait_minutes": 25,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -303,7 +303,7 @@
       "id": "a-dca-300",
       "name_en": "Jumpin' Jellyfish",
       "name_ja": "Jumpin' Jellyfish",
-      "wait_minutes": 10,
+      "wait_minutes": 5,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -346,14 +346,14 @@
   ],
   "summary": {
     "count": 31,
-    "open_count": 28,
-    "average_wait": 30.3,
-    "max_wait": 75
+    "open_count": 29,
+    "average_wait": 31.8,
+    "max_wait": 80
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/17/queue_times.json",
-    "fetched_at": "2026-11-12T22:47:02.605Z",
+    "fetched_at": "2026-11-12T23:01:39.275Z",
     "items": []
   }
 }
