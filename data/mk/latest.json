@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-13T12:47:10.437Z",
+  "fetched_at": "2026-11-13T13:02:15.591Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -73,8 +73,8 @@
       "name_en": "Casey Jr. Splash 'N' Soak Station",
       "name_ja": "Casey Jr. Splash 'N' Soak Station",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -84,8 +84,8 @@
       "name_en": "Cinderella Castle",
       "name_ja": "Cinderella Castle",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -193,7 +193,7 @@
       "id": "a-mk-136",
       "name_en": "Peter Pan's Flight",
       "name_ja": "ピーターパン空の旅",
-      "wait_minutes": 10,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -204,7 +204,7 @@
       "id": "a-mk-161",
       "name_en": "Prince Charming Regal Carrousel",
       "name_ja": "Prince Charming Regal Carrousel",
-      "wait_minutes": null,
+      "wait_minutes": 5,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -237,7 +237,7 @@
       "id": "a-mk-142",
       "name_en": "The Many Adventures of Winnie the Pooh",
       "name_ja": "The Many Adventures of Winnie the Pooh",
-      "wait_minutes": 5,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -413,7 +413,7 @@
       "id": "a-mk-138",
       "name_en": "Space Mountain",
       "name_ja": "スペース・マウンテン",
-      "wait_minutes": null,
+      "wait_minutes": 5,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -489,14 +489,14 @@
   ],
   "summary": {
     "count": 44,
-    "open_count": 14,
-    "average_wait": 7.1,
+    "open_count": 16,
+    "average_wait": 8.2,
     "max_wait": 25
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/6/queue_times.json",
-    "fetched_at": "2026-11-13T12:47:10.437Z",
+    "fetched_at": "2026-11-13T13:02:15.591Z",
     "items": []
   }
 }
