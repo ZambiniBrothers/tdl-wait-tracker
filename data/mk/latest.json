@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-13T13:17:07.733Z",
+  "fetched_at": "2026-11-13T13:31:54.094Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -94,7 +94,7 @@
       "id": "a-mk-132",
       "name_en": "Dumbo the Flying Elephant",
       "name_ja": "空飛ぶダンボ",
-      "wait_minutes": 5,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -226,7 +226,7 @@
       "id": "a-mk-126",
       "name_en": "The Barnstormer",
       "name_ja": "The Barnstormer",
-      "wait_minutes": 5,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -237,9 +237,9 @@
       "id": "a-mk-142",
       "name_en": "The Many Adventures of Winnie the Pooh",
       "name_ja": "The Many Adventures of Winnie the Pooh",
-      "wait_minutes": 20,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -380,7 +380,7 @@
       "id": "a-mk-248",
       "name_en": "Astro Orbiter",
       "name_ja": "Astro Orbiter",
-      "wait_minutes": 5,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -489,14 +489,14 @@
   ],
   "summary": {
     "count": 44,
-    "open_count": 25,
-    "average_wait": 9.2,
+    "open_count": 24,
+    "average_wait": 9.4,
     "max_wait": 30
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/6/queue_times.json",
-    "fetched_at": "2026-11-13T13:17:07.733Z",
+    "fetched_at": "2026-11-13T13:31:54.094Z",
     "items": []
   }
 }
