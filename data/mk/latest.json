@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-13T13:02:15.591Z",
+  "fetched_at": "2026-11-13T13:17:07.733Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -17,9 +17,9 @@
       "id": "a-mk-137",
       "name_en": "Pirates of the Caribbean",
       "name_ja": "カリブの海賊",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -29,8 +29,8 @@
       "name_en": "Swiss Family Treehouse",
       "name_ja": "Swiss Family Treehouse",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -39,9 +39,9 @@
       "id": "a-mk-141",
       "name_en": "The Magic Carpets of Aladdin",
       "name_ja": "The Magic Carpets of Aladdin",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -182,9 +182,9 @@
       "id": "a-mk-171",
       "name_en": "Mickey's PhilharMagic",
       "name_ja": "ミッキーのフィルハーマジック",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 15,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -193,7 +193,7 @@
       "id": "a-mk-136",
       "name_en": "Peter Pan's Flight",
       "name_ja": "ピーターパン空の旅",
-      "wait_minutes": 15,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -270,9 +270,9 @@
       "id": "a-mk-130",
       "name_en": "Big Thunder Mountain Railroad",
       "name_ja": "ビッグサンダー・マウンテン",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -314,9 +314,9 @@
       "id": "a-mk-140",
       "name_en": "Haunted Mansion",
       "name_ja": "ホーンテッドマンション",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 13,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -347,9 +347,9 @@
       "id": "a-mk-146",
       "name_en": "Meet Mickey at Town Square Theater",
       "name_ja": "Meet Mickey at Town Square Theater",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "NO_INFO",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -446,9 +446,9 @@
       "id": "a-mk-11527",
       "name_en": "TRON Lightcycle / Run",
       "name_ja": "トロン・ライトサイクル・ラン",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 30,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -479,9 +479,9 @@
       "id": "a-mk-17950",
       "name_en": "Jingle Cruise",
       "name_ja": "Jingle Cruise",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -489,14 +489,14 @@
   ],
   "summary": {
     "count": 44,
-    "open_count": 16,
-    "average_wait": 8.2,
-    "max_wait": 25
+    "open_count": 25,
+    "average_wait": 9.2,
+    "max_wait": 30
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/6/queue_times.json",
-    "fetched_at": "2026-11-13T13:02:15.591Z",
+    "fetched_at": "2026-11-13T13:17:07.733Z",
     "items": []
   }
 }
