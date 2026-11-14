@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-14T16:54:17.301Z",
+  "fetched_at": "2026-11-14T17:01:14.084Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -28,7 +28,7 @@
       "id": "a-dlr-296",
       "name_en": "Jungle Cruise",
       "name_ja": "ジャングルクルーズ",
-      "wait_minutes": 15,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -193,9 +193,9 @@
       "id": "a-dlr-280",
       "name_en": "Mr. Toad's Wild Ride",
       "name_ja": "Mr. Toad's Wild Ride",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -248,7 +248,7 @@
       "id": "a-dlr-305",
       "name_en": "Storybook Land Canal Boats",
       "name_ja": "Storybook Land Canal Boats",
-      "wait_minutes": 5,
+      "wait_minutes": 25,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -259,9 +259,9 @@
       "id": "a-dlr-323",
       "name_en": "Big Thunder Mountain Railroad",
       "name_ja": "ビッグサンダー・マウンテン",
-      "wait_minutes": 20,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -435,7 +435,7 @@
       "id": "a-dlr-709",
       "name_en": "Mickey's House and Meet Mickey Mouse",
       "name_ja": "Mickey's House and Meet Mickey Mouse",
-      "wait_minutes": null,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -655,13 +655,13 @@
   "summary": {
     "count": 59,
     "open_count": 45,
-    "average_wait": 11.9,
+    "average_wait": 12.2,
     "max_wait": 60
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/16/queue_times.json",
-    "fetched_at": "2026-11-14T16:54:17.301Z",
+    "fetched_at": "2026-11-14T17:01:14.084Z",
     "items": []
   }
 }
