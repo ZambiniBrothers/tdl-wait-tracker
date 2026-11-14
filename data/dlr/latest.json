@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-14T16:46:35.568Z",
+  "fetched_at": "2026-11-14T16:54:17.301Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -28,7 +28,7 @@
       "id": "a-dlr-296",
       "name_en": "Jungle Cruise",
       "name_ja": "ジャングルクルーズ",
-      "wait_minutes": 5,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -215,9 +215,9 @@
       "id": "a-dlr-282",
       "name_en": "Pinocchio's Daring Journey",
       "name_ja": "Pinocchio's Daring Journey",
-      "wait_minutes": 5,
-      "is_open": true,
-      "status": "OPERATING",
+      "wait_minutes": null,
+      "is_open": false,
+      "status": "DOWN",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -654,14 +654,14 @@
   ],
   "summary": {
     "count": 59,
-    "open_count": 46,
-    "average_wait": 11.4,
+    "open_count": 45,
+    "average_wait": 11.9,
     "max_wait": 60
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/16/queue_times.json",
-    "fetched_at": "2026-11-14T16:46:35.568Z",
+    "fetched_at": "2026-11-14T16:54:17.301Z",
     "items": []
   }
 }
