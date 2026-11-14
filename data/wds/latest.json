@@ -1,14 +1,14 @@
 {
-  "fetched_at": "2026-11-14T07:31:56.222Z",
+  "fetched_at": "2026-11-14T07:46:43.580Z",
   "source": "queue-times",
   "attractions": [
     {
       "id": "a-wds-10848",
       "name_en": "Avengers Assemble: Flight Force",
       "name_ja": "Avengers Assemble: Flight Force",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -17,9 +17,9 @@
       "id": "a-wds-10849",
       "name_en": "Avengers Assemble: Flight Force Single Rider",
       "name_ja": "Avengers Assemble: Flight Force Single Rider",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -28,7 +28,7 @@
       "id": "a-wds-10845",
       "name_en": "Spider-Man W.E.B. Adventure",
       "name_ja": "Spider-Man W.E.B. Adventure",
-      "wait_minutes": 5,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -128,8 +128,8 @@
       "name_en": "Les Tapis Volants - Flying Carpets Over Agrabah®",
       "name_ja": "Les Tapis Volants - Flying Carpets Over Agrabah®",
       "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -226,7 +226,7 @@
       "id": "a-wds-15422",
       "name_en": "Frozen Ever After Single Rider",
       "name_ja": "フローズン・エバーアフター",
-      "wait_minutes": 5,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -247,14 +247,14 @@
   ],
   "summary": {
     "count": 22,
-    "open_count": 10,
-    "average_wait": 10.5,
+    "open_count": 13,
+    "average_wait": 10.4,
     "max_wait": 55
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/28/queue_times.json",
-    "fetched_at": "2026-11-14T07:31:56.222Z",
+    "fetched_at": "2026-11-14T07:46:43.580Z",
     "items": []
   }
 }
