@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-14T03:46:43.006Z",
+  "fetched_at": "2026-11-14T04:01:21.649Z",
   "source": "queue-times",
   "attractions": [
     {
@@ -94,9 +94,9 @@
       "id": "a-mk-132",
       "name_en": "Dumbo the Flying Elephant",
       "name_ja": "空飛ぶダンボ",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 5,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
       "official_status_cd": "",
       "official_status_label": ""
@@ -215,7 +215,7 @@
       "id": "a-mk-129",
       "name_en": "Seven Dwarfs Mine Train",
       "name_ja": "七人のこびとのマイントレイン",
-      "wait_minutes": 20,
+      "wait_minutes": 30,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -237,7 +237,7 @@
       "id": "a-mk-142",
       "name_en": "The Many Adventures of Winnie the Pooh",
       "name_ja": "The Many Adventures of Winnie the Pooh",
-      "wait_minutes": 30,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -358,7 +358,7 @@
       "id": "a-mk-15395",
       "name_en": "Meet Santa Jack and Sally at Mickey’s Very Merry Christmas Party",
       "name_ja": "Meet Santa Jack and Sally at Mickey’s Very Merry Christmas Party",
-      "wait_minutes": 40,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -424,7 +424,7 @@
       "id": "a-mk-143",
       "name_en": "Tomorrowland Speedway",
       "name_ja": "Tomorrowland Speedway",
-      "wait_minutes": 5,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -446,7 +446,7 @@
       "id": "a-mk-11527",
       "name_en": "TRON Lightcycle / Run",
       "name_ja": "トロン・ライトサイクル・ラン",
-      "wait_minutes": 35,
+      "wait_minutes": 25,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -479,7 +479,7 @@
       "id": "a-mk-17950",
       "name_en": "Jingle Cruise",
       "name_ja": "Jingle Cruise",
-      "wait_minutes": 35,
+      "wait_minutes": 20,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -489,14 +489,14 @@
   ],
   "summary": {
     "count": 44,
-    "open_count": 22,
-    "average_wait": 13,
-    "max_wait": 40
+    "open_count": 23,
+    "average_wait": 10.6,
+    "max_wait": 30
   },
   "closures": null,
   "shows": {
     "source_url": "https://queue-times.com/parks/6/queue_times.json",
-    "fetched_at": "2026-11-14T03:46:43.006Z",
+    "fetched_at": "2026-11-14T04:01:21.649Z",
     "items": []
   }
 }
