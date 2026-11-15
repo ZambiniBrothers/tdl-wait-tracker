@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-15T01:01:13.253Z",
+  "fetched_at": "2026-11-15T01:07:30.146Z",
   "source": "tdr-official",
   "attractions": [
     {
@@ -82,7 +82,7 @@
       "id": "a-country-bear-theater",
       "name_en": "Country Bear Theater",
       "name_ja": "カントリーベア・シアター",
-      "wait_minutes": 5,
+      "wait_minutes": 15,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -273,7 +273,7 @@
       "id": "a-pinocchios-daring-journey",
       "name_en": "Pinocchio's Daring Journey",
       "name_ja": "ピノキオの冒険旅行",
-      "wait_minutes": 5,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -420,12 +420,12 @@
       "id": "a-enchanted-tale-of-beauty-and-the-beast",
       "name_en": "Enchanted Tale of Beauty and the Beast",
       "name_ja": "美女と野獣“魔法のものがたり”",
-      "wait_minutes": null,
-      "is_open": false,
-      "status": "DOWN",
+      "wait_minutes": 20,
+      "is_open": true,
+      "status": "OPERATING",
       "access_mode": "STANDBY",
-      "official_status_cd": "004",
-      "official_status_label": "一時運営中止"
+      "official_status_cd": "001",
+      "official_status_label": "運営中"
     },
     {
       "id": "a-mark-twain-riverboat",
@@ -447,7 +447,7 @@
       "id": "a-the-enchanted-tiki-room-stitch-presents-aloha-e-komo-mai",
       "name_en": "The Enchanted Tiki Room: Stitch Presents 'Aloha E Komo Mai!'",
       "name_ja": "魅惑のチキルーム：スティッチ・プレゼンツ“アロハ・エ・コモ・マイ！”",
-      "wait_minutes": 5,
+      "wait_minutes": 10,
       "is_open": true,
       "status": "OPERATING",
       "access_mode": "STANDBY",
@@ -457,13 +457,13 @@
   ],
   "summary": {
     "count": 37,
-    "open_count": 31,
-    "average_wait": 18.4,
+    "open_count": 32,
+    "average_wait": 19.2,
     "max_wait": 90
   },
   "closures": {
     "source_url": "https://www.tokyodisneyresort.jp/tdl/monthly/stop.html",
-    "fetched_at": "2026-11-15T01:01:06.692Z",
+    "fetched_at": "2026-11-15T01:07:22.726Z",
     "closures": {
       "a-peter-pans-flight": {
         "name_ja": "ピーターパン空の旅",
@@ -519,7 +519,7 @@
   },
   "shows": {
     "source_url": "https://www.tokyodisneyresort.jp/tdl/show.html",
-    "fetched_at": "2026-11-15T01:01:13.253Z",
+    "fetched_at": "2026-11-15T01:07:30.146Z",
     "items": [
       {
         "time": "12:45",
